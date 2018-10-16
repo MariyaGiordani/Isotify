@@ -1,0 +1,12 @@
+.main-sidebar {
+    width: 100px;
+    height: 100vh;
+    background-color: black;
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; */
+    align-items: center;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }

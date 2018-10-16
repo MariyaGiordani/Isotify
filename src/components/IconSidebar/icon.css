@@ -1,0 +1,21 @@
+.main-sidebar__icon {
+  height: 60px;
+  width: 60px;
+  background-color: #e26659;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  margin: 20px auto 40px;
+}
+
+.main-sidebar__icon-image {
+    width: 40%;
+    height: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+  }
+  
