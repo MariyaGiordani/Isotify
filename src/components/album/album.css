@@ -8,10 +8,6 @@
     width: 190px;
   }
   
-  .card--small {
-    width: 100px;
-  }
-  
   .card__cover {
     background-color: #353535;
     border-radius: 10px;
@@ -23,21 +19,12 @@
     height: 180px;
   }
   
-  .card__cover--small {
-    width: 100px;
-    height: 100px;
-  }
-  
   .card__info {
     margin-top: 10px;
   }
   
   .card__info--big {
     width: 180px;
-  }
-  
-  .card__info--small {
-    width: 100px;
   }
   
   .text {
@@ -57,18 +44,14 @@
     font-size: 18px;
   }
   
-  .text__title--small {
-    font-size: 14px;
-  }
-  
   .text__singer {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top: 3px;
     color: #888888;
   }
-  
-  .text__singer--small {
-    font-size: 8px;
-  }
+
   .text__singer--big {
     font-size: 12px;
   }
