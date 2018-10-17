@@ -1,14 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import "./sidebar.css";
 import IconSidebar from "../IconSidebar/icon";
-import headphoneImage from "../../assets/img/headphone.png";
-import musicImage from "../../assets/img/music.png";
+import { LINKS } from "./constants"
 
-const SideBar = (prop) => (
-  <div className="main-sidebar">
-    <IconSidebar to={`/albums`} src={musicImage}/>
-    <IconSidebar to={`/artists/1`} src={headphoneImage}/>
-  </div>
-);
+class SideBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedLink: window.location.pathname
+    };
+  }
+
+  handlePageChange (selectedLink) {
+    this.setState({ selectedLink });
+  }
+
+  _renderIcons () {
+    const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
+    const { selectedLink } = this.state;
+
+    return LINKS.map((link, index) => (
+      <IconSidebar
+        key={index}
+        to={link.to} 
+        src={link.src} 
+        onLinkClicked={onLinkClicked} 
+        isSelected={selectedLink === link.to}
+        name={link.name}/>
+    ))
+  }
+
+  render() {
+    return (
+      <div className="main-sidebar">
+        { this._renderIcons() }
+      </div>
+    )
+  }
+};
 
 export default SideBar;

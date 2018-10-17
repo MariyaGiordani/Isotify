@@ -12,13 +12,15 @@ import './index.css';
 const routes = () => (
     <div>
       <SideBar />
-      <Switch>
-        <Route path="/artists/:artistId" component={ArtistDetails} />
-        <Route path="/artists" component={ArtistsList} />
-        <Route path="/albums" component={AlbumsList} />
-        <Redirect exact from="/" to="artists" />
-        <Route component={NotFound} />
-      </Switch>
+      <div className="container">
+        <Switch>
+          <Route path="/artists/:artistId" component={ArtistDetails} />
+          <Route path="/artists" component={ArtistsList} />
+          <Route path="/albums" component={AlbumsList} />
+          <Redirect exact from="/" to="albums" />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
     </div>
 );
 

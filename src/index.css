@@ -7,6 +7,7 @@
   a{
     display: block;
     width: 100%;
+    text-decoration: none;
   }
   
   body {
@@ -14,4 +15,8 @@
     height: 100vh;
     background-color: #eeeeee;
     font-family: "Montserrat";
+  }
+
+  .container{
+    margin-left: 100px;
   }
