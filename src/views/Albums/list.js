@@ -6,7 +6,8 @@ const AlbumsList = () => (
   <div>
     <h1>ALBUMS</h1>
     <Link to="/artists">Artists</Link>
-    <Album/>
+    <Album title="Drake" author="Kanye West" size="small"/>
+    <Album title="Drake" author="Kanye West" size="big"/>
   </div>
 );
 
