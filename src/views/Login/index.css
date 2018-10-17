@@ -1,4 +1,4 @@
-.login--button {
+.login__button {
     box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
     background-image: linear-gradient(
         76deg,
@@ -12,50 +12,48 @@
     height: 40px;
     cursor: pointer;
     font-size: 15px;
-    color:#eeeeee;
+    color:#eee;
     border-width: 0;
 }
-.contenttitle {
+.content-login__title{
     text-align: center;
-    left: 0;
 }
-.contenttext{
+.content-login__text{
     display: flex;
 }
-.contentlogin{
+.content-login{
     margin-top: 15%;
     width: 400px;
     margin-left: 50%;
     transform: translate(-50%);
 }
 body{
-    background-color: #444444;
+    background-color: #444;
     margin:0;
     letter-spacing: 2px;
 }
-.login--title{
-    color:#eeeeee;
+.login__title{
+    color:#eee;
 }
-.paragraph--white,.link{
-    color:#eeeeee;
+.first-paragraph{
+    color:#eee;
+    font-size: 15px;
 }
-.paragraph--grey{
-    color: #888888;
-    margin:0;
-}
-.paragraph--grey,.link{
+.second-paragraph{
     text-transform: uppercase;
     font-size: 12px;
-}
-.paragraph--white{
-    font-size: 15px;
+    color: #888;
+    margin:0;
 }
 .link{
     text-decoration: underline;
     margin-left: 10px;
+    color:#eee;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 @media (max-width: 400px){
-    .login--button{
+    .login__button{
         max-width: 300px;
     }
     .contentlogin{

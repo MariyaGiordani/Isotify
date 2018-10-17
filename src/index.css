@@ -1,3 +1,7 @@
 body{
     font-family: "Montserrat", sans-serif,Arial, Helvetica;
 }
+@font-face {
+    font-family: "Montserrat";
+    src: url("./assets/Montserrat-Regular.otf");
+}

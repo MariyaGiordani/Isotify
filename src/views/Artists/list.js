@@ -8,7 +8,6 @@ const ArtistsList = () => (
     <br />
     <Link to="/albums">Albums</Link>
   </div>
-
 );
 
 export default ArtistsList;

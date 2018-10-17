@@ -1,20 +1,16 @@
 import React from 'react';
-import Button from '../../components/GenericButton/button'
-import Title from '../../components/GenericTitle/titleText'
-import Paragraph from '../../components/GenericParagraph/paragraphText'
-import Link from '../../components/GenericLink/link'
-import './index.css'
+import './index.css';
 
 const Login = () => (
-    <div className="contentlogin">
-        <div className="contenttitle">
-            <Title classNameTitle="login--title" textStyle="Login"></Title>
-            <Button classNameButton="login--button" buttonText="Login with Spotify"> </Button>
+    <div className="content-login">
+        <div className="content-login__title">
+            <h1 className="login__title" >Login</h1>
+            <button className="login__button">Login with Spotify</button>
         </div>
-        <Paragraph classNameParagraph="paragraph--white" text="Remember Password?"></Paragraph>
-        <div className="contenttext">
-        <Paragraph classNameParagraph="paragraph--grey" text="didn’t do this YET?"></Paragraph>
-        <Link classNameLink ="link" linkText="Sign up"></Link>
+        <p className="first-paragraph">Remember Password?</p>
+        <div className="content-login__text">
+            <p className="second-paragraph">didn’t do this YET?</p>
+            <a href="#" className="link">Sign up</a>
         </div>
     </div>
 );
