@@ -8,7 +8,7 @@ const Switch = (props) => (
       <input type="checkbox" className="switch__input" />
       <span className="switch__handle" />
     </label>
-    <p className="container__option">{props.secondOption}</p>
+    <p className="switch-container__option">{props.secondOption}</p>
   </div>
 );
 export default Switch;
