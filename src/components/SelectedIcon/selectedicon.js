@@ -1,8 +1,6 @@
-import React from 'react';
-import "./selectedicon.css";
+import React from "react";
+import "./selectedIcon.css";
 
-const SelectedIcon = () => (
-    <div className="selected-icon" />
-);
+const SelectedIcon = () => <div className="selected-icon" />;
 
 export default SelectedIcon;

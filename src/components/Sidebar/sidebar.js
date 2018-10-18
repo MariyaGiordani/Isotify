@@ -1,37 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./sidebar.css";
-import IconSidebar from "../IconSidebar/icon";
-import { LINKS } from "./constants"
+import SidebarIcon from "../SidebarIcon/sidebarIcon";
+import { LINKS } from "./constants";
 
 class SideBar extends Component {
-  state = {selectedLink: window.location.pathname};
+  state = { selectedLink: window.location.pathname };
 
-  handlePageChange (selectedLink) {
+  handlePageChange(selectedLink) {
     this.setState({ selectedLink });
   }
 
-  _renderIcons () {
+  _renderIcons() {
     const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
     const { selectedLink } = this.state;
 
     return LINKS.map((link, index) => (
-      <IconSidebar
+      <SidebarIcon
         key={index}
-        to={link.to} 
-        src={link.src} 
-        onLinkClicked={onLinkClicked} 
+        to={link.to}
+        src={link.src}
+        onLinkClicked={onLinkClicked}
         isSelected={selectedLink === link.to}
-        name={link.name}/>
-    ))
+        name={link.name}
+      />
+    ));
   }
 
   render() {
-    return (
-      <div className="sidebar">
-        { this._renderIcons() }
-      </div>
-    )
+    return <div className="sidebar">{this._renderIcons()}</div>;
   }
-};
+}
 
 export default SideBar;
