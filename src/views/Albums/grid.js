@@ -13,7 +13,7 @@ const AlbumsGrid = ({ albumsAmount, songsAmount, albumsList }) => (
     <HeaderLine title="Albums" subtitle={createHeaderSubtitle(albumsAmount, songsAmount)}>
       <Switch firstOption="Grid" secondOption="List" />
     </HeaderLine>
-    <Albums style="big" albums={albumsList} />
+    <Albums size="big" albums={albumsList} />
   </div>
 );
 
