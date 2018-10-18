@@ -4,4 +4,6 @@ body{
 @font-face {
     font-family: "Montserrat";
     src: url("./assets/Montserrat-Regular.otf");
+    margin:0;
+    letter-spacing: 2px;
 }
