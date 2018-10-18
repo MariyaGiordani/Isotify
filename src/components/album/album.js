@@ -3,9 +3,9 @@ import "./album.css";
 
 
 const Album = (props) => (
-    <div className="card">
-        <img src={props.imgSrc} className={"card__cover card__cover--" + props.size}/>
-        <div className={"card__info card__info--" + props.size}>
+    <div className="album">
+        <img src={props.imgSrc} className={"album__cover album__cover--" + props.size}/>
+        <div className={"album__info album__info--" + props.size}>
           <div className="text">
             <div className={"text__title text__title--" + props.size}>{props.title}</div>
             <div className={"text__singer text__singer--" + props.size}>{props.author}</div>

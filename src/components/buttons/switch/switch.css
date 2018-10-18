@@ -1,10 +1,10 @@
-.container {
+.switch-container {
     display: flex;
     align-items: center;
     font-size: 14px;
 }
 
-.container__option {
+.switch-container__option {
     margin: 0 5px;
 }
 

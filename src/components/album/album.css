@@ -1,4 +1,4 @@
-  .card {
+  .album {
     position: relative;
     display: flex;
     justify-content: space-evenly;
@@ -8,30 +8,27 @@
     width: 190px;
   }
   
-  .card__cover {
+  .album__cover {
     background-color: #353535;
     border-radius: 10px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
   }
   
-  .card__cover--big {
+  .album__cover--big {
     width: 180px;
     height: 180px;
   }
   
-  .card__info {
+  .album__info {
     margin-top: 10px;
   }
   
-  .card__info--big {
+  .album__info--big {
     width: 180px;
   }
   
   .text {
     padding-left: 10px;
-  }
-  
-  .options {
   }
   
   .text__title {
