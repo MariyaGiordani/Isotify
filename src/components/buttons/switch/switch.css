@@ -1,9 +1,10 @@
-.container{
+.container {
     display: flex;
     align-items: center;
+    font-size: 14px;
 }
 
-.option{
+.container__option {
     margin: 0 5px;
 }
 
@@ -14,7 +15,13 @@
     width: 56px;
     height: 20px;
     padding: 3px;
-    background-image: linear-gradient(to left, rgba(191, 10, 69, 0.9), rgba(228, 48, 93, 0.9) 63%, rgba(238, 115, 33, 0.9)), linear-gradient(to bottom, #d42562, #d42562);
+    background-image: 
+        linear-gradient(to left, 
+            rgba(191, 10, 69, 0.9), 
+            rgba(228, 48, 93, 0.9) 63%, 
+            rgba(238, 115, 33, 0.9)
+        ), 
+        linear-gradient(to bottom, #d42562, #d42562);
     border-radius: 18px;
   }
   
