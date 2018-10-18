@@ -22,10 +22,7 @@
   .album__info {
     margin-top: 10px;
   }
-  
-  .album__info--big {
-    width: 180px;
-  }
+
   
   .text {
     padding-left: 10px;
@@ -37,10 +34,6 @@
     text-overflow: ellipsis;
   }
   
-  .text__title--big {
-    font-size: 18px;
-  }
-  
   .text__singer {
     white-space: nowrap;
     overflow: hidden;
@@ -49,6 +42,13 @@
     color: #888888;
   }
 
-  .text__singer--big {
+  .album__cover--big .album__info {
+    width: 180px;
+  }
+
+  .album__cover--big .text__title {
+    font-size: 18px;
+  }
+  .album__cover--big .text__singer {
     font-size: 12px;
   }

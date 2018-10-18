@@ -1,13 +1,13 @@
 import React from "react";
 import "./headerLine.css";
 
-const HeaderLine = (props) => (
+const HeaderLine = ({ title, subtitle, children }) => (
   <div className="header-line">
     <div className="header-line__texts">
-      <h1 className="header-line__title">{props.title}</h1>
-      <h2 className="header-line__subtitle">{props.subtitle}</h2>
+      <h1 className="header-line__title">{title}</h1>
+      <h2 className="header-line__subtitle">{subtitle}</h2>
     </div>
-    {props.children}
+    {children}
   </div>
 );
 

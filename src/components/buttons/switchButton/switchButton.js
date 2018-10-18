@@ -1,5 +1,5 @@
 import React from "react";
-import "./switch.css";
+import "./switchButton.css";
 
 const Switch = (props) => (
   <div className="switch-container">
