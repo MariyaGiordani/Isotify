@@ -3,7 +3,13 @@
   --text-color: #666666;
 }
 
-.main-sidebar__icon {
+.sidebar-icon {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.sidebar-icon__image-wrapper {
   height: 60px;
   width: 60px;
   background-color: var(--icon-background-color);
@@ -13,7 +19,7 @@
   margin: 30px auto 10px;
 }
 
-.main-sidebar__icon-image {
+.sidebar-icon__image{
   width: 40%;
   height: auto;
   left: 0;
@@ -24,7 +30,7 @@
   position: absolute;
 }
 
-.main-sidebar__icon-title {
+.sidebar-icon__title {
   font-family: Montserrat;
   margin-top: 0px;
   font-size: 15px;

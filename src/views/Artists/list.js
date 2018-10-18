@@ -6,7 +6,7 @@ const ArtistsList = () => (
     <SideBar />
     <div className="container">
       Artists
-  </div>
+    </div>
   </div>
 );
 

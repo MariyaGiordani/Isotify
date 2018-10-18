@@ -1,17 +1,11 @@
+:root {
+  --main-background-color: #eeeeee;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-a {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-}
-
-:root {
-  --main-background-color: #eeeeee;
 }
 
 body {
