@@ -1,22 +1,26 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  a{
-    display: block;
-    width: 100%;
-    text-decoration: none;
-  }
-  
-  body {
-    width: 100vw;
-    height: 100vh;
-    background-color: #eeeeee;
-    font-family: "Montserrat";
-  }
+a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
 
-  .container{
-    margin-left: 100px;
-  }
+:root {
+  --main-background-color: #eeeeee;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-background-color);
+  font-family: "Montserrat";
+}
+
+.container {
+  margin-left: 100px;
+}

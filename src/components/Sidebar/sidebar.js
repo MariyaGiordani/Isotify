@@ -4,12 +4,7 @@ import IconSidebar from "../IconSidebar/icon";
 import { LINKS } from "./constants"
 
 class SideBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedLink: window.location.pathname
-    };
-  }
+  state = {selectedLink: window.location.pathname};
 
   handlePageChange (selectedLink) {
     this.setState({ selectedLink });
@@ -32,7 +27,7 @@ class SideBar extends Component {
 
   render() {
     return (
-      <div className="main-sidebar">
+      <div className="sidebar">
         { this._renderIcons() }
       </div>
     )
