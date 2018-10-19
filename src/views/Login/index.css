@@ -68,10 +68,10 @@
     font-size: 12px;
 }
 @media (max-width: 400px) {
-    .container-title__button{
+    .container-title__button {
         max-width: 300px;
     }
-    .content-login{
+    .content-login {
         max-width: 300px;
     }
 }
