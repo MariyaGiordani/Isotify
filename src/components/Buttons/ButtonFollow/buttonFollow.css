@@ -1,0 +1,24 @@
+:root {
+    --button-follow-color: white;
+}
+
+.button-follow {
+    border: 0;
+    background-image: linear-gradient( 76deg, rgba(191, 10, 69, 0.9), rgba(228, 48, 93, 0.9) 63%, rgba(238, 115, 33, 0.9));
+    box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    padding: 25px 38px;
+
+    color: var(--button-follow-color);
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    outline: none;
+}
+
+.button-follow__icon {
+    width: 30px;
+    margin-right: 18px;
+    vertical-align: middle;
+}
