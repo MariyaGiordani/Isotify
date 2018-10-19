@@ -9,13 +9,13 @@ import NotFound from './views/NotFound';
 import './index.css';
 
 const routes = () => (
-  <Switch>
-    <Route path="/artists/:artistId" component={ArtistDetails} />
-    <Route path="/artists" component={ArtistsList} />
-    <Route path="/albums" component={AlbumsList} />
-    <Redirect exact from="/" to="artists" />
-    <Route component={NotFound} />
-  </Switch>
+    <Switch>
+      <Route path="/artists/:artistId" component={ArtistDetails} />
+      <Route path="/artists" component={ArtistsList} />
+      <Route path="/albums" component={AlbumsList} />
+      <Redirect exact from="/" to="albums" />
+      <Route component={NotFound} />
+    </Switch>
 );
 
 ReactDOM.render((
