@@ -1,14 +1,12 @@
-body{
-    font-family: "Montserrat", sans-serif,Arial, Helvetica;
+:root {
+  --main-background-color: #eeeeee;
 }
+
 @font-face {
     font-family: "Montserrat";
     src: url("./assets/Montserrat-Regular.otf");
     margin:0;
     letter-spacing: 2px;
-}
-:root {
-  --main-background-color: #eeeeee;
 }
 
 * {
@@ -21,7 +19,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: var(--main-background-color);
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif,Arial, Helvetica;
 }
 
 .container {
