@@ -1,6 +1,6 @@
 import React from "react";
 import Album from "../album/album";
-import "./albums.css";
+import "./albumsGrid.css";
 
 const getAlbumsComponents = (albums, size) => {
   albums &&
@@ -14,8 +14,8 @@ const getAlbumsComponents = (albums, size) => {
     ));
 };
 
-const Albums = ({ albums, size }) => (
+const AlbumsGrid = ({ albums, size }) => (
   <div className="albums-container">{getAlbumsComponents(albums, size)}</div>
 );
 
-export default Albums;
+export default AlbumsGrid;
