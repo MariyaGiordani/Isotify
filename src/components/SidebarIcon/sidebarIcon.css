@@ -1,0 +1,42 @@
+:root {
+  --icon-background-color: #e26659;
+  --text-color: #666666;
+}
+
+.sidebar-icon {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.sidebar-icon__image-wrapper {
+  height: 60px;
+  width: 60px;
+  background-color: var(--icon-background-color);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  margin: 30px auto 10px;
+}
+
+.sidebar-icon__image{
+  width: 40%;
+  height: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+.sidebar-icon__title {
+  font-family: Montserrat;
+  margin-top: 0px;
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  color: var(--text-color);
+}

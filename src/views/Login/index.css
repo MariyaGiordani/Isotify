@@ -22,6 +22,7 @@
 }
 .container-title__phrase{
     color:var(--white-color);
+    padding-bottom: 10px;
 }
 .container-title__button {
     box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
@@ -37,10 +38,14 @@
     height: 40px;
     cursor: pointer;
     font-size: 15px;
-    color:var(--white-color);
     border-width: 0;
+    
 }
 
+.container-title__link{
+    text-decoration: none;
+    color:var(--white-color);
+}
 .content-login__container-text{
     display: flex;
     margin-top: 10px;

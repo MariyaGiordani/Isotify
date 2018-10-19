@@ -11,10 +11,11 @@ import './index.css';
 
 const routes = () => (
   <Switch>
-    <Route path="/" component={Login} />
+    <Route path="/login" component={Login} />
     <Route path="/artists/:artistId" component={ArtistDetails} />
     <Route path="/artists" component={ArtistsList} />
     <Route path="/albums" component={AlbumsList} />
+    <Redirect exact from="/" to="login" />
     <Route component={NotFound} />
   </Switch>
 );
