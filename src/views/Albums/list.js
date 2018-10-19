@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './albums.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./albums.css";
 
 const AlbumsList = () => (
   <div>

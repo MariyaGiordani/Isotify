@@ -11,7 +11,7 @@
   .album__cover {
     background-color: #353535;
     border-radius: 10px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--black-shadow);
   }
   
   .album__cover--big {
@@ -39,7 +39,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-top: 3px;
-    color: #888888;
+    color: var(--gray-text-color);
   }
 
   .album__cover--big .album__info {

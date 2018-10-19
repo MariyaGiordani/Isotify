@@ -8,47 +8,41 @@
     margin: 0 5px;
 }
 
-.switch {
+.switch-button {
     position: relative;
     display: inline-block;
     vertical-align: top;
     width: 56px;
     height: 20px;
     padding: 3px;
-    background-image: 
-        linear-gradient(to left, 
-            rgba(191, 10, 69, 0.9), 
-            rgba(228, 48, 93, 0.9) 63%, 
-            rgba(238, 115, 33, 0.9)
-        ), 
-        linear-gradient(to bottom, #d42562, #d42562);
+    background-image: var(--red-yellow-gradient);
     border-radius: 18px;
   }
   
-  .switch__input {
+  .switch-button__input {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
   }
   
-  .switch__handle {
+  .switch-button__handle {
     position: absolute;
     top: 4px;
     left: 4px;
     width: 18px;
     height: 18px;
-    background: white;
+    background: #fff;
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    background-image: linear-gradient(to bottom, white 40%, #f0f0f0);
+    background-image: var(--white-gray-gradient);
     -webkit-transition: left 0.15s ease-out;
     -moz-transition: left 0.15s ease-out;
     -o-transition: left 0.15s ease-out;
     transition: left 0.15s ease-out;
   }
 
-  .switch__input:checked ~ .switch__handle {
+  .switch-button__input:checked ~ .switch-button__handle {
     left: 40px;
     box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
   }
