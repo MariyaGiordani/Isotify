@@ -9,8 +9,9 @@ import NotFound from './views/NotFound';
 import Login from './views/Login';
 import './index.css';
 import { config } from 'dotenv'
+console.log(config);
 
-config()
+
 
 const routes = () => (
   <Switch>
