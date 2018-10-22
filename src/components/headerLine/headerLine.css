@@ -9,11 +9,11 @@
 }
 
 .header-line__title{
-    font-size: 18px;
+    font-size: 28px;
     color: var(--black-text-color);
 }
 
 .header-line__subtitle{
-    font-size: 12px;
+    font-size: 16px;
     color: var(--gray-text-color);
 }
