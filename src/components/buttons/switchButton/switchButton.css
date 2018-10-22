@@ -6,6 +6,7 @@
 
 .switch-container__option {
     margin: 0 5px;
+
 }
 
 .switch-button {
@@ -17,6 +18,7 @@
     padding: 3px;
     background-image: var(--red-yellow-gradient);
     border-radius: 18px;
+    box-sizing: content-box;
   }
   
   .switch-button__input {
@@ -46,4 +48,3 @@
     left: 40px;
     box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
   }
-  

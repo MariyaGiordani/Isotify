@@ -1,9 +1,10 @@
-import React from "react";
-import Album from "../album/album";
-import "./albumsGrid.css";
+import React from 'react';
+import Album from '../album/album';
+import './albumsGrid.css';
 
 const getAlbumsComponents = (albums, size) => {
-  albums &&
+  return (
+    !!albums &&
     albums.map((album) => (
       <Album
         title={album.title}
@@ -11,7 +12,8 @@ const getAlbumsComponents = (albums, size) => {
         size={size}
         imgSrc={album.imgSrc}
       />
-    ));
+    ))
+  );
 };
 
 const AlbumsGrid = ({ albums, size }) => (

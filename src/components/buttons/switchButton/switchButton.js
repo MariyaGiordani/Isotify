@@ -1,5 +1,5 @@
-import React from "react";
-import "./switchButton.css";
+import React from 'react';
+import './switchButton.css';
 
 const SwitchButton = (props) => (
   <div className="switch-container">
