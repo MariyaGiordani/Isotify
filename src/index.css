@@ -1,9 +1,27 @@
+:root {
+  --main-background-color: #eee;
+}
+
 @font-face {
     font-family: "Montserrat";
     src: url("./assets/Montserrat-Regular.otf");
-  }
+    margin:0;
+    letter-spacing: 2px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    font-family: 'Montserrat';
-    background-color: #eee;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-background-color);
+  font-family: "Montserrat", sans-serif,Arial, Helvetica;
+}
+
+.container {
+  margin-left: 100px;
 }
