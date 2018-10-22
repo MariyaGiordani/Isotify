@@ -8,6 +8,9 @@ import AlbumsList from './views/Albums/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import './index.css';
+import { config } from 'dotenv'
+
+config()
 
 const routes = () => (
   <Switch>
