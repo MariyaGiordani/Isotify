@@ -1,5 +1,5 @@
 import { generateRandomString } from './generateRandomString';
-export function buttonEvent() {
+export function getClientInfo() {
     let stateKey = "spotify_auth_state"
     let client_id = "b0348f3e529b4f04a92f0ae70a598c25"; // Your client id
     let redirect_uri = "http://localhost:3000/albums/"; // Your redirect uri
