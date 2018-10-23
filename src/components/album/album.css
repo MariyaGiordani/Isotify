@@ -24,17 +24,17 @@
   }
 
   
-  .text {
+  .album__text {
     padding-left: 10px;
   }
   
-  .text__title {
+  .album__text-title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   
-  .text__singer {
+  .album__text-singer {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
