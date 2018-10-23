@@ -1,8 +1,3 @@
-:root {
-    --grey-color:#444;
-    --white-color:#eee;
-    --text-color:#888;
-}
 .content-background {
     display: flex;
     align-items: center;
