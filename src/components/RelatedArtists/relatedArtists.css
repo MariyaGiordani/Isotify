@@ -1,0 +1,20 @@
+:root {
+ --related-artists-color: #eeeeee;
+}
+
+.related-artists {
+    position: absolute;
+    right: 0px;
+    margin-top: 300px;
+    margin-right: 40px;
+}
+
+.related-artists__text {
+    margin: 15px;
+    font-size: 13px;
+    color: var(--related-artists-color);
+    font-weight: 600;
+    font-stretch: normal;
+    letter-spacing: 5px;
+    text-align: right;
+}

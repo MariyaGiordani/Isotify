@@ -1,0 +1,32 @@
+:root {
+  --related-artists-icons-color: #666666;
+}
+
+.related-artists-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 15px
+}
+
+.related-artists-icons__artist {
+  height: 40px;
+  width: 40px;
+  margin: 7px;
+  background-color: var(--related-artists-icons-color);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+}
+
+.artists-opended {
+  box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.25);
+  border: solid 2px rgba(255, 255, 255, 0.25);
+  background-color: rgba(102, 102, 102, 0);
+}
+
+.related-artists-icons__more {
+  width: 34px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
