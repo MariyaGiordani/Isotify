@@ -23,6 +23,6 @@ $ npm start
 Create a file called “.env” in the root of your repository.
 Set up your variables with the format key=value, delimited by line breaks:
 ```
-REACT_APP_API_KEY=abcde
-REACT_APP_API_URI=https://my-api.com/api
+REACT_APP_API_KEY="yourAPIKeyHere"
+REACT_APP_API_URI="http://localhost:3000/"
 ```
