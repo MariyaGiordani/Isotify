@@ -26,10 +26,3 @@ Set up your variables with the format key=value, delimited by line breaks:
 REACT_APP_API_KEY=abcde
 REACT_APP_API_URI=https://my-api.com/api
 ```
-Add this line of code in your application to import dotenv:
-```
-import { config } from 'dotenv'
-```
-Verify your setup by logging process.env to the console.
-And you’re done.
-
