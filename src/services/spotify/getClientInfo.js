@@ -1,11 +1,12 @@
 import { generateRandomString } from './generateRandomString';
+
 export function getClientInfo() {
-  const stateKey = 'spotify_auth_state';
+  const stateKey = "spotify_auth_state";
   const state = generateRandomString(16);
   localStorage.setItem(stateKey, state);
 
   const client_id = process.env.REACT_APP_API_KEY;
-  const redirect_uri = `${process.env.REACT_APP_API_URI}albums/`;
+  const redirect_uri = `${process.env.REACT_APP_API_URI}callback/`;
   const scope = 'user-read-private user-read-email';
 
   let url = 'https://accounts.spotify.com/authorize';
@@ -15,6 +16,5 @@ export function getClientInfo() {
   url += `&scope=${encodeURIComponent(scope)}`;
   url += `&redirect_uri=${encodeURIComponent(redirect_uri)}`;
   url += `&state=${encodeURIComponent(state)}`;
-
   window.location = url;
 }
