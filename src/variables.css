@@ -1,9 +1,8 @@
 :root {
     --grey-color:#444;
     --white-color:#eee;
-    --text-color:#888;
-    --icon-background-color: #e26659;
-    --text-color: #666;
-    --selected-background-color: #cd2156;
-    --sidebar-background-color: #000;
+    --icon-bg: #e26659;
+    --light-text-color: #666;
+    --selected-bg: #cd2156;
+    --sidebar-bg: #000;
   }
