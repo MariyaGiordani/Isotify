@@ -9,11 +9,11 @@ const Album = ({ imgSrc, size, title, author }) => (
       className={'album__cover album__cover--' + size}
     />
     <div className="album__info">
-      <div className="text">
-        <p className="text__title">{title}</p>
-        <p className="text__singer">{author}</p>
+      <div className="album__text">
+        <p className="album__text-title">{title}</p>
+        <p className="album__text-singer">{author}</p>
       </div>
-      <div className="options" />
+      <div className="album__options" />
     </div>
   </div>
 );

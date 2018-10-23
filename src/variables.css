@@ -1,4 +1,5 @@
 :root{
+    --main-background-color: #eee;
     --black-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
     --gray-text-color: #888;
     --black-text-colow: #222;

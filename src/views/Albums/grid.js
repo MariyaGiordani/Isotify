@@ -13,13 +13,6 @@ class Albums extends Component {
     songsAmount: '0'
   };
 
-  //  TODO: see componentDidMount
-  componentDidMount = () => {
-    // SERVICE
-    //   .getAlbums()
-    //   .then((albums)=>this.setState({albums}))
-  };
-
   handleClick = (isListSelected) => {
     this.setState({ isListSelected });
   };
