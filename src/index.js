@@ -8,10 +8,7 @@ import AlbumsList from './views/Albums/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import './index.css';
-import { config } from 'dotenv'
-console.log(config);
-
-
+import { config } from 'dotenv';
 
 const routes = () => (
   <Switch>
@@ -24,8 +21,7 @@ const routes = () => (
   </Switch>
 );
 
-ReactDOM.render((
-  <BrowserRouter>
-    {routes()}
-  </BrowserRouter>
-), document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>{routes()}</BrowserRouter>,
+  document.getElementById('root')
+);
