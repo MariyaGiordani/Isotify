@@ -24,7 +24,7 @@ Create a file called “.env” in the root of your repository.
 Set up your variables with the format key=value, delimited by line breaks:
 ```
 REACT_APP_API_KEY=abcde
-REACT_APP_API_URL=https://my-api.com/api
+REACT_APP_API_URI=https://my-api.com/api
 ```
 Add this line of code in your application to import dotenv:
 ```
