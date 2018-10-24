@@ -1,5 +1,5 @@
-import React from "react";
-import "./headerLine.css";
+import React from 'react';
+import './headerLine.css';
 
 const HeaderLine = ({ title, subtitle, children }) => (
   <div className="header-line">
