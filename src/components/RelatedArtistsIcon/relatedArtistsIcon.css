@@ -2,7 +2,7 @@
   --related-artists-icons-color: #666666;
 }
 
-.related-artists-icons__artist {
+.related-artists-icons {
   height: 40px;
   width: 40px;
   margin: 7px;
@@ -13,10 +13,9 @@
   overflow: hidden;
 }
 
-.related-artists-icons__image{
+.related-artists-icons__image {
   height: 100%;
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
 }
-

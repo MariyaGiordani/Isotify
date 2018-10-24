@@ -1,4 +1,4 @@
-.related-artists-more__artist {
+.related-artists-more {
     height: 40px;
     width: 40px;
     margin: 7px;
@@ -34,8 +34,7 @@
     border-radius: 50%;
 }
 
-.related-artists-more__dot:before, 
-.related-artists-more__dot:after {
+.related-artists-more__dot:before, .related-artists-more__dot:after {
     content: "";
     position: absolute;
     background-color: inherit;
