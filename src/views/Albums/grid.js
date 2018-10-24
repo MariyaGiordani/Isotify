@@ -5,12 +5,12 @@ import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/buttons/switchButton/switchButton';
 import './albums.css';
 
-class Albums extends Component {
+export default class Albums extends Component {
   state = {
     isListSelected: false,
     albums: [],
-    albumsAmount: '0',
-    songsAmount: '0'
+    albumsAmount: 0,
+    songsAmount: 0
   };
 
   handleClick = (isListSelected) => {
@@ -47,5 +47,3 @@ class Albums extends Component {
     );
   };
 }
-
-export default Albums;
