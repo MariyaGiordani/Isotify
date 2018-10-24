@@ -1,7 +1,3 @@
-:root {
-  --selected-background-color: #cd2156;
-}
-
 .selected-icon {
   position: absolute;
   top: 50%;
@@ -9,5 +5,5 @@
   height: 50px;
   width: 4px;
   left: 69px;
-  background-color: var( --selected-background-color);
+  background-color: var( --selected-bg);
 }

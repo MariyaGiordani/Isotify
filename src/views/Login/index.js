@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getClientInfo } from '../../services/spotify/getClientInfo'
 import './index.css';
 
 const Login = () => (
@@ -7,8 +8,7 @@ const Login = () => (
         <div className="content-login">
             <div className="content-login__container-title">
                 <h1 className="container-title__phrase">Login</h1>
-                <button className="container-title__button">
-                    <Link className="container-title__link" to="/albums">Login with Spotify</Link>
+                <button className="container-title__button" id="login" onClick={getClientInfo}>Login with Spotify
                 </button>
             </div>
             <Link className="content-login__first-link" to="/">Remember Password?</Link>
