@@ -1,7 +1,7 @@
-import { spotifyRequest } from '../../services/spotifyRequest'
+import { spotifyRequest } from '../../services/spotifyRequest';
 
 const Callback = () => {
-    spotifyRequest()
-    return null
-}
+  spotifyRequest();
+  return null;
+};
 export default Callback;
