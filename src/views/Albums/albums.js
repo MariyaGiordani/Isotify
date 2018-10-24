@@ -21,7 +21,7 @@ export default class Albums extends Component {
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
 
     return (
-      <div>
+      <React.Fragment>
         <Sidebar />
         <div className="container albumsView">
           <HeaderLine
@@ -36,13 +36,13 @@ export default class Albums extends Component {
               inputFunction={this.handleClick}
             />
           </HeaderLine>
-          {!isListSelected ? (
-            <AlbumsGrid size="big" albums={albums} />
-          ) : (
+          {isListSelected ? (
             <AlbumsList albums={albums} />
+          ) : (
+            <AlbumsGrid size="big" albums={albums} />
           )}
         </div>
-      </div>
+      </React.Fragment>
     );
   };
 }

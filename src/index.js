@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import ArtistDetails from './views/Artists/details';
 import ArtistsList from './views/Artists/list';
-import AlbumsGrid from './views/Albums/albums';
+import Albums from './views/Albums/albums';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import './index.css';
@@ -13,7 +13,7 @@ import { config } from 'dotenv';
 
 const routes = () => (
   <Switch>
-    <Route path="/albums" component={AlbumsGrid} />
+    <Route path="/albums" component={Albums} />
     <Route path="/artists" component={ArtistsList} />
     <Route path="/artists/:artistId" component={ArtistDetails} />
     <Route path="/login" component={Login} />
