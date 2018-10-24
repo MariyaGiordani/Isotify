@@ -6,7 +6,7 @@ const Album = ({ imgSrc, size, title, author }) => (
     <img
       src={imgSrc}
       alt={title}
-      className={'album__cover album__cover--' + size}
+      className={`album__cover album__cover--${size}`}
     />
     <div className="album__info">
       <div className="album__text">
