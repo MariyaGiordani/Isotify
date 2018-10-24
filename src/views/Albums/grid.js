@@ -13,9 +13,7 @@ export default class Albums extends Component {
     songsAmount: 0
   };
 
-  handleClick = (isListSelected) => {
-    this.setState({ isListSelected });
-  };
+  handleClick = (isListSelected) => this.setState({ isListSelected });
 
   render = () => {
     const { albums, isListSelected, albumsAmount, songsAmount } = this.state;
