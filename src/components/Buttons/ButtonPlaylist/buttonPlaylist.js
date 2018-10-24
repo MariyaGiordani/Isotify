@@ -1,6 +1,6 @@
-import React from "react";
-import "./buttonPlaylist.css";
-import playlist from "../../../assets/img/playlist.png";
+import React from 'react';
+import './buttonPlaylist.css';
+import playlist from '../../../assets/img/playlist.png';
 
 const ButtonPlaylist = () => (
   <button className="button-playlist ">
