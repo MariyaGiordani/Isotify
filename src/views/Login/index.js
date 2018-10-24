@@ -8,7 +8,7 @@ const Login = () => (
         <div className="content-login">
             <div className="content-login__container-title">
                 <h1 className="container-title__phrase">Login</h1>
-                <button className="container-title__button" id="login" onClick={getClientInfo}>
+                <button className="container-title__button" onClick={getClientInfo}>
                     Login with Spotify
                 </button>
             </div>
