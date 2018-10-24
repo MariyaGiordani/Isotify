@@ -1,7 +1,6 @@
-import { generateRandomString } from './generateRandomString';
-
-export function getClientInfo() {
-  const stateKey = "spotify_auth_state";
+import { generateRandomString } from '../utils/generateRandomString';
+export function authenticate() {
+  const stateKey = 'spotify_auth_state';
   const state = generateRandomString(16);
   localStorage.setItem(stateKey, state);
 

@@ -1,4 +1,4 @@
-import { spotifyRequest } from '../services/spotify/spotifyRequest'
+import { spotifyRequest } from '../../utils/spotifyRequest'
 
 const Callback = () => {
     spotifyRequest()

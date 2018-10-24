@@ -7,7 +7,7 @@ import ArtistsList from './views/Artists/list';
 import AlbumsList from './views/Albums/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
-import Callback from './views/Callback';
+import Callback from './views/Callback/Callback';
 import './index.css';
 import './variables.css';
 import { config } from 'dotenv';
