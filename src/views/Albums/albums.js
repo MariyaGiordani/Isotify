@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AlbumsGrid from '../../components/albumsGrid/albumsGrid';
-import AlbumsList from '../../components/albumsList/albumsList';
+import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import AlbumsList from '../../components/albums/albumsList/albumsList';
 import Sidebar from '../../components/Sidebar/sidebar';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/buttons/switchButton/switchButton';
