@@ -19,6 +19,11 @@
     height: 180px;
   }
   
+  .album__cover--small {
+    width: 100px;
+    height: 100px;
+  }
+
   .album__info {
     margin-top: 10px;
   }
@@ -51,4 +56,15 @@
   }
   .album__cover--big .text__singer {
     font-size: 12px;
+  }
+
+  .album__cover--small .album__info {
+    width: 100px;
+  }
+
+  .album__cover--small .text__title {
+    font-size: 14px;
+  }
+  .album__cover--small .text__singer {
+    font-size: 8px;
   }
