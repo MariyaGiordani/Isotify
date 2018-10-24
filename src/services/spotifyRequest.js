@@ -1,4 +1,4 @@
-import { getHashParams } from "./getHashParams";
+import { getHashParams } from "../utils/getHashParams";
 
 export function spotifyRequest() {
     let stateKey = "spotify_auth_state";
