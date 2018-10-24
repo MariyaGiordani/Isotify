@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AlbumsGrid from '../../components/albumsGrid/albumsGrid';
+import AlbumsList from '../../components/albumsList/albumsList';
 import Sidebar from '../../components/Sidebar/sidebar';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/buttons/switchButton/switchButton';
@@ -38,7 +39,7 @@ export default class Albums extends Component {
           {!isListSelected ? (
             <AlbumsGrid size="big" albums={albums} />
           ) : (
-            <AlbumsGrid size="small" albums={albums} />
+            <AlbumsList albums={albums} />
           )}
         </div>
       </div>

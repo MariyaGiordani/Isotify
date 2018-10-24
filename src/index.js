@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import ArtistDetails from './views/Artists/details';
 import ArtistsList from './views/Artists/list';
-import AlbumsGrid from './views/Albums/grid';
+import AlbumsGrid from './views/Albums/albums';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import './index.css';
