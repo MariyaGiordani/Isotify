@@ -2,9 +2,9 @@ import React from 'react';
 import './switchButton.css';
 
 const SwitchButton = (props) => (
-  <div className="switch-container">
-    <p className="switch-container__option">{props.firstOption}</p>
-    <label className="switch-button">
+  <div className="switch-button">
+    <p className="switch-button__option">{props.firstOption}</p>
+    <label className="switch-button__input-container">
       <input
         type="checkbox"
         className="switch-button__input"
@@ -12,7 +12,7 @@ const SwitchButton = (props) => (
       />
       <span className="switch-button__handle" />
     </label>
-    <p className="switch-container__option">{props.secondOption}</p>
+    <p className="switch-button__option">{props.secondOption}</p>
   </div>
 );
 export default SwitchButton;

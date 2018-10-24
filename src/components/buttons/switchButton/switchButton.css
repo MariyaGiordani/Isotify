@@ -1,15 +1,15 @@
-.switch-container {
+.switch-button {
     display: flex;
     align-items: center;
     font-size: 14px;
 }
 
-.switch-container__option {
+.switch-button__option {
     margin: 0 5px;
 
 }
 
-.switch-button {
+.switch-button__input-container {
     position: relative;
     display: inline-block;
     vertical-align: top;
