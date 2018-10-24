@@ -1,0 +1,22 @@
+:root {
+  --related-artists-icons-color: #666666;
+}
+
+.related-artists-icons__artist {
+  height: 40px;
+  width: 40px;
+  margin: 7px;
+  background-color: var(--related-artists-icons-color);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.related-artists-icons__image{
+  height: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+

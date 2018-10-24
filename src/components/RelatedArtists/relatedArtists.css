@@ -1,5 +1,5 @@
 :root {
- --related-artists-color: #eeeeee;
+    --related-artists-color: #eeeeee;
 }
 
 .related-artists {
@@ -17,4 +17,17 @@
     font-stretch: normal;
     letter-spacing: 5px;
     text-align: right;
+}
+
+.related-artists__line {
+    width: 600px;
+    height: 4px;
+    background-color: rgba(238, 238, 238, 0.25);
+}
+
+.related-artists__wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 15px
 }
