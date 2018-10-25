@@ -19,3 +19,10 @@ To start the application, open the terminal in the project's folder, enter the f
 ```
 $ npm start
 ```
+## Loading environment variables
+Create a file called “.env” in the root of your repository.
+Set up your variables with the format key=value, delimited by line breaks:
+```
+REACT_APP_API_KEY="yourAPIKeyHere"
+REACT_APP_API_URI="http://localhost:3000/"
+```

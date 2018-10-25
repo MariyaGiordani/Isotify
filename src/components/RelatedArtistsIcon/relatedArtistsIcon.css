@@ -1,12 +1,8 @@
-:root {
-  --related-artists-icons-color: #666666;
-}
-
 .related-artists-icons {
   height: 40px;
   width: 40px;
   margin: 7px;
-  background-color: var(--related-artists-icons-color);
+  background-color: var(--light-text-color);
   border-radius: 50%;
   display: block;
   position: relative;

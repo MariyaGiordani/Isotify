@@ -7,7 +7,7 @@
     position: relative;
     box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.25);
     border: solid 2px rgba(255, 255, 255, 0.25);
-    background-color: rgba(102, 102, 102, 0);
+    background-color: var(--dark-grey);
 }
 
 .related-artists-more__image {
@@ -30,11 +30,12 @@
     position: absolute;
     width: 5px;
     height: 5px;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: var(--dot-background-color);
     border-radius: 50%;
 }
 
-.related-artists-more__dot:before, .related-artists-more__dot:after {
+.related-artists-more__dot::before, 
+.related-artists-more__dot::after {
     content: "";
     position: absolute;
     background-color: inherit;

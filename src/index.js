@@ -4,24 +4,25 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import ArtistDetails from './views/Artists/details';
 import ArtistsList from './views/Artists/list';
-import AlbumsList from './views/Albums/list';
+import Albums from './views/Albums/albums';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import './index.css';
+import './variables.css';
+import { config } from 'dotenv';
 
 const routes = () => (
   <Switch>
-    <Route path="/login" component={Login} />
+    <Route path="/albums" component={Albums} />
     <Route path="/artists/:artistId" component={ArtistDetails} />
     <Route path="/artists" component={ArtistsList} />
-    <Route path="/albums" component={AlbumsList} />
+    <Route path="/login" component={Login} />
     <Redirect exact from="/" to="login" />
     <Route component={NotFound} />
   </Switch>
 );
 
-ReactDOM.render((
-  <BrowserRouter>
-    {routes()}
-  </BrowserRouter>
-), document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>{routes()}</BrowserRouter>,
+  document.getElementById('root')
+);
