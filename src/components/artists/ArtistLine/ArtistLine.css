@@ -18,16 +18,19 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .artist-line__upper-line {
   display: flex;
   justify-content: space-between;
 }
+
 .artist-line__artist-icon {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   box-shadow: var(--black-shadow-big);
 }
+
 .artist-line__buttons {
   position: relative;
   width: 50px;
