@@ -4,7 +4,11 @@ import follow from '../../../assets/img/follow.png';
 
 const ButtonFollow = () => (
   <button className="button-follow ">
-    <img className="button-follow__icon" alt="" src={follow} />
+    <img
+      className="button-follow__icon"
+      alt="symbol representing follow artist"
+      src={follow}
+    />
     Follow
   </button>
 );
