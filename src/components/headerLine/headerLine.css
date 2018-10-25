@@ -1,0 +1,19 @@
+.header-line{
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.header-line__title{
+    font-size: 28px;
+    color: var(--black-text-color);
+}
+
+.header-line__subtitle{
+    font-size: 16px;
+    color: var(--gray-text-color);
+}
