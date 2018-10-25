@@ -1,41 +1,33 @@
+import axios from 'axios';
 export function spotifyRequest(params) {
   const stateKey = 'spotify_auth_state';
-  /**
-   * Obtains parameters from the hash of the URL
-   * @return Object
-   */
 
-  /**
-   * Generates a random string containing numbers and letters
-   * @param  {number} length The length of the string
-   * @return {string} The generated string
-   */
-
-  localStorage.setItem('access_token', params.access_token);
-
-  const access_token = localStorage.getItem('access_token'),
+  const access_token = params.access_token,
     state = params.state,
     storedState = localStorage.getItem(stateKey);
+
+  localStorage.setItem('access_token', access_token);
 
   if (access_token && (state == null || state !== storedState)) {
     alert('There was an error during the authentication');
   } else {
     localStorage.removeItem(stateKey);
     if (access_token) {
-      let newRequest = new XMLHttpRequest();
-      newRequest.open('GET', 'https://api.spotify.com/v1/me');
-      newRequest.setRequestHeader('Authorization', 'Bearer ' + access_token);
-      newRequest.onload = function(response) {
-        if (newRequest.status >= 200 && newRequest.status < 400) {
-          let userRequest = JSON.parse(response.srcElement.response);
-          localStorage.setItem('userId', userRequest.id);
-          const userId = localStorage.getItem('userId');
-          console.log(userId);
-        } else {
-          alert('Login não efetuado');
-        }
-      };
-      newRequest.send();
+      axios
+        .get('https://api.spotify.com/v1/me', {
+          headers: {
+            Authorization: 'Bearer ' + access_token
+          }
+        })
+        .then(function(response) {
+          if (response.status >= 200 && response.status < 400) {
+            const userRequest = response.data;
+            const userId = userRequest.id;
+            localStorage.setItem('userId', userId);
+          } else {
+            alert('Login não efetuado');
+          }
+        });
     }
   }
 }
