@@ -1,7 +1,7 @@
 .button-follow {
     border: 0;
     height: 65px;
-    background-image: var(--button-follow-background-image);
+    background-image: var(--red-yellow-gradient);
     box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     padding: 10px 25px;
