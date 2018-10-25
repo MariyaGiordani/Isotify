@@ -4,7 +4,11 @@ import './relatedArtistsIcon.css';
 const RelatedArtistsIcon = ({ src }) => {
   return (
     <div className="related-artists-icons">
-      <img className="related-artists-icons__image" alt="" src={src} />
+      <img
+        className="related-artists-icons__image"
+        alt="Related artis"
+        src={src}
+      />
     </div>
   );
 };
