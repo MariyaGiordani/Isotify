@@ -3,7 +3,7 @@ import Sidebar from '../../components/Sidebar/sidebar';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
-import SwitchButton from '../../components/buttons/switchButton/switchButton';
+import SwitchButton from '../../components/Buttons/switchButton/switchButton';
 import './Artists.css';
 
 export default class ArtistsListView extends Component {

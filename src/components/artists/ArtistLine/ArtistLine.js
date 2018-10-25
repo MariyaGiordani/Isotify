@@ -1,6 +1,6 @@
 import React from 'react';
 import AlbumsGrid from '../../albums/albumsGrid/albumsGrid';
-import shuffle from '../../../assets/shuffle.svg';
+import shuffle from '../../../assets/img/shuffle.svg';
 import './ArtistLine.css';
 
 const ArtistLine = ({ artist }) => (
