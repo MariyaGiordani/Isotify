@@ -5,23 +5,12 @@
     align-items: center;
     flex-direction: column;
     padding: 10px;
-    width: 190px;
   }
   
   .album__cover {
     background-color: #353535;
     border-radius: 10px;
     box-shadow: var(--black-shadow);
-  }
-  
-  .album__cover--big {
-    width: 180px;
-    height: 180px;
-  }
-  
-  .album__cover--small {
-    width: 100px;
-    height: 100px;
   }
 
   .album__info {
@@ -47,24 +36,35 @@
     color: var(--gray-text-color);
   }
 
-  .album__cover--big .album__info {
+
+  .album--big .album__cover {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .album--small .album__cover {
+    width: 100px;
+    height: 100px;
+  }
+
+  .album--big .album__info {
     width: 180px;
   }
 
-  .album__cover--big .text__title {
+  .album--big .album__text-title {
     font-size: 18px;
   }
-  .album__cover--big .text__singer {
+  .album--big .album__text-singer {
     font-size: 12px;
   }
 
-  .album__cover--small .album__info {
+  .album--small .album__info {
     width: 100px;
   }
 
-  .album__cover--small .text__title {
+  .album--small .album__text-title {
     font-size: 14px;
   }
-  .album__cover--small .text__singer {
-    font-size: 8px;
+  .album--small .album__text-singer {
+    font-size: 11px;
   }
