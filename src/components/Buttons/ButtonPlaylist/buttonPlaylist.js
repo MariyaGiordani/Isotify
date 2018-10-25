@@ -4,7 +4,11 @@ import playlist from '../../../assets/img/playlist.png';
 
 const ButtonPlaylist = () => (
   <button className="button-playlist ">
-    <img className="button-playlist__icon" alt="" src={playlist} />
+    <img
+      className="button-playlist__icon"
+      alt="symbol representing playlist"
+      src={playlist}
+    />
   </button>
 );
 
