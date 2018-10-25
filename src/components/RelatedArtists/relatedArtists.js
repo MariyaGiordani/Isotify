@@ -1,11 +1,11 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import RelatedArtistsIcon from '../../components/RelatedArtistsIcon/relatedArtestsIcon';
 import RelatedArtistsMore from '../RelatedArtistsMore/relatedArtistsMore';
 
 import './relatedArtists.css';
-import { mock } from './constants';
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { mock } from './mock';
 
 const RelatedArtists = () => {
   const listIcons = () => {
