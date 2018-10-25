@@ -21,8 +21,7 @@ export function spotifyRequest(params) {
         })
         .then(function(response) {
           if (response.status >= 200 && response.status < 400) {
-            const userRequest = response.data;
-            const userId = userRequest.id;
+            const userId = response.data.id;
             localStorage.setItem('userId', userId);
           } else {
             alert('Login não efetuado');
