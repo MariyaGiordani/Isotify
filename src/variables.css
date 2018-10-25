@@ -6,19 +6,6 @@
 
     --gray-text-color: #888;
     --black-text-color: #222;
-
-    --red-yellow-gradient: linear-gradient(25deg, 
-        rgba(191, 10, 69, 0.9), 
-        rgba(228, 48, 93, 0.9) 63%, 
-        rgba(238, 115, 33, 0.9)
-        );
-    --white-gray-gradient: linear-gradient(to bottom, 
-        #fff 40%, 
-        #f0f0f0);
-    --gray-gradient: linear-gradient(25deg, 
-        rgba(221, 221, 221, 1), 
-        rgba(221, 221, 221, 1)
-    );
     
     --grey-color:#444;
     --white-color:#eee;
@@ -31,4 +18,18 @@
     --banner-artist-background-image: linear-gradient(349deg, #000000, rgba(102, 102, 102, 0) 52%, #000000);
     --button-follow-color: white;
     --button-playlist-background-color: rgba(136, 136, 136, 0);
+
+    --red-yellow-gradient: linear-gradient(25deg, 
+        rgba(191, 10, 69, 0.9), 
+        rgba(228, 48, 93, 0.9), 
+        rgba(238, 115, 33, 0.9)
+        );
+    --gray-gradient: linear-gradient(25deg, 
+        rgba(221, 221, 221, 1), 
+        rgba(221, 221, 221, 1)
+    );
+    
+    --white-gray-gradient: linear-gradient(to bottom, 
+        #fff, 
+        #f0f0f0);
 }

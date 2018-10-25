@@ -6,6 +6,8 @@ import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/Buttons/switchButton/switchButton';
 import './Artists.css';
 
+import mockArtists from '../../mockData/artistsMock';
+
 export default class ArtistsListView extends Component {
   state = {
     isListSelected: false,
@@ -38,7 +40,7 @@ export default class ArtistsListView extends Component {
           </HeaderLine>
 
           {isListSelected ? (
-            <ArtistsList artists={artists} />
+            <ArtistsList artists={mockArtists} />
           ) : (
             <ArtistsGrid artists={artists} />
           )}
