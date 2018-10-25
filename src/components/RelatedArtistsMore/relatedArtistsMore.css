@@ -45,10 +45,10 @@
     height: 5px;
 }
 
-.related-artists-more__dot:before {
+.related-artists-more__dot::before {
     left: -10px;
 }
 
-.related-artists-more__dot:after {
+.related-artists-more__dot::after {
     left: 10px;
 }
