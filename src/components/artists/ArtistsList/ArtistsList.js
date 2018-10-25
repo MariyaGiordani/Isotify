@@ -6,7 +6,7 @@ const getArtistsComponents = (artists = []) =>
   artists.map((artist) => <ArtistLine artist={artist} />);
 
 const ArtistsList = ({ artists }) => (
-  <div className="artistList">{getArtistsComponents(artists)}</div>
+  <div className="artist-list">{getArtistsComponents(artists)}</div>
 );
 
 export default ArtistsList;
