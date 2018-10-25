@@ -1,4 +1,4 @@
-export const LINKS = [
+export const mock = [
   {
     name: 'Sting',
     src:
