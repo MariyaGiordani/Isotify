@@ -1,0 +1,27 @@
+.banner-artist {
+    position: relative;
+    height: 553px;
+    background-image: var(--banner-artist-background-image);
+    background-color: var(--banner-artist-background-color);
+    padding: 122px 80px 0;
+}
+
+.banner-artist__title {
+    font-size: 52px;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    color: var(--white-color);
+}
+
+.banner-artist__information {
+    opacity: 0.75;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    color: var(--white-color);
+    margin-bottom: 40px;
+}
+
+.banner-artist__buttons-wrapper {
+    display: flex;
+}
