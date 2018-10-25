@@ -5,7 +5,7 @@ export function authenticate() {
   localStorage.setItem(stateKey, state);
 
   const client_id = process.env.REACT_APP_API_KEY;
-  const redirect_uri = `${process.env.REACT_APP_API_URI}callback/`;
+  const redirect_uri = `${process.env.REACT_APP_API_URI}login/`;
   const scope = 'user-read-private user-read-email';
 
   let url = 'https://accounts.spotify.com/authorize';

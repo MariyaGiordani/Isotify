@@ -7,7 +7,6 @@ import ArtistsList from './views/Artists/list';
 import Albums from './views/Albums/albums';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
-import Callback from './views/Callback/Callback';
 import './index.css';
 import './variables.css';
 import { config } from 'dotenv';
@@ -15,7 +14,6 @@ import { config } from 'dotenv';
 const routes = () => (
   <Switch>
     <Route path="/login" component={Login} />
-    <Route path="/callback" component={Callback} />
     <Route path="/artists/:artistId" component={ArtistDetails} />
     <Route path="/albums" component={Albums} />
     <Route path="/artists" component={ArtistsList} />
