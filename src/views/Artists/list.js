@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import SideBar from '../../components/Sidebar/sidebar';
 
 const ArtistsList = () => (
-  <div>
+  <Fragment>
     <SideBar />
-    <div className="container">Artists</div>
-  </div>
+    <div className="container">
+      <Link to="/artists/1">Artists</Link>
+    </div>
+  </Fragment>
 );
 
 export default ArtistsList;
