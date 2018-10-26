@@ -1,6 +1,6 @@
 import React from 'react';
 import './buttonFollow.css';
-import follow from '../../../assets/img/follow.png';
+import follow from '../../../assets/img/follow-plus.png';
 
 const ButtonFollow = () => (
   <button className="button-follow">
