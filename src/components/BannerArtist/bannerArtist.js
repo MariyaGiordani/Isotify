@@ -1,7 +1,7 @@
 import React from 'react';
 import './bannerArtist.css';
-import ButtonFollow from '../buttons/ButtonFollow/buttonFollow';
-import ButtonPlaylist from '../buttons/ButtonPlaylist/buttonPlaylist';
+import ButtonFollow from '../Buttons/ButtonFollow/buttonFollow';
+import ButtonPlaylist from '../Buttons/ButtonPlaylist/buttonPlaylist';
 
 const BannerArtist = () => (
   <div className="banner-artist">
