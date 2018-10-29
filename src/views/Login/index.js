@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+
 import { authenticate } from '../../services/spotify';
 import { spotifyRequest } from '../../services/spotifyRequest';
 import { getHashParams } from '../../utils/getHashParams';
 import './index.css';
+
 const access_token_storage = localStorage.getItem('access_token');
 
 const Login = () => {
