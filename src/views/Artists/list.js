@@ -16,7 +16,7 @@ export default class ArtistsListView extends Component {
     songsAmount: 0
   };
 
-  handleClick = (isListSelected) => this.setState({ isListSelected });
+  changeViewMode = (isListSelected) => this.setState({ isListSelected });
 
   render = () => {
     const { artists, isListSelected, artistsAmount, songsAmount } = this.state;
@@ -35,7 +35,7 @@ export default class ArtistsListView extends Component {
             <SwitchButton
               firstOption="Grid"
               secondOption="List"
-              inputFunction={this.handleClick}
+              inputFunction={this.changeViewMode}
             />
           </HeaderLine>
 
