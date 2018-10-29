@@ -6,8 +6,7 @@ import Sidebar from '../../components/Sidebar/sidebar';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import './albums.css';
-const access_token_storage = localStorage.getItem('access_token');
-const userId = localStorage.getItem('userId');
+const storedState = localStorage.getItem('spotify_auth_state');
 
 export default class Albums extends Component {
   state = {
@@ -20,7 +19,7 @@ export default class Albums extends Component {
   handleClick = (isListSelected) => this.setState({ isListSelected });
 
   render = () => {
-    if (access_token_storage && userId) {
+    if (storedState) {
       const { albums, isListSelected, albumsAmount, songsAmount } = this.state;
       const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
 

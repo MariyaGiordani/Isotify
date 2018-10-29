@@ -11,7 +11,6 @@ export function spotifyRequest(params) {
   if (access_token && (state == null || state !== storedState)) {
     alert('There was an error during the authentication');
   } else {
-    localStorage.removeItem(stateKey);
     if (access_token) {
       axios
         .get('https://api.spotify.com/v1/me', {
@@ -20,12 +19,11 @@ export function spotifyRequest(params) {
           }
         })
         .then(function(response) {
-          if (response.status >= 200 && response.status < 400) {
-            const userId = response.data.id;
-            localStorage.setItem('userId', userId);
-          } else {
-            alert('Login não efetuado');
-          }
+          const userId = response.data.id;
+          localStorage.setItem('userId', userId);
+        })
+        .catch(function(error) {
+          alert('Login não efetuado');
         });
     }
   }

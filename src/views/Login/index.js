@@ -5,7 +5,6 @@ import { spotifyRequest } from '../../services/spotifyRequest';
 import { getHashParams } from '../../utils/getHashParams';
 import './index.css';
 const access_token_storage = localStorage.getItem('access_token');
-const userId = localStorage.getItem('userId');
 
 const Login = () => {
   if (!access_token_storage) {
@@ -14,8 +13,6 @@ const Login = () => {
       spotifyRequest(params);
       return <Redirect to="/albums" />;
     }
-  } else if (userId) {
-    return <Redirect to="/albums" />;
   }
   return (
     <div className="content-background">

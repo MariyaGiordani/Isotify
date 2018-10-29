@@ -3,11 +3,10 @@ import { Redirect } from 'react-router-dom';
 import './bannerArtist.css';
 import ButtonFollow from '../ButtonFollow/buttonFollow';
 import ButtonPlaylist from '../ButtonPlaylist/buttonPlaylist';
-const access_token_storage = localStorage.getItem('access_token');
-const userId = localStorage.getItem('userId');
+const storedState = localStorage.getItem('spotify_auth_state');
 
 const BannerArtist = () => {
-  if (access_token_storage && userId) {
+  if (storedState) {
     return (
       <div className="banner-artist">
         <div className="banner-artist__container">
