@@ -4,13 +4,14 @@ import SideBar from '../../components/Sidebar/sidebar';
 const access_token_storage = localStorage.getItem('access_token');
 const userId = localStorage.getItem('userId');
 
-const ArtistsList = () => {
+const AlbumsList = () => {
   if (access_token_storage && userId) {
     return (
       <Fragment>
         <SideBar />
         <div className="container">
-          <Link to="/artists/1">Artists</Link>
+          <h1>ALBUMS</h1>
+          <Link to="/artists">Artists</Link>
         </div>
       </Fragment>
     );
@@ -19,4 +20,4 @@ const ArtistsList = () => {
   }
 };
 
-export default ArtistsList;
+export default AlbumsList;
