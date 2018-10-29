@@ -14,4 +14,5 @@
     --banner-artist-background-image: linear-gradient(349deg, #000000, rgba(102, 102, 102, 0) 52%, #000000);
     --button-follow-color: white;
     --button-playlist-background-color: rgba(136, 136, 136, 0);
+    --orange-pink: linear-gradient(to right, #ee7321, #e4305d, #bf0a45);
 }
