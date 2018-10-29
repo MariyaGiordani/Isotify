@@ -4,5 +4,7 @@
   background-color: var( --sidebar-bg);
   align-items: center;
   position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 3;
 }
