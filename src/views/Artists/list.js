@@ -3,7 +3,7 @@ import Sidebar from '../../components/Sidebar/sidebar';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
-import SwitchButton from '../../components/Buttons/switchButton/switchButton';
+import SwitchButton from '../../components/SwitchButton/switchButton';
 import './Artists.css';
 
 import mockArtists from '../../mockData/artistsMock';
@@ -25,7 +25,7 @@ export default class ArtistsListView extends Component {
     return (
       <React.Fragment>
         <Sidebar />
-        <div className="container artistsView">
+        <div className="container artists-view">
           <HeaderLine
             {...{
               title: 'Artists',
