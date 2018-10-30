@@ -6,7 +6,7 @@ import ArtistDetails from './views/Artists/details';
 import ArtistsList from './views/Artists/list';
 import Albums from './views/Albums/albums';
 import NotFound from './views/NotFound';
-import { Login } from './views/Login';
+import Login from './views/Login';
 import { isUserLogged } from './utils/isUserLogged';
 import './index.css';
 import './variables.css';

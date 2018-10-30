@@ -15,7 +15,7 @@ if (!access_token_test) {
     spotifyRequest(params);
   }
 }
-export const Login = () => {
+export default () => {
   return isUserLogged() ? (
     <Redirect to="/albums" />
   ) : (
@@ -27,16 +27,20 @@ export const Login = () => {
             Login with Spotify
           </button>
         </div>
-        <Link className="content-login__first-link" to="/">
+        <a
+          className="content-login__first-link"
+          href="https://www.spotify.com/br/password-reset/"
+        >
           Remember Password?
-        </Link>
+        </a>
         <div className="content-login__container-text">
-          <Link className="content-login__second-link" to="/">
-            didn’t do this YET?
-          </Link>
-          <Link className="content-login__third-link" to="/">
+          <p className="content-login__second-link">didn’t do this YET?</p>
+          <a
+            className="content-login__third-link"
+            href="https://www.spotify.com/br/signup/?forward_url=https%3A%2F%2Fwww.spotify.com%2Fbr%2Faccount%2Foverview%2F"
+          >
             Sign up
-          </Link>
+          </a>
         </div>
       </div>
     </div>

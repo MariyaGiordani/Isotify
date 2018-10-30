@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
 import SideBar from '../../components/Sidebar/sidebar';
 
-const ArtistDetails = (props) => {
+export default (props) => {
   return (
     <Fragment>
       <SideBar />
@@ -16,5 +16,3 @@ const ArtistDetails = (props) => {
     </Fragment>
   );
 };
-
-export default ArtistDetails;

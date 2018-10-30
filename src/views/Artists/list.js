@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SideBar from '../../components/Sidebar/sidebar';
 
-const ArtistsList = () => {
+export default () => {
   return (
     <Fragment>
       <SideBar />
@@ -13,5 +13,3 @@ const ArtistsList = () => {
     </Fragment>
   );
 };
-
-export default ArtistsList;
