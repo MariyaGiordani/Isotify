@@ -1,7 +1,9 @@
 import React from 'react';
-import './sidebarIcon.css';
 import { Link } from 'react-router-dom';
+
 import SelectedIcon from '../SelectedIcon/selectedIcon';
+
+import './sidebarIcon.css';
 
 const SidebarIcon = (props) => (
   <Link

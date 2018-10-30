@@ -21,3 +21,7 @@ body {
 .container {
   margin-left: 100px;
 }
+
+.container__wrap{
+  margin-top: 70px;
+}

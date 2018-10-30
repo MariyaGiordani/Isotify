@@ -1,7 +1,11 @@
 import React from 'react';
+
 import './bannerArtist.css';
-import ButtonFollow from '../buttons/ButtonFollow/buttonFollow';
-import ButtonPlaylist from '../buttons/ButtonPlaylist/buttonPlaylist';
+
+import ButtonFollow from '../ButtonFollow/buttonFollow';
+import ButtonPlaylist from '../ButtonPlaylist/buttonPlaylist';
+
+import RelatedArtists from '../../components/RelatedArtists/relatedArtists';
 
 const BannerArtist = () => (
   <div className="banner-artist">
@@ -11,6 +15,7 @@ const BannerArtist = () => (
       <div className="banner-artist__buttons-wrapper">
         <ButtonFollow />
         <ButtonPlaylist />
+        <RelatedArtists />
       </div>
     </div>
   </div>

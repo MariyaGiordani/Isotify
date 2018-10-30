@@ -25,3 +25,16 @@
 .banner-artist__buttons-wrapper {
     display: flex;
 }
+
+@media only screen and (max-width: 500px) {
+    .banner-artist {
+        height: 380px;
+        padding: 80px 40px 0;
+    }
+    .banner-artist__title {
+        font-size: 28px;
+    }
+    .banner-artist__information {
+        font-size: 18px;
+    }
+}

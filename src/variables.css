@@ -10,9 +10,13 @@
     --light-text-color: #666;
     --selected-bg: #cd2156;
     --sidebar-bg: #000;
+    --related-artists-background-color: rgba(238, 238, 238, 0.25);
+    --dot-background-color: rgba(255, 255, 255, 0.75); 
     --banner-artist-background-color: rgba(0, 0, 0, .5);
     --banner-artist-background-image: linear-gradient(349deg, #000000, rgba(102, 102, 102, 0) 52%, #000000);
     --button-follow-color: white;
     --button-playlist-background-color: rgba(136, 136, 136, 0);
     --orange-pink: linear-gradient(to right, #ee7321, #e4305d, #bf0a45);
+    --light-grey: #dddddd;
+    --medium-grey: #aaaaaa;
 }

@@ -1,0 +1,25 @@
+.related-artists-icons {
+  height: 40px;
+  width: 40px;
+  margin: 7px;
+  background-color: var(--light-text-color);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.related-artists-icons__image {
+  height: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+@media only screen and (max-width: 500px) {
+  .related-artists-icons {
+    height: 33px;
+    width: 33px;
+    margin: 7px;
+  }
+}

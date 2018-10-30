@@ -8,11 +8,12 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    border-bottom: 3px solid #dddddd;
+    border-bottom: 3px solid var(--light-grey);
     font-size: 20px;
+    font-weight: 600;
     line-height: 3.23;
     letter-spacing: 1px;
-    color: #aaaaaa;
+    color: var(--medium-grey);
     padding: 40px 60px 10px;
 }
 
@@ -25,5 +26,26 @@
 .navigation-items a.active {
     border-bottom: 3px solid transparent;
     border-image: var(--orange-pink);
+    color: var(--black-text-color);
     border-image-slice: 1
+}
+
+@media only screen and (max-width: 1024px) {
+    .navigation-items a {
+        font-size: 18px;
+        padding: 20px 20px 5px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .navigation-items {
+        margin-left: 0;
+        overflow: auto;
+        display: flex;
+    }
+    .navigation-items a {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 15px;
+    }
 }
