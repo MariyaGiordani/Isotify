@@ -6,7 +6,8 @@ import ArtistDetails from './views/Artists/details';
 import ArtistsList from './views/Artists/list';
 import Albums from './views/Albums/albums';
 import NotFound from './views/NotFound';
-import Login from './views/Login';
+import { Login } from './views/Login';
+import { isUserLogged } from './utils/isUserLogged';
 import './index.css';
 import './variables.css';
 import { config } from 'dotenv';
@@ -14,10 +15,16 @@ import { config } from 'dotenv';
 const routes = () => (
   <Switch>
     <Route path="/login" component={Login} />
+    {!isUserLogged() && (
+      <Redirect
+        to="/login"
+        render={(props) => <Login {...props} isUserLogged={isUserLogged} />}
+      />
+    )}
+
     <Route path="/artists/:artistId" component={ArtistDetails} />
     <Route path="/albums" component={Albums} />
     <Route path="/artists" component={ArtistsList} />
-    <Route path="/login" component={Login} />
     <Redirect exact from="/" to="login" />
     <Route component={NotFound} />
   </Switch>

@@ -1,22 +1,24 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import { authenticate } from '../../services/spotify';
 import { spotifyRequest } from '../../services/spotifyRequest';
+import { authenticate } from '../../services/spotify';
 import { getHashParams } from '../../utils/getHashParams';
+import { isUserLogged } from '../../utils/isUserLogged';
 import './index.css';
 
-const access_token_storage = localStorage.getItem('access_token');
+const access_token_test = localStorage.getItem('access_token');
 
-const Login = () => {
-  if (!access_token_storage) {
-    const params = getHashParams();
-    if (params.access_token) {
-      spotifyRequest(params);
-      return <Redirect to="/albums" />;
-    }
+if (!access_token_test) {
+  const params = getHashParams();
+  if (params.access_token) {
+    spotifyRequest(params);
   }
-  return (
+}
+export const Login = () => {
+  return isUserLogged() ? (
+    <Redirect to="/albums" />
+  ) : (
     <div className="content-background">
       <div className="content-background__content-login">
         <div className="content-login__container-title">
@@ -40,5 +42,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;

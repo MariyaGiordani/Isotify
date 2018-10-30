@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export function spotifyRequest(params) {
   const stateKey = 'spotify_auth_state';
 
@@ -11,6 +12,7 @@ export function spotifyRequest(params) {
   if (access_token && (state == null || state !== storedState)) {
     alert('There was an error during the authentication');
   } else {
+    localStorage.removeItem(stateKey);
     if (access_token) {
       axios
         .get('https://api.spotify.com/v1/me', {
@@ -19,11 +21,11 @@ export function spotifyRequest(params) {
           }
         })
         .then(function(response) {
-          const userId = response.data.id;
-          localStorage.setItem('userId', userId);
+          const userIdRequest = response.data.id;
+          localStorage.setItem('userId', userIdRequest);
         })
         .catch(function(error) {
-          alert('Login não efetuado');
+          alert('Login failed');
         });
     }
   }
