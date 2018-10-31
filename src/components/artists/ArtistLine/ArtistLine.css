@@ -89,7 +89,6 @@
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
-  background-size: 200% auto;
   color: var(--white-color);
   box-shadow: var(--white-shadow);
   border-radius: 20px;
