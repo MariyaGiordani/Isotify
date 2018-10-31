@@ -5,6 +5,8 @@ import AlbumsList from '../../components/albums/albumsList/albumsList';
 import Sidebar from '../../components/Sidebar/sidebar';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
+import { getSavedAlbums } from '../../services/albums';
+import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyReponseParsers';
 import './albums.css';
 
 export default class Albums extends Component {
@@ -14,6 +16,17 @@ export default class Albums extends Component {
     albumsAmount: 0,
     songsAmount: 0
   };
+
+  componentDidMount() {
+    getSavedAlbums()
+      .then((response) => {
+        const albums = parseSavedAlbums(response.data);
+        this.setState({ albums });
+      })
+      .catch(() => {
+        window.alert('Sorry, we cannot complete your request right now.');
+      });
+  }
 
   handleClick = (isListSelected) => this.setState({ isListSelected });
 
