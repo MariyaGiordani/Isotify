@@ -43,6 +43,7 @@
         overflow: auto;
         display: flex;
     }
+    
     .navigation-items .navigation-items__text {
         display: inline-block;
         white-space: nowrap;

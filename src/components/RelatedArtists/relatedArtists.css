@@ -52,12 +52,14 @@
     .related-artists {
         margin-top: 80px;
     }
+
     .related-artists__line {
         float: right;
         margin-right: 10px;
         width: 215px;
         height: 2px;
     }
+    
     .related-artists__wrap {
         margin-right: 8px
     }
