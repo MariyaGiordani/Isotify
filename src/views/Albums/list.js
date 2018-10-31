@@ -1,14 +1,16 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+
 import SideBar from '../../components/Sidebar/sidebar';
 
-const ArtistsList = () => (
+const AlbumsList = () => (
   <Fragment>
     <SideBar />
     <div className="container">
-      <Link to="/artists/1">Artists</Link>
+      <h1>ALBUMS</h1>
+      <Link to="/artists">Artists</Link>
     </div>
   </Fragment>
 );
 
-export default ArtistsList;
+export default AlbumsList;

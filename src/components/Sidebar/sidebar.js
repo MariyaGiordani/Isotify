@@ -1,7 +1,9 @@
-import React, { Component } from "react";
-import "./sidebar.css";
-import SidebarIcon from "../SidebarIcon/sidebarIcon";
-import { LINKS } from "./constants";
+import React, { Component } from 'react';
+
+import SidebarIcon from '../SidebarIcon/sidebarIcon';
+
+import './sidebar.css';
+import { LINKS } from './constants';
 
 class SideBar extends Component {
   state = { selectedLink: window.location.pathname };
