@@ -34,9 +34,11 @@ export default () => {
           Remember Password?
         </a>
         <div className="content-login__container-text">
-          <p className="content-login__second-link">didn’t do this YET?</p>
+          <p className="content-login__container-text--alignment">
+            didn’t do this YET?
+          </p>
           <a
-            className="content-login__third-link"
+            className="content-login__second-link"
             href="https://www.spotify.com/br/signup/?forward_url=https%3A%2F%2Fwww.spotify.com%2Fbr%2Faccount%2Foverview%2F"
           >
             Sign up
