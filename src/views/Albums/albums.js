@@ -7,6 +7,8 @@ import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import './albums.css';
 
+import mockAlbums from '../../mockData/albumsMock';
+
 export default class Albums extends Component {
   state = {
     isListSelected: false,
@@ -40,7 +42,7 @@ export default class Albums extends Component {
           {isListSelected ? (
             <AlbumsList albums={albums} />
           ) : (
-            <AlbumsGrid size="big" albums={albums} />
+            <AlbumsGrid size="big" albums={mockAlbums} />
           )}
         </div>
       </React.Fragment>
