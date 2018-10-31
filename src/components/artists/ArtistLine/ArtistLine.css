@@ -84,7 +84,7 @@
 
 .artist-line__see-more-button {
   display: flex;
-  padding: 0.6em;
+  padding: 6px;
   width: 120px;
   text-align: center;
   text-transform: uppercase;
