@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Sidebar from '../../components/Sidebar/sidebar';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
@@ -24,7 +23,6 @@ export default class ArtistsListView extends Component {
 
     return (
       <React.Fragment>
-        <Sidebar />
         <div className="container artists-view">
           <HeaderLine
             {...{

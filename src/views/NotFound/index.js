@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = () => (
+export default () => (
   <div>
     <h1>Not Found</h1>
     <Link to="/artists">Back to Artists</Link>
   </div>
 );
-
-export default NotFound;
