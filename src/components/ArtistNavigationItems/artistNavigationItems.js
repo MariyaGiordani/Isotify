@@ -5,13 +5,21 @@ import './artistNavigationItems.css';
 const ArtistNavigationItems = () => (
   <Fragment>
     <div className="navigation-items">
-      <a className="active" href="#albums">
+      <a className="navigation-items__text active" href="#albums">
         Albums
       </a>
-      <a href="#songs">Songs</a>
-      <a href="#playlists">Playlists</a>
-      <a href="#whatsnew">What's new</a>
-      <a href="#social">Social</a>
+      <a className="navigation-items__text" href="#songs">
+        Songs
+      </a>
+      <a className="navigation-items__text" href="#playlists">
+        Playlists
+      </a>
+      <a className="navigation-items__text" href="#whatsnew">
+        What's new
+      </a>
+      <a className="navigation-items__text" href="#social">
+        Social
+      </a>
     </div>
   </Fragment>
 );
