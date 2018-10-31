@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { spotifyRequest } from '../../services/spotifyRequest';
 import { authenticate } from '../../services/spotify';
