@@ -1,4 +1,52 @@
 .header {
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
-  background-color: #fafafa;
+    background-color: #fafafa;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    padding: 20px;
+    display: flex;
+    z-index: 2;
+}
+
+.header-icon--size {
+    height: 50px;
+    width: 50px;
+    background-color: #aaaa;
+    box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-icon__image {
+    height: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.header-user__name {
+    font-size: 16px;
+    font-weight: 900;
+    color: #222222;
+    padding: 4px;
+}
+
+.header-user__text{
+    font-size: 10px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 2px;
+    color: #888888;
+    padding: 4px;
+}
+
+.header__wrap {
+    margin-left: 20px;
+    display: block;
+    position: relative;
 }

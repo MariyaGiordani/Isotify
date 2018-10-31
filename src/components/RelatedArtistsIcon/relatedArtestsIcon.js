@@ -6,7 +6,7 @@ const RelatedArtistsIcon = ({ src }) => {
     <div className="related-artists-icons">
       <img
         className="related-artists-icons__image"
-        alt="Related artis"
+        alt="Related artist"
         src={src}
       />
     </div>
