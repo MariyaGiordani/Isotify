@@ -1,11 +1,15 @@
 :root {
     --black-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    --black-shadow-big: 0 0px 40px 3px rgba(0, 0, 0, 0.25);
+    --white-shadow: 0 0 20px #eee;
+    --album-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
+
     --gray-text-color: #888;
     --black-text-color: #222;
-    --red-yellow-gradient: linear-gradient(76deg, rgba(191, 10, 69, 0.9), rgba(228, 48, 93, 0.9) 63%, rgba(238, 115, 33, 0.9)), linear-gradient(to bottom, #d42562, #d42562);
-    --white-gray-gradient: linear-gradient(to bottom, #fff 40%, #f0f0f0);
-    --grey-color: #444;
-    --white-color: #eee;
+    
+    --grey-color:#444;
+    --white-color:#eee;
+    --white-bg: #fafafa;
     --icon-bg: #e26659;
     --light-text-color: #666;
     --selected-bg: #cd2156;
@@ -14,4 +18,18 @@
     --banner-artist-background-image: linear-gradient(349deg, #000000, rgba(102, 102, 102, 0) 52%, #000000);
     --button-follow-color: white;
     --button-playlist-background-color: rgba(136, 136, 136, 0);
+
+    --red-yellow-gradient: linear-gradient(25deg, 
+        rgba(191, 10, 69, 0.9), 
+        rgba(228, 48, 93, 0.9), 
+        rgba(238, 115, 33, 0.9)
+        );
+    --gray-gradient: linear-gradient(25deg, 
+        rgba(221, 221, 221, 1), 
+        rgba(221, 221, 221, 1)
+    );
+    
+    --white-gray-gradient: linear-gradient(to bottom, 
+        #fff, 
+        #f0f0f0);
 }
