@@ -12,11 +12,23 @@ const parseAlbumInfo = (album) => ({
 });
 
 const topArtistsWithAlbums = (artists) =>
-  artists.map((artist) => ({
-    imgSrc: artist.images.length > 0 ? artist.images[0].url : '',
-    name: artist.name,
-    id: artist.id,
-    albums: albumsList(artist.albums.data)
-  }));
+  artists.map((artist) => {
+    const albums = albumsList(artist.albums.data);
+
+    const totalTracks = albums.reduce(
+      (total, currentAlbum) => total + currentAlbum.songsAmount,
+      0
+    );
+
+    console.log(totalTracks);
+
+    return {
+      imgSrc: artist.images.length > 0 ? artist.images[0].url : '',
+      name: artist.name,
+      id: artist.id,
+      albums,
+      totalTracks
+    };
+  });
 
 export { albumsList, savedAlbums, parseAlbumInfo, topArtistsWithAlbums };
