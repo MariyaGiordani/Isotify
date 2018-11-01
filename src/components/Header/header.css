@@ -83,35 +83,37 @@
         padding-top: 10px;
         padding-left: 7px;
     }
+
     .header-user__name {
         font-size: 12px;
     }
+
     .header-user__profile {
         font-size: 7px;
     }
+
     .header__wrap {
         margin-left: 10px;
     }
+
     .header-icon--size {
         height: 30px;
         width: 30px;
     }
+
     .header__image-triangle {
-        width: 7px;
-        height: 7px;
-        margin: 5px;
+        display: none;
     }
+
     .header__image-playlist {
-        width: 10px;
-        height: 7px;
-        margin: 5px;
+        display: none;
     }
+
     .header__image-mountain {
-        width: 12px;
-        height: 8px;
-        margin: 5px;
+        display: none;
     }
+
     .header__devider {
-        height: 30px;
+       display: none;
     }
 }

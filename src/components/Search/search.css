@@ -30,8 +30,8 @@
     }
 
     .search__song {
-        width: 50px;
+        width: 200px;
         height: 25px;
-        font-size: 7px;
+        font-size: 10px;
     }
 }
