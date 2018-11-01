@@ -5,39 +5,32 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import ArtistDetails from './views/Artists/details';
 import ArtistsList from './views/Artists/list';
 import Albums from './views/Albums/albums';
-import Header from './components/Header/header';
-import Sidebar from './components/Sidebar/sidebar';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
+import { isUserLogged } from './utils/isUserLogged';
+import { showSidebar } from './utils/showSidebar';
+
 import './index.css';
 import './variables.css';
 
-function renderWithLayout(Header, Sidebar, Component) {
-  return (
-    <Fragment>
-      <Header /> <Sidebar /> <Component />
-    </Fragment>
-  );
-}
-
 const routes = () => (
-  <Switch>
-    <Route
-      path="/albums"
-      render={() => renderWithLayout(Header, Sidebar, Albums)}
-    />
-    <Route
-      path="/artists/:artistId"
-      render={(props) => renderWithLayout(Header, Sidebar, ArtistDetails)}
-    />
-    <Route
-      path="/artists"
-      render={() => renderWithLayout(Header, Sidebar, ArtistsList)}
-    />
-    <Route path="/login" component={Login} />
-    <Redirect exact from="/" to="login" />
-    <Route component={NotFound} />
-  </Switch>
+  <Fragment>
+    {showSidebar()}
+    <Switch>
+      <Route path="/login" component={Login} />
+      {!isUserLogged() && (
+        <Redirect
+          to="/login"
+          render={(props) => <Login {...props} isUserLogged={isUserLogged} />}
+        />
+      )}
+      <Route path="/artists/:artistId" component={ArtistDetails} />
+      <Route path="/albums" component={Albums} />
+      <Route path="/artists" component={ArtistsList} />
+      <Redirect exact from="/" to="login" />
+      <Route component={NotFound} />
+    </Switch>
+  </Fragment>
 );
 
 ReactDOM.render(
