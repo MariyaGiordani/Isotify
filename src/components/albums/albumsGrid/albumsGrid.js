@@ -9,6 +9,7 @@ const getAlbumsComponents = (albums = [], size) =>
       author={album.author}
       size={size}
       imgSrc={album.imgSrc}
+      key={album.id}
     />
   ));
 

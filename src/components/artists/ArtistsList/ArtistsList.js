@@ -3,7 +3,7 @@ import ArtistLine from '../ArtistLine/ArtistLine';
 import './ArtistsList.css';
 
 const getArtistsComponents = (artists = []) =>
-  artists.map((artist) => <ArtistLine artist={artist} />);
+  artists.map((artist) => <ArtistLine artist={artist} key={artist.id} />);
 
 const ArtistsList = ({ artists }) => (
   <div className="artist-list">{getArtistsComponents(artists)}</div>

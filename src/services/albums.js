@@ -17,4 +17,11 @@ function getAlbums(ids) {
   return spotifyInstance.get(`/albums/?ids=${ids}`, createHeader());
 }
 
-export { getSavedAlbums, getAlbums };
+function getAlbumsFromArtist(artistId) {
+  return spotifyInstance.get(
+    `artists/${artistId}/albums?market=BR&include_groups=album&limit=20`,
+    createHeader()
+  );
+}
+
+export { getSavedAlbums, getAlbums, getAlbumsFromArtist };
