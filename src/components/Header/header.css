@@ -1,11 +1,12 @@
 .header {
-    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
-    background-color: #fafafa;
+    box-shadow: var(--header-box-shadow);
+    background-color: var(--snow-white);
     height: 100px;
     width: 100%;
     position: fixed;
     top: 0px;
-    padding: 20px;
+    padding-top: 35px;
+    padding-left: 40px;
     display: flex;
     z-index: 2;
 }
@@ -13,8 +14,8 @@
 .header-icon--size {
     height: 50px;
     width: 50px;
-    background-color: #aaaa;
-    box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--user-icon-color);
+    box-shadow: var(--header-icon-box-shadow);
     border-radius: 50%;
     display: block;
     position: relative;
@@ -31,22 +32,86 @@
 .header-user__name {
     font-size: 16px;
     font-weight: 900;
-    color: #222222;
-    padding: 4px;
+    color: var(--black-text-color);
+    padding: 5px 0 0 4px;
 }
 
-.header-user__text{
+.header-user__profile {
     font-size: 10px;
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
     letter-spacing: 2px;
-    color: #888888;
-    padding: 4px;
+    color: var(--gray-text-color);
+    padding-left: 4px;
+    text-decoration: none;
 }
 
 .header__wrap {
     margin-left: 20px;
     display: block;
     position: relative;
+}
+
+.header__image-triangle {
+    width: 14px;
+    height: 14px;
+    margin: 12px 20px 20px 100px;
+}
+
+.header__image-playlist {
+    width: 20px;
+    height: 15px;
+    margin: 12px 25px 20px 800px;
+}
+
+.header__image-mountain {
+    width: 25px;
+    height: 15px;
+    margin: 12px 20px 20px 25px;
+}
+
+.header__devider {
+    width: 2px;
+    height: 40px;
+    background-color: var(--white-grey);
+}
+
+@media only screen and (max-width: 500px) {
+    .header {
+        height: 50px;
+        padding-top: 10px;
+        padding-left: 7px;
+    }
+    .header-user__name {
+        font-size: 12px;
+    }
+    .header-user__profile {
+        font-size: 7px;
+    }
+    .header__wrap {
+        margin-left: 10px;
+    }
+    .header-icon--size {
+        height: 30px;
+        width: 30px;
+    }
+    .header__image-triangle {
+        width: 7px;
+        height: 7px;
+        margin: 5px;
+    }
+    .header__image-playlist {
+        width: 10px;
+        height: 7px;
+        margin: 5px;
+    }
+    .header__image-mountain {
+        width: 12px;
+        height: 8px;
+        margin: 5px;
+    }
+    .header__devider {
+        height: 30px;
+    }
 }
