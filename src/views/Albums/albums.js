@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import AlbumsList from '../../components/albums/albumsList/albumsList';
-import Sidebar from '../../components/Sidebar/sidebar';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import { getSavedAlbums } from '../../services/albums';
@@ -43,7 +42,6 @@ export default class Albums extends Component {
 
     return (
       <React.Fragment>
-        <Sidebar />
         <div className="container albumsView">
           <HeaderLine
             {...{
