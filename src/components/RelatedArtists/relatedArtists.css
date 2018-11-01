@@ -33,16 +33,19 @@
         margin-top: 96px;
         margin-right: 20px;
     }
+
     .related-artists__text {
         margin: 10px;
         font-size: 8px;
     }
+
     .related-artists__line {
         float: right;
         margin-right: 10px;
         width: 250px;
         height: 2px;
     }
+    
     .related-artists__wrap {
         margin-right: 10px
     }

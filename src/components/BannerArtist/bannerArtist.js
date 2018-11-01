@@ -7,11 +7,13 @@ import ButtonPlaylist from '../ButtonPlaylist/buttonPlaylist';
 
 import RelatedArtists from '../../components/RelatedArtists/relatedArtists';
 
-const BannerArtist = () => (
+const BannerArtist = (props) => (
   <div className="banner-artist">
     <div className="banner-artist__container">
-      <h1 className="banner-artist__title">Kanye West</h1>
-      <p className="banner-artist__information">9 Albums, 231 Songs</p>
+      <h1 className="banner-artist__title">{props.name}</h1>
+      <p className="banner-artist__information">{`${
+        props.albumsAmount
+      } Albums, ${props.songsAmount} Songs`}</p>
       <div className="banner-artist__buttons-wrapper">
         <ButtonFollow />
         <ButtonPlaylist />
