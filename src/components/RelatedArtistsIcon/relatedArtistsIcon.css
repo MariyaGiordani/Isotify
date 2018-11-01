@@ -4,7 +4,6 @@
   margin: 7px;
   background-color: var(--light-text-color);
   border-radius: 50%;
-  display: block;
   position: relative;
   overflow: hidden;
 }

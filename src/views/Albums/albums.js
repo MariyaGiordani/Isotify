@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import AlbumsList from '../../components/albums/albumsList/albumsList';
-import Sidebar from '../../components/Sidebar/sidebar';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import './albums.css';
+
+import mockAlbums from '../../mockData/albumsMock';
 
 export default class Albums extends Component {
   state = {
@@ -22,7 +24,6 @@ export default class Albums extends Component {
 
     return (
       <React.Fragment>
-        <Sidebar />
         <div className="container albumsView">
           <HeaderLine
             {...{
@@ -39,7 +40,7 @@ export default class Albums extends Component {
           {isListSelected ? (
             <AlbumsList albums={albums} />
           ) : (
-            <AlbumsGrid size="big" albums={albums} />
+            <AlbumsGrid size="big" albums={mockAlbums} />
           )}
         </div>
       </React.Fragment>
