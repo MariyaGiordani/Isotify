@@ -19,9 +19,35 @@ function getAlbums(ids) {
 
 function getAlbumsFromArtist(artistId) {
   return spotifyInstance.get(
-    `artists/${artistId}/albums?market=BR&include_groups=album&limit=20`,
+    `artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50`,
     createHeader()
   );
 }
 
-export { getSavedAlbums, getAlbums, getAlbumsFromArtist };
+function getAllAlbumsFromArtistRecursively(artistId, offset, albums) {
+  return spotifyInstance
+    .get(
+      `artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50&offset=${offset}`,
+      createHeader()
+    )
+    .then(function(response) {
+      const remainder = response.data.total - response.data.offset - 50;
+      if (remainder > 0) {
+        const newOffset = response.data.offset + 50;
+        return getAllAlbumsFromArtistRecursively(
+          artistId,
+          newOffset,
+          albums.concat(response.data.items)
+        );
+      } else {
+        return albums.concat(response.data.items);
+      }
+    });
+}
+
+export {
+  getSavedAlbums,
+  getAlbums,
+  getAlbumsFromArtist,
+  getAllAlbumsFromArtistRecursively
+};

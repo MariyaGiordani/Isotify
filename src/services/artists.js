@@ -1,5 +1,5 @@
 import spotifyInstance from './axiosInstances';
-import { getAlbumsFromArtist } from './albums';
+import { getAllAlbumsFromArtistRecursively as getAllAlbums } from './albums';
 
 function createHeader(extraHeader) {
   const accessToken = localStorage.getItem('access_token');
@@ -18,7 +18,10 @@ function getTopArtistsWithAlbums() {
   return getTopArtists().then((response) => {
     return Promise.all(
       response.data.items.map((artist) =>
-        getAlbumsFromArtist(artist.id).then((albums) => ({ ...artist, albums }))
+        getAllAlbums(artist.id, 0, []).then((albums) => ({
+          ...artist,
+          albums
+        }))
       )
     );
   });
