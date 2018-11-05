@@ -6,7 +6,7 @@ import searchImg from '../../assets/img/search.png';
 
 const Search = () => (
   <div className="search">
-    <img className="search__image" alt="" src={searchImg} />
+    <img className="search__image" alt="Search" src={searchImg} />
     <input
       type="text"
       name="Search"
