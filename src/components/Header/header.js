@@ -9,8 +9,8 @@ import Search from '../../components/Search/search';
 
 const Header = () => (
   <div className="header">
-    <div className="header-icon">
-      <img className="header-icon__image" alt="" />
+    <div className="header__icon">
+      <img className="header__icon-image" alt="" />
     </div>
     <div className="header__wrap">
       <p className="header-user__name">Darya Vermalen</p>

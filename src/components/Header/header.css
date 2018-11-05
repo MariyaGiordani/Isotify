@@ -11,7 +11,7 @@
     z-index: 2;
 }
 
-.header-icon {
+.header__icon {
     height: 50px;
     width: 50px;
     background-color: var(--user-icon-color);
@@ -22,7 +22,7 @@
     overflow: hidden;
 }
 
-.header-icon__image {
+.header__icon-image {
     height: 100%;
     position: absolute;
     transform: translateX(-50%);
@@ -140,7 +140,7 @@
         margin-left: 5px;
     }
 
-    .header-icon {
+    .header__icon {
         height: 30px;
         width: 30px;
     }
