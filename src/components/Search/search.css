@@ -22,16 +22,57 @@
     color: var(--white-greys);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1440px) {
+    .search__song {
+        width: 410px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .search__song {
+        width: 310px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .search__song {
+        width: 225px;
+    }
+
     .search__image {
-        width: 10px;
-        height: 10px;
-        margin: 5px;
+        margin-left: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+    .search {
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    .search__image {
+        width: 14px;
+        height: 14px;
+        margin: 10px;
     }
 
     .search__song {
         width: 200px;
         height: 25px;
         font-size: 10px;
+        margin-left: 3px;
+        font-weight: 100;
     }
 }
+
+@media only screen and (max-width: 375px) {
+    .search {
+        margin-left: 10px;
+    }
+
+    .search__song {
+        width: 170px;
+    }
+}
+

@@ -21,8 +21,14 @@ body {
   margin-top: 100px;
 }
 
+@media only screen and (max-width: 768px) {
+  .container {
+    margin-top: 90px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .container {
-    margin-top: 50px;
+    margin-top: 50px; 
   }
 }

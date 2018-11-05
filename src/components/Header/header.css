@@ -6,7 +6,7 @@
     position: fixed;
     top: 0px;
     padding-top: 35px;
-    padding-left: 40px;
+    padding-left: 32px;
     display: flex;
     z-index: 2;
 }
@@ -62,7 +62,7 @@
 .header__image-playlist {
     width: 20px;
     height: 15px;
-    margin: 12px 25px 20px 800px;
+    margin: 12px 25px 20px 830px;
 }
 
 .header__image-mountain {
@@ -77,11 +77,55 @@
     background-color: var(--white-grey);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1440px) {
+    .header__image-triangle {
+        margin-left: 50px;
+    }
+    
+    .header__image-playlist {
+        margin-left: 500px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .header__image-triangle {
+        margin-right: 15px;
+    }
+    
+    .header__image-playlist {
+        margin-left: 200px;
+    }
+    
+    .header__image-mountain {
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header{
+        height: 90px;
+        padding-top: 25px;
+    }
+
+    .header__image-triangle {
+        margin-left: 25px;
+    }
+    
+    .header__image-playlist {
+        margin-left: 90px;
+        margin-right: 12px
+    }
+    
+    .header__image-mountain {
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
     .header {
-        height: 50px;
+        height: 60px;
         padding-top: 10px;
-        padding-left: 7px;
+        padding-left: 15px;
     }
 
     .header-user__name {
@@ -93,7 +137,7 @@
     }
 
     .header__wrap {
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .header-icon--size {
@@ -101,19 +145,11 @@
         width: 30px;
     }
 
-    .header__image-triangle {
+    .header__image-triangle,
+    .header__image-mountain,
+    .header__image-playlist,
+    .header__devider
+    {
         display: none;
-    }
-
-    .header__image-playlist {
-        display: none;
-    }
-
-    .header__image-mountain {
-        display: none;
-    }
-
-    .header__devider {
-       display: none;
     }
 }
