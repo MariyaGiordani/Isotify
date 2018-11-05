@@ -17,17 +17,16 @@
     padding: 40px 60px 10px;
 }
 
-.navigation-items__text:hover {
+.navigation-items__text:hover,
+.navigation-items__text.active 
+{
     border-bottom: 3px solid transparent;
     border-image: var(--orange-pink);
-    border-image-slice: 1
+    border-image-slice: 1;
 }
 
 .navigation-items__text.active {
-    border-bottom: 3px solid transparent;
-    border-image: var(--orange-pink);
     color: var(--black-text-color);
-    border-image-slice: 1
 }
 
 @media only screen and (max-width: 1024px) {
