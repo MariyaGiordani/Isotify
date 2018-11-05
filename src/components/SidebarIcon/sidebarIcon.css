@@ -7,11 +7,39 @@
 .sidebar-icon__image-wrapper {
   height: 60px;
   width: 60px;
-  background-color: var(--icon-bg);
   border-radius: 50%;
   display: block;
   position: relative;
   margin: 30px auto 10px;
+}
+
+.sidebar-icon__image-wrapper--1{
+  background-color: var(--light-orange);
+}
+
+.sidebar-icon__image-wrapper--2{
+  background-color: var(--dark-orange);
+}
+
+.sidebar-icon__image-wrapper--3{
+  background-color: var(--red);
+}
+
+.sidebar-icon__image-wrapper--4{
+  background-color: var(--dark-red);
+}
+
+.sidebar-icon__image-wrapper--5{
+  background-color: var(--red-pink);
+}
+
+.sidebar-icon__image-wrapper--6{
+  margin-top: 90px; 
+  background-color: var(--pink-red);
+}
+
+.sidebar-icon__image-wrapper--7{
+  background-color: var(--dark-pink);
 }
 
 .sidebar-icon__image{
