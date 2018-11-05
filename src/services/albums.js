@@ -1,13 +1,5 @@
-import spotifyInstance from './axiosInstances';
-
-function createHeader(extraHeader) {
-  const accessToken = localStorage.getItem('access_token');
-  return {
-    headers: {
-      Authorization: 'Bearer ' + accessToken
-    }
-  };
-}
+import { spotifyInstance, createHeader } from './axiosInstances';
+import axios from 'axios';
 
 function getSavedAlbums() {
   return spotifyInstance.get('me/albums', createHeader());
@@ -17,37 +9,34 @@ function getAlbums(ids) {
   return spotifyInstance.get(`/albums/?ids=${ids}`, createHeader());
 }
 
-function getAlbumsFromArtist(artistId) {
-  return spotifyInstance.get(
-    `artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50`,
-    createHeader()
-  );
-}
-
-function getAllAlbumsFromArtistRecursively(artistId, offset, albums) {
+function getAllAlbumsFromArtist(artistId) {
   return spotifyInstance
     .get(
-      `artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50&offset=${offset}`,
+      `artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50&`,
       createHeader()
     )
     .then(function(response) {
-      const remainder = response.data.total - response.data.offset - 50;
-      if (remainder > 0) {
-        const newOffset = response.data.offset + 50;
-        return getAllAlbumsFromArtistRecursively(
-          artistId,
-          newOffset,
-          albums.concat(response.data.items)
-        );
-      } else {
-        return albums.concat(response.data.items);
-      }
+      const nextUrl = response.data.next;
+      return nextUrl
+        ? getAllAlbumsFromArtistRecursively(
+            response.data.items,
+            response.data.next
+          )
+        : response.data.items;
     });
 }
 
-export {
-  getSavedAlbums,
-  getAlbums,
-  getAlbumsFromArtist,
-  getAllAlbumsFromArtistRecursively
-};
+function getAllAlbumsFromArtistRecursively(albums, nextUrl) {
+  return axios.get(nextUrl, createHeader()).then(function(response) {
+    if (response.data.next) {
+      return getAllAlbumsFromArtistRecursively(
+        albums.concat(response.data.items),
+        response.data.next
+      );
+    } else {
+      return albums.concat(response.data.items);
+    }
+  });
+}
+
+export { getSavedAlbums, getAlbums, getAllAlbumsFromArtist };

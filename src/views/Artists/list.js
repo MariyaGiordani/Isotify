@@ -6,7 +6,6 @@ import SwitchButton from '../../components/SwitchButton/switchButton';
 import { getTopArtistsWithAlbums } from '../../services/artists';
 import { topArtistsWithAlbums as parseTopArtists } from '../../utils/spotifyReponseParsers';
 import './Artists.css';
-import { parse } from 'querystring';
 
 export default class ArtistsListView extends Component {
   state = {

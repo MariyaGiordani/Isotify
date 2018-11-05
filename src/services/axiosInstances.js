@@ -4,4 +4,14 @@ const spotifyInstance = axios.create({
   baseURL: 'https://api.spotify.com/v1/'
 });
 
-export default spotifyInstance;
+function createHeader(extraHeader) {
+  const accessToken = localStorage.getItem('access_token');
+  return {
+    headers: {
+      Authorization: 'Bearer ' + accessToken
+    },
+    ...extraHeader
+  };
+}
+
+export { spotifyInstance, createHeader };
