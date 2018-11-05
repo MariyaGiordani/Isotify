@@ -3,9 +3,9 @@ import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
+import { getTopArtistsWithAlbums } from '../../services/artists';
+import { topArtistsWithAlbums as parseTopArtists } from '../../utils/spotifyReponseParsers';
 import './Artists.css';
-
-import mockArtists from '../../mockData/artistsMock';
 
 export default class ArtistsListView extends Component {
   state = {
@@ -14,6 +14,24 @@ export default class ArtistsListView extends Component {
     artistsAmount: 0,
     songsAmount: 0
   };
+
+  componentDidMount() {
+    getTopArtistsWithAlbums().then((artists) => {
+      let parsedArtists = parseTopArtists(artists);
+      parsedArtists = parsedArtists.filter(
+        (artist) => artist.albums.length > 0
+      );
+
+      const totalTracks = parsedArtists.reduce(
+        (total, currentArtist) => total + currentArtist.totalTracks,
+        0
+      );
+
+      this.setState({ songsAmount: totalTracks });
+      this.setState({ artists: parsedArtists });
+      this.setState({ artistsAmount: parsedArtists.length });
+    });
+  }
 
   changeViewMode = (isListSelected) => this.setState({ isListSelected });
 
@@ -38,7 +56,7 @@ export default class ArtistsListView extends Component {
           </HeaderLine>
 
           {isListSelected ? (
-            <ArtistsList artists={mockArtists} />
+            <ArtistsList artists={artists} />
           ) : (
             <ArtistsGrid artists={artists} />
           )}

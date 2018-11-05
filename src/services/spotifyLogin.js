@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function spotifyRequest(params) {
+export function spotifyLogin(params) {
   const stateKey = 'spotify_auth_state';
 
   const access_token = params.access_token,

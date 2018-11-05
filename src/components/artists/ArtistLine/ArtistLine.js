@@ -8,7 +8,7 @@ const ArtistLine = ({ artist }) => (
     <div className="artist-line__section">
       <div className="artist-line__upper-line">
         <img
-          src={artist.images[0].url}
+          src={artist.imgSrc}
           alt={artist.name}
           className="artist-line__artist-icon"
         />
