@@ -13,8 +13,8 @@ const Header = () => (
       <img className="header__icon-image" alt="" />
     </div>
     <div className="header__wrap">
-      <p className="header-user__name">Darya Vermalen</p>
-      <a className="header-user__profile" href="#viewprofile">
+      <p className="header__user-name">Darya Vermalen</p>
+      <a className="header__user-profile" href="#viewprofile">
         VIEW PROFILE
       </a>
     </div>

@@ -29,18 +29,16 @@
     left: 50%;
 }
 
-.header-user__name {
+.header__user-name {
     font-size: 16px;
     font-weight: 900;
     color: var(--black-text-color);
     padding: 5px 0 0 4px;
 }
 
-.header-user__profile {
+.header__user-profile {
     font-size: 10px;
     font-weight: 900;
-    font-style: normal;
-    font-stretch: normal;
     letter-spacing: 2px;
     color: var(--gray-text-color);
     padding-left: 4px;
@@ -128,11 +126,11 @@
         padding-left: 15px;
     }
 
-    .header-user__name {
+    .header__user-name {
         font-size: 12px;
     }
 
-    .header-user__profile {
+    .header__user-profile {
         font-size: 7px;
     }
 
