@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import ArtistDetails from './views/Artists/details';
 import ArtistsList from './views/Artists/list';
-import Albums from './views/Albums/albums';
+import Albums from './views/Albums/list';
 import Songs from './views/Songs/list';
 import Playlists from './views/Playlists/list';
 import Genres from './views/Genres/list';
