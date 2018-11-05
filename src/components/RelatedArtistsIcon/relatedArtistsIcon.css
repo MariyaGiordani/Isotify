@@ -4,7 +4,6 @@
   margin: 7px;
   background-color: var(--light-text-color);
   border-radius: 50%;
-  display: block;
   position: relative;
   overflow: hidden;
 }
@@ -14,4 +13,12 @@
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
+}
+
+@media only screen and (max-width: 500px) {
+  .related-artists-icons {
+    height: 33px;
+    width: 33px;
+    margin: 7px;
+  }
 }
