@@ -4,7 +4,7 @@ import { isUserLogged } from './isUserLogged';
 import Sidebar from '../components/Sidebar/sidebar';
 import Header from '../components/Header/header';
 
-export function showSidebar() {
+export function showSidebarHeader() {
   if (isUserLogged()) {
     return (
       <Fragment>
