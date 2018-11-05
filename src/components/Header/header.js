@@ -7,10 +7,16 @@ import playlisticonImg from '../../assets/img/playlisticon.png';
 import mountainImg from '../../assets/img/mountain.png';
 import Search from '../../components/Search/search';
 
-const Header = () => (
+const Header = (props) => (
   <div className="header">
     <div className="header__icon">
-      <img className="header__icon-image" alt="User face" />
+      {props.src && (
+        <img
+          className="header__icon-image"
+          alt="User Profile"
+          src={props.src}
+        />
+      )}
     </div>
     <div className="header__wrap">
       <p className="header__user-name">Darya Vermalen</p>
