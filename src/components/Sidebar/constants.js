@@ -40,7 +40,8 @@ export const LINKS = [
     position: 6,
     name: 'Discover',
     to: '/discover',
-    src: discoverImage
+    src: discoverImage,
+    spacer: true
   },
   {
     position: 7,

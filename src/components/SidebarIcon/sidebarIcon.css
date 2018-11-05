@@ -33,8 +33,7 @@
   background-color: var(--red-pink);
 }
 
-.sidebar-icon__image-wrapper--6{
-  margin-top: 90px; 
+.sidebar-icon__image-wrapper--6{ 
   background-color: var(--pink-red);
 }
 
@@ -51,6 +50,10 @@
   bottom: 0;
   margin: auto;
   position: absolute;
+}
+
+.sidebar-icon--vertical-spacer {
+  margin-top: 90px;
 }
 
 .sidebar-icon__title {

@@ -32,6 +32,7 @@ class SideBar extends Component {
         onLinkClicked={onLinkClicked}
         isSelected={selectedLink === link.to}
         name={link.name}
+        spacer={link.spacer}
       />
     ));
   }

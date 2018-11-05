@@ -9,7 +9,6 @@
 } */
 
 .sidebar {
-  padding-top: 30px;
   width: 100px;
   height: 100vh;
   align-items: center;
@@ -45,20 +44,12 @@
 }
 
 @media (min-width: 600px){
-    .sidebar{
-      padding-top: 0px;
-      position: relative;
-      left: 0;
-    }
-
     .sidebar--collapsed {
-      position: relative;
       top: 0;
       left: 0;
     }
     
     .sidebar--show{
-      position: relative;
       top: 0;
       left: 0;
     }
