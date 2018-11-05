@@ -16,16 +16,19 @@ class SideBar extends Component {
     const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
     const { selectedLink } = this.state;
 
-    return LINKS.map((link, index) => (
-      <SidebarIcon
-        key={index}
-        to={link.to}
-        src={link.src}
-        onLinkClicked={onLinkClicked}
-        isSelected={selectedLink === link.to}
-        name={link.name}
-      />
-    ));
+    return LINKS.map((link, index) => {
+      const matchCase = new RegExp(`^${link.to}`);
+      return (
+        <SidebarIcon
+          key={index}
+          to={link.to}
+          src={link.src}
+          onLinkClicked={onLinkClicked}
+          isSelected={!!selectedLink.match(matchCase)}
+          name={link.name}
+        />
+      );
+    });
   }
 
   render() {

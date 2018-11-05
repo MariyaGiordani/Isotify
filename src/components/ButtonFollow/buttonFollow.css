@@ -5,10 +5,8 @@
     box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     padding: 10px 25px;
-
     color: var(--button-follow-color);
     font-size: 17px;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     letter-spacing: 2px;
 }
@@ -17,4 +15,18 @@
     width: 24px;
     margin-right: 18px;
     vertical-align: middle;
+}
+
+@media only screen and (max-width: 500px) {
+    .button-follow {
+        height: 45px;
+        border-radius: 10px;
+        padding: 10px 16px;
+        font-size: 10px;
+    }
+    
+    .button-follow__icon {
+        width: 15px;
+        margin-right: 6px;
+    }
 }
