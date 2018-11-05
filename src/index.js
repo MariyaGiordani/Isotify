@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import ArtistDetails from './views/Artists/details';
+import ArtistDetails from './views/Artists/detail';
 import ArtistsList from './views/Artists/list';
 import Albums from './views/Albums/list';
 import Songs from './views/Songs/list';
