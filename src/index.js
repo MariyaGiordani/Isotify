@@ -28,6 +28,7 @@ const routes = () => (
       <Route path="/artists/:artistId" component={ArtistDetails} />
       <Route path="/albums" component={Albums} />
       <Route path="/artists" component={ArtistsList} />
+      <Route path="/artists/related/:artistsIds" component={ArtistsList} />
       <Redirect exact from="/" to="login" />
       <Route component={NotFound} />
     </Switch>

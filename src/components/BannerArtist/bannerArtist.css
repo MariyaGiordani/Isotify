@@ -4,7 +4,10 @@
     background-image: var(--banner-artist-background-image);
     background-color: var(--banner-artist-background-color);
     padding: 122px 80px 0;
+    background-size: cover;
+    background-position: top;
 }
+
 
 .banner-artist__title {
     font-size: 52px;

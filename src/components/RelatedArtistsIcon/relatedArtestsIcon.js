@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './relatedArtistsIcon.css';
 
-const RelatedArtistsIcon = ({ src }) => {
+const RelatedArtistsIcon = ({ src, id }) => {
   return (
-    <div className="related-artists-icons">
+    <Link to={`/artists/${id}`} className="related-artists-icons">
       <img
         className="related-artists-icons__image"
         alt="Related artis"
         src={src}
       />
-    </div>
+    </Link>
   );
 };
 

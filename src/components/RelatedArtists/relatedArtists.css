@@ -1,7 +1,7 @@
 .related-artists {
     position: absolute;
     right: 0px;
-    margin-top: 220px;
+    margin-top: 180px;
     margin-right: 40px;
 }
 
@@ -28,9 +28,16 @@
     margin-right: 15px
 }
 
+@media only screen and (max-width: 768px) {
+    .related-artists {
+        margin-top: 100px;
+        margin-right: 20px;
+    }
+}
+
 @media only screen and (max-width: 425px) {
     .related-artists {
-        margin-top: 130px;
+        margin-top: 100px;
         margin-right: 20px;
     }
 
@@ -53,7 +60,7 @@
 
 @media only screen and (max-width: 375px) {
     .related-artists {
-        margin-top: 130px;
+        margin-top: 90px;
     }
 
     .related-artists__line {
