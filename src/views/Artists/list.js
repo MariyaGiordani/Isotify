@@ -4,7 +4,7 @@ import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import { getTopArtistsWithAlbums } from '../../services/artists';
-import { topArtistsWithAlbums as parseTopArtists } from '../../utils/spotifyReponseParsers';
+import { topArtistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
 import './Artists.css';
 
 export default class ArtistsListView extends Component {
@@ -18,14 +18,9 @@ export default class ArtistsListView extends Component {
   componentDidMount() {
     getTopArtistsWithAlbums().then((artists) => {
       let parsedArtists = parseTopArtists(artists);
-      parsedArtists = parsedArtists.filter(
-        (artist) => artist.albums.length > 0
-      );
+      parsedArtists = parsedArtists.filter((artist) => artist.albums.length > 0);
 
-      const totalTracks = parsedArtists.reduce(
-        (total, currentArtist) => total + currentArtist.totalTracks,
-        0
-      );
+      const totalTracks = parsedArtists.reduce((total, currentArtist) => total + currentArtist.totalTracks, 0);
 
       this.setState({ songsAmount: totalTracks });
       this.setState({ artists: parsedArtists });
@@ -48,18 +43,10 @@ export default class ArtistsListView extends Component {
               subtitle
             }}
           >
-            <SwitchButton
-              firstOption="Grid"
-              secondOption="List"
-              inputFunction={this.changeViewMode}
-            />
+            <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.changeViewMode} />
           </HeaderLine>
 
-          {isListSelected ? (
-            <ArtistsList artists={artists} />
-          ) : (
-            <ArtistsGrid artists={artists} />
-          )}
+          {isListSelected ? <ArtistsList artists={artists} /> : <ArtistsGrid artists={artists} />}
         </div>
       </React.Fragment>
     );
