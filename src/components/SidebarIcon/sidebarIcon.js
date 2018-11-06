@@ -16,7 +16,7 @@ const SidebarIcon = (props) => (
         props.position
       } ${props.spacer && 'sidebar-icon--vertical-spacer'}`}
     >
-      <img className="sidebar-icon__image" alt="" src={props.src} />
+      <img className="sidebar-icon__image" alt={props.alt} src={props.src} />
       {props.isSelected && <SelectedIcon />}
     </div>
     <p className="sidebar-icon__title">{props.name}</p>

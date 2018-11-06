@@ -33,6 +33,7 @@ class SideBar extends Component {
         isSelected={selectedLink === link.to}
         name={link.name}
         spacer={link.spacer}
+        alt={link.alt}
       />
     ));
   }

@@ -19,3 +19,9 @@ body {
 .container {
   padding-left: 100px;
 }
+
+@media (max-width: 425px) {
+  .container {
+    padding-left: 0;
+  }
+}

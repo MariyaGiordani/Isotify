@@ -66,3 +66,11 @@
   text-align: center;
   color: var(--light-text-color);
 }
+
+@media (max-width: 425px) {
+  .sidebar-icon__image-wrapper {
+    height: 50px;
+    width: 50px;
+    margin: 20px auto 10px;
+  }
+}
