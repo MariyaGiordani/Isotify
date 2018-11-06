@@ -21,10 +21,7 @@ export default class Albums extends Component {
       .then((response) => {
         const albums = parseSavedAlbums(response.data);
         const albumsAmount = albums.length;
-        const songsAmount = albums.reduce(
-          (total, currentAlbum) => total + currentAlbum.songsAmount,
-          0
-        );
+        const songsAmount = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
         this.setState({ albums });
         this.setState({ albumsAmount });
         this.setState({ songsAmount });
@@ -49,17 +46,9 @@ export default class Albums extends Component {
               subtitle
             }}
           >
-            <SwitchButton
-              firstOption="Grid"
-              secondOption="List"
-              inputFunction={this.handleClick}
-            />
+            <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.handleClick} />
           </HeaderLine>
-          {isListSelected ? (
-            <AlbumsList albums={albums} />
-          ) : (
-            <AlbumsGrid size="big" albums={albums} />
-          )}
+          {isListSelected ? <AlbumsList albums={albums} /> : <AlbumsGrid size="big" albums={albums} />}
         </div>
       </React.Fragment>
     );

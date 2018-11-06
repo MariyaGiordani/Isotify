@@ -11,6 +11,11 @@
   box-sizing: border-box;
 }
 
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
 body {
   background-color: var(--white-color);
   font-family: "Montserrat", sans-serif,Arial, Helvetica;
