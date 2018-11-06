@@ -4,7 +4,6 @@ import ArtistNavigationItems from '../../components/ArtistNavigationItems/artist
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
-import { Redirect } from 'react-router-dom';
 
 export default class Details extends Component {
   state = {
