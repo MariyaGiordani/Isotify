@@ -6,6 +6,11 @@
   flex-direction: row;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .artist-line__section {
   box-sizing: border-box;
   background-image: var(--gray-gradient);
@@ -73,7 +78,6 @@
 .artist-line__more-dot::after {
   bottom: 7px;
 }
-
 
 .artist-line__tittle {
   font-size: 18px;
