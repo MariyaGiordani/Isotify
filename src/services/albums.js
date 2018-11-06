@@ -12,13 +12,13 @@ function getAlbums(ids) {
 function getAlbumsFromArtist(artistId) {
   const nextUrl = `${urlPrefix}artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50&`;
   const albums = [];
-  return getAlbumsFromArtistRecursively(albums, nextUrl);
+  return getAlbumsRecursively(albums, nextUrl);
 }
 
-function getAlbumsFromArtistRecursively(albums, nextUrl) {
+function getAlbumsRecursively(albums, nextUrl) {
   return axios.get(nextUrl, createHeader()).then(function(response) {
     if (response.data.next) {
-      return getAlbumsFromArtistRecursively(albums.concat(response.data.items), response.data.next);
+      return getAlbumsRecursively(albums.concat(response.data.items), response.data.next);
     } else {
       return albums.concat(response.data.items);
     }
