@@ -19,7 +19,7 @@ const Header = (props) => (
       )}
     </div>
     <div className="header__wrap">
-      <p className="header__user-name">Darya Vermalen</p>
+      <p className="header__user-name">{props.name}</p>
       <a className="header__user-profile" href="#viewprofile">
         VIEW PROFILE
       </a>
