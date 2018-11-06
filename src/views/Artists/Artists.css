@@ -1,3 +1,7 @@
 .artists-view{
     padding: 50px 20px 0px 20px;
 }
+
+.artists-view__wrap{
+    margin-top: 70px;
+  }

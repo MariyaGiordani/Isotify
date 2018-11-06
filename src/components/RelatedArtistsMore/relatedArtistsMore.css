@@ -52,3 +52,30 @@
 .related-artists-more__dot::after {
     left: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+    .related-artists-more {
+        height: 33px;
+        width: 33px;
+        margin: 7px;
+    }
+
+    .related-artists-more__dot {
+        width: 3px;
+        height: 3px;
+    }
+
+    .related-artists-more__dot::before, 
+    .related-artists-more__dot::after {
+        width: 3px;
+        height: 3px;
+    }
+
+    .related-artists-more__dot::before {
+        left: -7px;
+    }
+    
+    .related-artists-more__dot::after {
+        left: 7px;
+    }
+}
