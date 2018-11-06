@@ -1,5 +1,5 @@
 import { spotifyInstance, createHeader } from './axiosInstances';
-import { getAllAlbumsFromArtist as getAllAlbums } from './albums';
+import { getAlbumsFromArtist as getAllAlbums } from './albums';
 
 function getTopArtists() {
   return spotifyInstance.get('me/top/artists', createHeader());
