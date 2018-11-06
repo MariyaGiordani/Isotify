@@ -27,9 +27,11 @@ const Header = (props) => (
     <img className="header__image-triangle" alt="" src={triangleImg} />
     <div className="header__devider" />
     <Search />
-    <img className="header__image-playlist" alt="" src={playlisticonImg} />
-    <div className="header__devider" />
-    <img className="header__image-mountain" alt="" src={mountainImg} />
+    <div className="header__icon-right">
+      <img className="header__image-playlist" alt="" src={playlisticonImg} />
+      <div className="header__devider" />
+      <img className="header__image-mountain" alt="" src={mountainImg} />
+    </div>
   </div>
 );
 

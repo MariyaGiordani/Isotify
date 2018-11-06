@@ -57,32 +57,27 @@
     margin: 12px 20px 20px 100px;
 }
 
+.header__icon-right {
+    display: flex;
+    margin-left: auto;
+}
+
 .header__image-playlist {
     width: 20px;
     height: 15px;
-    margin: 12px 25px 20px 830px;
+    margin: 12px;
 }
 
 .header__image-mountain {
     width: 25px;
     height: 15px;
-    margin: 12px 20px 20px 25px;
+    margin: 12px 40px 12px 12px;
 }
 
 .header__devider {
     width: 2px;
     height: 40px;
     background-color: var(--white-grey);
-}
-
-@media only screen and (max-width: 1440px) {
-    .header__image-triangle {
-        margin-left: 50px;
-    }
-    
-    .header__image-playlist {
-        margin-left: 500px;
-    }
 }
 
 @media only screen and (max-width: 1024px) {
