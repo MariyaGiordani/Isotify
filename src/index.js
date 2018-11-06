@@ -8,14 +8,14 @@ import Albums from './views/Albums/albums';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import { isUserLogged } from './utils/isUserLogged';
-import { showSidebarHeader } from './utils/showSidebarHeader';
+import { showMenus } from './utils/showMenus';
 
 import './index.css';
 import './variables.css';
 
 const routes = () => (
   <Fragment>
-    {showSidebarHeader()}
+    {showMenus()}
     <Switch>
       <Route path="/login" component={Login} />
       {!isUserLogged() && (
