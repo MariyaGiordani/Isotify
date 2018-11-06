@@ -50,7 +50,6 @@ export default class Details extends Component {
         <div className="container">
           <BannerArtist
             name={name}
-            albums={albums}
             albumsAmount={albumsAmount}
             songsAmount={songsAmount}
             relatedArtists={relatedArtists}
@@ -58,7 +57,7 @@ export default class Details extends Component {
           />
           <ArtistNavigationItems />
           <div className="artists-view__wrap">
-            <AlbumsGrid />
+            <AlbumsGrid albums={albums} />
           </div>
         </div>
       </Fragment>
