@@ -16,9 +16,7 @@ export default class Details extends Component {
     imgSrc: ''
   };
 
-  componentDidMount() {
-    const artistId = this.props.match.params.artistId;
-
+  fetchArtistData(artistId) {
     getArtist(artistId)
       .then((response) => {
         const artist = parseArtist(response);
@@ -32,19 +30,27 @@ export default class Details extends Component {
         });
       })
       .catch(() => {
-        window.location.assign('/404');
+        //window.location.assign('/404');
       });
   }
 
+  getCurrentArtistId = () => this.props.match.params.artistId;
+
+  componentDidUpdate(prevProps) {
+    const artistId = this.getCurrentArtistId();
+    if (prevProps.match.params.artistId !== artistId) {
+      this.fetchArtistData(artistId);
+    }
+  }
+
+  componentDidMount() {
+    const artistId = this.getCurrentArtistId();
+    console.log(artistId);
+    this.fetchArtistData(artistId);
+  }
+
   render = () => {
-    const {
-      name,
-      albums,
-      songsAmount,
-      albumsAmount,
-      relatedArtists,
-      imgSrc
-    } = this.state;
+    const { name, albums, songsAmount, albumsAmount, relatedArtists, imgSrc } = this.state;
     return (
       <Fragment>
         <div className="container">
@@ -57,7 +63,7 @@ export default class Details extends Component {
           />
           <ArtistNavigationItems />
           <div className="artists-view__wrap">
-            <AlbumsGrid albums={albums} />
+            <AlbumsGrid albums={albums} size="big" />
           </div>
         </div>
       </Fragment>
