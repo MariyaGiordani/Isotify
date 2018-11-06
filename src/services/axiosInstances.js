@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const urlPrefix = 'https://api.spotify.com/v1/';
+
 const spotifyInstance = axios.create({
-  baseURL: 'https://api.spotify.com/v1/'
+  baseURL: urlPrefix
 });
 
 function createHeader(extraHeader) {
@@ -14,4 +16,4 @@ function createHeader(extraHeader) {
   };
 }
 
-export { spotifyInstance, createHeader };
+export { spotifyInstance, createHeader, urlPrefix };

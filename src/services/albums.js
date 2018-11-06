@@ -1,4 +1,4 @@
-import { spotifyInstance, createHeader } from './axiosInstances';
+import { spotifyInstance, createHeader, urlPrefix } from './axiosInstances';
 import axios from 'axios';
 
 function getSavedAlbums() {
@@ -10,7 +10,7 @@ function getAlbums(ids) {
 }
 
 function getAlbumsFromArtist(artistId) {
-  const nextUrl = `https://api.spotify.com/v1/artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50&`;
+  const nextUrl = `${urlPrefix}artists/${artistId}/albums?market=BR&include_groups=album,single&limit=50&`;
   const albums = [];
   return getAlbumsFromArtistRecursively(albums, nextUrl);
 }
