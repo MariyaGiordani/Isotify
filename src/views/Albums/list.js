@@ -22,9 +22,7 @@ export default class Albums extends Component {
         const albums = parseSavedAlbums(response.data);
         const albumsAmount = albums.length;
         const songsAmount = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
-        this.setState({ albums });
-        this.setState({ albumsAmount });
-        this.setState({ songsAmount });
+        this.setState({ albums, albumsAmount, songsAmount });
       })
       .catch(() => {
         window.alert('Sorry, we cannot complete your request right now.');
