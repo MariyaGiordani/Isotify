@@ -13,15 +13,14 @@ import Settings from './views/Settings/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
 import { isUserLogged } from './utils/isUserLogged';
-import { showSidebar } from './utils/showSidebar';
+import { showMenus } from './utils/showMenus';
 
 import './index.css';
 import './variables.css';
-import { config } from 'dotenv';
 
 const routes = () => (
   <Fragment>
-    {showSidebar()}
+    {showMenus()}
     <Switch>
       <Route path="/login" component={Login} />
       {!isUserLogged() && (
