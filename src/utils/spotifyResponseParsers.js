@@ -1,6 +1,6 @@
-const albumsList = (data) => data.items.map((album) => parseAlbumInfo(album));
+const albumsList = (rawAlbums) => rawAlbums.map((album) => parseAlbumInfo(album));
 
-const savedAlbums = (data) => data.items.map((albumInfo) => parseAlbumInfo(albumInfo.album));
+const savedAlbums = (rawAlbums) => rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
 const parseAlbumInfo = (album) => ({
   title: album.name,
@@ -30,8 +30,7 @@ const artistWithAlbumsAndRelated = (artist) => {
 };
 
 const artistWithAlbums = (artist) => {
-  const unMergedAlbums = artist.albums.map((rawAlbum) => albumsList(rawAlbum.data));
-  const albums = [].concat.apply([], unMergedAlbums);
+  const albums = albumsList(artist.albums);
   const totalTracks = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
 
   return {
