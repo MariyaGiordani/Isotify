@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { spotifyRequest } from '../../services/spotifyRequest';
+import { spotifyLogin } from '../../services/spotifyLogin';
 import { authenticate } from '../../services/spotify';
 import { getHashParams } from '../../utils/getHashParams';
 import { isUserLogged } from '../../utils/isUserLogged';
@@ -12,7 +12,7 @@ const access_token_test = localStorage.getItem('access_token');
 if (!access_token_test) {
   const params = getHashParams();
   if (params.access_token) {
-    spotifyRequest(params);
+    spotifyLogin(params);
   }
 }
 export default () => {

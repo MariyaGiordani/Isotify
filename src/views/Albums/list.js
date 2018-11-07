@@ -4,9 +4,9 @@ import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import AlbumsList from '../../components/albums/albumsList/albumsList';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
+import { getSavedAlbums } from '../../services/albums';
+import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyResponseParsers';
 import './albums.css';
-
-import mockAlbums from '../../mockData/albumsMock';
 
 export default class Albums extends Component {
   state = {
@@ -15,6 +15,19 @@ export default class Albums extends Component {
     albumsAmount: 0,
     songsAmount: 0
   };
+
+  componentDidMount() {
+    getSavedAlbums()
+      .then((rawAlbums) => {
+        const albums = parseSavedAlbums(rawAlbums);
+        const albumsAmount = albums.length;
+        const songsAmount = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
+        this.setState({ albums, albumsAmount, songsAmount });
+      })
+      .catch(() => {
+        window.alert('Sorry, we cannot complete your request right now.');
+      });
+  }
 
   handleClick = (isListSelected) => this.setState({ isListSelected });
 
@@ -31,17 +44,9 @@ export default class Albums extends Component {
               subtitle
             }}
           >
-            <SwitchButton
-              firstOption="Grid"
-              secondOption="List"
-              inputFunction={this.handleClick}
-            />
+            <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.handleClick} />
           </HeaderLine>
-          {isListSelected ? (
-            <AlbumsList albums={albums} />
-          ) : (
-            <AlbumsGrid size="big" albums={mockAlbums} />
-          )}
+          {isListSelected ? <AlbumsList albums={albums} /> : <AlbumsGrid size="big" albums={albums} />}
         </div>
       </React.Fragment>
     );
