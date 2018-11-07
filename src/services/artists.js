@@ -2,7 +2,7 @@ import { spotifyInstance, createHeader } from './axiosInstances';
 import { getAlbumsFromArtist as getAllAlbums } from './albums';
 
 function getTopArtists() {
-  return spotifyInstance.get('me/top/artists', createHeader());
+  return spotifyInstance.get('me/top/artists', createHeader()).then((response) => response.data.items);
 }
 
 function getRelatedArtists(artistId) {
@@ -31,9 +31,9 @@ function getArtist(artistId) {
 }
 
 function getTopArtistsWithAlbums() {
-  return getTopArtists().then((response) => {
+  return getTopArtists().then((artists) => {
     return Promise.all(
-      response.data.items.map((artist) =>
+      artists.map((artist) =>
         getAllAlbums(artist.id).then((albums) => ({
           ...artist,
           albums

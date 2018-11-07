@@ -1,4 +1,4 @@
-const albumsList = (data) => data.map((album) => parseAlbumInfo(album));
+const albumsList = (data) => data.items.map((album) => parseAlbumInfo(album));
 
 const savedAlbums = (data) => data.items.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
@@ -20,7 +20,9 @@ const parseArtist = (artist) => ({
 });
 
 const artistWithAlbumsAndRelated = (artist) => {
-  const relatedArtists = artist.relatedArtists.data.artists.map((relatedArtist) => parseArtist(relatedArtist));
+  const relatedArtists = artist.relatedArtists.data.artists.map((relatedArtist) =>
+    parseArtist(relatedArtist)
+  );
   return {
     ...artistWithAlbums(artist),
     relatedArtists
@@ -28,8 +30,8 @@ const artistWithAlbumsAndRelated = (artist) => {
 };
 
 const artistWithAlbums = (artist) => {
-  const albums = albumsList(artist.albums);
-
+  const unMergedAlbums = artist.albums.map((rawAlbum) => albumsList(rawAlbum.data));
+  const albums = [].concat.apply([], unMergedAlbums);
   const totalTracks = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
 
   return {
@@ -41,4 +43,11 @@ const artistWithAlbums = (artist) => {
 
 const topArtistsWithAlbums = (artists) => artists.map((artist) => artistWithAlbums(artist));
 
-export { albumsList, savedAlbums, parseAlbumInfo, topArtistsWithAlbums, artistWithAlbums, artistWithAlbumsAndRelated };
+export {
+  albumsList,
+  savedAlbums,
+  parseAlbumInfo,
+  topArtistsWithAlbums,
+  artistWithAlbums,
+  artistWithAlbumsAndRelated
+};

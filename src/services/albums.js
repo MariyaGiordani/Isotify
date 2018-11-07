@@ -18,9 +18,11 @@ function getAlbumsFromArtist(artistId) {
 function getAlbumsRecursively(albums, nextUrl) {
   return axios.get(nextUrl, createHeader()).then(function(response) {
     if (response.data.next) {
-      return getAlbumsRecursively(albums.concat(response.data.items), response.data.next);
+      albums.push(response);
+      return getAlbumsRecursively(albums, response.data.next);
     } else {
-      return albums.concat(response.data.items);
+      albums.push(response);
+      return albums;
     }
   });
 }

@@ -1,0 +1,77 @@
+.search {
+    display: flex;
+}
+
+.search__image {
+    width: 20px;
+    height: 20px;
+    margin: 12px 20px 20px 30px;
+}
+
+.search__song {
+    width: 500px;
+    height: 45px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border: none;
+    text-decoration: none;
+    border-bottom: 2px solid var(--grey);
+}
+
+.search__song::placeholder {
+    color: var(--white-greys);
+}
+
+@media only screen and (max-width: 1440px) {
+    .search__song {
+        width: 410px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .search__song {
+        width: 310px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .search__song {
+        width: 225px;
+    }
+
+    .search__image {
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .search {
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    .search__image {
+        width: 14px;
+        height: 14px;
+        margin: 10px;
+    }
+
+    .search__song {
+        width: 200px;
+        height: 25px;
+        font-size: 10px;
+        margin-left: 3px;
+        font-weight: 100;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .search {
+        margin-left: 10px;
+    }
+
+    .search__song {
+        width: 170px;
+    }
+}
+
