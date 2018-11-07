@@ -4,13 +4,7 @@ import './albumsGrid.css';
 
 const getAlbumsComponents = (albums = [], size) =>
   albums.map((album) => (
-    <Album
-      title={album.title}
-      author={album.author}
-      size={size}
-      imgSrc={album.imgSrc}
-      key={album.id}
-    />
+    <Album title={album.title} artist={album.artist} size={size} imgSrc={album.imgSrc} key={album.id} />
   ));
 
 const AlbumsGrid = ({ albums, size }) => (
