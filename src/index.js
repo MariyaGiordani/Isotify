@@ -29,7 +29,7 @@ const routes = () => (
           render={(props) => <Login {...props} isUserLogged={isUserLogged} />}
         />
       )}
-      <Route path="/artists/:artistId" component={ArtistDetails} />
+      <Route path="/artists/:artistId/" component={ArtistDetails} />
       <Route path="/albums" component={Albums} />
       <Route path="/artists" component={ArtistsList} />
       <Route path="/artists/related/:artistsIds" component={ArtistsList} />
@@ -44,4 +44,7 @@ const routes = () => (
   </Fragment>
 );
 
-ReactDOM.render(<BrowserRouter>{routes()}</BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>{routes()}</BrowserRouter>,
+  document.getElementById('root')
+);

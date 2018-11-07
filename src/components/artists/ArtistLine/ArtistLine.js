@@ -8,22 +8,32 @@ const ArtistLine = ({ artist }) => (
   <div className="artist-line">
     <div className="artist-line__section">
       <div className="artist-line__upper-line">
-        <Link to={`/artists/${artist.id}`}>
-          <img src={artist.imgSrc} alt={artist.name} className="artist-line__artist-icon" />
+        <Link to={`/artists/${artist.id}/`}>
+          <img
+            src={artist.imgSrc}
+            alt={artist.name}
+            className="artist-line__artist-icon"
+          />
         </Link>
         <div className="artist-line__buttons">
-          <img src={shuffle} alt="shuffle" className="artist-line__shuffle-button" />
+          <img
+            src={shuffle}
+            alt="shuffle"
+            className="artist-line__shuffle-button"
+          />
           <div className="artist-line__more-dot" />
         </div>
       </div>
       <div className="artist-line__middle-line">
-        <Link to={`/artists/${artist.id}`}>
+        <Link to={`/artists/${artist.id}/`}>
           <div className="artist-line__tittle">{artist.name}</div>
-          <div className="artist-line__more-info">{`${artist.albums.length} Albums, ${artist.totalTracks} Songs`}</div>
+          <div className="artist-line__more-info">{`${
+            artist.albums.length
+          } Albums, ${artist.totalTracks} Songs`}</div>
         </Link>
       </div>
       <div className="artist-line__bottom-line">
-        <Link to={`/artists/${artist.id}`}>
+        <Link to={`/artists/${artist.id}/`}>
           <div className="artist-line__see-more-button">see bio's</div>
         </Link>
       </div>
