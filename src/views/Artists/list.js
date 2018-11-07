@@ -20,11 +20,16 @@ export default class ArtistsListView extends Component {
       let parsedArtists = parseTopArtists(artists);
       parsedArtists = parsedArtists.filter((artist) => artist.albums.length > 0);
 
-      const totalTracks = parsedArtists.reduce((total, currentArtist) => total + currentArtist.totalTracks, 0);
+      const totalTracks = parsedArtists.reduce(
+        (total, currentArtist) => total + currentArtist.totalTracks,
+        0
+      );
 
-      this.setState({ songsAmount: totalTracks });
-      this.setState({ artists: parsedArtists });
-      this.setState({ artistsAmount: parsedArtists.length });
+      this.setState({
+        songsAmount: totalTracks,
+        artists: parsedArtists,
+        artistsAmount: parsedArtists.length
+      });
     });
   }
 
