@@ -18,8 +18,8 @@ export default class Albums extends Component {
 
   componentDidMount() {
     getSavedAlbums()
-      .then((response) => {
-        const albums = parseSavedAlbums(response.data);
+      .then((rawAlbums) => {
+        const albums = parseSavedAlbums(rawAlbums);
         const albumsAmount = albums.length;
         const songsAmount = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
         this.setState({ albums, albumsAmount, songsAmount });
