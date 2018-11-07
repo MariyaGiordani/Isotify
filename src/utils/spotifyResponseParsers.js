@@ -1,7 +1,6 @@
-const albumsList = (data) => data.map((album) => parseAlbumInfo(album));
+const albumsList = (data) => data.map(parseAlbumInfo);
 
-const savedAlbums = (data) =>
-  data.items.map((albumInfo) => parseAlbumInfo(albumInfo.album));
+const savedAlbums = (data) => data.items.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
 const parseAlbumInfo = (album) => ({
   title: album.name,
@@ -15,10 +14,7 @@ const topArtistsWithAlbums = (artists) =>
   artists.map((artist) => {
     const albums = albumsList(artist.albums);
 
-    const totalTracks = albums.reduce(
-      (total, currentAlbum) => total + currentAlbum.songsAmount,
-      0
-    );
+    const totalTracks = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
 
     return {
       imgSrc: artist.images.length > 0 ? artist.images[0].url : '',
