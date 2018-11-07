@@ -6,28 +6,21 @@ function getTopArtists() {
 }
 
 function getRelatedArtists(artistId) {
-  return spotifyInstance.get(
-    `artists/${artistId}/related-artists`,
-    createHeader()
-  );
+  return spotifyInstance.get(`artists/${artistId}/related-artists`, createHeader());
 }
 
 function getArtist(artistId) {
-  return spotifyInstance
-    .get(`artists/${artistId}`, createHeader())
-    .then((artist) => {
-      // TODO: Promise.all
-      return getAllAlbums(artistId).then((albums) => ({
+  return spotifyInstance.get(`artists/${artistId}`, createHeader()).then((artist) => {
+    const promises = [getAllAlbums(artistId), getRelatedArtists(artistId)];
+    return Promise.all(promises).then((values) => {
+      console.log('dasd', values);
+      return {
         ...artist.data,
-        albums
-      }));
-    })
-    .then((artist) => {
-      return getRelatedArtists(artistId).then((relatedArtists) => ({
-        ...artist,
-        relatedArtists
-      }));
+        albums: values[0],
+        relatedArtists: values[1]
+      };
     });
+  });
 }
 
 function getTopArtistsWithAlbums() {
