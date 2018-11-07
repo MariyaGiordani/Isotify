@@ -12,11 +12,11 @@ function getRelatedArtists(artistId) {
 function getArtist(artistId) {
   return spotifyInstance.get(`artists/${artistId}`, createHeader()).then((artist) => {
     const promises = [getAllAlbums(artistId), getRelatedArtists(artistId)];
-    return Promise.all(promises).then(([albums, getRelatedArtists]) => {
+    return Promise.all(promises).then(([albums, relatedArtists]) => {
       return {
         ...artist.data,
         albums,
-        getRelatedArtists
+        relatedArtists
       };
     });
   });

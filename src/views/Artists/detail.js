@@ -18,7 +18,6 @@ export default class Details extends Component {
   fetchArtistData(artistId) {
     getArtist(artistId)
       .then((response) => {
-        console.log(response);
         const artist = parseArtist(response);
         this.setState({
           name: artist.name,
@@ -30,8 +29,7 @@ export default class Details extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
-        //window.location.assign('/404');
+        window.location.assign('/404');
       });
   }
 
