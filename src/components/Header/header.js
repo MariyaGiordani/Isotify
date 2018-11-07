@@ -15,12 +15,14 @@ export default class Header extends Component {
   };
 
   componentDidMount() {
-    getUserInfo().then((response) =>
+    getUserInfo().then((response) => {
+      const name = response.data.display_name;
+      const profilePicture = response.data.images[0].url;
       this.setState({
-        name: response.data.display_name,
-        profilePicture: response.data.images[0].url
-      })
-    );
+        name,
+        profilePicture
+      });
+    });
   }
   render = () => (
     <div className="header">
