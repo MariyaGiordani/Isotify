@@ -1,0 +1,147 @@
+.header {
+    box-shadow: var(--header-box-shadow);
+    background-color: var(--snow-white);
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    padding-top: 35px;
+    padding-left: 32px;
+    display: flex;
+    z-index: 2;
+}
+
+.header__icon {
+    height: 50px;
+    width: 50px;
+    background-color: var(--user-icon-color);
+    box-shadow: var(--header-icon-box-shadow);
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.header__icon-image {
+    height: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.header__user-name {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--black-text-color);
+    padding: 5px 0 0 4px;
+}
+
+.header__user-profile {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--gray-text-color);
+    padding-left: 4px;
+    text-decoration: none;
+}
+
+.header__wrap {
+    margin-left: 20px;
+    display: block;
+    position: relative;
+}
+
+.header__image-triangle {
+    width: 14px;
+    height: 14px;
+    margin: 12px 20px 20px 100px;
+}
+
+.header__icon-right {
+    display: flex;
+    margin-left: auto;
+}
+
+.header__image-playlist {
+    width: 20px;
+    height: 15px;
+    margin: 12px;
+}
+
+.header__image-mountain {
+    width: 25px;
+    height: 15px;
+    margin: 12px 40px 12px 12px;
+}
+
+.header__devider {
+    width: 2px;
+    height: 40px;
+    background-color: var(--white-grey);
+}
+
+@media only screen and (max-width: 1024px) {
+    .header__image-triangle {
+        margin-right: 15px;
+    }
+    
+    .header__image-playlist {
+        margin-left: 200px;
+    }
+    
+    .header__image-mountain {
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header{
+        height: 90px;
+        padding-top: 25px;
+    }
+
+    .header__image-triangle {
+        margin-left: 25px;
+    }
+    
+    .header__image-playlist {
+        margin-left: 90px;
+        margin-right: 12px
+    }
+    
+    .header__image-mountain {
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .header {
+        height: 60px;
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+    .header__user-name {
+        font-size: 12px;
+    }
+
+    .header__user-profile {
+        font-size: 7px;
+    }
+
+    .header__wrap {
+        margin-left: 5px;
+    }
+
+    .header__icon {
+        height: 30px;
+        width: 30px;
+    }
+
+    .header__image-triangle,
+    .header__image-mountain,
+    .header__image-playlist,
+    .header__devider {
+        display: none;
+    }
+}
