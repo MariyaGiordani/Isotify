@@ -13,7 +13,9 @@ const BannerArtist = (props) => {
       <img className="banner-artist__image" alt={props.name} src={props.imgSrc} />
       <div className="banner-artist__container">
         <h1 className="banner-artist__title">{props.name}</h1>
-        <p className="banner-artist__information">{`${props.albumsAmount} Albums, ${props.songsAmount} Songs`}</p>
+        <p className="banner-artist__information">
+          {props.albumsAmount} Albums, {props.songsAmount} Songs
+        </p>
         <div className="banner-artist__buttons-wrapper">
           <ButtonFollow />
           <ButtonPlaylist />
