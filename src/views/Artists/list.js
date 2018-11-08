@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
@@ -40,7 +40,7 @@ export default class ArtistsListView extends Component {
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="container artists-view">
           <HeaderLine
             {...{
@@ -53,7 +53,7 @@ export default class ArtistsListView extends Component {
 
           {isListSelected ? <ArtistsList artists={artists} /> : <ArtistsGrid artists={artists} />}
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   };
 }

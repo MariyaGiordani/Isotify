@@ -26,6 +26,16 @@ const parseArtist = (artist) => ({
   id: artist.id
 });
 
+const artistWithAlbumsAndRelated = (artist) => {
+  const relatedArtists = artist.relatedArtists.map((relatedArtist) =>
+    parseArtist(relatedArtist)
+  );
+  return {
+    ...artistWithAlbums(artist),
+    relatedArtists
+  };
+};
+
 const artistWithAlbums = (artist) => {
   const albums = albumsList(artist.albums);
   const totalTracks = albums.reduce(
@@ -48,5 +58,7 @@ export {
   savedAlbums,
   parseAlbumInfo,
   topArtistsWithAlbums,
-  userInfo
+  userInfo,
+  artistWithAlbums,
+  artistWithAlbumsAndRelated
 };

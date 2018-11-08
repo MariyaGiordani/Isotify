@@ -15,14 +15,14 @@ export default class Header extends Component {
     profilePicture: ''
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     getUserInfo().then((response) => {
       const userInfo = parseUserInfo(response);
       this.setState({
         ...userInfo
       });
     });
-  }
+  };
 
   render = () => {
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AlbumsGrid from '../../albums/albumsGrid/albumsGrid';
 import shuffle from '../../../assets/img/shuffle.svg';
 import './ArtistLine.css';
@@ -7,26 +8,24 @@ const ArtistLine = ({ artist }) => (
   <div className="artist-line">
     <div className="artist-line__section">
       <div className="artist-line__upper-line">
-        <img
-          src={artist.imgSrc}
-          alt={artist.name}
-          className="artist-line__artist-icon"
-        />
+        <Link to={`/artists/${artist.id}`}>
+          <img src={artist.imgSrc} alt={artist.name} className="artist-line__artist-icon" />
+        </Link>
         <div className="artist-line__buttons">
-          <img
-            src={shuffle}
-            alt="shuffle"
-            className="artist-line__shuffle-button"
-          />
+          <img src={shuffle} alt="shuffle" className="artist-line__shuffle-button" />
           <div className="artist-line__more-dot" />
         </div>
       </div>
       <div className="artist-line__middle-line">
-        <div className="artist-line__tittle">{artist.name}</div>
-        <div className="artist-line__more-info">some random Info</div>
+        <Link to={`/artists/${artist.id}`}>
+          <div className="artist-line__tittle">{artist.name}</div>
+          <div className="artist-line__more-info">{`${artist.albums.length} Albums, ${artist.totalTracks} Songs`}</div>
+        </Link>
       </div>
       <div className="artist-line__bottom-line">
-        <div className="artist-line__see-more-button">see bio's</div>
+        <Link to={`/artists/${artist.id}`}>
+          <div className="artist-line__see-more-button">see bio's</div>
+        </Link>
       </div>
     </div>
 
