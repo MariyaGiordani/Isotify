@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import RelatedArtistsIcon from '../../components/RelatedArtistsIcon/relatedArtestsIcon';
+import RelatedArtistsIcon from '../RelatedArtistsIcon/relatedArtistsIcon';
 import RelatedArtistsMore from '../RelatedArtistsMore/relatedArtistsMore';
 
 import './relatedArtists.css';
-import { mock } from './mock';
+const RelatedArtists = ({ artists }) => {
+  const artistsIds = artists.map((artist) => artist.id);
 
-const RelatedArtists = () => {
   const listIcons = () => {
-    return mock.map((link, index) => (
-      <RelatedArtistsIcon key={index} src={link.src} />
-    ));
+    return artists
+      .slice(0, 4)
+      .map((artist) => (
+        <RelatedArtistsIcon key={artist.id} src={artist.imgSrc} id={artist.id} artistName={artist.name} />
+      ));
   };
 
   return (
@@ -20,8 +22,8 @@ const RelatedArtists = () => {
       <p className="related-artists__text">RELATED ARTISTS</p>
       <div className="related-artists__wrap">
         {listIcons()}
-        {mock.length >= 4 && (
-          <Link to="">
+        {artists.length >= 4 && (
+          <Link to={`/artists/related/${artistsIds}`}>
             <RelatedArtistsMore />
           </Link>
         )}

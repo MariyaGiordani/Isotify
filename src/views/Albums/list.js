@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import AlbumsList from '../../components/albums/albumsList/albumsList';
@@ -36,7 +36,7 @@ export default class Albums extends Component {
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="container albumsView">
           <HeaderLine
             {...{
@@ -48,7 +48,7 @@ export default class Albums extends Component {
           </HeaderLine>
           {isListSelected ? <AlbumsList albums={albums} /> : <AlbumsGrid size="big" albums={albums} />}
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   };
 }

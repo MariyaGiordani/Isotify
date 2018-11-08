@@ -32,6 +32,7 @@ const routes = () => (
       <Route path="/artists/:artistId" component={ArtistDetails} />
       <Route path="/albums" component={Albums} />
       <Route path="/artists" component={ArtistsList} />
+      <Route path="/artists/related/:artistsIds" component={ArtistsList} />
       <Route path="/songs" component={Songs} />
       <Route path="/playlists" component={Playlists} />
       <Route path="/genres" component={Genres} />
@@ -43,7 +44,4 @@ const routes = () => (
   </Fragment>
 );
 
-ReactDOM.render(
-  <BrowserRouter>{routes()}</BrowserRouter>,
-  document.getElementById('root')
-);
+ReactDOM.render(<BrowserRouter>{routes()}</BrowserRouter>, document.getElementById('root'));

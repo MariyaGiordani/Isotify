@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './album.css';
 
 const Album = ({ imgSrc, size, title, artist }) => (
@@ -7,7 +8,9 @@ const Album = ({ imgSrc, size, title, artist }) => (
     <div className="album__info">
       <div className="album__text">
         <p className="album__text-title">{title}</p>
-        <p className="album__text-singer">{artist.name}</p>
+        <Link to={`/artists/${artist.id}`}>
+          <p className="album__text-singer">{artist.name}</p>
+        </Link>
       </div>
       <div className="album__options" />
     </div>
