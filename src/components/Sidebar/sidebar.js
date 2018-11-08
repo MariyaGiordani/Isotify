@@ -16,32 +16,36 @@ class SideBar extends Component {
     this.setState({ selectedLink });
   }
 
-  changeisCollapsed = () =>
+  changeIsCollapsed = () =>
     this.setState({ isCollapsed: !this.state.isCollapsed });
 
   _renderIcons() {
     const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
     const { selectedLink } = this.state;
 
-    return LINKS.map((link) => (
-      <SidebarIcon
-        key={link.position}
-        position={link.position}
-        to={link.to}
-        src={link.src}
-        onLinkClicked={onLinkClicked}
-        isSelected={selectedLink === link.to}
-        name={link.name}
-        spacer={link.spacer}
-        alt={link.alt}
-      />
-    ));
+    return LINKS.map(({ to, src, name, spacer, alt }, index) => {
+      const matchCase = new RegExp(`^${to}`);
+      return (
+        <SidebarIcon
+          {...{
+            key: index,
+            to,
+            src,
+            onLinkClicked,
+            name,
+            spacer,
+            alt,
+            isSelected: !!selectedLink.match(matchCase)
+          }}
+        />
+      );
+    });
   }
 
   render() {
     return (
       <Fragment>
-        <Hamburger haburgerClick={this.changeisCollapsed} />
+        <Hamburger hamburgerClick={this.changeIsCollapsed} />
         <div
           className={
             this.state.isCollapsed

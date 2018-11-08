@@ -10,11 +10,12 @@
   position: fixed;
   top: 0;
   left: 0;
+  outline: none;
+  border: none;
 }
 
 @media (min-width: 600px) {
   .hamburger-menu {
     display: none;
-    z-index: 4;
   }
 }
