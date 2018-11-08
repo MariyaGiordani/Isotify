@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import RelatedArtistsIcon from '../../components/RelatedArtistsIcon/relatedArtestsIcon';
+import RelatedArtistsIcon from '../RelatedArtistsIcon/relatedArtistsIcon';
 import RelatedArtistsMore from '../RelatedArtistsMore/relatedArtistsMore';
 
 import './relatedArtists.css';
@@ -11,13 +11,7 @@ const RelatedArtists = (props) => {
   const listIcons = () => {
     return props.artists
       .slice(0, 4)
-      .map((artist) => (
-        <RelatedArtistsIcon
-          key={artist.id}
-          src={artist.imgSrc}
-          id={artist.id}
-        />
-      ));
+      .map((artist) => <RelatedArtistsIcon key={artist.id} src={artist.imgSrc} id={artist.id} />);
   };
 
   return (
