@@ -20,9 +20,7 @@ const parseArtist = (artist) => ({
 });
 
 const artistWithAlbumsAndRelated = (artist) => {
-  const relatedArtists = artist.relatedArtists.data.artists.map((relatedArtist) =>
-    parseArtist(relatedArtist)
-  );
+  const relatedArtists = artist.relatedArtists.map((relatedArtist) => parseArtist(relatedArtist));
   return {
     ...artistWithAlbums(artist),
     relatedArtists

@@ -6,7 +6,9 @@ function getTopArtists() {
 }
 
 function getRelatedArtists(artistId) {
-  return spotifyInstance.get(`artists/${artistId}/related-artists`, createHeader());
+  return spotifyInstance
+    .get(`artists/${artistId}/related-artists`, createHeader())
+    .then((response) => response.data.artists);
 }
 
 function getArtist(artistId) {

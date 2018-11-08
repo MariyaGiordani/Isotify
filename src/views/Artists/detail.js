@@ -53,15 +53,17 @@ export default class Details extends Component {
       <Fragment>
         <div className="container">
           <BannerArtist
-            name={name}
-            albumsAmount={albumsAmount}
-            songsAmount={songsAmount}
-            relatedArtists={relatedArtists}
-            imgSrc={imgSrc}
+            {...{
+              name,
+              albumsAmount,
+              songsAmount,
+              relatedArtists,
+              imgSrc
+            }}
           />
           <ArtistNavigationItems />
           <div className="artists-view__wrap">
-            <AlbumsGrid albums={albums} size="big" />
+            <AlbumsGrid {...{ albums, size: 'big' }} />
           </div>
         </div>
       </Fragment>
