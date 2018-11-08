@@ -49,7 +49,7 @@ class SideBar extends Component {
               : 'sidebar sidebar--show'
           }
         >
-          <div className="sidebar">{this._renderIcons()}</div>
+          {this._renderIcons()}
         </div>
       </Fragment>
     );

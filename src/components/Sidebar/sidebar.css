@@ -1,4 +1,5 @@
 .sidebar {
+  margin-top: 100px;
   width: 100px;
   height: 100vh;
   align-items: center;
@@ -32,9 +33,15 @@
   padding: 25px
 }
 
+
+@media (max-width: 768px) {
+  .sidebar{
+    margin-top: 90px;
+  }
+}
+
 @media (min-width: 600px) {
   .sidebar--collapsed {
-    margin-top: 100px;
     top: 0;
     left: 0;
   }
@@ -45,15 +52,10 @@
   }
 }
 
-@media (max-width: 768px) {
-  .sidebar--collapsed {
-    margin-top: 90px;
-  }
-}
-
 @media (max-width: 425px) {
   .sidebar {
-    padding-top: 30px;
+    padding-top: 60px;
     margin-top: 0;
+    transition: 1s;
   }
 }
