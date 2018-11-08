@@ -1,6 +1,13 @@
-const albumsList = (rawAlbums) => rawAlbums.map((album) => parseAlbumInfo(album));
+const userInfo = (rawUserInfo) => ({
+  name: rawUserInfo.display_name,
+  profilePicture: rawUserInfo.images[0].url
+});
 
-const savedAlbums = (rawAlbums) => rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
+const albumsList = (rawAlbums) =>
+  rawAlbums.map((album) => parseAlbumInfo(album));
+
+const savedAlbums = (rawAlbums) =>
+  rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
 const parseAlbumInfo = (album) => ({
   title: album.name,
@@ -20,7 +27,9 @@ const parseArtist = (artist) => ({
 });
 
 const artistWithAlbumsAndRelated = (artist) => {
-  const relatedArtists = artist.relatedArtists.map((relatedArtist) => parseArtist(relatedArtist));
+  const relatedArtists = artist.relatedArtists.map((relatedArtist) =>
+    parseArtist(relatedArtist)
+  );
   return {
     ...artistWithAlbums(artist),
     relatedArtists
@@ -29,7 +38,10 @@ const artistWithAlbumsAndRelated = (artist) => {
 
 const artistWithAlbums = (artist) => {
   const albums = albumsList(artist.albums);
-  const totalTracks = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
+  const totalTracks = albums.reduce(
+    (total, currentAlbum) => total + currentAlbum.songsAmount,
+    0
+  );
 
   return {
     ...parseArtist(artist),
@@ -38,13 +50,15 @@ const artistWithAlbums = (artist) => {
   };
 };
 
-const topArtistsWithAlbums = (artists) => artists.map((artist) => artistWithAlbums(artist));
+const topArtistsWithAlbums = (artists) =>
+  artists.map((artist) => artistWithAlbums(artist));
 
 export {
   albumsList,
   savedAlbums,
   parseAlbumInfo,
   topArtistsWithAlbums,
+  userInfo,
   artistWithAlbums,
   artistWithAlbumsAndRelated
 };
