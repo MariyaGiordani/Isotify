@@ -63,7 +63,7 @@ export default class Details extends Component {
           />
           <ArtistNavigationItems />
           <div className="artists-view__wrap">
-            <AlbumsGrid {...{ albums, size: 'big' }} />
+            <AlbumsGrid {...{ albums, size: 'big' }} />
           </div>
         </div>
       </Fragment>
