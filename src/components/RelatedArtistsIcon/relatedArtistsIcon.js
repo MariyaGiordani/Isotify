@@ -4,12 +4,8 @@ import './relatedArtistsIcon.css';
 
 const RelatedArtistsIcon = ({ src, id }) => {
   return (
-    <Link to={`/artists/${id}`} className="related-artists-icons">
-      <img
-        className="related-artists-icons__image"
-        alt="Related artists"
-        src={src}
-      />
+    <Link to={`/artists/${id}`} className="related-artists-icon">
+      <img className="related-artists-icon__image" alt="Related artists" src={src} />
     </Link>
   );
 };

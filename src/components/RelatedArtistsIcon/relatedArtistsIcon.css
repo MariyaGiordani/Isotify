@@ -1,4 +1,4 @@
-.related-artists-icons {
+.related-artists-icon {
   height: 40px;
   width: 40px;
   margin: 7px;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.related-artists-icons__image {
+.related-artists-icon__image {
   height: 100%;
   position: absolute;
   transform: translateX(-50%);
@@ -16,7 +16,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .related-artists-icons {
+  .related-artists-icon {
     height: 33px;
     width: 33px;
     margin: 7px;
