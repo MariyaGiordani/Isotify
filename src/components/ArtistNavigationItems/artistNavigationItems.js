@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Item from '../NavigationItem/item';
+import Item from '../NavigationItem/navigationItem';
 
 import './artistNavigationItems.css';
 import { LINKS } from './constants';
@@ -31,6 +31,8 @@ class ArtistNavigationItems extends Component {
       );
     });
   }
+
+  // {link.component}
 
   render() {
     return <div className="navigation__items">{this._renderItems()}</div>;

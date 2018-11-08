@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import className from 'classnames';
 
-import './item.css';
+import './navigationItem.css';
 
 const Item = (props) => {
   const linkClass = className({
