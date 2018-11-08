@@ -1,38 +1,62 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import SidebarIcon from '../SidebarIcon/sidebarIcon';
+import Hamburger from '../../components/Hamburger/hamburger';
 
 import './sidebar.css';
 import { LINKS } from './constants';
 
 class SideBar extends Component {
-  state = { selectedLink: window.location.pathname };
+  state = {
+    selectedLink: window.location.pathname,
+    isCollapsed: true
+  };
 
   handlePageChange(selectedLink) {
     this.setState({ selectedLink });
   }
 
+  changeIsCollapsed = () =>
+    this.setState({ isCollapsed: !this.state.isCollapsed });
+
   _renderIcons() {
     const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
     const { selectedLink } = this.state;
 
-    return LINKS.map((link, index) => {
-      const matchCase = new RegExp(`^${link.to}`);
+    return LINKS.map(({ to, src, name, spacer, alt }, index) => {
+      const matchCase = new RegExp(`^${to}`);
       return (
         <SidebarIcon
-          key={index}
-          to={link.to}
-          src={link.src}
-          onLinkClicked={onLinkClicked}
-          isSelected={!!selectedLink.match(matchCase)}
-          name={link.name}
+          {...{
+            key: index,
+            to,
+            src,
+            onLinkClicked,
+            name,
+            spacer,
+            alt,
+            isSelected: !!selectedLink.match(matchCase)
+          }}
         />
       );
     });
   }
 
   render() {
-    return <div className="sidebar">{this._renderIcons()}</div>;
+    return (
+      <Fragment>
+        <Hamburger hamburgerClick={this.changeIsCollapsed} />
+        <div
+          className={
+            this.state.isCollapsed
+              ? 'sidebar sidebar--collapsed'
+              : 'sidebar sidebar--show'
+          }
+        >
+          {this._renderIcons()}
+        </div>
+      </Fragment>
+    );
   }
 }
 

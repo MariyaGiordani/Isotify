@@ -26,6 +26,12 @@ body {
   margin-top: 100px;
 }
 
+@media (max-width: 425px) {
+  .container {
+    margin-left: 0;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     margin-top: 90px;

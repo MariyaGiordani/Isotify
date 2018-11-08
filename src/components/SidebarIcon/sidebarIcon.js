@@ -11,8 +11,11 @@ const SidebarIcon = (props) => (
     to={props.to}
     onClick={() => props.onLinkClicked(props.to)}
   >
-    <div className="sidebar-icon__image-wrapper">
-      <img className="sidebar-icon__image" alt="" src={props.src} />
+    <div
+      className={`sidebar-icon__image-wrapper ${props.spacer &&
+        'sidebar-icon--vertical-spacer'}`}
+    >
+      <img className="sidebar-icon__image" alt={props.alt} src={props.src} />
       {props.isSelected && <SelectedIcon />}
     </div>
     <p className="sidebar-icon__title">{props.name}</p>
