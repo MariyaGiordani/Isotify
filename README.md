@@ -37,16 +37,15 @@ For the variables we have the following files:
 3. variables-modifiers.css (for rgba and shadows)
 
 #### Colors
-When creating a css Variable for the **colors** file, choose a base color and go three scales up or down in accord to the color being used, like this:
+When creating a css Variable for the **colors** file, choose a base color and go three scales up or down in accord to the color being used, adding a suffix, like this:
 -darkest
 -darker
 -dark
--base
 -light
 -lighter
 -lightest
 
-For instance, if we were to create a new color, `brick`, and after we were to put some variances of `brick`, the result would be like this:
+For instance, if we were to create a new color, named `brick`, and after we were to put some variances of `brick`, the result would be like this:
 
 `--brick-darkest`
 `--brick-darker`
