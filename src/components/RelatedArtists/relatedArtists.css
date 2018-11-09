@@ -18,7 +18,7 @@
 .related-artists__line {
     width: 600px;
     height: 4px;
-    background-color: var(--related-artists__ling-bg);
+    background-color: var(--related-artists__line-bg);
 }
 
 .related-artists__wrap {
