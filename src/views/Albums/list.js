@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import AlbumsList from '../../components/albums/albumsList/albumsList';
@@ -18,13 +18,11 @@ export default class Albums extends Component {
 
   componentDidMount() {
     getSavedAlbums()
-      .then((response) => {
-        const albums = parseSavedAlbums(response.data);
+      .then((rawAlbums) => {
+        const albums = parseSavedAlbums(rawAlbums);
         const albumsAmount = albums.length;
         const songsAmount = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
-        this.setState({ albums });
-        this.setState({ albumsAmount });
-        this.setState({ songsAmount });
+        this.setState({ albums, albumsAmount, songsAmount });
       })
       .catch(() => {
         window.alert('Sorry, we cannot complete your request right now.');
@@ -38,7 +36,7 @@ export default class Albums extends Component {
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="container albumsView">
           <HeaderLine
             {...{
@@ -50,7 +48,7 @@ export default class Albums extends Component {
           </HeaderLine>
           {isListSelected ? <AlbumsList albums={albums} /> : <AlbumsGrid size="big" albums={albums} />}
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   };
 }

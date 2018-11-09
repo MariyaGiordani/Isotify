@@ -5,7 +5,6 @@ import ArtistNavigation from '../../components/ArtistNavigation/artistNavigation
 // import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
-import { Redirect } from 'react-router-dom';
 
 export default class Details extends Component {
   state = {
@@ -30,8 +29,8 @@ export default class Details extends Component {
           imgSrc: artist.imgSrc
         });
       })
-      .catch(() => {
-        //window.location.assign('/404');
+      .catch((error) => {
+        window.location.assign('/404');
       });
   }
 
@@ -46,7 +45,6 @@ export default class Details extends Component {
 
   componentDidMount() {
     const artistId = this.getCurrentArtistId();
-    console.log(artistId);
     this.fetchArtistData(artistId);
   }
 
@@ -63,11 +61,13 @@ export default class Details extends Component {
       <Fragment>
         <div className="container">
           <BannerArtist
-            name={name}
-            albumsAmount={albumsAmount}
-            songsAmount={songsAmount}
-            relatedArtists={relatedArtists}
-            imgSrc={imgSrc}
+            {...{
+              name,
+              albumsAmount,
+              songsAmount,
+              relatedArtists,
+              imgSrc
+            }}
           />
           <ArtistNavigation
             name={name}
@@ -79,7 +79,9 @@ export default class Details extends Component {
           {/* <ArtistNavigationItems />
           <div className="artists-view__wrap">
             <AlbumsGrid albums={albums} size="big" />
-          </div> */}
+          // </div> */}
+          {/* //   <AlbumsGrid {...{ albums, size: 'big' }} />
+          // </div> */}
         </div>
       </Fragment>
     );

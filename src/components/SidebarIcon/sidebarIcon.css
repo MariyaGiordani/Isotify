@@ -7,11 +7,38 @@
 .sidebar-icon__image-wrapper {
   height: 60px;
   width: 60px;
-  background-color: var(--icon-bg);
   border-radius: 50%;
   display: block;
   position: relative;
   margin: 30px auto 10px;
+}
+
+.sidebar-icon:nth-of-type(1) .sidebar-icon__image-wrapper {
+  background-color: var(--orange);
+}
+
+.sidebar-icon:nth-of-type(2) .sidebar-icon__image-wrapper {
+  background-color: var(--dark-orange);
+}
+
+.sidebar-icon:nth-of-type(3) .sidebar-icon__image-wrapper {
+  background-color: var(--red);
+}
+
+.sidebar-icon:nth-of-type(4) .sidebar-icon__image-wrapper {
+  background-color: var(--dark-red);
+}
+
+.sidebar-icon:nth-of-type(5) .sidebar-icon__image-wrapper {
+  background-color: var(--light-pink);
+}
+
+.sidebar-icon:nth-of-type(6) .sidebar-icon__image-wrapper {
+  background-color: var(--pink);
+}
+
+.sidebar-icon:nth-of-type(7) .sidebar-icon__image-wrapper {
+  background-color: var(--dark-pink);
 }
 
 .sidebar-icon__image{
@@ -25,6 +52,10 @@
   position: absolute;
 }
 
+.sidebar-icon--vertical-spacer {
+  margin-top: 90px;
+}
+
 .sidebar-icon__title {
   font-family: Montserrat;
   margin-top: 0px;
@@ -34,4 +65,12 @@
   letter-spacing: 1px;
   text-align: center;
   color: var(--light-text-color);
+}
+
+@media (max-width: 425px) {
+  .sidebar-icon__image-wrapper {
+    height: 50px;
+    width: 50px;
+    margin: 20px auto 10px;
+  }
 }

@@ -30,9 +30,14 @@
 
 @media only screen and (max-width: 768px) {
     .related-artists {
-        margin-top: 100px;
+        margin-top: 200px;
         margin-right: 20px;
     }
+
+    .related-artists__line{
+        width: 100%;
+    }
+    
 }
 
 @media only screen and (max-width: 425px) {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
@@ -20,11 +20,16 @@ export default class ArtistsListView extends Component {
       let parsedArtists = parseTopArtists(artists);
       parsedArtists = parsedArtists.filter((artist) => artist.albums.length > 0);
 
-      const totalTracks = parsedArtists.reduce((total, currentArtist) => total + currentArtist.totalTracks, 0);
+      const totalTracks = parsedArtists.reduce(
+        (total, currentArtist) => total + currentArtist.totalTracks,
+        0
+      );
 
-      this.setState({ songsAmount: totalTracks });
-      this.setState({ artists: parsedArtists });
-      this.setState({ artistsAmount: parsedArtists.length });
+      this.setState({
+        songsAmount: totalTracks,
+        artists: parsedArtists,
+        artistsAmount: parsedArtists.length
+      });
     });
   }
 
@@ -35,7 +40,7 @@ export default class ArtistsListView extends Component {
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="container artists-view">
           <HeaderLine
             {...{
@@ -48,7 +53,7 @@ export default class ArtistsListView extends Component {
 
           {isListSelected ? <ArtistsList artists={artists} /> : <ArtistsGrid artists={artists} />}
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   };
 }
