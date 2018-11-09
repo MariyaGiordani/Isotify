@@ -1,0 +1,26 @@
+:root {
+    --black-darkest: #000;
+    --black: #222;
+
+    --gray-darkest: #444;
+    --gray-darker: #666;
+    --grey-dark: #707070;
+    --gray: #888;
+    --gray-ligth: #bbb;
+    --gray-lighter: #aaa;
+    
+    --white-dark: #ddd;
+    --white: #eee;
+    --white-lighter: #fafafa;
+    --white-lightest: #fff;
+
+    --pink-darkest: #cd2156;
+    --pink-darker: #d42361;
+    --pink: #d92c61;
+    
+    --peach-darker: #e13a56;
+    --peach-dark: #e24352;
+    --peach: #e24d4d;
+    --peach-light: #e26659;
+    --peach-ligther: #dc7252;
+}

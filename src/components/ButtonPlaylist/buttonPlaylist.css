@@ -1,7 +1,7 @@
 .button-playlist {
-    box-shadow: var(--grey-shadow);
-    border: solid 4px var(--grey-border);
-    background-color: var(--button-playlist-background-color);
+    box-shadow: var(--button-playlist-shadow);
+    border: solid 4px var(--grey-dark);
+    background-color: var(--button-playlist-bg);
     padding: 15px 18px;
     border-radius: 21px;
     margin-left: 28px;
@@ -15,7 +15,7 @@
 @media only screen and (max-width: 500px) {
     .button-playlist {
         padding: 1px 9px;
-        border: solid 2px var(--grey-border);
+        border: solid 2px var(--grey-dark);
         border-radius: 10px;
         margin-left: 14px;
     }

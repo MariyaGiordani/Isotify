@@ -30,7 +30,7 @@
     position: absolute;
     width: 5px;
     height: 5px;
-    background-color: var(--dot-background-color);
+    background-color: var(--related-artists-more-bg);
     border-radius: 50%;
 }
 

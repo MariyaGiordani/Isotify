@@ -8,7 +8,7 @@
 .related-artists__text {
     margin: 15px;
     font-size: 13px;
-    color: var(--white-color);
+    color: var(--white);
     font-weight: 600;
     font-stretch: normal;
     letter-spacing: 5px;
@@ -18,7 +18,7 @@
 .related-artists__line {
     width: 600px;
     height: 4px;
-    background-color: var(--related-artists-background-color);
+    background-color: var(--related-artists__ling-bg);
 }
 
 .related-artists__wrap {

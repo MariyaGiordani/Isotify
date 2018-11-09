@@ -16,7 +16,9 @@ import { isUserLogged } from './utils/isUserLogged';
 import { showMenus } from './utils/showMenus';
 
 import './index.css';
-import './variables.css';
+import './variables-modifiers.css';
+import './variables-gradients.css';
+import './variables-colors.css';
 
 const routes = () => (
   <Fragment>
@@ -24,10 +26,7 @@ const routes = () => (
     <Switch>
       <Route path="/login" component={Login} />
       {!isUserLogged() && (
-        <Redirect
-          to="/login"
-          render={(props) => <Login {...props} isUserLogged={isUserLogged} />}
-        />
+        <Redirect to="/login" render={(props) => <Login {...props} isUserLogged={isUserLogged} />} />
       )}
       <Route path="/artists/:artistId" component={ArtistDetails} />
       <Route path="/albums" component={Albums} />
