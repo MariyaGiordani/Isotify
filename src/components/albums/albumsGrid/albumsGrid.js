@@ -1,5 +1,6 @@
 import React from 'react';
 import Album from '../album/album';
+import Card from '../../Card/card';
 import './albumsGrid.css';
 
 const getAlbumsComponents = (albums = [], size) =>
