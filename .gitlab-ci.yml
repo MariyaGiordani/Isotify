@@ -1,0 +1,101 @@
+
+# This template has been DEPRECATED. Consider using Auto DevOps instead:
+# https://docs.gitlab.com/ee/topics/autodevops
+
+# Explanation on the scripts:
+# https://gitlab.com/gitlab-examples/kubernetes-deploy/blob/master/README.md
+#image: registry.gitlab.com/iws-brazil/templates/kubernetes-deploy
+image: gcr.io/concrete-setup-202200/iws-brazil-templates-kubernetes-deploy
+
+variables:
+  # Application deployment domain
+  KUBE_DOMAIN: $KUBE_DOMAIN
+
+before_script:
+  - export PROJECT_SUBDOMAIN=${PROJECT_SUBDOMAIN:-$CI_PROJECT_PATH_SLUG}
+
+stages:
+  - build
+  - review
+  - staging
+  - validation
+  - production
+  - cleanup
+
+build:
+  stage: build
+  script:
+    - echo $PROJECT_SUBDOMAIN
+    - echo "REACT_APP_ENDPOINT=${REACT_APP_ENDPOINT}" >> .env
+
+    - echo ".env created from secret vars"
+    - cat .env
+
+    - command build
+
+  only:
+    - branches
+    - /^v\d+\.\d+\.\d+$/ #v0.1.40
+
+production:
+  stage: production
+  script:
+    - command deploy
+  environment:
+    name: production
+    url: http://$PROJECT_SUBDOMAIN.$KUBE_DOMAIN
+  when: manual
+  only:
+    - master
+
+staging:
+  stage: staging
+  script:
+    - command deploy
+  environment:
+    name: staging
+    url: http://$PROJECT_SUBDOMAIN-staging.$KUBE_DOMAIN
+  only:
+    - autodevops
+    - develop
+
+validation:
+  stage: validation
+  script:
+    - command deploy
+  environment:
+    name: validation
+    url: http://$PROJECT_SUBDOMAIN-validation.$KUBE_DOMAIN
+  only:
+    - /^v\d+\.\d+\.\d+$/ #v0.1.40
+  except:
+    - branches
+
+review:
+  stage: review
+  script:
+    - command deploy
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    url: https://$PROJECT_SUBDOMAIN-$CI_COMMIT_REF_SLUG.$KUBE_DOMAIN
+    on_stop: stop_review
+  only:
+    - branches
+  except:
+    - master
+    - develop
+
+stop_review:
+  stage: cleanup
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - command destroy
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    action: stop
+  when: manual
+  only:
+    - branches
+  except:
+    - master
