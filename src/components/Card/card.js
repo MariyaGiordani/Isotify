@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import './card.css';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
-const createTitle = (text) => <p className="card__text-title">{text}</p>;
-const createSubtitle = (text) => <p className="card__text-singer">{text}</p>;
 
 const Card = ({ imgSrc, size, title, subtitle }) => {
-  const titleParagraph = createTitle(title.text);
-  const subtitleParagraph = createSubtitle(subtitle.text);
+  const titleParagraph = <p className="card__text-title">{title.text}</p>;
+  const subtitleParagraph = <p className="card__text-singer">{subtitle.text}</p>;
+
   return (
     <div className={`card card--${size}`}>
       <img src={imgSrc} alt={title} className="card__cover" />
