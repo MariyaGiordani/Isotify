@@ -1,7 +1,7 @@
 :root {
     --black-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
     --header-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
-    --header-icon-box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.1);
+    --header-icon-box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.2);
     --white-grey: #ddd;
     --grey-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.25);
     --black-shadow-big: 0 0px 40px 3px rgba(0, 0, 0, 0.25);

@@ -8,7 +8,7 @@
     padding-top: 35px;
     padding-left: 32px;
     display: flex;
-    z-index: 2;
+    z-index: 3;
 }
 
 .header__icon {
@@ -54,7 +54,7 @@
 .header__image-triangle {
     width: 14px;
     height: 14px;
-    margin: 12px 20px 20px 100px;
+    margin: 15px 20px 20px 100px;
 }
 
 .header__icon-right {
@@ -65,13 +65,13 @@
 .header__image-playlist {
     width: 20px;
     height: 15px;
-    margin: 12px;
+    margin: 12px 20px;
 }
 
 .header__image-mountain {
     width: 25px;
     height: 15px;
-    margin: 12px 40px 12px 12px;
+    margin: 12px 40px 12px 20px;
 }
 
 .header__devider {
@@ -82,7 +82,15 @@
 
 @media only screen and (max-width: 1024px) {
     .header__image-triangle {
-        margin-right: 15px;
+        margin-left: 40px;
+    }
+
+    .header__image-playlist {
+        margin-right: 20px;
+    }
+
+    .header__image-triangle {
+        margin-right: 18px;
     }
     
     .header__image-mountain {
@@ -97,11 +105,10 @@
     }
 
     .header__image-triangle {
-        margin-left: 25px;
+        margin-left: 30px;
     }
     
     .header__image-playlist {
-        margin-left: 90px;
         margin-right: 12px
     }
     
@@ -114,11 +121,12 @@
     .header {
         height: 60px;
         padding-top: 15px;
-        padding-left: 70px;
+        padding-left: 60px;
     }
 
     .header__user-name {
         font-size: 12px;
+        margin-bottom: -5px;
     }
 
     .header__user-profile {
@@ -126,7 +134,8 @@
     }
 
     .header__wrap {
-        margin-left: 5px;
+        margin-left: 10px;
+        margin-top: -3px;
     }
 
     .header__icon {
@@ -145,5 +154,9 @@
 @media only screen and (max-width: 320px) {
     .header__icon {
         display: none;
+    }
+
+    .header__wrap {
+        margin-left: 0;;
     }
 }
