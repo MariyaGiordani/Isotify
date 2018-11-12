@@ -13,8 +13,8 @@ const Card = ({ imgSrc, size, title, subtitle, titleHref, subtitleHref }) => {
       <img src={imgSrc} alt={title} className="card__cover" />
       <div className="card__info">
         <div className="card__text">
-          {titleHref.link ? createLink(title.link, titleParagraph) : titleParagraph}
-          {subtitleHref.link ? createLink(subtitle.link, subtitleParagraph) : subtitleParagraph}
+          {titleHref ? createLink(title, titleParagraph) : titleParagraph}
+          {subtitleHref ? createLink(subtitle, subtitleParagraph) : subtitleParagraph}
         </div>
         <div className="card__options" />
       </div>
