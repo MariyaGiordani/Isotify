@@ -1,41 +1,44 @@
 import React, { Component } from 'react';
-
-import Item from '../NavigationItem/navigationItem';
+import NavigationItem from '../NavigationItem/navigationItem';
 
 import './artistNavigationItems.css';
 import { LINKS } from './constants';
 
 class ArtistNavigationItems extends Component {
-  state = { activeLink: window.location.pathname };
+  state = {
+    active: false,
+    data: LINKS
+  };
 
-  handlePageChange(activeLink) {
-    console.log(activeLink);
-    this.setState({ activeLink });
-  }
+  someFunct = (link, event) => {
+    event.preventDefault();
 
-  _renderItems() {
-    const onLinkClicked = (activeLink) => this.handlePageChange(activeLink);
-    const { activeLink } = this.state;
-
-    return LINKS.map((link, index) => {
-      const matchCase = new RegExp(`^${link.to}`);
-      console.log(link.to, activeLink);
-      return (
-        <Item
-          key={index}
-          to={link.to}
-          onClick={onLinkClicked}
-          isActive={!!activeLink.match(matchCase)}
-          name={link.name}
-        />
-      );
+    const { data } = this.state;
+    this.setState({
+      data: data.map((item) => {
+        item.active = item.to === link.to;
+        return item;
+      })
     });
-  }
-
-  // {link.component}
+  };
 
   render() {
-    return <div className="navigation__items">{this._renderItems()}</div>;
+    const { data } = this.state;
+    return (
+      <div className="navigation__items">
+        <ul>
+          {data.map((link) => {
+            return (
+              <NavigationItem
+                link={link}
+                key={link.to}
+                onClick={this.someFunct}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    );
   }
 }
 

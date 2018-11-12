@@ -1,19 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import className from 'classnames';
+import classnames from 'classnames';
 
 import './navigationItem.css';
 
-const Item = (props) => {
-  const linkClass = className({
+const NavigationItem = ({ onClick, link }) => {
+  const linkClass = classnames({
     navigation__item: true,
-    active: props.isActive
+    active: link.active
   });
+
   return (
-    <Link className={linkClass} to={props.to} name={props.name}>
-      {props.name}
-    </Link>
+    <li
+      key={link.to}
+      className={`navigation__item ${linkClass}`}
+      onClick={onClick.bind(this, link)}
+    >
+      <a href={`#${link.to}`}>{link.name}</a>
+    </li>
   );
 };
 
-export default Item;
+export default NavigationItem;
