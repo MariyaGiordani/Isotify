@@ -50,6 +50,7 @@
   }
   .album--big .album__text-singer {
     font-size: 12px;
+    font-weight: 600;
   }
 
   .album.album--small {
