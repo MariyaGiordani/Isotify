@@ -37,7 +37,7 @@ export default class Albums extends Component {
 
     return (
       <Fragment>
-        <div className="container albumsView">
+        <div className="container albums-view">
           <HeaderLine
             {...{
               title: 'Albums',

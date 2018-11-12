@@ -38,9 +38,9 @@
 
 
   .album--big .album__cover {
-    width: 180px;
-    height: 180px;
-  }
+    width: 230px;
+    height: 230px;
+}
   
   .album--small .album__cover {
     width: 100px;
