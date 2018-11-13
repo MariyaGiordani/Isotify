@@ -6,7 +6,7 @@ const createLink = (link, element) => <Link to={link}>{element}</Link>;
 
 const Card = ({ imgSrc, size, title, subtitle, titleHref, subtitleHref }) => {
   const titleParagraph = <p className="card__text-title">{title}</p>;
-  const subtitleParagraph = <p className="card__text-singer">{subtitle}</p>;
+  const subtitleParagraph = <p className="card__text-subtitle">{subtitle}</p>;
 
   return (
     <div className={`card card--${size}`}>

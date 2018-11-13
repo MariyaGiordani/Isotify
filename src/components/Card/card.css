@@ -21,7 +21,7 @@
     text-overflow: ellipsis;
   }
   
-  .card__text-singer {
+  .card__text-subtitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -49,7 +49,7 @@
     font-size: 18px;
     font-weight: 600;
   }
-  .card--big .card__text-singer {
+  .card--big .card__text-subtitle {
     font-size: 12px;
     font-weight: 600;
   }
@@ -62,7 +62,7 @@
   .card--small .card__text-title {
     font-size: 14px;
   }
-  .card--small .card__text-singer {
+  .card--small .card__text-subtitle {
     font-size: 11px;
   }
 
