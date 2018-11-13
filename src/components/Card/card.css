@@ -2,6 +2,7 @@
     background-color: #353535;
     border-radius: 10px;
     box-shadow: var(--black-shadow);
+    object-fit: cover;
   }
 
   .card__info {
