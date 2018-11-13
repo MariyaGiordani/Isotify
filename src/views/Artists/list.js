@@ -51,7 +51,11 @@ export default class ArtistsListView extends Component {
             <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.changeViewMode} />
           </HeaderLine>
 
-          {isListSelected ? <ArtistsList artists={artists} /> : <ArtistsGrid artists={artists} />}
+          {isListSelected ? (
+            <ArtistsList artists={artists} />
+          ) : (
+            <ArtistsGrid artists={artists} size={'big'} />
+          )}
         </div>
       </Fragment>
     );
