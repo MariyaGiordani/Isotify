@@ -44,4 +44,7 @@ const routes = () => (
   </Fragment>
 );
 
-ReactDOM.render(<BrowserRouter>{routes()}</BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>{routes()}</BrowserRouter>,
+  document.getElementById('root')
+);
