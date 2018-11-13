@@ -26,8 +26,8 @@ export default class Albums extends Component {
         this.setState({ albums, albumsAmount, songsAmount });
       })
       .catch((error) => {
+        window.alert('Sorry, we cannot complete your request right now.');
         serverError(error);
-        //window.alert('Sorry, we cannot complete your request right now.');
       });
   }
 
