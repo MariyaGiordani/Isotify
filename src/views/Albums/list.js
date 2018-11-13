@@ -43,10 +43,8 @@ export default class Albums extends Component {
               title: 'Albums',
               subtitle
             }}
-          >
-            <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.handleClick} />
-          </HeaderLine>
-          {isListSelected ? <AlbumsList albums={albums} /> : <AlbumsGrid size="big" albums={albums} />}
+          />
+          <AlbumsGrid size="big" albums={albums} />
         </div>
       </Fragment>
     );
