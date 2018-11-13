@@ -8,7 +8,6 @@ import './albums.css';
 
 export default class Albums extends Component {
   state = {
-    isListSelected: false,
     albums: [],
     albumsAmount: 0,
     songsAmount: 0
@@ -26,8 +25,6 @@ export default class Albums extends Component {
         window.alert('Sorry, we cannot complete your request right now.');
       });
   }
-
-  handleClick = (isListSelected) => this.setState({ isListSelected });
 
   render = () => {
     const { albums, albumsAmount, songsAmount } = this.state;
