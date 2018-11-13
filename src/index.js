@@ -23,12 +23,7 @@ const routes = () => (
     {showMenus()}
     <Switch>
       <Route path="/login" component={Login} />
-      {!isUserLogged() && (
-        <Redirect
-          to="/login"
-          render={(props) => <Login {...props} isUserLogged={isUserLogged} />}
-        />
-      )}
+      {!isUserLogged() && <Redirect to="/login" />}
       <Route path="/artists/:artistId" component={ArtistDetails} />
       <Route path="/albums" component={Albums} />
       <Route path="/artists" component={ArtistsList} />
@@ -44,4 +39,7 @@ const routes = () => (
   </Fragment>
 );
 
-ReactDOM.render(<BrowserRouter>{routes()}</BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>{routes()}</BrowserRouter>,
+  document.getElementById('root')
+);
