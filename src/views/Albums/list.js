@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
-import AlbumsList from '../../components/albums/albumsList/albumsList';
 import HeaderLine from '../../components/headerLine/headerLine';
-import SwitchButton from '../../components/SwitchButton/switchButton';
 import { getSavedAlbums } from '../../services/albums';
 import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyResponseParsers';
 import './albums.css';
@@ -32,7 +30,7 @@ export default class Albums extends Component {
   handleClick = (isListSelected) => this.setState({ isListSelected });
 
   render = () => {
-    const { albums, isListSelected, albumsAmount, songsAmount } = this.state;
+    const { albums, albumsAmount, songsAmount } = this.state;
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
 
     return (
