@@ -19,8 +19,7 @@ export default class ArtistsListView extends Component {
   componentDidMount() {
     getTopArtistsWithAlbums()
       .then((artists) => {
-        let parsedArtists = parseTopArtists(artists);
-        parsedArtists = parsedArtists.filter((artist) => artist.albums.length > 0);
+        const parsedArtists = parseTopArtists(artists).filter((artist) => artist.albums.length > 0);
 
         const totalTracks = parsedArtists.reduce(
           (total, currentArtist) => total + currentArtist.totalTracks,
