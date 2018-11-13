@@ -8,7 +8,6 @@ class SwitchButton extends Component {
 
   switchButtonInput = (event) => {
     const isFirstOptionSelected = !this.state.isFirstOptionSelected;
-    console.log(isFirstOptionSelected);
     this.setState({ isFirstOptionSelected });
     this.props.inputFunction(event.target.checked);
   };
