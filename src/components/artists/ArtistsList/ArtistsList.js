@@ -6,7 +6,6 @@ const getArtistsComponents = (artists = []) =>
   artists.map((artist) => <ArtistLine artist={artist} key={artist.id} />);
 
 const ArtistsList = ({ artists }) => {
-  console.log(artists);
   return <div className="artist-list">{getArtistsComponents(artists)}</div>;
 };
 
