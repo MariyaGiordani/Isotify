@@ -22,7 +22,7 @@
     font-size: 52px;
     line-height: 1.05;
     margin-bottom: 10px;
-    color: var(--white-color);
+    color: var(--white);
 }
 
 .banner-artist__information {
@@ -30,7 +30,7 @@
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 0.9px;
-    color: var(--white-color);
+    color: var(--white);
     margin-bottom: 40px;
 }
 
