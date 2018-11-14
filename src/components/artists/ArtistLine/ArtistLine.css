@@ -4,6 +4,8 @@
   height: 230px;
   display: flex;
   flex-direction: row;
+  border-radius: 20px;
+  box-shadow: var(--artist-line__shadow);
 }
 
 .artist-line__section {
@@ -27,12 +29,12 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: var(--artist-line__artist-icon-shadow);
+  box-shadow: var(--artist-line__icon-shadow);
 }
 
 .artist-line__buttons {
   position: relative;
-  width: 50px;
+  width: 60px;
   display: flex;
   justify-content: space-between;
 }
@@ -42,9 +44,8 @@
 }
 
 .artist-line__more-dot {
-  left: 0;
   top: 0;
-  right: 0;
+  right: 10px;
   bottom: 0;
   margin: auto;
   position: absolute;
@@ -104,7 +105,6 @@
 .artist-line__albums {
   padding: 5px 15px 0 15px;
   box-sizing: border-box;
-  box-shadow: var(--artist-line__albums-shadow);
   background-color: var(--white-light);
   border-radius: 0 20px 20px 0;
   display: flex;
