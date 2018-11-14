@@ -1,71 +1,25 @@
-body {
-    font-family: 'Noto Sans', sans-serif;
-    width: 60%;
-    margin: 0 auto;
-  }
-  
-  .Carousel {
-    height: 22rem;
-    overflow: hidden;
-  }
-  
-  .Carousel-TitleDesc {
-    height: 20rem;
-    color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
+.carousel {
     position: relative;
-    z-index: 1;
-    top: -21.3rem;
-    margin-bottom: -20rem;
-  }
-  .Carousel-TitleDesc h2, .Carousel-TitleDesc p {
-    display: inline-block;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 0.4rem 0.8rem;
-    border-radius: 0 0.3rem 0 0;
-  }
-  .Carousel-TitleDesc h2 {
-    margin-bottom: -1rem;
-  }
-  .Carousel-TitleDesc p {
-    padding-bottom: 1rem;
-  }
-  
-  .Carousel-selector {
-    cursor: pointer;
-    display: inline-block;
-    margin: 0.5em;
-    width: 1em;
-    height: 1em;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: background-color 0.3s;
-  }
-  
-  .Carousel-Selector-Selected {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  
-  .Carousel-Slide {
-    flex: 0;
-    transition: all 1s;
-  }
-  .Carousel-Slide img {
-    height: 100%;
-    width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  
-  .Carousel-Slide-Selected {
-    flex: 1;
-  }
-  
-  .Carousel-Items {
-    height: 20rem;
+    height: 700px;
+    background-size: cover;
+    background-position: top;
+    padding-left: 96px;
+}
+
+.carousel__image {
+    height: 600px;
+    width: 1402px;
+    background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0), rgba(51, 51, 51, 0)), linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    
+}
+
+.carousel__wrap {
     display: flex;
-  }
-  
-  
+    margin-left: auto;
+    height: 100px;
+}
+
+.carousel__arrow {
+    width: 37px;
+    height: 38px;
+}
