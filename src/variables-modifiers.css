@@ -1,0 +1,21 @@
+:root {
+    --album__cover-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+
+    --artist-line__artist-icon-shadow: 0 0px 40px 3px rgba(0, 0, 0, 0.25);
+    --artist-line__see-more-button-shadow: 0 0 20px #eee;
+    --artist-line__albums-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
+
+    --header-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
+    --header-icon-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+
+    --hamburger-background-color: rgba(0, 0, 0, 0);
+
+    --button-playlist-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.25);
+    
+    --related-artists__line-bg: rgba(238, 238, 238, 0.25);
+    --related-artists-more-bg: rgba(255, 255, 255, 0.75); 
+    
+    --button-playlist-background-color: rgba(136, 136, 136, .85);
+
+    --switch-button__input-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}

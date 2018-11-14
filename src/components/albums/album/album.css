@@ -10,7 +10,7 @@
   .album__cover {
     background-color: #353535;
     border-radius: 10px;
-    box-shadow: var(--black-shadow);
+    box-shadow: var(--album__cover-shadow);
   }
 
   .album__info {
