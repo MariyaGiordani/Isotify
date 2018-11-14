@@ -10,12 +10,16 @@ const Carousel = (props) => {
     <div className="carousel">
       <div className="carousel__image" />
       <div className="carousel__wrap">
-        <div className="carousel__arrow">
-          <img className="carousel__arrow" alt="Left arrow" src={leftArrow} />
-        </div>
-        <div className="carousel__arrow">
-          <img className="carousel__arrow" alt="Right arrow" src={rightArrow} />
-        </div>
+        <img
+          className="carousel__arrow--left"
+          alt="Left arrow"
+          src={leftArrow}
+        />
+        <img
+          className="carousel__arrow--right"
+          alt="Right arrow"
+          src={rightArrow}
+        />
       </div>
     </div>
   );
