@@ -17,14 +17,11 @@
     letter-spacing: 1px;
     border: none;
     text-decoration: none;
-<<<<<<< HEAD
     border-bottom: 2px solid var(--grey);
-    background-color: var(--snow-white);
 }
 
 .search__song::placeholder {
     color: var(--grey);
-=======
     border-bottom: 2px solid var(--gray-light);
 }
 
@@ -36,7 +33,6 @@
     .search__song {
         width: 410px;
     }
->>>>>>> dev
 }
 
 @media only screen and (max-width: 1024px) {
