@@ -9,11 +9,11 @@
 }
 
 .switch-button__option{
-  color: var(--gray-text-color);
+  color: var(--gray);
 }
 
 .switch-button__option-selected{
-  color: var(--black-text-color);
+  color: var(--black);
   font-weight: 600;
 }
 
