@@ -5,7 +5,7 @@
   height: 75px;
   width: 2.5px;
   left: 74px;
-  background-color: var( --selected-bg);
+  background-color: var(--pink-darkest);
 }
 
 @media (max-width: 425px) {
