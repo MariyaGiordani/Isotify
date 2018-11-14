@@ -1,7 +1,10 @@
 import { logOut } from './spotify';
+import { getNested } from '../utils/getNested';
 
-export function serverError(response) {
-  if (response.response.data.error.message === 'The access token expired') {
+export function serverError(error) {
+  const response = getNested(['response', 'data', 'error', 'message'], error);
+
+  if (response === 'The access token expired') {
     logOut();
     window.location.reload();
   }
