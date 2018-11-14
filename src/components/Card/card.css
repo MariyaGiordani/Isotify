@@ -27,23 +27,24 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-top: 3px;
-    color: var(--gray-text-color);
+    color: var(--gray);
   }
 
   .card--big .card__cover {
     width: 230px;
     height: 230px;
-}
+  }
   
   .card--small .card__cover {
     width: 100px;
     height: 100px;
   }
-
+  
   .card.card--big {
     width: 230px;
     margin-top: 10px;
     margin-bottom: 40px;
+    margin-left: 25px;
   }
 
   .card--big .card__text-title {
@@ -76,7 +77,7 @@
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    background-color: var(--gray-text-color);
+    background-color: var(--gray);
   }
   
   .card__options::before, 
