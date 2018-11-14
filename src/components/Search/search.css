@@ -35,7 +35,8 @@
     .search {
         width: 50%;
     }
-.search__image {
+    
+    .search__image {
         margin-left: 20px;
     }
 }
@@ -72,4 +73,3 @@
         margin-left: 10px;
     }
 }
-

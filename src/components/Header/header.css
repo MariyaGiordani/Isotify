@@ -92,14 +92,14 @@
     .header__image-triangle {
         margin-right: 18px;
     }
-    
+
     .header__image-mountain {
         margin-left: 20px;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .header{
+    .header {
         height: 90px;
         padding-top: 25px;
     }
@@ -107,11 +107,11 @@
     .header__image-triangle {
         margin-left: 30px;
     }
-    
+
     .header__image-playlist {
         margin-right: 12px
     }
-    
+
     .header__image-mountain {
         margin-left: 12px;
     }
@@ -143,9 +143,9 @@
         width: 30px;
     }
 
-    .header__image-triangle,
-    .header__image-mountain,
-    .header__image-playlist,
+    .header__image-triangle, 
+    .header__image-mountain, 
+    .header__image-playlist, 
     .header__devider {
         display: none;
     }
@@ -155,8 +155,8 @@
     .header__icon {
         display: none;
     }
-
+    
     .header__wrap {
-        margin-left: 0;;
+        margin-left: 0;
     }
 }
