@@ -10,12 +10,12 @@
 
 .header-line__title{
     font-size: 28px;
-    color: var(--black-text-color);
+    color: var(--black);
 }
 
 .header-line__subtitle{
-    font-size: 14px;
-    color: var(--gray-text-color);
+    font-size: 16px;
+    color: var(--gray);
     letter-spacing: 2.5px;
     margin-top: 5px;
     text-transform: uppercase;

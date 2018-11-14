@@ -16,7 +16,9 @@ import { isUserLogged } from './utils/isUserLogged';
 import { showMenus } from './utils/showMenus';
 
 import './index.css';
-import './variables.css';
+import './variables-modifiers.css';
+import './variables-gradients.css';
+import './variables-colors.css';
 
 const routes = () => (
   <Fragment>
@@ -39,7 +41,4 @@ const routes = () => (
   </Fragment>
 );
 
-ReactDOM.render(
-  <BrowserRouter>{routes()}</BrowserRouter>,
-  document.getElementById('root')
-);
+ReactDOM.render(<BrowserRouter>{routes()}</BrowserRouter>, document.getElementById('root'));

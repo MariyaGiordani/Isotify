@@ -8,7 +8,7 @@
   overflow-x: hidden;
   z-index: 2;
   flex-direction: column;
-  background-color: var(--sidebar-bg);
+  background-color: var(--black-darkest);
 }
 
 .sidebar--collapsed {
@@ -25,10 +25,10 @@
 
 .sidebar__header {
   margin: auto;
-  color: var(--button-follow-color);
+  color: var(--white-lighter);
   text-align: center;
   font-size: 30px;
-  border-bottom: 1px var(--button-follow-color) solid;
+  border-bottom: 1px var(--white-lighter) solid;
   width: 80%;
   padding: 25px
 }
