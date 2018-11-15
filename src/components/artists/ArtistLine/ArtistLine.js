@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ArtistAlbumsGrid from '../../albums/artistAlbumsGrid/artistAlbumsGrid';
 import shuffle from '../../../assets/img/shuffle.svg';
+import semiarrow from '../../../assets/img/semiarrow.svg';
+import arrow from '../../../assets/img/arrow.svg';
 import './ArtistLine.css';
 
 const ArtistLine = ({ artist }) => (
@@ -27,14 +29,18 @@ const ArtistLine = ({ artist }) => (
       <div className="artist-line__bottom-line">
         <Link to={`/artists/${artist.id}`}>
           <div className="artist-line__see-more-button">see bio's</div>
+          <img src={arrow} alt="see artist's bio" className="artist-line__arrow" />
         </Link>
       </div>
     </div>
 
     <div className="artist-line__albums">
-      <div className="artist-line__upper-line">
-        <div className="artist-line__discography">discography</div>
-        <div className="artist-line__see-all"> see all </div>
+      <div className="artist-line__upper-line artist-line__upper-line--spacer">
+        <div className="artist-line__discography">Discography</div>
+        <div className="artist-line__see-all">
+          See all
+          <img src={semiarrow} alt="See All" className="artist-line__semi-arrow" />
+        </div>
       </div>
 
       <div className="artist-line__bottom-line">

@@ -23,6 +23,19 @@
 .artist-line__upper-line {
   display: flex;
   justify-content: space-between;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.artist-line__semi-arrow{
+  height: 1.5em;
+  margin-left: 15px;
+}
+
+.artist-line__upper-line--spacer{
+  margin-top: 25px;
+  margin-bottom: 5px;
+  padding: 0 20px
 }
 
 .artist-line__artist-icon {
@@ -94,7 +107,7 @@
   box-shadow: var(--artist-line__see-more-button-shadow);
   border-radius: 20px;
   font-size: 14px;
-  background-image: var(--red-yellow-gradient);
+  background-image: var(--red-yellow-peach-gradient);
   background-position: right center;
 }
 
@@ -103,13 +116,10 @@
 }
 
 .artist-line__albums {
-  padding: 5px 15px 0 15px;
+  padding: 0 15px;
   box-sizing: border-box;
   background-color: var(--white-light);
   border-radius: 0 20px 20px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   height: 100%;
   width: 550px;
 }
@@ -117,9 +127,14 @@
 .artist-line__discography {
   font-size: 18px;
 }
+
 .artist-line__see-all {
   font-size: 12px;
+  color: var(--pink-darker);
+  display: flex;
+  align-items: center;
 }
+
 .artist-line__bottom-line {
   display: flex;
   flex-direction: row;
