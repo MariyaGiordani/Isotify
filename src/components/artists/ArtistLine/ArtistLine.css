@@ -1,7 +1,7 @@
 .artist-line {
   font-family: Montserrat;
   margin: 20px;
-  height: 230px;
+  height: 300px;
   display: flex;
   flex-direction: row;
   border-radius: 20px;
@@ -11,8 +11,8 @@
 .artist-line__section {
   box-sizing: border-box;
   background-image: var(--gray-gradient);
-  padding: 0 15px;
-  width: 250px;
+  padding: 0 30px;
+  width: 280px;
   height: 100%;
   border-radius: 20px 0 0 20px;
   display: flex;
@@ -27,9 +27,14 @@
   color: var(--black);
 }
 
-.artist-line__semi-arrow{
+.artist-line__semi-arrow {
   height: 1.5em;
   margin-left: 15px;
+}
+
+.artist-line__arrow {
+  height: 1.3em;
+  margin-left: 20px;
 }
 
 .artist-line__upper-line--spacer{
@@ -65,7 +70,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background-color: var(--gray-darkest);
+  background-color: var(--gray);
 }
 
 .artist-line__more-dot::before, 
@@ -98,15 +103,13 @@
 
 .artist-line__see-more-button {
   display: flex;
-  padding: 6px;
-  width: 120px;
+  padding: 11px 15px;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
   color: var(--white);
   box-shadow: var(--artist-line__see-more-button-shadow);
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: 12px;
+  font-size: 12px;
   background-image: var(--red-yellow-peach-gradient);
   background-position: right center;
 }
@@ -121,7 +124,7 @@
   background-color: var(--white-light);
   border-radius: 0 20px 20px 0;
   height: 100%;
-  width: 550px;
+  width: 730px;
 }
 
 .artist-line__discography {

@@ -21,15 +21,16 @@ const ArtistLine = ({ artist }) => (
       <div className="artist-line__middle-line">
         <Link to={`/artists/${artist.id}`}>
           <div className="artist-line__tittle">{artist.name}</div>
-          <div className="artist-line__more-info">{`${artist.albums.length} Albums, ${
-            artist.totalTracks
-          } Songs`}</div>
+          <div className="artist-line__more-info">{`${artist.totalTracks} Songs,
+            ${artist.albums.length} Albums`}</div>
         </Link>
       </div>
       <div className="artist-line__bottom-line">
         <Link to={`/artists/${artist.id}`}>
-          <div className="artist-line__see-more-button">see bio's</div>
-          <img src={arrow} alt="see artist's bio" className="artist-line__arrow" />
+          <div className="artist-line__see-more-button">
+            See bio's
+            <img src={arrow} alt="see artist's bio" className="artist-line__arrow" />
+          </div>
         </Link>
       </div>
     </div>
@@ -38,7 +39,7 @@ const ArtistLine = ({ artist }) => (
       <div className="artist-line__upper-line artist-line__upper-line--spacer">
         <div className="artist-line__discography">Discography</div>
         <div className="artist-line__see-all">
-          See all
+          <Link to={`/artists/${artist.id}`}>See all</Link>
           <img src={semiarrow} alt="See All" className="artist-line__semi-arrow" />
         </div>
       </div>

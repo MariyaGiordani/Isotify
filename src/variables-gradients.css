@@ -33,9 +33,9 @@
 
     --gray-gradient: 
         linear-gradient(25deg, 
-            rgba(232, 232, 240, 1), 
-            rgb(207, 205, 205));
-
+            rgba(221, 221, 221, 0.1), 
+            rgba(221, 221, 221, 0.5));
+            
     --white-gray-gradient: 
         linear-gradient(to bottom, 
             #fff, 
