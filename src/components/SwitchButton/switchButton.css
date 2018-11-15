@@ -8,11 +8,11 @@
   margin: 0 5px;
 }
 
-.switch-button__option{
+.switch-button__option {
   color: var(--gray);
 }
 
-.switch-button__option-selected{
+.switch-button__option-selected {
   color: var(--black);
   font-weight: 600;
 }
@@ -34,7 +34,6 @@
   top: 0;
   left: 0;
   opacity: 0;
-
 }
 
 .switch-button__handle {
@@ -52,5 +51,5 @@
 
 .switch-button__input:checked ~ .switch-button__handle {
   left: 23px;
-  box-shadow: var(--switch-shadow)
+  box-shadow: var(--switch-shadow);
 }
