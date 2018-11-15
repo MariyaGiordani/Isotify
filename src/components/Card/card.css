@@ -1,102 +1,101 @@
-  .card__cover {
-    background-color: #353535;
-    border-radius: 10px;
-    box-shadow: var(--black-shadow);
-    object-fit: cover;
-  }
+.card__cover {
+  background-color: #353535;
+  border-radius: 10px;
+  box-shadow: var(--black-shadow);
+  object-fit: cover;
+}
 
-  .card__info {
-    margin-top: 10px;
-    width: 100%;
-    position: relative;
-    padding: 0 10px;
-  }
-  
-  .card__text{
-    width: 90%;
-  }
+.card__info {
+  margin-top: 10px;
+  width: 100%;
+  position: relative;
+  padding: 0 10px;
+}
 
-  .card__text-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .card__text-subtitle {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 3px;
-    color: var(--gray);
-  }
+.card__text{
+  width: 90%;
+}
 
-  .card--big .card__cover {
-    width: 230px;
-    height: 230px;
-  }
-  
-  .card--small .card__cover {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .card.card--big {
-    width: 230px;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    margin-left: 25px;
-  }
+.card__text-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  .card--big .card__text-title {
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .card--big .card__text-subtitle {
-    font-size: 12px;
-    font-weight: 600;
-  }
+.card__text-subtitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 3px;
+  color: var(--gray);
+}
 
-  .card.card--small {
-    width: 100px;
-    margin: 10px;
-  }
+.card--big .card__cover {
+  width: 230px;
+  height: 230px;
+}
 
-  .card--small .card__text-title {
-    font-size: 14px;
-  }
-  .card--small .card__text-subtitle {
-    font-size: 11px;
-  }
+.card--small .card__cover {
+  width: 100px;
+  height: 100px;
+}
 
-  .card__options {
-    top: 0;
-    right: 10px;
-    bottom: 0;
-    margin: auto;
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background-color: var(--gray);
-  }
-  
-  .card__options::before, 
-  .card__options::after {
-    border-radius: 50%;
-    content: "";
-    position: absolute;
-    background-color: inherit;
-    border-radius: inherit;
-    font-size: 0;
-    width: 3px;
-    height: 3px;
-  }
-  
-  .card__options::before {
-    top: 7px;
-  }
-  
-  .card__options::after {
-    bottom: 7px;
-  }
-  
+.card.card--big {
+  width: 230px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 25px;
+}
+
+.card--big .card__text-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.card--big .card__text-subtitle {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card.card--small {
+  width: 100px;
+  margin: 10px;
+}
+
+.card--small .card__text-title {
+  font-size: 14px;
+}
+.card--small .card__text-subtitle {
+  font-size: 11px;
+}
+
+.card__options {
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--gray);
+}
+
+.card__options::before, 
+.card__options::after {
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  border-radius: inherit;
+  font-size: 0;
+  width: 3px;
+  height: 3px;
+}
+
+.card__options::before {
+  top: 7px;
+}
+
+.card__options::after {
+  bottom: 7px;
+}
