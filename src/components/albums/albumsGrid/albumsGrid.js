@@ -9,7 +9,7 @@ const getAlbumsComponents = (albums = [], size) =>
       size={size}
       title={title}
       subtitle={artist.name}
-      subtitleHref={artist.id}
+      subtitleHref={`/artists/${artist.id}`}
       key={id}
     />
   ));
