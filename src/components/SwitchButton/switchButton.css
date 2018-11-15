@@ -9,12 +9,12 @@
 }
 
 .switch-button__option{
-color: var(--gray);
+  color: var(--gray);
 }
 
 .switch-button__option-selected{
-color: var(--black);
-font-weight: 600;
+  color: var(--black);
+  font-weight: 600;
 }
 
 .switch-button__input-container {

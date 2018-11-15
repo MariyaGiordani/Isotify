@@ -9,7 +9,7 @@ const getArtists = (artists = [], size) =>
       size={size}
       title={name}
       subtitle={`${albums.length} Albums, ${totalTracks} Songs`}
-      titleHref={id}
+      titleHref={`/artists/${id}`}
       key={id}
     />
   ));
