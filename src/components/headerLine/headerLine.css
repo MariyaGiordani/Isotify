@@ -3,7 +3,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 20px;
+    padding: 20px 35px;
     flex-direction: row;
     box-sizing: border-box;
 }
@@ -16,4 +16,7 @@
 .header-line__subtitle{
     font-size: 16px;
     color: var(--gray);
+    letter-spacing: 2.5px;
+    margin-top: 5px;
+    text-transform: uppercase;
 }
