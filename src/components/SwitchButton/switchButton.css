@@ -1,50 +1,55 @@
 .switch-button {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
 
 .switch-button__option {
-    margin: 0 5px;
+  margin: 0 5px;
+}
 
+.switch-button__option {
+  color: var(--gray);
+}
+
+.switch-button__option-selected {
+  color: var(--black);
+  font-weight: 600;
 }
 
 .switch-button__input-container {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    width: 56px;
-    height: 20px;
-    padding: 3px;
-    background-image: var(--red-yellow-gradient);
-    border-radius: 18px;
-    box-sizing: content-box;
-  }
-  
-  .switch-button__input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-  }
-  
-  .switch-button__handle {
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 18px;
-    height: 18px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    background-image: var(--white-gray-gradient);
-    -webkit-transition: left 0.15s ease-out;
-    -moz-transition: left 0.15s ease-out;
-    -o-transition: left 0.15s ease-out;
-    transition: left 0.15s ease-out;
-  }
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 40px;
+  height: 20px;
+  padding: 3px;
+  background-image: var(--switch-gradient);
+  border-radius: 18px;
+  box-sizing: content-box;
+}
 
-  .switch-button__input:checked ~ .switch-button__handle {
-    left: 40px;
-    box-shadow: var(--switch-button__input-shadow);
-  }
+.switch-button__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.switch-button__handle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 10px;
+  background-image: var(--white-gray-gradient);
+  transition: left 0.15s ease-out;
+  box-shadow: var(--switch-shadow);
+}
+
+.switch-button__input:checked ~ .switch-button__handle {
+  left: 23px;
+  box-shadow: var(--switch-shadow);
+}
