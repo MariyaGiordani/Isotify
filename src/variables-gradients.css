@@ -25,19 +25,11 @@
             #e4305d, 
             #bf0a45);
 
-<<<<<<< HEAD
-
-    --red-yellow-gradient: linear-gradient(25deg, 
-        rgba(191, 10, 69, 0.9), 
-        rgba(228, 48, 93, 0.9), 
-        rgba(238, 115, 33, 0.9));
-=======
     --red-yellow-gradient: 
         linear-gradient(25deg, 
             rgba(191, 10, 69, 0.9), 
             rgba(228, 48, 93, 0.9), 
             rgba(238, 115, 33, 0.9));
->>>>>>> dev
 
     --gray-gradient: 
         linear-gradient(25deg, 
