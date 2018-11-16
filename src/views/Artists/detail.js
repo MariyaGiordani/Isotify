@@ -4,6 +4,7 @@ import ArtistNavigationItems from '../../components/ArtistNavigationItems/artist
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
+import { serverError } from '../../services/errors';
 
 export default class Details extends Component {
   state = {
@@ -29,7 +30,8 @@ export default class Details extends Component {
         });
       })
       .catch((error) => {
-        window.location.assign('/404');
+        window.alert('Sorry, we cannot complete your request right now.');
+        serverError(error);
       });
   }
 
