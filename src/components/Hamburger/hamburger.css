@@ -5,7 +5,7 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  background-color: var(--black-darkest);
+  background-color: var(--hamburger-transparent-bg);
   z-index: 3;
   position: fixed;
   top: 0;
@@ -14,8 +14,21 @@
   border: none;
 }
 
+@media (max-width: 600px) {
+  .hamburger-menu {
+    margin: 20px 15px;
+  }
+}
+
 @media (min-width: 600px) {
   .hamburger-menu {
     display: none;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .hamburger-menu {
+    margin: 7px;
   }
 }

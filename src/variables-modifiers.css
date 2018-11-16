@@ -5,6 +5,11 @@
     --artist-line__see-more-button-shadow: 0 0 20px #eee;
     --artist-line__albums-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
 
+    --header-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
+    --header-icon-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+
+    --hamburger-transparent-bg: rgba(0, 0, 0, 0);
+
     --button-playlist-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.25);
     
     --related-artists__line-bg: rgba(238, 238, 238, 0.25);
