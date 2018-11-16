@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './slide.css';
 
-class Slide extends Component {
-  render() {
-    const { name } = this.props;
-    return <div className="slide">{name}</div>;
-  }
-}
+const Slide = ({ property }) => {
+  const { picture } = property;
+  return <img className="slide" alt="" src={picture} />;
+};
 
 export default Slide;
