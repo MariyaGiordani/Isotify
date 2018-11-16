@@ -1,21 +1,32 @@
 .carousel {
+    display: flex;
     position: relative;
-    height: 700px;
     background-size: cover;
     background-position: top;
-    padding-left: 96px;
 }
 
-.carousel__image {
-    height: 600px;
-    width: 1402px;
-    background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0), rgba(51, 51, 51, 0)), linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-    
+.carousel__viewport {
+    /* white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; */
+    display: flex;
+    flex-grow: 1;
+    z-index: 1;
+    position: relative;
 }
+
+/* .carousel-viewport::-webkit-scrollbar {
+  display: none;
+} */
 
 .carousel__wrap {
-    display: flex;
     float: right;
+}
+
+.carousel__button {
+    border: none;
+    background-color: #eeeeee;
 }
 
 .carousel__arrow--right,

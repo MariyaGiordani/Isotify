@@ -1,0 +1,17 @@
+.slide {
+    display: inline-block;
+    vertical-align: top;
+    height: 600px;
+    width: 1402px;
+    background-image: 
+    linear-gradient(to bottom, rgba(51, 51, 51, 0), rgba(51, 51, 51, 0)), 
+    linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    font-size: 30px;
+    color: black;
+    border-right: 3px solid white;
+    white-space: normal;
+}
+
+.slide:last-child {
+    border-right: none;
+}
