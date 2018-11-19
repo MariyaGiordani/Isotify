@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AlbumsGrid from '../../albums/albumsGrid/albumsGrid';
+import ArtistAlbumsGrid from '../../albums/artistAlbumsGrid/artistAlbumsGrid';
 import shuffle from '../../../assets/img/shuffle.svg';
 import './ArtistLine.css';
 
@@ -19,7 +19,9 @@ const ArtistLine = ({ artist }) => (
       <div className="artist-line__middle-line">
         <Link to={`/artists/${artist.id}`}>
           <div className="artist-line__tittle">{artist.name}</div>
-          <div className="artist-line__more-info">{`${artist.albums.length} Albums, ${artist.totalTracks} Songs`}</div>
+          <div className="artist-line__more-info">{`${artist.albums.length} Albums, ${
+            artist.totalTracks
+          } Songs`}</div>
         </Link>
       </div>
       <div className="artist-line__bottom-line">
@@ -36,7 +38,7 @@ const ArtistLine = ({ artist }) => (
       </div>
 
       <div className="artist-line__bottom-line">
-        <AlbumsGrid size="small" albums={artist.albums.slice(0, 4)} />
+        <ArtistAlbumsGrid size="small" albums={artist.albums.slice(0, 4)} />
       </div>
     </div>
   </div>
