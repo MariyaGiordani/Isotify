@@ -1,9 +1,8 @@
 import React from 'react';
 import './slide.css';
 
-const Slide = ({ property }) => {
-  const { picture } = property;
-  return <img className="slide" alt="" src={picture} />;
+const Slide = (props) => {
+  return <img className="slide" alt="" src={props.imgSrc} />;
 };
 
 export default Slide;

@@ -1,0 +1,13 @@
+.loading__bar-outer {
+    z-index: 10;
+    position: absolute;
+    width: 1402px;
+    height: 8px;
+    background-color: rgba(212, 37, 98, 0.25);
+}
+
+.loading__bar-inner {
+    height: 100%;
+    transition: width .2s ease-in;
+    background-image: linear-gradient(to right, rgba(191, 10, 69, 0.9), rgba(228, 48, 93, 0.9) 63%, rgba(238, 115, 33, 0.9)), linear-gradient(to bottom, #d42562, #d42562);
+}
