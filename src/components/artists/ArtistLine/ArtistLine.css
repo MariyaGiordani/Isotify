@@ -1,9 +1,8 @@
 .artist-line {
   font-family: Montserrat;
   margin: 20px;
-  height: 300px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border-radius: 20px;
   box-shadow: var(--artist-line__shadow);
 }
@@ -12,15 +11,22 @@
   box-sizing: border-box;
   background-image: var(--gray-gradient);
   padding: 0 30px;
-  width: 280px;
-  height: 100%;
-  border-radius: 20px 0 0 20px;
-  display: flex;
-  flex-direction: column;
+  height: 180px;
+  border-radius: 20px 20px 0 0;
   justify-content: space-evenly;
 }
 
+.artist-line__albums {
+  padding: 0 15px;
+  box-sizing: border-box;
+  background-color: var(--white-light);
+  border-radius: 0px 0px 20px 20px;
+  width: 300px;
+  overflow-y: scroll;
+}
+
 .artist-line__upper-line {
+  position: relative;
   display: flex;
   justify-content: space-between;
   font-weight: 600;
@@ -44,6 +50,7 @@
 }
 
 .artist-line__artist-icon {
+  object-fit: cover;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -118,15 +125,6 @@
   background-position: center;
 }
 
-.artist-line__albums {
-  padding: 0 15px;
-  box-sizing: border-box;
-  background-color: var(--white-light);
-  border-radius: 0 20px 20px 0;
-  height: 100%;
-  width: 730px;
-}
-
 .artist-line__discography {
   font-size: 18px;
 }
@@ -141,4 +139,42 @@
 .artist-line__bottom-line {
   display: flex;
   flex-direction: row;
+}
+
+@media(min-width: 1200px){
+    
+  .artist-line {
+    font-family: Montserrat;
+    margin: 20px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    box-shadow: var(--artist-line__shadow);
+  }
+
+  .artist-line__section {
+    box-sizing: border-box;
+    background-image: var(--gray-gradient);
+    padding: 0 30px;
+    width: 280px;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+
+  .artist-line__albums {
+    padding: 0 15px;
+    box-sizing: border-box;
+    background-color: var(--white-light);
+    border-radius: 0 20px 20px 0;
+    height: 100%;
+    width: 730px;
+  }
+
+
+
 }
