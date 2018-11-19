@@ -3,17 +3,18 @@ import Slider from 'react-slick';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 
-import leftArrow from '../../assets/img/left-arrow.png';
-import rightArrow from '../../assets/img/right-arrow.png';
+// import leftArrow from '../../assets/img/left-arrow.png';
+// import rightArrow from '../../assets/img/right-arrow.png';
 
 import Slide from '../Slide/slide';
-import LoadingBar from '../LoadingBar/loadingBar';
+// import LoadingBar from '../LoadingBar/loadingBar';
 
 import './carousel.css';
 
 class Carousel extends Component {
   render() {
     const settings = {
+      arrow: true,
       dots: true,
       infinite: true,
       speed: 500,
