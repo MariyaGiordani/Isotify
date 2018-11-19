@@ -5,6 +5,7 @@ import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import { getTopArtistsWithAlbums } from '../../services/artists';
 import { topArtistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
+import { serverError } from '../../services/errors';
 import './Artists.css';
 
 export default class ArtistsListView extends Component {
@@ -16,20 +17,25 @@ export default class ArtistsListView extends Component {
   };
 
   componentDidMount() {
-    getTopArtistsWithAlbums().then((artists) => {
-      const parsedArtists = parseTopArtists(artists).filter((artist) => artist.albums.length > 0);
+    getTopArtistsWithAlbums()
+      .then((artists) => {
+        const parsedArtists = parseTopArtists(artists).filter((artist) => artist.albums.length > 0);
 
-      const totalTracks = parsedArtists.reduce(
-        (total, currentArtist) => total + currentArtist.totalTracks,
-        0
-      );
+        const totalTracks = parsedArtists.reduce(
+          (total, currentArtist) => total + currentArtist.totalTracks,
+          0
+        );
 
-      this.setState({
-        songsAmount: totalTracks,
-        artists: parsedArtists,
-        artistsAmount: parsedArtists.length
+        this.setState({
+          songsAmount: totalTracks,
+          artists: parsedArtists,
+          artistsAmount: parsedArtists.length
+        });
+      })
+      .catch((error) => {
+        window.alert('Sorry, we cannot complete your request right now.');
+        serverError(error);
       });
-    });
   }
 
   changeViewMode = (isListSelected) => this.setState({ isListSelected });

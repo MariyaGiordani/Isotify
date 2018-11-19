@@ -4,6 +4,7 @@ import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import { getSavedAlbums } from '../../services/albums';
 import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyResponseParsers';
+import { serverError } from '../../services/errors';
 import './albums.css';
 
 export default class Albums extends Component {
@@ -21,8 +22,9 @@ export default class Albums extends Component {
         const songsAmount = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
         this.setState({ albums, albumsAmount, songsAmount });
       })
-      .catch(() => {
+      .catch((error) => {
         window.alert('Sorry, we cannot complete your request right now.');
+        serverError(error);
       });
   }
 
