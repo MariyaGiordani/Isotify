@@ -14,11 +14,10 @@ import './carousel.css';
 class Carousel extends Component {
   render() {
     const settings = {
-      arrow: true,
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 1.8,
       slidesToScroll: 1
     };
     const slides = this.props.items.map((item) => (

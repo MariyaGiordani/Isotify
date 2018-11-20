@@ -1,7 +1,8 @@
 .slide {
     display: inline-block;
+    position: relative;
     vertical-align: top;
-    height: 600px;
+    height: 500px;
     width: 100%;
     background-image: 
     linear-gradient(to bottom, rgba(51, 51, 51, 0), rgba(51, 51, 51, 0)), 
@@ -12,6 +13,12 @@
     white-space: normal;
 }
 
-.slide:last-child {
-    border-right: none;
+.slide__image{
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -4;
 }
