@@ -23,7 +23,6 @@
 
 .artist-line__upper-line {
   position: absolute;
-  /* transform: translateX(50%); */
   left: 50%;
   top: -55px;
   margin-left: -50px;
@@ -31,10 +30,6 @@
   flex-direction: column;
   align-items: center;
 }
-
-
-
-
 
 .artist-line__albums {
   padding: 0 15px;
@@ -46,7 +41,6 @@
   overflow-y: scroll;
 }
 
-
 .artist-line__semi-arrow {
   height: 1.5em;
   margin-left: 15px;
@@ -57,7 +51,7 @@
   margin-left: 20px;
 }
 
-.artist-line__upper-line--spacer{
+.artist-line__upper-line--spacer{ 
   margin-top: 25px;
   margin-bottom: 5px;
   padding: 0 20px
@@ -78,7 +72,7 @@
   justify-content: space-between;
 }
 
-.artist-line__shuffle-button{
+.artist-line__shuffle-button {
   width: 15px;
 }
 
@@ -113,7 +107,6 @@
 .artist-line__more-dot::after {
   bottom: 7px;
 }
-
 
 .artist-line__tittle {
   font-size: 18px;
@@ -163,32 +156,24 @@
 @media(min-width: 1200px){
     
   .artist-line {
-    font-family: Montserrat;
-    margin: 20px;
     height: 300px;
-    display: flex;
     flex-direction: row;
-    border-radius: 20px;
-    box-shadow: var(--artist-line__shadow);
   }
 
   .artist-line__section {
     box-sizing: border-box;
-    background-image: var(--gray-gradient);
+    border-radius: 20px 0 0 20px;
+    margin: 0;
     padding: 0 30px;
     width: 280px;
     height: 100%;
-    border-radius: 20px 0 0 20px;
-    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
   }
 
 
   .artist-line__albums {
-    padding: 0 15px;
-    box-sizing: border-box;
-    background-color: var(--white-light);
+    overflow-y: hidden;
     border-radius: 0 20px 20px 0;
     width: 730px;
     height: 100%;
@@ -202,9 +187,30 @@
     flex-direction: row;
     justify-content: space-around;
   }
+
   .artist-line__artist-icon {
-    width: 60px;
-    height: 60px;
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+  }
+
+  .artist-line__bottom-line {
+    position: relative;
+    top: 0;
+  }
+
+  .artist-line__see-more-button {
+    width: 130px;
+  }
+
+  .artist-line__upper-line--spacer{
+    margin-top: 25px;
+    margin-bottom: 5px;
+    padding: 0 20px;
+  }
+
+  .artist-line__upper-line{
+    justify-content: space-between;
   }
 
 }
