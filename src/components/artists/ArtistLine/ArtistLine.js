@@ -48,6 +48,7 @@ const ArtistLine = ({ artist }) => (
         <ArtistAlbumsGrid size="small" albums={artist.albums.slice(0, 4)} />
       </div>
     </div>
+    <div className="artist-line__bottom-corners" />
   </div>
 );
 export default ArtistLine;
