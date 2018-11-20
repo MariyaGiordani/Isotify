@@ -15,7 +15,7 @@
     height: 50px;
     width: 50px;
     background-color: var(--gray-lighter);
-    box-shadow: var(--header-icon-box-shadow);
+    box-shadow: var(--header-icon-shadow);
     border-radius: 50%;
     display: block;
     position: relative;
@@ -77,43 +77,68 @@
 .header__devider {
     width: 2px;
     height: 40px;
-    background-color: var(--gray-darker);
+    background-color: var(--white-dark);
 }
 
-@media only screen and (max-width: 1024px) {
-    .header__image-triangle {
-        margin-left: 40px;
-    }
-
+@media only screen and (max-width: 1165px) {
     .header__image-playlist {
         margin-right: 20px;
     }
 
     .header__image-triangle {
         margin-right: 18px;
+        margin-left: 30px;
     }
-    
+
     .header__image-mountain {
         margin-left: 20px;
     }
 }
 
+@media only screen and (max-width: 971px) {
+    .header__image-triangle {
+        margin-left: 5px;
+    }
+}
+
 @media only screen and (max-width: 768px) {
-    .header{
+    .header {
         height: 90px;
         padding-top: 25px;
     }
 
     .header__image-triangle {
-        margin-left: 30px;
+        margin-left: 10px;
     }
-    
+
     .header__image-playlist {
         margin-right: 12px
     }
-    
+
     .header__image-mountain {
         margin-left: 12px;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    .header__image-triangle, 
+    .header__devider {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        padding-left: 80px;
+        height: 80px;
+        padding-top: 15px;
+    }
+
+    .header__image-triangle, 
+    .header__image-mountain, 
+    .header__image-playlist, 
+    .header__devider {
+        display: none;
     }
 }
 
@@ -143,9 +168,9 @@
         width: 30px;
     }
 
-    .header__image-triangle,
-    .header__image-mountain,
-    .header__image-playlist,
+    .header__image-triangle, 
+    .header__image-mountain, 
+    .header__image-playlist, 
     .header__devider {
         display: none;
     }
@@ -157,6 +182,6 @@
     }
 
     .header__wrap {
-        margin-left: 0;;
+        margin-left: 0;
     }
 }

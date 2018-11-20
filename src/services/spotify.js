@@ -18,3 +18,7 @@ export function authenticate() {
   url += `&state=${encodeURIComponent(state)}`;
   window.location = url;
 }
+
+export function logOut() {
+  localStorage.clear();
+}

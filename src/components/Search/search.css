@@ -6,7 +6,7 @@
 .search__image {
     width: 20px;
     height: 20px;
-    margin: 12px 20px 20px 30px;
+    margin: 12px 8px 20px 30px;
 }
 
 .search__song {
@@ -17,36 +17,28 @@
     letter-spacing: 1px;
     border: none;
     text-decoration: none;
-    border-bottom: 2px solid var(--grey);
+    border-bottom: 2px solid var(--gray-ligth);
+    background-color: var(--white-light);
 }
 
 .search__song::placeholder {
-    color: var(--grey);
-    border-bottom: 2px solid var(--gray-light);
+    color: var(--gray-ligth);
+    padding-left: 10px;
 }
 
-.search__song::placeholder {
-    color: var(--gray-lighter);
-}
-
-@media only screen and (max-width: 1440px) {
-    .search__song {
-        width: 410px;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .search__song {
-        width: 70%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
     .search {
         width: 50%;
     }
-.search__image {
+
+    .search__image {
         margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .search__song {
+        width: 70%;
     }
 }
 
@@ -59,7 +51,11 @@
     .search__image {
         width: 14px;
         height: 14px;
-        margin: 10px;
+        margin: 5px;
+    }
+
+    .search__song::placeholder {
+        padding-left: 3px;
     }
 
     .search__song {
@@ -81,5 +77,8 @@
     .search {
         margin-left: 10px;
     }
-}
 
+    .search__song::placeholder {
+        padding-left: 0;
+    }
+}
