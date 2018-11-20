@@ -2,26 +2,19 @@ import React, { Component } from 'react';
 
 import './loadingBar.css';
 
-class LoadingBar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      percentage: 60
-    };
-  }
+export default class LoadingBar extends Component {
+  // state = {
+  //   progress: this.props.init || 0
+  // };
 
   render() {
-    const { percentage } = this.state;
     return (
       <div className="loading__bar-outer">
         <div
-          clasName="loading__bar-inner"
-          style={{ width: `${percentage}%` }}
+          className="loading__bar-inner"
+          style={{ width: `${this.props.progress}%` }}
         />
       </div>
     );
   }
 }
-
-export default LoadingBar;

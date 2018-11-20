@@ -7,16 +7,47 @@ import leftArrow from '../../assets/img/left-arrow.png';
 import rightArrow from '../../assets/img/right-arrow.png';
 
 import Slide from '../Slide/slide';
-// import LoadingBar from '../LoadingBar/loadingBar';
 
 import './carousel.css';
+import LoadingBar from '../LoadingBar/loadingBar';
 
 class Carousel extends Component {
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
+
+    this.state = {
+      progress: 0
+    };
   }
+
+  componentDidMount() {
+    this.initBar();
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.progress !== prevState.progress) {
+  //     console.log('Aquooo');
+  //     const interval = setInterval(() => {
+  //       if (this.state.progress >= 100) return clearInterval(interval);
+
+  //       this.setState({
+  //         progress: this.state.progress + 10
+  //       });
+  //     }, 400);
+  //   }
+  // }
+  initBar() {
+    const interval = setInterval(() => {
+      if (this.state.progress >= 100) return clearInterval(interval);
+
+      this.setState({
+        progress: this.state.progress + 10
+      });
+    }, 400);
+  }
+
   next() {
     this.slider.slickNext();
   }
@@ -33,8 +64,12 @@ class Carousel extends Component {
       slidesToShow: 1.9,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 4000,
       pauseOnHover: true,
+      afterChange: () => {
+        this.initBar();
+        this.setState({ progress: 0 });
+      },
       responsive: [
         {
           breakpoint: 1024,
@@ -61,9 +96,12 @@ class Carousel extends Component {
     console.log(slides, 'slides');
     return (
       <Fragment>
-        <Slider ref={(c) => (this.slider = c)} {...settings}>
-          {slides}
-        </Slider>
+        <div className="carousel__slider">
+          <Slider ref={(c) => (this.slider = c)} {...settings}>
+            {slides}
+          </Slider>
+        </div>
+        <LoadingBar progress={this.state.progress} />
         <div className="carousel__wrap ">
           <button className="carousel__button" onClick={this.previous}>
             <img className="carousel__arrow--right" alt="" src={leftArrow} />

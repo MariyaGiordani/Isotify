@@ -2,6 +2,11 @@
     width: 145%;
 }
 
+.carousel__slider {
+    width: 100%;
+    overflow: hidden;
+}
+
 .carousel__wrap {
     float: right;
 }
