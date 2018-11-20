@@ -14,7 +14,7 @@
 }
 
 .slide__wrape {
-   margin: 30% 25% 10% 9%;
+    margin: 20% 25% 5% 5%;
 }
 
 .slide__image {
@@ -25,4 +25,10 @@
     top: 0;
     left: 0;
     z-index: -4;
+}
+
+@media only screen and (max-width: 1800px) {
+    .slide__wrape {
+        margin: 33% 25% 5% 7%;
+    }
 }
