@@ -44,7 +44,7 @@ const ArtistLine = ({ artist }) => (
         </div>
       </div>
 
-      <div className="artist-line__bottom-line">
+      <div className="artist-line__albums-bottom-line">
         <ArtistAlbumsGrid size="small" albums={artist.albums.slice(0, 4)} />
       </div>
     </div>
