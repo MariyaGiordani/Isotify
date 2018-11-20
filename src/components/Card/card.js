@@ -39,7 +39,6 @@ const Card = ({
   return (
     <div className={`card card--${size}`}>
       {popup !== undefined ? createPopup(cardImage) : cardImage}
-      {/* <img src={imgSrc} alt={title} className="card__cover" /> */}
       <div className="card__info">
         <div className="card__text">
           {titleHref ? createLink(titleHref, titleParagraph) : titleParagraph}

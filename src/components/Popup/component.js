@@ -10,78 +10,28 @@ import pinkDots from '../../assets/img/pink-dots.png';
 const Popup = (props) => {
   return (
     <Fragment>
-      <div className="popup-content">
-        <div className="popup-content__header">
-          <div className="popup-content__title">
-            <h1 className="popup-content__title--h1">Album name</h1>
-            <div className="popup-content__subtitle">
-              <h2 className="popup-content__title--h2">Artist name</h2>
-              <span className="popup-content__dot" />
-              <p className="popup-content__title--p">2008</p>
+      <div className="popup">
+        <div className="popup__header">
+          <div className="popup__title">
+            <h1 className="popup__title--big-font">Album name</h1>
+            <div className="popup__subtitle">
+              <h2 className="popup__title--medium-font">Artist name</h2>
+              <span className="popup__dot" />
+              <p className="popup__title--small-font">2008</p>
             </div>
           </div>
-          <div className="popup-content__images">
+          <div className="popup__images">
             <img className="images__shuffle" alt="Shuffle" src={shuffleImage} />
             <img className="images__three-dots" alt="Options" src={grayDots} />
           </div>
         </div>
-        <div className="popup-content__line--gray" />
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
+        <div className="popup__line--gray" />
+        <div className="popup__songs">
+          <p className="popup__songs--gray">1</p>
           <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
+          <p className="popup__songs--gray">4:31</p>
         </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__songs">
-          <p className="popup-content__songs--gray">1</p>
-          <p>Music name</p>
-          <p className="popup-content__songs--gray">4:31</p>
-        </div>
-        <div className="popup-content__line--pink" />
+        <div className="popup__line--pink" />
         <Link to="/artists">
           <div className="related-link">
             <p className="related-link__text">Show Related</p>

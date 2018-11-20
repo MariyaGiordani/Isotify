@@ -18,9 +18,9 @@
     --button-playlist-background-color: rgba(136, 136, 136, .85);
 
     --switch-button__input-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
-    --popup-content__line-bg--gray:rgba(34,34,34,0.1);
-    --popup-content__line-bg--pink:rgba(212, 37, 98, 0.25);
-    --popup-content__box-shadow: 0 80px 100px 0 rgba(0, 0, 0, 0.5);
+    --popup__line-bg--gray:rgba(34,34,34,0.1);
+    --popup__line-bg--pink:rgba(212, 37, 98, 0.25);
+    --popup__box-shadow: 0 80px 100px 0 rgba(0, 0, 0, 0.5);
     --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
 
 }
