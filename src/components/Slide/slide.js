@@ -6,7 +6,10 @@ const Slide = (props) => {
   return (
     <div className="slide">
       <img className="slide__image" alt="" src={props.imgSrc} />
-      <ButtonListenTo />
+      <div className="slide__wrape">
+        {props.name}
+        <ButtonListenTo />
+      </div>
     </div>
   );
 };
