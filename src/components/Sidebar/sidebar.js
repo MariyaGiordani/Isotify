@@ -12,6 +12,13 @@ class SideBar extends Component {
     isCollapsed: true
   };
 
+  componentDidUpdate = (prevProps, prevState) => {
+    const currentLink = window.location.pathname;
+    if (currentLink !== prevState.selectedLink) {
+      this.setState({ selectedLink: currentLink });
+    }
+  };
+
   handlePageChange(selectedLink) {
     this.setState({ selectedLink });
   }
