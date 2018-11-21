@@ -28,11 +28,13 @@ class Carousel extends Component {
 
   initializingBar() {
     const interval = setInterval(() => {
-      if (this.state.progress >= 100) return clearInterval(interval);
-
-      this.setState({
-        progress: this.state.progress + 2
-      });
+      if (this.state.progress >= 100) {
+        return clearInterval(interval);
+      } else {
+        this.setState({
+          progress: this.state.progress + 2
+        });
+      }
     }, 500);
   }
 
