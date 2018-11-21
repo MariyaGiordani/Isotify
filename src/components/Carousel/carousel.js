@@ -12,6 +12,9 @@ import Slide from '../Slide/slide';
 
 import './carousel.css';
 
+const maxProgress = 100;
+const percentageLoad = 2;
+const timeout = 500;
 class Carousel extends Component {
   constructor(props) {
     super(props);
@@ -29,14 +32,14 @@ class Carousel extends Component {
 
   initializingBar() {
     const interval = setInterval(() => {
-      if (this.state.progress >= 100) {
+      if (this.state.progress >= maxProgress) {
         return clearInterval(interval);
       } else {
         this.setState({
-          progress: this.state.progress + 2
+          progress: this.state.progress + percentageLoad
         });
       }
-    }, 500);
+    }, timeout);
   }
 
   next() {
@@ -53,7 +56,7 @@ class Carousel extends Component {
       infinite: true,
       slidesToShow: 1.9,
       slidesToScroll: 1,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 1200,
       autoplay: true,
       pauseOnHover: true,
       afterChange: () => {
