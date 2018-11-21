@@ -1,0 +1,10 @@
+.page-container {
+  padding: 50px 45px 0px 45px;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+.page-container--no-padding {
+  margin-left: 100px;
+  margin-top: 100px;
+}
