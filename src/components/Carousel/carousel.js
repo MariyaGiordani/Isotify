@@ -43,7 +43,10 @@ class Carousel extends Component {
     this.slider.slickPrev();
   };
 
-  render() {
+  render = () => {
+    const { loadingBar } = this.state.progress;
+    const { artistsAlbums } = this.props.items;
+
     const settings = {
       className: 'carousel',
       dots: false,
@@ -77,9 +80,11 @@ class Carousel extends Component {
         }
       ]
     };
-    const slides = this.props.items.map((item) => (
+
+    const slides = artistsAlbums.map((item) => (
       <Slide key={item.id} name={item.name} imgSrc={item.imgSrc} />
     ));
+
     return (
       <Fragment>
         <div className="carousel__slider">
@@ -87,7 +92,7 @@ class Carousel extends Component {
             {slides}
           </Slider>
         </div>
-        <LoadingBar progress={this.state.progress} />
+        <LoadingBar progress={loadingBar} />
         <div className="carousel__arrows">
           <button className="carousel__button" onClick={this.previous}>
             <img
@@ -106,7 +111,7 @@ class Carousel extends Component {
         </div>
       </Fragment>
     );
-  }
+  };
 }
 
 export default Carousel;
