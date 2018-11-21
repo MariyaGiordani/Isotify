@@ -14,8 +14,10 @@ const getAlbumsComponents = (albums = [], size) =>
     />
   ));
 
-const AlbumsGrid = ({ albums, size }) => (
-  <div className="albums-grid">{getAlbumsComponents(albums, size)}</div>
+const AlbumsGrid = ({ albums, size, isFullSize }) => (
+  <div className={isFullSize ? 'albums-grid--full-size' : 'albums-grid'}>
+    {getAlbumsComponents(albums, size)}
+  </div>
 );
 
 export default AlbumsGrid;

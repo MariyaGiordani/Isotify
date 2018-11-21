@@ -133,7 +133,7 @@
   border-radius: 12px;
   font-size: 12px;
   background-image: var(--red-yellow-peach-gradient);
-  background-position: right center;
+  background-position: right;
 }
 
 .artist-line__see-more-button:hover {
@@ -146,6 +146,7 @@
   color: var(--pink-darker);
   display: flex;
   align-items: center;
+  font-weight: 600;
 }
 
 .artist-line__bottom-line {
@@ -156,6 +157,10 @@
 .artist-line__albums-bottom-line {
   display: flex;
   flex-direction: row;
+}
+
+.artist-line__middle-line{
+  text-align: center;
 }
 
 @media(min-width: 1024px){
@@ -241,6 +246,10 @@
   .artist-line__discography {
     font-size: 18px;
     font-weight: 600;
+  }
+
+  .artist-line__middle-line{
+    text-align: left;
   }
 
 }
