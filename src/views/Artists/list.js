@@ -19,7 +19,9 @@ export default class ArtistsListView extends Component {
   componentDidMount() {
     getTopArtistsWithAlbums()
       .then((artists) => {
-        const parsedArtists = parseTopArtists(artists).filter((artist) => artist.albums.length > 0);
+        const parsedArtists = parseTopArtists(artists).filter(
+          (artist) => artist.albums.length > 0
+        );
 
         const totalTracks = parsedArtists.reduce(
           (total, currentArtist) => total + currentArtist.totalTracks,
@@ -53,10 +55,18 @@ export default class ArtistsListView extends Component {
               subtitle
             }}
           >
-            <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.changeViewMode} />
+            <SwitchButton
+              firstOption="Grid"
+              secondOption="List"
+              inputFunction={this.changeViewMode}
+            />
           </HeaderLine>
 
-          {isListSelected ? <ArtistsList artists={artists} /> : <ArtistsGrid artists={artists} />}
+          {isListSelected ? (
+            <ArtistsList artists={artists} />
+          ) : (
+            <ArtistsGrid artists={artists} />
+          )}
         </div>
       </Fragment>
     );

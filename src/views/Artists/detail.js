@@ -50,7 +50,14 @@ export default class Details extends Component {
   }
 
   render = () => {
-    const { name, albums, songsAmount, albumsAmount, relatedArtists, imgSrc } = this.state;
+    const {
+      name,
+      albums,
+      songsAmount,
+      albumsAmount,
+      relatedArtists,
+      imgSrc
+    } = this.state;
     return (
       <Fragment>
         <div className="container">

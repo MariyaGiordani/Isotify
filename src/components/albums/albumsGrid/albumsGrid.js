@@ -1,9 +1,9 @@
-import React from "react";
-import Card from "../../Card/card";
-import "./albumsGrid.css";
+import React from 'react';
+import Card from '../../Card/card';
+import './albumsGrid.css';
 
 const getAlbumsComponents = (albums = [], size) =>
-  albums.map(({ imgSrc, title, artist, id }) => (
+  albums.map(({ imgSrc, title, artist, id, date }) => (
     <Card
       imgSrc={imgSrc}
       size={size}
@@ -11,7 +11,9 @@ const getAlbumsComponents = (albums = [], size) =>
       subtitle={artist.name}
       subtitleHref={`/artists/${artist.id}`}
       key={id}
+      albumId={id}
       popup={true}
+      date={date}
     />
   ));
 
