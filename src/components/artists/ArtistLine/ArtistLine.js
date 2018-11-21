@@ -21,8 +21,9 @@ const ArtistLine = ({ artist }) => (
       <div className="artist-line__middle-line">
         <Link to={`/artists/${artist.id}`}>
           <div className="artist-line__tittle">{artist.name}</div>
-          <div className="artist-line__more-info">{`${artist.totalTracks} Songs,
-            ${artist.albums.length} Albums`}</div>
+          <div className="artist-line__more-info">
+            {artist.totalTracks} Songs, {artist.albums.length} Albums}
+          </div>
         </Link>
       </div>
       <div className="artist-line__bottom-line">
