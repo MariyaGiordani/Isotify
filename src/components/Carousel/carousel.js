@@ -16,21 +16,15 @@ const maxProgress = 100;
 const percentageLoad = 2;
 const timeout = 500;
 class Carousel extends Component {
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-
-    this.state = {
-      progress: 0
-    };
-  }
+  state = {
+    progress: 0
+  };
 
   componentDidMount() {
     this.initializingBar();
   }
 
-  initializingBar() {
+  initializingBar = () => {
     const interval = setInterval(() => {
       if (this.state.progress >= maxProgress) {
         return clearInterval(interval);
@@ -40,14 +34,14 @@ class Carousel extends Component {
         });
       }
     }, timeout);
-  }
+  };
 
-  next() {
+  next = () => {
     this.slider.slickNext();
-  }
-  previous() {
+  };
+  previous = () => {
     this.slider.slickPrev();
-  }
+  };
 
   render() {
     const settings = {
