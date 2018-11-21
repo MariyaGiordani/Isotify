@@ -1,15 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import Slider from 'react-slick';
+
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 
 import leftArrow from '../../assets/img/left-arrow.png';
 import rightArrow from '../../assets/img/right-arrow.png';
 
+import LoadingBar from '../LoadingBar/loadingBar';
 import Slide from '../Slide/slide';
 
 import './carousel.css';
-import LoadingBar from '../LoadingBar/loadingBar';
 
 class Carousel extends Component {
   constructor(props) {
@@ -90,12 +91,20 @@ class Carousel extends Component {
           </Slider>
         </div>
         <LoadingBar progress={this.state.progress} />
-        <div className="carousel__wrap ">
+        <div className="carousel__arrows">
           <button className="carousel__button" onClick={this.previous}>
-            <img className="carousel__arrow--right" alt="" src={leftArrow} />
+            <img
+              className="carousel__arrow--right"
+              alt="Right arrow"
+              src={leftArrow}
+            />
           </button>
           <button className="carousel__button" onClick={this.next}>
-            <img className="carousel__arrow--left" alt="" src={rightArrow} />
+            <img
+              className="carousel__arrow--left"
+              alt="Left arrow"
+              src={rightArrow}
+            />
           </button>
         </div>
       </Fragment>
