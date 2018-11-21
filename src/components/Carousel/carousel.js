@@ -23,29 +23,17 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    this.initBar();
+    this.initializingBar();
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.progress !== prevState.progress) {
-  //     console.log('Aquooo');
-  //     const interval = setInterval(() => {
-  //       if (this.state.progress >= 100) return clearInterval(interval);
-
-  //       this.setState({
-  //         progress: this.state.progress + 10
-  //       });
-  //     }, 400);
-  //   }
-  // }
-  initBar() {
+  initializingBar() {
     const interval = setInterval(() => {
       if (this.state.progress >= 100) return clearInterval(interval);
 
       this.setState({
-        progress: this.state.progress + 10
+        progress: this.state.progress + 2
       });
-    }, 400);
+    }, 500);
   }
 
   next() {
@@ -60,19 +48,18 @@ class Carousel extends Component {
       className: 'carousel',
       dots: false,
       infinite: true,
-      speed: 500,
       slidesToShow: 1.9,
       slidesToScroll: 1,
+      autoplaySpeed: 3000,
       autoplay: true,
-      autoplaySpeed: 4000,
       pauseOnHover: true,
       afterChange: () => {
-        this.initBar();
+        this.initializingBar();
         this.setState({ progress: 0 });
       },
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 786,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -93,7 +80,6 @@ class Carousel extends Component {
     const slides = this.props.items.map((item) => (
       <Slide key={item.id} name={item.name} imgSrc={item.imgSrc} />
     ));
-    console.log(slides, 'slides');
     return (
       <Fragment>
         <div className="carousel__slider">

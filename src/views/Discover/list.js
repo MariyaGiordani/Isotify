@@ -26,7 +26,6 @@ export default class List extends Component {
   };
 
   render = () => {
-    console.log(this.state.carouselArtists, 'artists');
     return (
       <Fragment>
         <div className="container">

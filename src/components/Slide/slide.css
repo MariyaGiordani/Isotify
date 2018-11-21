@@ -4,12 +4,12 @@
     vertical-align: top;
     height: 500px;
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0), rgba(51, 51, 51, 0)), linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    background-image: var(--carousel-black-gradient);
     font-size: 35px;
     line-height: 1.17;
     letter-spacing: -2px;
-    color: #eeeeee;
-    border-right: 3px solid white;
+    color: var(--white);
+    border-right: 3px solid var(--white);
     white-space: normal;
 }
 
@@ -29,6 +29,38 @@
 
 @media only screen and (max-width: 1800px) {
     .slide__wrape {
-        margin: 33% 25% 5% 7%;
+        margin-top: 33%;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .slide__wrape {
+        margin: 30% 25% 5% 7%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .slide {
+        height: 400px;
+    }
+
+    .slide__wrape {
+        margin-top: 29%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .slide__wrape {
+        margin-top: 23%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .slide {
+        height: 300px;
+    }
+
+    .slide__wrape {
+        margin-top: 24%;
     }
 }
