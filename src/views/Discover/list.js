@@ -1,9 +1,10 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import './discover.css';
 
 import Carousel from '../../components/Carousel/carousel';
 import { getNewReleases } from '../../services/newReleases';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
+import WhatsNew from '../../components/WhatsNew/whatsNew';
 
 export default class List extends Component {
   state = {
@@ -20,18 +21,18 @@ export default class List extends Component {
         id: album.id
       }));
       this.setState({
-        carouselArtists: carouselArtists
+        carouselArtists: carouselArtists,
+        albums
       });
     });
   };
 
   render = () => {
     return (
-      <Fragment>
-        <div className="container">
-          <Carousel items={this.state.carouselArtists} />
-        </div>
-      </Fragment>
+      <div className="container">
+        <Carousel items={this.state.carouselArtists} />
+        <WhatsNew albums={this.state.albums.slice(0, 4)} />
+      </div>
     );
   };
 }

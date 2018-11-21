@@ -40,6 +40,14 @@
   height: 100px;
 }
 
+.card--quarter{
+  width: 50%;
+}
+
+.card--quarter .card__cover {
+  width: 80%;
+}
+
 .card.card--big {
   width: 230px;
   margin-top: 10px;

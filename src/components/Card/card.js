@@ -14,7 +14,9 @@ const Card = ({ imgSrc, size, title, subtitle, titleHref, subtitleHref }) => {
       <div className="card__info">
         <div className="card__text">
           {titleHref ? createLink(titleHref, titleParagraph) : titleParagraph}
-          {subtitleHref ? createLink(subtitleHref, subtitleParagraph) : subtitleParagraph}
+          {subtitleHref
+            ? createLink(subtitleHref, subtitleParagraph)
+            : subtitleParagraph}
         </div>
         <div className="card__options" />
       </div>
