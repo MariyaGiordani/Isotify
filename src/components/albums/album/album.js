@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import Popup from '../../components/Popup/component';
+import Popup from '../../../components/Popup/component';
 import Card from '../../Card/card';
-import { getAlbumTracks } from '../../services/tracks';
-import { albumTracks } from '../../utils/spotifyResponseParsers';
+import { getAlbumTracks } from '../../../services/tracks';
+import { albumTracks } from '../../../utils/spotifyResponseParsers';
 
-const createPopup = (tracks, title, subtitle, date) => {
-  return <Popup tracks={tracks} title={title} subtitle={subtitle} date={date} />;
-};
+const createPopup = (tracks, title, subtitle, date) => (
+  <Popup tracks={tracks} title={title} subtitle={subtitle} date={date} />
+);
 
 class Album extends Component {
   state = {
@@ -15,18 +15,16 @@ class Album extends Component {
   };
 
   componentDidMount() {
-    if (this.props.popup) {
-      const albumId = this.props.albumId;
-      getAlbumTracks(albumId).then((response) => {
-        const tracks = albumTracks(response);
-        this.setState({ tracks });
-      });
-    }
+    const albumId = this.props.albumId;
+    getAlbumTracks(albumId).then((response) => {
+      const tracks = albumTracks(response);
+      this.setState({ tracks });
+    });
   }
 
   render = () => {
     const { imgSrc, size, name, date, artist, id } = this.props;
-
+    const popUp = createPopup(this.state.tracks, name, artist.name, date);
     return (
       <Card
         imgSrc={imgSrc}
@@ -36,7 +34,7 @@ class Album extends Component {
         subtitleHref={`/artists/${artist.id}`}
         key={id}
         albumId={id}
-        popup={createPopup(this.state.tracks, name, artist.name, date)}
+        popup={popUp}
         date={date}
       />
     );
