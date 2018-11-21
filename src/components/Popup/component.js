@@ -12,9 +12,9 @@ const createMusics = (tracks) =>
     <div className="popup__songs">
       <p className="popup__songs--songNumber">{songNumber}</p>
       <p className="popup__songs--songName">{songName}</p>
-      <p className="popup__songs--songDuration">{`${
-        convertDuration(songDuration).min
-      }:${convertDuration(songDuration).sec}`}</p>
+      <p className="popup__songs--songDuration">{`${convertDuration(songDuration).min}:${
+        convertDuration(songDuration).sec
+      }`}</p>
     </div>
   ));
 const convertDuration = (songDuration) => {
@@ -30,11 +30,7 @@ const relatedLink = (show) => {
       <Link to="/artists">
         <div className="related-link">
           <p className="related-link__text">Show Related</p>
-          <img
-            className="related-link__three-dots--horizontal"
-            alt="Options"
-            src={pinkDots}
-          />
+          <img className="related-link__three-dots--horizontal" alt="Options" src={pinkDots} />
         </div>
       </Link>
     </Fragment>
@@ -42,11 +38,6 @@ const relatedLink = (show) => {
 };
 
 const Popup = (props) => {
-  console.log(props.tracks);
-  console.log(props.title);
-  console.log(props.subtitle);
-  console.log(props.date);
-
   return (
     <div className="popup">
       <div className="popup__header">
