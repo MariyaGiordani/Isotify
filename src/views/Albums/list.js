@@ -41,7 +41,9 @@ export default class Albums extends Component {
             subtitle
           }}
         />
-        <AlbumsGrid size="big" albums={albums} />
+        <div className="albums-view__grid">
+          <AlbumsGrid size="big" albums={albums} />
+        </div>
       </PageContainer>
     );
   };
