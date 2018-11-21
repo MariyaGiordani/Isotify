@@ -30,7 +30,7 @@ class SideBar extends Component {
     const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
     const { selectedLink } = this.state;
 
-    return LINKS.map(({ to, src, name, spacer, alt, active }, index) => {
+    return LINKS.map(({ to, src, name, spacer, alt }, index) => {
       const matchCase = new RegExp(`^${to}`);
       return (
         <SidebarIcon
@@ -67,7 +67,7 @@ class SideBar extends Component {
           className={
             this.state.isCollapsed
               ? 'sidebar__screen sidebar__screen--collapsed'
-              : 'sidebar__screen test--show'
+              : 'sidebar__screen'
           }
         />
       </Fragment>
