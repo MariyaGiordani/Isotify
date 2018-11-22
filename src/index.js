@@ -22,7 +22,7 @@ import './variables-colors.css';
 
 const routes = () => (
   <Fragment>
-    {showMenus()}
+    {isUserLogged() && showMenus()}
     <Switch>
       <Route path="/login" component={Login} />
       {!isUserLogged() && <Redirect to="/login" />}
@@ -41,4 +41,7 @@ const routes = () => (
   </Fragment>
 );
 
-ReactDOM.render(<BrowserRouter>{routes()}</BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>{routes()}</BrowserRouter>,
+  document.getElementById('root')
+);

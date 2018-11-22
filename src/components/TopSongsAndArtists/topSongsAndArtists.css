@@ -1,0 +1,76 @@
+.top-songs-and-artists {
+  width: 85%;
+  height: 500px;
+  background: var(--white-light);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 15px;
+  box-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
+}
+
+.top-songs-and-artists__header{
+  font-size: 21px;
+  margin-left: 10%;
+  margin-top: 40px;
+}
+
+.top-songs-and-artists__line {
+  width: 80%;
+  margin-left: 10%;
+  height: 2px;
+  background: var(--white-dark);
+}
+
+.top-item__text {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.top-item__title {
+  font-size: 16px;
+}
+
+.top-item__subtitle {
+  font-size: 12px;
+}
+
+.top-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-item__icon-space {
+  margin-top: 20px;
+  margin-left: 5%;
+  width: 20%;
+}
+
+.top-item__icon-ball {
+  width: 64%;
+  padding-top: 64%;
+  position: relative;
+  margin-left: 18%;
+  background-color: var(--top-icon-bg);
+  border-radius: 50%;
+}
+
+.top-item__icon-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.top-item__icon {
+  position: absolute;
+  top: 14%;
+  left: 14%;
+  width: 70%;
+}
+
+.top-item__divisor-line {
+  width: 65%;
+  margin-left: 25%;
+  height: 2px;
+  background: var(--white-dark);
+}
