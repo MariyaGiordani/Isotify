@@ -12,6 +12,13 @@ class SideBar extends Component {
     isCollapsed: true
   };
 
+  componentDidUpdate = (prevProps, prevState) => {
+    const currentLink = window.location.pathname;
+    if (currentLink !== prevState.selectedLink) {
+      this.setState({ selectedLink: currentLink });
+    }
+  };
+
   handlePageChange(selectedLink) {
     this.setState({ selectedLink });
   }
@@ -55,6 +62,14 @@ class SideBar extends Component {
         >
           {this._renderIcons()}
         </div>
+        <div
+          onClick={this.changeIsCollapsed}
+          className={
+            this.state.isCollapsed
+              ? 'sidebar__screen sidebar__screen--collapsed'
+              : 'sidebar__screen'
+          }
+        />
       </Fragment>
     );
   }

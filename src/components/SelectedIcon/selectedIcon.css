@@ -1,9 +1,18 @@
 .selected-icon {
   position: absolute;
-  top: 50%;
-  margin-top: -25px;
-  height: 50px;
-  width: 4px;
-  left: 69px;
+  top: 80%;
+  margin-top: -55px;
+  height: 75px;
+  width: 2.5px;
+  left: 74px;
   background-color: var(--pink-darkest);
+}
+
+@media (max-width: 425px) {
+  .selected-icon {
+    width: 2px;
+    left: 68px;
+    margin-top: -49px;
+    height: 68px;
+  }
 }

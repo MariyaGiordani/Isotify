@@ -22,7 +22,7 @@ import './variables-colors.css';
 
 const routes = () => (
   <Fragment>
-    {showMenus()}
+    {isUserLogged() && showMenus()}
     <Switch>
       <Route path="/login" component={Login} />
       {!isUserLogged() && <Redirect to="/login" />}
