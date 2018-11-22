@@ -44,8 +44,8 @@ class Carousel extends Component {
   };
 
   render = () => {
-    const { loadingBar } = this.state.progress;
-    const { artistsAlbums } = this.props.items;
+    const loadingBar = this.state.progress;
+    const artistsAlbums = this.props.items;
 
     const settings = {
       className: 'carousel',
