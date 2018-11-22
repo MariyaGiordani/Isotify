@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Slider from 'react-slick';
 
-import '../../../node_modules/slick-carousel/slick/slick.css';
-import '../../../node_modules/slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import leftArrow from '../../assets/img/left-arrow.png';
 import rightArrow from '../../assets/img/right-arrow.png';
@@ -37,6 +37,29 @@ class Carousel extends Component {
     }, timeout);
   };
 
+  getCarouselSetting = () => ({
+    className: 'carousel',
+    dots: false,
+    infinite: true,
+    slidesToShow: 1.9,
+    slidesToScroll: 1,
+    autoplaySpeed: 1200,
+    autoplay: true,
+    pauseOnHover: true,
+    afterChange: () => {
+      this.setState({ progress: 0 });
+      this.initializingBar();
+    },
+    responsive: [
+      {
+        breakpoint: 786,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+
   next = () => {
     this.slider.slickNext();
   };
@@ -48,40 +71,6 @@ class Carousel extends Component {
     const { progress } = this.state;
     const { items } = this.props;
 
-    const settings = {
-      className: 'carousel',
-      dots: false,
-      infinite: true,
-      slidesToShow: 1.9,
-      slidesToScroll: 1,
-      autoplaySpeed: 1200,
-      autoplay: true,
-      pauseOnHover: true,
-      afterChange: () => {
-        this.initializingBar();
-        this.setState({ progress: 0 });
-      },
-      responsive: [
-        {
-          breakpoint: 786,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            initialSlide: 1
-          }
-        }
-      ]
-    };
-
     const slides = items.map((item) => (
       <Slide key={item.id} name={item.name} imgSrc={item.imgSrc} />
     ));
@@ -89,7 +78,7 @@ class Carousel extends Component {
     return (
       <Fragment>
         <div className="carousel__slider">
-          <Slider ref={(c) => (this.slider = c)} {...settings}>
+          <Slider ref={(c) => (this.slider = c)} {...this.getCarouselSetting()}>
             {slides}
           </Slider>
         </div>

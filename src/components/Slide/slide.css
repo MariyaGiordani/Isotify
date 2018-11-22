@@ -14,8 +14,9 @@
 }
 
 .slide__wrap {
-    margin-left: 5%;
-    margin-top: 20%;
+    position: absolute;
+    bottom: 70px;
+    left: 59px;
 }
 
 .slide__image {
@@ -28,31 +29,9 @@
     z-index: -4;
 }
 
-@media only screen and (max-width: 1800px) {
-    .slide__wrap {
-        margin-top: 33%;
-    }
-}
-
-@media only screen and (max-width: 1477px) {
-    .slide__wrap {
-        margin: 30% 25% 5% 7%;
-    }
-}
-
 @media only screen and (max-width: 1024px) {
     .slide {
         height: 400px;
-    }
-
-    .slide__wrap {
-        margin-top: 29%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .slide__wrape {
-        margin-top: 23%;
     }
 }
 
@@ -61,7 +40,8 @@
         height: 300px;
     }
 
-    .slide__wrape {
-        margin-top: 24%;
+    .slide__wrap {
+        bottom: 40px;
+        left: 38px;
     }
 }
