@@ -49,7 +49,7 @@ export class UserPlaylist extends Component {
   render = () => (
     <div className="content">
       <h1 className="content__title">Playlists</h1>
-      <p className="content__subtitle">SEE WHAT'S POPPING THIS WEEK</p>{' '}
+      <p className="content__subtitle">SEE WHAT'S POPPING THIS WEEK</p>
       <div className="content__playlists">
         {mapPlaylist(this.state.playlists)}
       </div>
