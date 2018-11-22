@@ -22,6 +22,13 @@
     margin-left: 50px;
 }
 
+@media only screen and (max-width: 1500px) {
+    .whats-new__header {
+        width: 96%;
+        margin-left: -3%;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
     .whats-new__header {
         width: 97%;
