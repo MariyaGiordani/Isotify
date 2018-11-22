@@ -5,7 +5,7 @@ import ButtonListenTo from '../ButtonListenTo/buttonListenTo';
 const Slide = (props) => {
   return (
     <div className="slide">
-      <img className="slide__image" alt="" src={props.imgSrc} />
+      <img className="slide__image" alt="Artist" src={props.imgSrc} />
       <div className="slide__wrap">
         {props.name}
         <ButtonListenTo />
