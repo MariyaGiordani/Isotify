@@ -1,4 +1,4 @@
-.playlists__container {
+.user-playlists {
     width: 260px;
     height: 200px;
     background-image: var(--playlist-gradient);
@@ -19,7 +19,7 @@
     width: auto;
 }
 
-.container__line {
+.user-playlists__line {
     width: 220px;
     height: 3px;
     margin-top: 10px;
@@ -35,12 +35,12 @@
     margin-top:10px
 }
 
-.container__user-info {
+.user-playlists__user-info {
     display: flex;
 }
 
-.container__subtitle,
-.user-info__numero-playlists {
+.user-playlists__tracks,
+.user-info__number-playlists {
     font-size: 9px;
     color:var(--black);
     opacity: 0.5;
@@ -55,7 +55,7 @@
     font-stretch: normal;
 }
 
-.container__title {
+.user-playlists__name {
     font-size: 20px;
     margin-left: 30px
 }

@@ -13,15 +13,15 @@ const createPlaylist = ({
   playlistLength
 }) => (
   <div>
-    <div className="playlists__container">
-      <h2 className="container__title">{namePlaylist}</h2>
-      <p className="container__subtitle">{lengthTracks} Tracks</p>
-      <div className="container__line" />
-      <div className="container__user-info">
+    <div className="user-playlists">
+      <h2 className="user-playlists__name">{namePlaylist}</h2>
+      <p className="user-playlists__tracks">{lengthTracks} Tracks</p>
+      <div className="user-playlists__line" />
+      <div className="user-playlists__user-info">
         <img className="user-info__picture" alt="User Profile" src={circle} />
         <div className="user-info">
           <p className="user-info__name">{nameUser}</p>
-          <p className="user-info__numero-playlists">
+          <p className="user-info__number-playlists">
             {playlistLength} Playlists
           </p>
         </div>
