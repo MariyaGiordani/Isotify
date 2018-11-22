@@ -12,10 +12,14 @@
   color: var(--gray);
   font-size: 18px;
   font-weight: 500;
+  
 }
 
 .popup__title--medium-font {
   margin-right: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .popup__title--small-font {
