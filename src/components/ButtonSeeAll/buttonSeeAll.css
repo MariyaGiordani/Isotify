@@ -1,0 +1,48 @@
+.button__seeall {
+    border: 0;
+    height: 55px;
+    box-shadow: 0 40px 40px 0 var(--listen-to-shadow);
+    background-image: linear-gradient(73deg, rgba(191, 10, 69, 0.9), rgba(228, 48, 93, 0.9) 63%, rgba(238, 115, 33, 0.9));
+    border-radius: 20px;
+    padding: 10px 25px;
+    color: var(--white-lighter);
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.button__seeall-image {
+    width: 24px;
+    margin-left: 18px;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 1024px) {
+    .button__seeall {
+        height: 50px;
+        border-radius: 18px;
+    }
+
+    .button__seeall-image {
+        width: 20px;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 1071px) {
+    .button__seeall {
+        margin-top: 18px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .button__seeall {
+        height: 40px;
+        border-radius: 15px;
+        margin-top: 15px;
+        letter-spacing: 1px;
+    }
+
+    .button__seeall-image {
+        width: 15px;
+    }
+}

@@ -12,8 +12,16 @@
   padding: 0 10px;
 }
 
+.card--quarter .card__info{
+  margin-top: 15px;
+}
+
 .card__text {
   width: 90%;
+}
+
+.card--quarter .card__text{
+  width: 70%;
 }
 
 .card__text-title {
@@ -38,6 +46,16 @@
 .card--small .card__cover {
   width: 100px;
   height: 100px;
+}
+
+.card--quarter{
+  margin-bottom: 30px;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.card--quarter .card__cover {
+  width: 80%;
 }
 
 .card.card--big {
@@ -80,6 +98,10 @@
   background-color: var(--gray);
 }
 
+.card--quarter .card__options{
+  right: 22%;
+}
+
 .card__options::before, 
 .card__options::after {
   border-radius: 50%;
@@ -98,4 +120,15 @@
 
 .card__options::after {
   bottom: 7px;
+}
+
+@media only screen and (max-width: 500px) {
+  .card--quarter {
+      width: 35%;
+      margin-bottom: 20px;
+  }
+
+  .card--quarter .card__cover {
+    width: 100%;
+  }
 }
