@@ -18,7 +18,6 @@ const WhatsNew = (props) => {
         </div>
         <AlbumsGrid albums={props.albums} size="quarter" />
       </div>
-      <div className="whats-new__devider whats-new__divider--margin" />
     </Fragment>
   );
 };

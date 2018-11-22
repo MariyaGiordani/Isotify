@@ -1,0 +1,10 @@
+.discover {
+  display: flex;
+  flex-direction: row;
+}           
+    
+.discover__top {
+  display: flex;
+  width: 33%;
+  justify-content: center;
+}

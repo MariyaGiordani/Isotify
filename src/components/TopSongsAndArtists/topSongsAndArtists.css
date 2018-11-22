@@ -1,6 +1,6 @@
 .top-songs-and-artists {
   width: 85%;
-  height: 500px;
+  height: 130vh;
   background: var(--white-light);
   overflow-y: scroll;
   overflow-x: hidden;

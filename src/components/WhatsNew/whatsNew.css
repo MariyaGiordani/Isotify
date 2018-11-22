@@ -1,12 +1,10 @@
 .whats-new {
     width: 60%;
-    margin-top: 100px;
     margin-left: 50px
 }
 
-.whats-new__devider {
+.whats-new__divider {
     margin-bottom: 30px;
-    margin-top: 50px;
     width: 90%;
     height: 4px;
     background-color: var(--white-dark);

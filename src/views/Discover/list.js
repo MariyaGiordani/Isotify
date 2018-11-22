@@ -4,6 +4,7 @@ import './discover.css';
 import { getNewReleases } from '../../services/newReleases';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
+import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
 
 export default class List extends Component {
   state = {
@@ -28,8 +29,14 @@ export default class List extends Component {
 
   render = () => {
     return (
-      <div className="container">
+      <div className="discover container">
         <WhatsNew albums={this.state.albums.slice(0, 4)} />
+        <div className="discover__top">
+          <TopSongsAndArtists
+            artists={this.state.carouselArtists.slice(0, 4)}
+            songs={[]}
+          />
+        </div>
       </div>
     );
   };
