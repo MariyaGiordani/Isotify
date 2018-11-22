@@ -16,7 +16,8 @@ export const LINKS = [
     name: 'Albums',
     to: '/albums',
     src: musicImage,
-    alt: 'Musical note representing albums icon'
+    alt: 'Musical note representing albums icon',
+    active: true
   },
   {
     name: 'Artists',
