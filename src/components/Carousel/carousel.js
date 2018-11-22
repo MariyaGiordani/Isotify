@@ -17,7 +17,8 @@ const percentageLoad = 2;
 const timeout = 500;
 class Carousel extends Component {
   state = {
-    progress: 0
+    progress: 0,
+    items: []
   };
 
   componentDidMount() {
@@ -44,8 +45,8 @@ class Carousel extends Component {
   };
 
   render = () => {
-    const loadingBar = this.state.progress;
-    const artistsAlbums = this.props.items;
+    const { progress } = this.state;
+    const { items } = this.props;
 
     const settings = {
       className: 'carousel',
@@ -81,7 +82,7 @@ class Carousel extends Component {
       ]
     };
 
-    const slides = artistsAlbums.map((item) => (
+    const slides = items.map((item) => (
       <Slide key={item.id} name={item.name} imgSrc={item.imgSrc} />
     ));
 
@@ -92,7 +93,7 @@ class Carousel extends Component {
             {slides}
           </Slider>
         </div>
-        <LoadingBar progress={loadingBar} />
+        <LoadingBar progress={progress} />
         <div className="carousel__arrows">
           <button className="carousel__button" onClick={this.previous}>
             <img
