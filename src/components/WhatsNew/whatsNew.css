@@ -18,7 +18,7 @@
     margin-bottom: 20px;
 }
 
-.whats-new__devider--margin {
+.whats-new__divider--margin {
     margin-left: 50px;
 }
 
@@ -49,13 +49,13 @@
         margin-bottom: 0;
     }
 
-    .whats-new__devider
+    .whats-new__divider
      {
         margin-left: 15px;
         margin-bottom: 20px;
     }
 
-    .whats-new__devider--margin {
+    .whats-new__divider--margin {
         margin-left: 15px;
         margin-top: 10px;
     }

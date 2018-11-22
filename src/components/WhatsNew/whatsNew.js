@@ -10,7 +10,7 @@ const WhatsNew = (props) => {
   return (
     <Fragment>
       <div className="whats-new">
-        <div className="whats-new__devider" />
+        <div className="whats-new__divider" />
         <div className="whats-new__header">
           <HeaderLine title={title} subtitle={subtitle}>
             <ButtonSeeAll />
@@ -18,7 +18,7 @@ const WhatsNew = (props) => {
         </div>
         <AlbumsGrid albums={props.albums} size="quarter" />
       </div>
-      <div className="whats-new__devider whats-new__devider--margin" />
+      <div className="whats-new__devider whats-new__divider--margin" />
     </Fragment>
   );
 };
