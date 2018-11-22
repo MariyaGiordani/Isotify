@@ -23,13 +23,13 @@ class Album extends Component {
   }
 
   render = () => {
-    const { imgSrc, size, name, date, artist, id } = this.props;
-    const popUp = createPopup(this.state.tracks, name, artist.name, date);
+    const { imgSrc, size, title, date, artist, id } = this.props;
+    const popUp = createPopup(this.state.tracks, title, artist.name, date);
     return (
       <Card
         imgSrc={imgSrc}
         size={size}
-        title={name}
+        title={title}
         subtitle={artist.name}
         subtitleHref={`/artists/${artist.id}`}
         key={id}
