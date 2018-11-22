@@ -1,11 +1,23 @@
 .whats-new {
-    width: 50%;
+    width: 60%;
     margin-top: 100px;
     margin-left: 50px
 }
 
 .whats-new__devider {
-    width: 500px;
-    height: 5px;
-    background-color: #dddddd;
-  }
+    margin-bottom: 30px;
+    margin-top: 50px;
+    width: 90%;
+    height: 4px;
+    background-color: var(--white-dark);
+}
+
+.whats-new__header {
+    width: 94%;
+    margin-left: -2%;
+    margin-bottom: 20px;
+}
+
+.whats-new__devider--margin {
+    margin-left: 50px;
+}

@@ -12,8 +12,16 @@
   padding: 0 10px;
 }
 
+.card--quarter .card__info{
+  margin-top: 15px;
+}
+
 .card__text {
   width: 90%;
+}
+
+.card--quarter .card__text{
+  width: 70%;
 }
 
 .card__text-title {
@@ -41,6 +49,8 @@
 }
 
 .card--quarter{
+  margin-bottom: 30px;
+  margin-top: 10px;
   width: 50%;
 }
 
@@ -86,6 +96,10 @@
   height: 3px;
   border-radius: 50%;
   background-color: var(--gray);
+}
+
+.card--quarter .card__options{
+  right: 23%;
 }
 
 .card__options::before, 
