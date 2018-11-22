@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, {  Component } from 'react';
 import './discover.css';
 import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 
