@@ -13,8 +13,9 @@
     white-space: normal;
 }
 
-.slide__wrape {
-    margin: 20% 25% 5% 5%;
+.slide__wrap {
+    margin-left: 5%;
+    margin-top: 20%;
 }
 
 .slide__image {
@@ -28,13 +29,13 @@
 }
 
 @media only screen and (max-width: 1800px) {
-    .slide__wrape {
+    .slide__wrap {
         margin-top: 33%;
     }
 }
 
-@media only screen and (max-width: 1440px) {
-    .slide__wrape {
+@media only screen and (max-width: 1477px) {
+    .slide__wrap {
         margin: 30% 25% 5% 7%;
     }
 }
@@ -44,7 +45,7 @@
         height: 400px;
     }
 
-    .slide__wrape {
+    .slide__wrap {
         margin-top: 29%;
     }
 }
