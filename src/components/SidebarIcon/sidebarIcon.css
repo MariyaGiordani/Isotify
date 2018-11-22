@@ -10,7 +10,7 @@
   border-radius: 50%;
   display: block;
   position: relative;
-  margin: 30px auto 10px;
+  margin: 10px auto 10px;
 }
 
 .sidebar-icon:nth-of-type(1) .sidebar-icon__image-wrapper {
@@ -71,6 +71,6 @@
   .sidebar-icon__image-wrapper {
     height: 50px;
     width: 50px;
-    margin: 20px auto 10px;
+    margin: 10px auto 10px;
   }
 }
