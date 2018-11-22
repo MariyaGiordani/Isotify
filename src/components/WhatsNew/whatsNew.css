@@ -34,8 +34,9 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .whats-new {
+    padding: 10px;
     width: 100%;
     margin-left: 0px;
     margin-top: 70px;
