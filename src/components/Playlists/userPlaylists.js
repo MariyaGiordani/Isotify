@@ -4,21 +4,27 @@ import './userPlaylists.css';
 import { playlists } from '../../utils/spotifyResponseParsers';
 
 import { getPlaylists } from '../../services/playlists';
-import circle from '../../assets/img/circular.png';
+
+const userPicture = localStorage.getItem('userPicture');
 
 const createPlaylist = ({
-  namePlaylist,
+  idPlaylist,
   lengthTracks,
+  namePlaylist,
   nameUser,
   playlistLength
 }) => (
-  <div>
+  <div key={idPlaylist}>
     <div className="user-playlists">
       <h2 className="user-playlists__name">{namePlaylist}</h2>
       <p className="user-playlists__tracks">{lengthTracks} Tracks</p>
       <div className="user-playlists__line" />
       <div className="user-playlists__user-info">
-        <img className="user-info__picture" alt="User Profile" src={circle} />
+        <img
+          className="user-info__picture"
+          alt="User Profile"
+          src={userPicture}
+        />
         <div className="user-info">
           <p className="user-info__name">{nameUser}</p>
           <p className="user-info__number-playlists">

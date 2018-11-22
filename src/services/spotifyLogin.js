@@ -22,7 +22,9 @@ export function spotifyLogin(params) {
         })
         .then(function(response) {
           const userIdRequest = response.data.id;
+          const userPicture = response.data.images[0].url;
           localStorage.setItem('userId', userIdRequest);
+          localStorage.setItem('userPicture', userPicture);
         })
         .catch(function(error) {
           alert('Login failed');

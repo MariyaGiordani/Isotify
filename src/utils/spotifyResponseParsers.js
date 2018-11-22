@@ -11,10 +11,12 @@ export const playlists = (rawPlaylists) => {
 };
 
 const parsePlaylist = (playlistsInfo) => {
+  console.log(playlistsInfo);
   return {
     namePlaylist: playlistsInfo.name,
     nameUser: playlistsInfo.owner.display_name,
-    lengthTracks: playlistsInfo.tracks.total
+    lengthTracks: playlistsInfo.tracks.total,
+    idPlaylist: playlistsInfo.id
   };
 };
 
