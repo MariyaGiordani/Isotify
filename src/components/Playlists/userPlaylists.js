@@ -34,6 +34,7 @@ const mapPlaylist = (playlists) =>
   playlists.map((playlist) =>
     createPlaylist({ ...playlist, playlistLength: playlists.length })
   );
+
 export class UserPlaylist extends Component {
   state = {
     playlists: []
