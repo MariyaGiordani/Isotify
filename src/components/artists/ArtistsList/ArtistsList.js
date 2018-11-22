@@ -5,8 +5,6 @@ import './ArtistsList.css';
 const getArtistsComponents = (artists = []) =>
   artists.map((artist) => <ArtistLine artist={artist} key={artist.id} />);
 
-const ArtistsList = ({ artists }) => {
-  return <div className="artist-list">{getArtistsComponents(artists)}</div>;
-};
+const ArtistsList = ({ artists }) => <div className="artist-list">{getArtistsComponents(artists)}</div>;
 
 export default ArtistsList;
