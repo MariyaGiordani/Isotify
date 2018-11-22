@@ -44,7 +44,6 @@ export class UserPlaylist extends Component {
       this.setState({
         playlists: playlistContent
       });
-      console.log(this.state);
     });
   };
   render = () => (
