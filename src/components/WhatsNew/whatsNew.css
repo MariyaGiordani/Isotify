@@ -1,60 +1,56 @@
 .whats-new {
-    width: 60%;
-    margin-left: 50px
+  width: 60%;
+  margin-left: 50px
 }
 
 .whats-new__divider {
-    margin-bottom: 30px;
-    width: 90%;
-    height: 4px;
-    background-color: var(--white-dark);
+  margin-bottom: 30px;
+  width: 90%;
+  height: 4px;
+  background-color: var(--white-dark);
 }
 
 .whats-new__header {
-    width: 94%;
-    margin-left: -2%;
-    margin-bottom: 20px;
+  width: 94%;
+  margin-left: -2%;
+  margin-bottom: 20px;
 }
 
 .whats-new__divider--margin {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 
 @media only screen and (max-width: 1500px) {
-    .whats-new__header {
-        width: 96%;
-        margin-left: -3%;
-    }
+  .whats-new__header {
+    width: 96%;
+    margin-left: -3%;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-    .whats-new__header {
-        width: 97%;
-        margin-left: -4%;
-    }
+  .whats-new__header {
+    width: 97%;
+    margin-left: -4%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
-    .whats-new {
-        width: 100%;
-        margin-left: 0px;
-        margin-top: 70px;
-    }
-
-    .whats-new__header {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 0;
-    }
-
-    .whats-new__divider
-     {
-        margin-left: 15px;
-        margin-bottom: 20px;
-    }
-
-    .whats-new__divider--margin {
-        margin-left: 15px;
-        margin-top: 10px;
-    }
+  .whats-new {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 70px;
+  }
+  .whats-new__header {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  .whats-new__divider {
+    margin-left: 15px;
+    margin-bottom: 20px;
+  }
+  .whats-new__divider--margin {
+    margin-left: 15px;
+    margin-top: 10px;
+  }
 }
