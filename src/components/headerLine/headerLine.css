@@ -20,3 +20,20 @@
     margin-top: 5px;
     text-transform: uppercase;
 }
+
+@media only screen and (max-width: 1024px) {
+    .header-line__title{
+        font-size: 22px;
+    }
+    
+    .header-line__subtitle{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .header-line{
+        display: block;
+        padding-left: 30px;
+    }
+}

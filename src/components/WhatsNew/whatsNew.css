@@ -21,3 +21,35 @@
 .whats-new__devider--margin {
     margin-left: 50px;
 }
+
+@media only screen and (max-width: 1024px) {
+    .whats-new__header {
+        width: 97%;
+        margin-left: -4%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .whats-new {
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 70px;
+    }
+
+    .whats-new__header {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    .whats-new__devider
+     {
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+
+    .whats-new__devider--margin {
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+}

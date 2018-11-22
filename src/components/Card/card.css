@@ -99,7 +99,7 @@
 }
 
 .card--quarter .card__options{
-  right: 23%;
+  right: 22%;
 }
 
 .card__options::before, 
@@ -120,4 +120,15 @@
 
 .card__options::after {
   bottom: 7px;
+}
+
+@media only screen and (max-width: 500px) {
+  .card--quarter {
+      width: 35%;
+      margin-bottom: 20px;
+  }
+
+  .card--quarter .card__cover {
+    width: 100%;
+  }
 }
