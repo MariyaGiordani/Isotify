@@ -2,7 +2,7 @@ import React from 'react';
 import './pageContainer.css';
 
 const PageContainer = ({ children, noPadding }) => (
-  <div className={noPadding ? 'page-container page-container--no-padding' : 'page-container'}>{children}</div>
+  <div className={`page-container ${noPadding && 'page-container--no-padding'}`}>{children}</div>
 );
 
 export default PageContainer;
