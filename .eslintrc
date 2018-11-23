@@ -1,6 +1,9 @@
 {
   "extends": "react-app",
   "rules": {
+    "no-console": [
+      "error"
+    ],
     "jsx-quotes": [
       "error",
       "prefer-double"

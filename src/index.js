@@ -8,7 +8,7 @@ import Albums from './views/Albums/list';
 import Songs from './views/Songs/list';
 import Playlists from './views/Playlists/list';
 import Genres from './views/Genres/list';
-import Discover from './views/Discover/list';
+import Discover from './views/Discover/index';
 import Settings from './views/Settings/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
@@ -41,7 +41,4 @@ const routes = () => (
   </Fragment>
 );
 
-ReactDOM.render(
-  <BrowserRouter>{routes()}</BrowserRouter>,
-  document.getElementById('root')
-);
+ReactDOM.render(<BrowserRouter>{routes()}</BrowserRouter>, document.getElementById('root'));
