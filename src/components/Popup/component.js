@@ -17,27 +17,31 @@ const createMusics = (tracks) =>
       }:${convertDuration(songDuration).sec}`}</p>
     </div>
   ));
+
 const convertDuration = (songDuration) => {
   const min = Math.floor((songDuration / 1000 / 60) << 0);
   const sec = Math.floor((songDuration / 1000) % 60);
 
   return { min, sec: sec < 10 ? '0' + sec : sec };
 };
+
 const relatedLink = (show) => {
-  return !show ? null : (
-    <Fragment>
-      <div className="popup__line--pink" />
-      <Link to="/artists">
-        <div className="related-link">
-          <p className="related-link__text">Show Related</p>
-          <img
-            className="related-link__three-dots--horizontal"
-            alt="Options"
-            src={pinkDots}
-          />
-        </div>
-      </Link>
-    </Fragment>
+  return (
+    show && (
+      <Fragment>
+        <div className="popup__line--pink" />
+        <Link to="/artists">
+          <div className="related-link">
+            <p className="related-link__text">Show Related</p>
+            <img
+              className="related-link__three-dots--horizontal"
+              alt="Options"
+              src={pinkDots}
+            />
+          </div>
+        </Link>
+      </Fragment>
+    )
   );
 };
 
