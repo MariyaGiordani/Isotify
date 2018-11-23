@@ -13,7 +13,7 @@
   background-image: var(--red-yellow-gradient-76deg)
 }
 
-.button-listen__circule {
+.button-listen__circle {
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -43,7 +43,7 @@
     margin-top: 25px;
     line-height: 2.5;
   }
-  .button-listen__circule {
+  .button-listen__circle {
     height: 30px;
     width: 30px;
     margin-top: 6px;
