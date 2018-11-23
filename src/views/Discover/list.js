@@ -37,6 +37,7 @@ export default class List extends Component {
             songs={[]}
           />
         </div>
+        <div className="discover__divider" />
       </div>
     );
   };

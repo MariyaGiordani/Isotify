@@ -1,4 +1,4 @@
-.button__listen {
+.button-listen {
   display: flex;
   border: 0;
   height: 60px;
@@ -13,7 +13,7 @@
   background-image: var(--red-yellow-gradient-76deg)
 }
 
-.button__listen-circule {
+.button-listen__circule {
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -24,7 +24,7 @@
   background-color: var(--white-lighter);
 }
 
-.button__listen-triangle {
+.button-listen__triangle {
   width: 30%;
   height: auto;
   left: 0;
@@ -36,14 +36,14 @@
 }
 
 @media only screen and (max-width: 425px) {
-  .button__listen {
+  .button-listen {
     height: 45px;
     border-radius: 12px;
     padding: 0px 25px;
     margin-top: 25px;
     line-height: 2.5;
   }
-  .button__listen-circule {
+  .button-listen__circule {
     height: 30px;
     width: 30px;
     margin-top: 6px;
