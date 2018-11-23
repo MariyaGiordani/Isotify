@@ -1,16 +1,16 @@
 .artist-list {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1200px) {
+  .artist-list {
     padding: 15px;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
   }
-
-@media(min-width: 1200px){
-    .artist-list{
-        padding: 15px; 
-        display: flex;
-        align-items: center;
-    }
 }
