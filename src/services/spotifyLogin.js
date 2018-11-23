@@ -20,11 +20,8 @@ export function spotifyLogin(params) {
             Authorization: 'Bearer ' + access_token
           }
         })
-        .then(function(response) {
-          const userIdRequest = response.data.id;
-          const userPicture = response.data.images[0].url;
-          localStorage.setItem('userId', userIdRequest);
-          localStorage.setItem('userPicture', userPicture);
+        .then(function({ data: { id } }) {
+          localStorage.setItem('userId', id);
         })
         .catch(function(error) {
           alert('Login failed');

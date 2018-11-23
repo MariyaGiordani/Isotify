@@ -11,7 +11,6 @@ export const playlists = (rawPlaylists) => {
 };
 
 const parsePlaylist = (playlistsInfo) => {
-  console.log(playlistsInfo);
   return {
     namePlaylist: playlistsInfo.name,
     nameUser: playlistsInfo.owner.display_name,

@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 
 import './userPlaylists.css';
 import { playlists } from '../../utils/spotifyResponseParsers';
-
 import { getPlaylists } from '../../services/playlists';
-
-const userPicture = localStorage.getItem('userPicture');
+import { getUserInfo } from '../../services/user';
+import { userInfo as parseUserInfo } from '../../utils/spotifyResponseParsers';
 
 const createPlaylist = ({
   idPlaylist,
   lengthTracks,
   namePlaylist,
   nameUser,
-  playlistLength
+  playlistLength,
+  profilePicture
 }) => (
   <div key={idPlaylist}>
     <div className="user-playlists">
@@ -23,7 +23,7 @@ const createPlaylist = ({
         <img
           className="user-info__picture"
           alt="User Profile"
-          src={userPicture}
+          src={profilePicture}
         />
         <div className="user-info">
           <p className="user-info__name">{nameUser}</p>
@@ -36,15 +36,21 @@ const createPlaylist = ({
   </div>
 );
 
-const mapPlaylist = (playlists) =>
+const mapPlaylistInfo = (playlists, profilePicture) =>
   playlists.map((playlist) =>
-    createPlaylist({ ...playlist, playlistLength: playlists.length })
+    createPlaylist({
+      ...playlist,
+      playlistLength: playlists.length,
+      profilePicture
+    })
   );
 
 export class UserPlaylist extends Component {
   state = {
-    playlists: []
+    playlists: [],
+    profilePicture: ''
   };
+
   componentDidMount = () => {
     getPlaylists().then((response) => {
       const playlistContent = playlists(response);
@@ -52,14 +58,25 @@ export class UserPlaylist extends Component {
         playlists: playlistContent
       });
     });
+
+    getUserInfo().then((response) => {
+      const { profilePicture } = parseUserInfo(response);
+      this.setState({
+        profilePicture
+      });
+    });
   };
-  render = () => (
-    <div className="content">
-      <h1 className="content__title">Playlists</h1>
-      <p className="content__subtitle">SEE WHAT'S POPPING THIS WEEK</p>
-      <div className="content__playlists">
-        {mapPlaylist(this.state.playlists)}
+
+  render = () => {
+    const { playlists, profilePicture } = this.state;
+    return (
+      <div className="user-playlists__content">
+        <h1 className="content__title">Playlists</h1>
+        <p className="content__subtitle">SEE WHAT'S POPPING THIS WEEK</p>
+        <div className="content__playlists">
+          {mapPlaylistInfo(playlists, profilePicture)}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 }
