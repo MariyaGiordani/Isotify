@@ -82,8 +82,8 @@ class Carousel extends Component {
       ]
     };
 
-    const slides = artistsAlbums.map((item) => (
-      <Slide key={item.id} name={item.name} imgSrc={item.imgSrc} />
+    const slides = artistsAlbums.map(({ id: key, name, imgSrc }) => (
+      <Slide {...{ key, name, imgSrc }} />
     ));
 
     return (
