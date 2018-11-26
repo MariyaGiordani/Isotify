@@ -16,6 +16,13 @@
   background-color: var(--white-dark);
 }
 
+@media only screen and (max-width: 500px) {
+  .discover__divider {
+    margin-left: 15px;
+    margin-bottom: 20px;
+  }
+}
+
 @media(min-width: 768px){
   .discover {
     flex-direction: row;
@@ -23,13 +30,6 @@
       
   .discover__top {
     width: 33%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .discover__divider {
-    margin-left: 15px;
-    margin-bottom: 20px;
   }
 }
 

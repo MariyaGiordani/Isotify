@@ -1,8 +1,8 @@
 .button-see-all {
     border: 0;
     height: 55px;
-    box-shadow: 0 40px 40px 0 var(--listen-to-shadow);
-    background-image: linear-gradient(73deg, rgba(191, 10, 69, 0.9), rgba(228, 48, 93, 0.9) 63%, rgba(238, 115, 33, 0.9));
+    box-shadow: var(--listen-to-shadow);
+    background-image: var(--red-yellow-gradient-73deg);
     border-radius: 20px;
     padding: 10px 25px;
     color: var(--white-lighter);

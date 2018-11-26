@@ -62,6 +62,12 @@
             rgba(238, 115, 33, 0.9)), 
         linear-gradient(to bottom,
             #d42562, 
-            #d42562);       
+            #d42562); 
+
+    --red-yellow-gradient-73deg: 
+        linear-gradient(73deg,
+            rgba(191, 10, 69, 0.9), 
+            rgba(228, 48, 93, 0.9) 63%,
+            rgba(238, 115, 33, 0.9));     
 
 }
