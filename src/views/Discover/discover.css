@@ -17,6 +17,10 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .discover {
+    justify-content: center;
+  }
+
   .discover__divider {
     margin-left: 15px;
     margin-bottom: 20px;
@@ -26,6 +30,7 @@
 @media(min-width: 768px){
   .discover {
     flex-direction: row;
+    justify-content: center;
   }           
       
   .discover__top {
