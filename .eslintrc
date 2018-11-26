@@ -15,6 +15,10 @@
         "object": true, 
         "array": false
       }
-    ]
-  }
+    ],
+    "react/destructuring-assignment": ["always"]
+  },
+  "plugins": [
+    "react"
+  ]
 }
