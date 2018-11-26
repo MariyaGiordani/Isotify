@@ -8,6 +8,13 @@
     "quotes": [
       "error",
       "single"
+    ],
+    "prefer-destructuring": [
+      "error", 
+      { 
+        "object": true, 
+        "array": false
+      }
     ]
   }
 }
