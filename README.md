@@ -22,12 +22,14 @@ For enabling formatting on save, in VS Code, just follow these steps:
 2. Type ```>Preferences: Open Settings (JSON)```
 3. Append the following properties to your Settings:
     
+```
 "[javascript]": {
     "editor.formatOnSave": true
 },
 "[css]": {
     "editor.formatOnSave": true
 }
+```
 
 ## Instalation
 To install the dependencies, open the terminal in the project's folder, enter the following line then press `enter`:
