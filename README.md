@@ -5,7 +5,7 @@ Internship Program 2018 Project
 - [Node.js](https://nodejs.org/en/download/)
 
 ### Recommended
-We also recommend you to install both
+We also recommend you to install the following:
 - [EsLint](https://eslint.org/) used for linting our JS and JSX files.
 - [Prettier](http://prettier.io/) used for linting and formatting our JS and JSX files.
 - [StyleLint](https://stylelint.io/) used for linting our CSS files.
