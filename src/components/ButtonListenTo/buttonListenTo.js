@@ -4,11 +4,11 @@ import './buttonListenTo.css';
 import listentoImg from '../../assets/img/listento.png';
 
 const ButtonListenTo = () => (
-  <button className="button__listen">
+  <button className="button-listen">
     Listen to
-    <div className="button__listen-circle">
+    <div className="button-listen__circle">
       <img
-        className="button__listen-triangle"
+        className="button-listen__triangle"
         alt="Triangle"
         src={listentoImg}
       />
