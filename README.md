@@ -19,7 +19,7 @@ These extensions are also available in some other text editors, and their use ar
 
 For enabling formatting on save, in VS Code, just follow these steps:
 1 - Press ```CMD``` + ```SHIFT``` + ```P```
-2 - Type ```>Preferences: Open Settings (JSON)````
+2 - Type ```>Preferences: Open Settings (JSON)```
 3 - Append the following properties to your Settings:
     ```"[javascript]": {
         "editor.formatOnSave": true
