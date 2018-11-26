@@ -14,11 +14,13 @@ export default class List extends Component {
   componentDidMount = () => {
     getNewReleases().then((rawAlbums) => {
       const albums = parseAlbums(rawAlbums);
-      const carouselArtists = albums.map((album) => ({
-        name: album.artist.name,
-        imgSrc: album.imgSrc,
-        id: album.id
-      }));
+      const carouselArtists = albums.map(
+        ({ artist: { name }, imgSrc, id }) => ({
+          name,
+          imgSrc,
+          id
+        })
+      );
       this.setState({
         carouselArtists: carouselArtists
       });
