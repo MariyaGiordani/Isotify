@@ -18,9 +18,9 @@ For text editing we recommend [VS Code](https://code.visualstudio.com/), and ins
 These extensions are also available in some other text editors, and their use are not mandatory, but they are highly recommended, since they detect and fix some problems with styling and some of the project's standards.
 
 For enabling formatting on save, in VS Code, just follow these steps:
-    1. Press ```CMD``` + ```SHIFT``` + ```P```
-    2. Type ```>Preferences: Open Settings (JSON)```
-    3. Append the following properties to your Settings:
+1. Press ```CMD``` + ```SHIFT``` + ```P```
+2. Type ```>Preferences: Open Settings (JSON)```
+3. Append the following properties to your Settings:
     
     "[javascript]": {
         "editor.formatOnSave": true
