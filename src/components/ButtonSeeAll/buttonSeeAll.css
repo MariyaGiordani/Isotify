@@ -1,4 +1,4 @@
-.button__seeall {
+.button-see-all {
     border: 0;
     height: 55px;
     box-shadow: 0 40px 40px 0 var(--listen-to-shadow);
@@ -10,39 +10,39 @@
     letter-spacing: 2px;
 }
 
-.button__seeall-image {
+.button-see-all__image {
     width: 24px;
     margin-left: 18px;
     vertical-align: middle;
 }
 
 @media only screen and (max-width: 1024px) {
-    .button__seeall {
+    .button-see-all {
         height: 50px;
         border-radius: 18px;
     }
 
-    .button__seeall-image {
+    .button-see-all__image {
         width: 20px;
         margin-left: 10px;
     }
 }
 
 @media only screen and (max-width: 1071px) {
-    .button__seeall {
+    .button-see-all {
         margin-top: 18px;
     }
 }
 
 @media only screen and (max-width: 500px) {
-    .button__seeall {
+    .button-see-all {
         height: 40px;
         border-radius: 15px;
         margin-top: 15px;
         letter-spacing: 1px;
     }
 
-    .button__seeall-image {
+    .button-see-all__image {
         width: 15px;
     }
 }
