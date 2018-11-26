@@ -39,6 +39,7 @@ class Carousel extends Component {
   next = () => {
     this.slider.slickNext();
   };
+
   previous = () => {
     this.slider.slickPrev();
   };
