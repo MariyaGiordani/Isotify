@@ -13,6 +13,7 @@
     "block-no-empty": true,
     "unit-no-unknown": true,
     "no-descending-specificity": true,
-    "declaration-block-semicolon-newline-after": "always"
+    "declaration-block-semicolon-newline-after": "always",
+    "block-opening-brace-space-before": "always"
   }
 }
