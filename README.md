@@ -11,22 +11,23 @@ We also recommend you to install both
 - [StyleLint](https://stylelint.io/) used for linting our CSS files.
 
 For text editing we recommend [VS Code](https://code.visualstudio.com/), and installing the aforementioned extensions. Links for the extensions for VS Code are listed below.
-- [EsLint - VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)) 
+- [EsLint - VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 
 - [Prettier - VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [StyleLint - VSCode](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint)
 
 These extensions are also available in some other text editors, and their use are not mandatory, but they are highly recommended, since they detect and fix some problems with styling and some of the project's standards.
 
 For enabling formatting on save, in VS Code, just follow these steps:
-1 - Press ```CMD``` + ```SHIFT``` + ```P```
-2 - Type ```>Preferences: Open Settings (JSON)```
-3 - Append the following properties to your Settings:
-    ```"[javascript]": {
+    1 - Press ```CMD``` + ```SHIFT``` + ```P```
+    2 - Type ```>Preferences: Open Settings (JSON)```
+    3 - Append the following properties to your Settings:
+    
+    "[javascript]": {
         "editor.formatOnSave": true
     },
     "[css]": {
         "editor.formatOnSave": true
-    }```
+    }
 
 ## Instalation
 To install the dependencies, open the terminal in the project's folder, enter the following line then press `enter`:
