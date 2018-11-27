@@ -1,0 +1,13 @@
+.search-results {
+  width: 100%;
+  padding: 3%
+}
+
+.search-results__title {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.75;
+  letter-spacing: 0.6px;
+  color: var(--black);
+  padding-left: 1%;
+}
