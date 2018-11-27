@@ -10,7 +10,8 @@ const parseAlbumTracks = (tracks) => {
   return {
     songName: tracks.name,
     songDuration: tracks.duration_ms,
-    songNumber: tracks.track_number
+    songNumber: tracks.track_number,
+    songId: tracks.id
   };
 };
 const albumsList = (rawAlbums) =>

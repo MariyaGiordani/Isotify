@@ -6,7 +6,7 @@ import { Tooltip } from 'react-tippy';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
 
-const createPopup = (image, popup, title) => {
+const createPopup = (option, popup, title) => {
   return (
     <Tooltip
       useContext={true}
@@ -18,7 +18,7 @@ const createPopup = (image, popup, title) => {
       interactive
       title={title}
     >
-      {image}
+      {option}
     </Tooltip>
   );
 };
@@ -33,11 +33,16 @@ const Card = ({
   popup
 }) => {
   const cardImage = <img src={imgSrc} alt={title} className="card__cover" />;
+  const optionDots = (
+    <div className="card__options-click">
+      <div className="card__options" />
+    </div>
+  );
   const titleParagraph = <p className="card__text-title">{title}</p>;
   const subtitleParagraph = <p className="card__text-subtitle">{subtitle}</p>;
   return (
     <div className={`card card--${size}`}>
-      {popup ? createPopup(cardImage, popup) : cardImage}
+      {cardImage}
       <div className="card__info">
         <div className="card__text">
           {titleHref ? createLink(titleHref, titleParagraph) : titleParagraph}
@@ -45,7 +50,7 @@ const Card = ({
             ? createLink(subtitleHref, subtitleParagraph)
             : subtitleParagraph}
         </div>
-        <div className="card__options" />
+        {popup ? createPopup(optionDots, popup) : optionDots}
       </div>
     </div>
   );
