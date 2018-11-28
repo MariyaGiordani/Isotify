@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './card.css';
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
+import grayDots from '../../assets/img/gray-dots.png';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
 
@@ -33,10 +34,13 @@ const Card = ({
   popup
 }) => {
   const cardImage = <img src={imgSrc} alt={title} className="card__cover" />;
+  // const optionDots = (
+  //   <div className="card__options-click">
+  //     <div className="card__options" />
+  //   </div>
+  // );
   const optionDots = (
-    <div className="card__options-click">
-      <div className="card__options" />
-    </div>
+    <img className="card__options" src={grayDots} alt="Teste" />
   );
   const titleParagraph = <p className="card__text-title">{title}</p>;
   const subtitleParagraph = <p className="card__text-subtitle">{subtitle}</p>;
@@ -46,11 +50,13 @@ const Card = ({
       <div className="card__info">
         <div className="card__text">
           {titleHref ? createLink(titleHref, titleParagraph) : titleParagraph}
-          {subtitleHref
-            ? createLink(subtitleHref, subtitleParagraph)
-            : subtitleParagraph}
+          <div className="card__subtitle">
+            {subtitleHref
+              ? createLink(subtitleHref, subtitleParagraph)
+              : subtitleParagraph}
+            {popup ? createPopup(optionDots, popup) : optionDots}
+          </div>
         </div>
-        {popup ? createPopup(optionDots, popup) : optionDots}
       </div>
     </div>
   );

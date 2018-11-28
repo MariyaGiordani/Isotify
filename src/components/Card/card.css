@@ -34,7 +34,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 3px;
+  margin-top: 13px;
   color: var(--gray);
 }
 
@@ -76,7 +76,20 @@
   font-size: 11px;
 }
 
-.card__options {
+.card__subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 215px;
+  margin-top: -10px;
+}
+
+.card__options{
+  width: 15px;
+  height: 15px;
+}
+
+/* .card__options {
   position: absolute;
   top:15px;
   margin: auto;
@@ -105,4 +118,4 @@
 
 .card__options::after {
   bottom: 7px;
-}
+} */
