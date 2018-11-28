@@ -1,5 +1,6 @@
 import { spotifyInstance, createHeader } from './axiosInstances';
 import { request } from 'https';
+import { promises } from 'fs';
 
 export function getResultsSearch(query) {
   return spotifyInstance
@@ -7,10 +8,20 @@ export function getResultsSearch(query) {
     .then((response) =>
     Promise.All(
         response.artists.items.map((artist) => getArtist(artist.id))
-    ).then(response)
-        Promise.All(getTopArtistsWithAlbums(response.artists.items.slice(0,4))));
+    ).then((artists) => //ARRAY
+        Promise.All(getTopArtistsWithAlbums(artists.map(artist => artist.items.slice(0,4))))
+    ))
 }
 
+1º promises.all: 
+[
+    {data: [a,b,n,xc,as,fas,dsd]},
+    {data: [a,b,n,xc,as,fas,dsd]},
+    {data: [a,b,n,xc,as,fas,dsd]},
+    {data: [a,b,n,xc,as,fas,dsd]},
+    {data: [a,b,n,xc,as,fas,dsd]},
+    {data: [a,b,n,xc,as,fas,dsd]}
+]
 
 search(batatinha)
 

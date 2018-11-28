@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
 
@@ -12,21 +12,19 @@ const subtitle = 'RESULTS';
 
 export default () => {
   return (
-    <Fragment>
-      <div className="container">
-        <div className="search-results">
-          <div className="search-results__title">Search results for: </div>
-          <div className="search-results__wrap">
-            <QuarterGrid title={titleSongs} subtitle={subtitle} />
-            <div className="search-results__divider--vertical" />
-            <QuarterGrid title={titleArtists} subtitle={subtitle} />
-            <div className="search-results__divider--horizontal" />
-            <QuarterGrid title={titleAlbums} subtitle={subtitle} />
-            <div className="search-results__divider--vertical" />
-            <QuarterGrid title={titlePlaylists} subtitle={subtitle} />
-          </div>
+    <div className="container">
+      <div className="search-results">
+        <div className="search-results__title">Search results for: </div>
+        <div className="search-results__wrap">
+          <QuarterGrid title={titleSongs} subtitle={subtitle} />
+          <div className="search-results__divider--vertical" />
+          <QuarterGrid title={titleArtists} subtitle={subtitle} />
+          <div className="search-results__divider--horizontal" />
+          <QuarterGrid title={titleAlbums} subtitle={subtitle} />
+          <div className="search-results__divider--vertical" />
+          <QuarterGrid title={titlePlaylists} subtitle={subtitle} />
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
