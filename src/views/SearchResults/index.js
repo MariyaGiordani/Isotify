@@ -10,7 +10,7 @@ const titleAlbums = 'Albums';
 const titlePlaylists = 'Playlists';
 const subtitle = 'RESULTS';
 
-export default class searchResults extends Component() {
+export default class searchResults extends Component {
   //componentDidMount
   //componentDidUpdate
 
