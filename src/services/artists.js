@@ -2,7 +2,9 @@ import { spotifyInstance, createHeader } from './axiosInstances';
 import { getAlbumsFromArtist as getAllAlbums } from './albums';
 
 function getTopArtists() {
-  return spotifyInstance.get('me/top/artists', createHeader()).then((response) => response.data.items);
+  return spotifyInstance
+    .get('me/top/artists', createHeader())
+    .then((response) => response.data.items);
 }
 
 function getRelatedArtists(artistId) {
@@ -12,16 +14,18 @@ function getRelatedArtists(artistId) {
 }
 
 function getArtist(artistId) {
-  return spotifyInstance.get(`artists/${artistId}`, createHeader()).then((artist) => {
-    const promises = [getAllAlbums(artistId), getRelatedArtists(artistId)];
-    return Promise.all(promises).then(([albums, relatedArtists]) => {
-      return {
-        ...artist.data,
-        albums,
-        relatedArtists
-      };
+  return spotifyInstance
+    .get(`artists/${artistId}`, createHeader())
+    .then((artist) => {
+      const promises = [getAllAlbums(artistId), getRelatedArtists(artistId)];
+      return Promise.all(promises).then(([albums, relatedArtists]) => {
+        return {
+          ...artist.data,
+          albums,
+          relatedArtists
+        };
+      });
     });
-  });
 }
 
 function getTopArtistsWithAlbums() {

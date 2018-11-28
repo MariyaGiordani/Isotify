@@ -8,7 +8,7 @@ import Albums from './views/Albums/list';
 import Songs from './views/Songs/list';
 import Playlists from './views/Playlists/list';
 import Genres from './views/Genres/list';
-import Discover from './views/Discover/list';
+import Discover from './views/Discover/';
 import Settings from './views/Settings/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
