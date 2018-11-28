@@ -5,9 +5,9 @@ import './loadingBar.css';
 export default class LoadingBar extends Component {
   render() {
     return (
-      <div className="loading__bar-outer">
+      <div className="loading-bar">
         <div
-          className="loading__bar-inner"
+          className="loading-bar__inner"
           style={{ width: `${this.props.progress}%` }}
         />
       </div>
