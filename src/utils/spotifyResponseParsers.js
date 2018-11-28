@@ -3,9 +3,23 @@ const userInfo = (rawUserInfo) => ({
   profilePicture: rawUserInfo.images[0].url
 });
 
+export const playlists = (rawPlaylists) => {
+  return rawPlaylists.map((playlistsInfo) => parsePlaylist(playlistsInfo));
+};
+
+const parsePlaylist = (playlistsInfo) => {
+  return {
+    namePlaylist: playlistsInfo.name,
+    nameUser: playlistsInfo.owner.display_name,
+    lengthTracks: playlistsInfo.tracks.total,
+    idPlaylist: playlistsInfo.id
+  };
+};
+
 const albumTracks = (rawAlbumsTracks) => {
   return rawAlbumsTracks.map((track) => parseAlbumTracks(track));
 };
+
 const parseAlbumTracks = (tracks) => {
   return {
     songName: tracks.name,
@@ -14,6 +28,7 @@ const parseAlbumTracks = (tracks) => {
     songId: tracks.id
   };
 };
+
 const albumsList = (rawAlbums) =>
   rawAlbums.map((album) => parseAlbumInfo(album));
 

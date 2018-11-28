@@ -30,7 +30,7 @@
     width: 1275px;
   }
 
-  .albums-grid--quarter{
+  .albums-grid--quarter {
     width: 100%;
   }
 }
@@ -44,5 +44,10 @@
 @media (min-width: 1975px) {
   .albums-grid {
     width: 1785px;
+  }
+}
+@media (max-width: 599px) {
+  .albums-grid {
+    justify-content: space-around;
   }
 }

@@ -1,32 +1,37 @@
 :root {
-    --black-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+  --black-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
 
-    --artist-line__icon-shadow: 0 18px 40px 3px rgba(0, 0, 0, 0.25);
-    --artist-line__see-more-button-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);;
-    --artist-line__albums-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
-    --artist-line__shadow: 0 30px 70px 0 rgba(0, 0, 0, 0.1);
+  --artist-line__icon-shadow: 0 18px 40px 3px rgba(0, 0, 0, 0.25);
+  --artist-line__see-more-button-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
+  --artist-line__albums-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
+  --artist-line__shadow: 0 30px 70px 0 rgba(0, 0, 0, 0.1);
 
-    --header-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
-    --header-icon-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  --header-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
+  --header-icon-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 
-    --hamburger-transparent-bg: rgba(0, 0, 0, 0);
+  --hamburger-transparent-bg: rgba(0, 0, 0, 0);
 
-    --button-playlist-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.25);
-    
-    --related-artists__line-bg: rgba(238, 238, 238, 0.25);
-    --related-artists-more-bg: rgba(255, 255, 255, 0.75); 
-    
-    --button-playlist-background-color: rgba(136, 136, 136, .85);
+  --button-playlist-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.25);
 
-    --switch-button__input-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
-    --popup__line-bg--gray:rgba(34,34,34,0.1);
-    --popup__line-bg--pink:rgba(212, 37, 98, 0.25);
-    --popup__box-shadow: 0 80px 100px 0 rgba(0, 0, 0, 0.5);
-    --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
-    
-    --listen-to-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2); 
-    --listen-to-circule-shadow: rgba(0, 0, 0, 0.15);
+  --related-artists__line-bg: rgba(238, 238, 238, 0.25);
+  --related-artists-more-bg: rgba(255, 255, 255, 0.75);
+  --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
+  --switch-button__input-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+  --popup__line-bg--gray: rgba(34, 34, 34, 0.1);
+  --popup__line-bg--pink: rgba(212, 37, 98, 0.25);
+  --popup__box-shadow: 0 80px 100px 0 rgba(0, 0, 0, 0.5);
+  --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
 
-    --loading-bar-bg: rgba(212, 37, 98, 0.25);
+  --listen-to-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
+  --listen-to-circule-shadow: rgba(0, 0, 0, 0.15);
 
+  --listen-to-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
+  --listen-to-circule-shadow: rgba(0, 0, 0, 0.15);
+
+  --loading-bar-bg: rgba(212, 37, 98, 0.25);
+
+  --button-playlist-background-color: rgba(136, 136, 136, 0.85);
+
+  --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
+  --playlist-line: rgba(34, 34, 34, 0.25);
 }
