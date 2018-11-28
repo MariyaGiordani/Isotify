@@ -14,8 +14,12 @@ const getAlbumsComponents = (albums = [], size) =>
     />
   ));
 
-const AlbumsGrid = ({ albums, size }) => (
-  <div className="albums-grid">{getAlbumsComponents(albums, size)}</div>
+const getClassName = (modifier) => (modifier ? `albums-grid--${modifier}` : '');
+
+const AlbumsGrid = ({ albums, size, gridSize }) => (
+  <div className={`albums-grid ${getClassName(gridSize)}`}>
+    {getAlbumsComponents(albums, size)}
+  </div>
 );
 
 export default AlbumsGrid;

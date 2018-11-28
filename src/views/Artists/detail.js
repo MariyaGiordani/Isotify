@@ -1,7 +1,8 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
 import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import PageContainer from '../../components/PageContainer/pageContainer';
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
@@ -50,25 +51,30 @@ export default class Details extends Component {
   }
 
   render = () => {
-    const { name, albums, songsAmount, albumsAmount, relatedArtists, imgSrc } = this.state;
+    const {
+      name,
+      albums,
+      songsAmount,
+      albumsAmount,
+      relatedArtists,
+      imgSrc
+    } = this.state;
     return (
-      <Fragment>
-        <div className="container">
-          <BannerArtist
-            {...{
-              name,
-              albumsAmount,
-              songsAmount,
-              relatedArtists,
-              imgSrc
-            }}
-          />
-          <ArtistNavigationItems />
-          <div className="artists-view__wrap">
-            <AlbumsGrid {...{ albums, size: 'big' }} />
-          </div>
+      <PageContainer noPadding={true}>
+        <BannerArtist
+          {...{
+            name,
+            albumsAmount,
+            songsAmount,
+            relatedArtists,
+            imgSrc
+          }}
+        />
+        <ArtistNavigationItems />
+        <div className="artists-view__wrap">
+          <AlbumsGrid {...{ albums, size: 'big' }} />
         </div>
-      </Fragment>
+      </PageContainer>
     );
   };
 }

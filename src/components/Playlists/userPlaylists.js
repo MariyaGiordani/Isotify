@@ -5,6 +5,7 @@ import { playlists } from '../../utils/spotifyResponseParsers';
 import { getPlaylists } from '../../services/playlists';
 import { getUserInfo } from '../../services/user';
 import { userInfo as parseUserInfo } from '../../utils/spotifyResponseParsers';
+import HeaderLine from '../headerLine/headerLine';
 
 const createPlaylist = ({
   idPlaylist,
@@ -68,11 +69,12 @@ export class UserPlaylist extends Component {
   };
 
   render = () => {
+    const title = 'Playlists';
+    const subtitle = "SEE WHAT'S POPPING THIS WEEK";
     const { playlists, profilePicture } = this.state;
     return (
       <div className="user-playlists__content">
-        <h1 className="content__title">Playlists</h1>
-        <p className="content__subtitle">SEE WHAT'S POPPING THIS WEEK</p>
+        <HeaderLine title={title} subtitle={subtitle} />
         <div className="content__playlists">
           {mapPlaylistInfo(playlists, profilePicture)}
         </div>

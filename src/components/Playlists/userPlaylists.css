@@ -10,13 +10,15 @@
 
 .user-playlists__content {
   margin-top: 100px;
-  margin-left: 150px;
+  margin-left: 50px;
+  margin-bottom: 50px
 }
 
 .content__playlists {
   display: flex;
   overflow: scroll;
   width: auto;
+  margin-left: 20px
 }
 
 .user-playlists__line {
@@ -96,5 +98,8 @@
   .content {
     margin-top: 100px;
     margin-left: 20px;
+  }
+  .user-playlists__content {
+    margin-left: 0;
   }
 }
