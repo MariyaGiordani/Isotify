@@ -7,8 +7,10 @@ const getAlbumsComponents = (albums = [], size) =>
     <Album imgSrc={imgSrc} size={size} title={title} artist={artist} key={id} albumId={id} date={date} />
   ));
 
-const AlbumsGrid = ({ albums, size }) => (
-  <div className="albums-grid">{getAlbumsComponents(albums, size)}</div>
+const AlbumsGrid = ({ albums, size, isFullSize }) => (
+  <div className={isFullSize ? 'albums-grid--full-size' : 'albums-grid'}>
+    {getAlbumsComponents(albums, size)}
+  </div>
 );
 
 export default AlbumsGrid;

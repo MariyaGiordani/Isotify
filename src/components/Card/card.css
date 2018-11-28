@@ -44,8 +44,8 @@
 }
 
 .card--small .card__cover {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
 }
 
 .card.card--big {
@@ -65,7 +65,7 @@
 }
 
 .card.card--small {
-  width: 100px;
+  width: 140px;
   margin: 10px;
 }
 
