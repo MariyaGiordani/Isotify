@@ -34,11 +34,6 @@ const Card = ({
   popup
 }) => {
   const cardImage = <img src={imgSrc} alt={title} className="card__cover" />;
-  // const optionDots = (
-  //   <div className="card__options-click">
-  //     <div className="card__options" />
-  //   </div>
-  // );
   const optionDots = (
     <img className="card__options" src={grayDots} alt="Teste" />
   );
