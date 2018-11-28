@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './discover.css';
 
+import Carousel from '../../components/Carousel/carousel';
 import { getNewReleases } from '../../services/newReleases';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
@@ -31,15 +32,18 @@ export default class List extends Component {
 
   render = () => {
     return (
-      <div className="discover container">
-        <WhatsNew albums={this.state.albums.slice(0, 4)} />
-        <div className="discover__top">
-          <TopSongsAndArtists
-            artists={this.state.carouselArtists.slice(0, 4)}
-            songs={[]}
-          />
+      <div className="container">
+        <Carousel items={this.state.carouselArtists} />
+        <div className="discover">
+          <WhatsNew albums={this.state.albums.slice(0, 4)} />
+          <div className="discover__top">
+            <TopSongsAndArtists
+              artists={this.state.carouselArtists.slice(0, 4)}
+              songs={[]}
+            />
+          </div>
+          <div className="discover__divider" />
         </div>
-        <div className="discover__divider" />
       </div>
     );
   };
