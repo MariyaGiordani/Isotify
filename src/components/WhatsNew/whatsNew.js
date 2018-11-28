@@ -4,8 +4,8 @@ import ButtonSeeAll from '../ButtonSeeAll/buttonSeeAll';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../headerLine/headerLine';
 
-const title = 'What\'s new';
-const subtitle = 'SEE WHAT\'S POPPING THIS WEEK';
+const title = "What's new";
+const subtitle = "SEE WHAT'S POPPING THIS WEEK";
 const WhatsNew = (props) => {
   return (
     <div className="whats-new">
@@ -15,7 +15,7 @@ const WhatsNew = (props) => {
           <ButtonSeeAll />
         </HeaderLine>
       </div>
-      <AlbumsGrid albums={props.albums} size="quarter" />
+      <AlbumsGrid albums={props.albums} size="quarter" gridSize="quarter" />
     </div>
   );
 };
