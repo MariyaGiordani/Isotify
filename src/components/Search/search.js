@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-// TODO: REMOVE LIB
-//import queryString from 'query-string';
-
 import './search.css';
 
 import searchImg from '../../assets/img/search.png';
