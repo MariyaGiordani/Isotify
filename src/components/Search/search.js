@@ -25,18 +25,16 @@ class Search extends Component {
   render = () => {
     const { query } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="search">
-          <img className="search__image" alt="Search" src={searchImg} />
-          <input
-            type="text"
-            name="Search"
-            className="search__song"
-            placeholder="Search for a song..."
-            onChange={this.handleChange}
-            value={query}
-          />
-        </div>
+      <form className="search" onSubmit={this.handleSubmit}>
+        <img className="search__image" alt="Search" src={searchImg} />
+        <input
+          type="text"
+          name="Search"
+          className="search__song"
+          placeholder="Search for a song..."
+          onChange={this.handleChange}
+          value={query}
+        />
       </form>
     );
   };
