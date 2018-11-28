@@ -1,5 +1,5 @@
 :root {
-    --red-yellow-gradient: 
+    --red-yellow-peach-gradient: 
         linear-gradient(76deg, 
             rgba(191, 10, 69, 0.9), 
             rgba(228, 48, 93, 0.9) 63%, 
@@ -33,9 +33,9 @@
 
     --gray-gradient: 
         linear-gradient(25deg, 
-            rgba(232, 232, 240, 1), 
-            rgb(207, 205, 205));
-
+            rgba(221, 221, 221, 0.1), 
+            rgba(221, 221, 221, 0.5));
+            
     --white-gray-gradient: 
         linear-gradient(to bottom, 
             #fff, 
