@@ -6,6 +6,7 @@ import { getNewReleases } from '../../services/newReleases';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
 import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
+import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 
 export default class List extends Component {
   state = {
@@ -44,6 +45,7 @@ export default class List extends Component {
           </div>
           <div className="discover__divider" />
         </div>
+        <UserPlaylist />
       </div>
     );
   };
