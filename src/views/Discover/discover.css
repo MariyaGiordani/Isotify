@@ -27,11 +27,6 @@
     margin-bottom: 20px;
   }
 }
-@media (max-width: 767px) {
-  .teste {
-    width: 100%;
-  }
-}
 
 @media (min-width: 768px) {
   .discover {
