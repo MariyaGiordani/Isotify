@@ -3,14 +3,13 @@ import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './carousel.css';
 
 import leftArrow from '../../assets/img/left-arrow.png';
 import rightArrow from '../../assets/img/right-arrow.png';
 
 import LoadingBar from '../LoadingBar/loadingBar';
 import Slide from '../Slide/slide';
-
-import './carousel.css';
 
 const MAX_PROGRESS = 100;
 const PERCENTAGE_LOAD = 2;
