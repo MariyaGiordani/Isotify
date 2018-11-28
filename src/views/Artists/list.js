@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
+import PageContainer from '../../components/PageContainer/pageContainer';
 import { getTopArtistsWithAlbums } from '../../services/artists';
 import { topArtistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
@@ -45,20 +46,18 @@ export default class ArtistsListView extends Component {
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
 
     return (
-      <Fragment>
-        <div className="container artists-view">
-          <HeaderLine
-            {...{
-              title: 'Artists',
-              subtitle
-            }}
-          >
-            <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.changeViewMode} />
-          </HeaderLine>
+      <PageContainer>
+        <HeaderLine
+          {...{
+            title: 'Artists',
+            subtitle
+          }}
+        >
+          <SwitchButton firstOption="Grid" secondOption="List" inputFunction={this.changeViewMode} />
+        </HeaderLine>
 
-          {isListSelected ? <ArtistsList artists={artists} /> : <ArtistsGrid artists={artists} />}
-        </div>
-      </Fragment>
+        {isListSelected ? <ArtistsList artists={artists} /> : <ArtistsGrid artists={artists} size={'big'} />}
+      </PageContainer>
     );
   };
 }

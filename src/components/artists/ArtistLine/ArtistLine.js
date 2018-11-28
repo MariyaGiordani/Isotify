@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ArtistAlbumsGrid from '../../albums/artistAlbumsGrid/artistAlbumsGrid';
 import shuffle from '../../../assets/img/shuffle.svg';
+import semiarrow from '../../../assets/img/semiarrow.svg';
+import arrow from '../../../assets/img/arrow.svg';
 import './ArtistLine.css';
 
 const ArtistLine = ({ artist }) => (
@@ -19,28 +21,35 @@ const ArtistLine = ({ artist }) => (
       <div className="artist-line__middle-line">
         <Link to={`/artists/${artist.id}`}>
           <div className="artist-line__tittle">{artist.name}</div>
-          <div className="artist-line__more-info">{`${artist.albums.length} Albums, ${
-            artist.totalTracks
-          } Songs`}</div>
+          <div className="artist-line__more-info">
+            {artist.totalTracks} Songs, {artist.albums.length} Albums}
+          </div>
         </Link>
       </div>
       <div className="artist-line__bottom-line">
         <Link to={`/artists/${artist.id}`}>
-          <div className="artist-line__see-more-button">see bio's</div>
+          <div className="artist-line__see-more-button">
+            See bio's
+            <img src={arrow} alt="see artist's bio" className="artist-line__arrow" />
+          </div>
         </Link>
       </div>
     </div>
 
     <div className="artist-line__albums">
-      <div className="artist-line__upper-line">
-        <div className="artist-line__discography">discography</div>
-        <div className="artist-line__see-all"> see all </div>
+      <div className="artist-line__upper-line artist-line__upper-line--spacer">
+        <div className="artist-line__discography">Discography</div>
+        <div className="artist-line__see-all">
+          <Link to={`/artists/${artist.id}`}>See all</Link>
+          <img src={semiarrow} alt="See All" className="artist-line__semi-arrow" />
+        </div>
       </div>
 
-      <div className="artist-line__bottom-line">
+      <div className="artist-line__albums-bottom-line">
         <ArtistAlbumsGrid size="small" albums={artist.albums.slice(0, 4)} />
       </div>
     </div>
+    <div className="artist-line__bottom-corners" />
   </div>
 );
 export default ArtistLine;

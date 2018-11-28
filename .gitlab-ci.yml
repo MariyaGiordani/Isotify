@@ -66,6 +66,7 @@ validation:
   environment:
     name: validation
     url: http://$PROJECT_SUBDOMAIN-validation.$KUBE_DOMAIN
+  when: manual
   only:
     - /^v\d+\.\d+\.\d+$/ #v0.1.40
   except:
@@ -79,6 +80,7 @@ review:
     name: review/$CI_COMMIT_REF_SLUG
     url: https://$PROJECT_SUBDOMAIN-$CI_COMMIT_REF_SLUG.$KUBE_DOMAIN
     on_stop: stop_review
+  when: manual
   only:
     - branches
   except:

@@ -1,9 +1,10 @@
 :root {
     --black-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
 
-    --artist-line__artist-icon-shadow: 0 0px 40px 3px rgba(0, 0, 0, 0.25);
-    --artist-line__see-more-button-shadow: 0 0 20px #eee;
+    --artist-line__icon-shadow: 0 18px 40px 3px rgba(0, 0, 0, 0.25);
+    --artist-line__see-more-button-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);;
     --artist-line__albums-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
+    --artist-line__shadow: 0 30px 70px 0 rgba(0, 0, 0, 0.1);
 
     --header-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
     --header-icon-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
@@ -18,5 +19,10 @@
     --button-playlist-background-color: rgba(136, 136, 136, .85);
 
     --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
+    
+    --listen-to-shadow: rgba(0, 0, 0, 0.3); 
+    --listen-to-circule-shadow: rgba(0, 0, 0, 0.15);
+
+    --loading-bar-bg: rgba(212, 37, 98, 0.25);
 
 }

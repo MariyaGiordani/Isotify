@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
+import PageContainer from '../../components/PageContainer/pageContainer';
 import { getSavedAlbums } from '../../services/albums';
 import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
@@ -33,17 +34,17 @@ export default class Albums extends Component {
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
 
     return (
-      <Fragment>
-        <div className="container albums-view">
-          <HeaderLine
-            {...{
-              title: 'Albums',
-              subtitle
-            }}
-          />
+      <PageContainer>
+        <HeaderLine
+          {...{
+            title: 'Albums',
+            subtitle
+          }}
+        />
+        <div className="albums-view__grid">
           <AlbumsGrid size="big" albums={albums} />
         </div>
-      </Fragment>
+      </PageContainer>
     );
   };
 }

@@ -1,3 +1,4 @@
-.albums-view {
-    padding: 50px 45px 0px 45px;
+.albums-view__grid {
+    display: flex;
+    justify-content: center;
 }
