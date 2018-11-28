@@ -48,6 +48,28 @@
   height: 140px;
 }
 
+.card--quarter .card__info {
+  margin-top: 15px;
+}
+
+.card--quarter .card__options {
+  right: 22%;
+}
+
+.card--quarter .card__text {
+  width: 70%;
+}
+
+.card--quarter {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.card--quarter .card__cover {
+  width: 80%;
+}
+
 .card.card--big {
   width: 230px;
   margin-top: 10px;
@@ -59,6 +81,7 @@
   font-size: 18px;
   font-weight: 600;
 }
+
 .card--big .card__text-subtitle {
   font-size: 12px;
   font-weight: 600;
@@ -88,4 +111,15 @@
 .card__options{
   width: 15px;
   height: 15px;
+}
+
+@media only screen and (max-width: 500px) {
+  .card--quarter {
+    width: 35%;
+    margin-bottom: 20px;
+  }
+
+  .card--quarter .card__cover {
+    width: 100%;
+  }
 }
