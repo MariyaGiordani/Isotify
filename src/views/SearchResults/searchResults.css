@@ -1,6 +1,25 @@
 .search-results {
-  width: 100%;
-  padding: 3%
+  width: 100%
+}
+
+.search-results__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-results__divider--vertical {
+  width: 4px;
+  height: 600px;
+  background-color: var(--white-dark);
+}
+
+.search-results__divider--horizontal {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  width: 90%;
+  height: 4px;
+  background-color: var(--white-dark);
 }
 
 .search-results__title {

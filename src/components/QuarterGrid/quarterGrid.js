@@ -1,17 +1,16 @@
-import React, { Fragment } from 'react';
-import './quarterGrid.css';
-import ButtonSeeAll from '../ButtonSeeAll/buttonSeeAll';
+import React from 'react';
+
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../headerLine/headerLine';
 
+import './quarterGrid.css';
+
 const QuarterGrid = (props) => {
   return (
-    <Fragment>
-      <HeaderLine title={title} subtitle={subtitle}>
-        <ButtonSeeAll />
-      </HeaderLine>
+    <div className="quarter-grid">
+      <HeaderLine title={props.title} subtitle={props.subtitle} />
       <AlbumsGrid albums={props.albums} size="quarter" />
-    </Fragment>
+    </div>
   );
 };
 
