@@ -1,40 +1,45 @@
-.albums-grid {
+.artist-grid__centering {
+  display: flex;
+  justify-content: center;
+}
+
+.artists-grid {
   display: flex;
   flex-wrap: wrap;
 }
 
 @media (min-width: 705px) {
-  .albums-grid {
+  .artists-grid {
     width: 550px;
   }
 }
 
 @media (min-width: 960px) {
-  .albums-grid {
+  .artists-grid {
     width: 765px;
   }
 }
 
 @media (min-width: 1215px) {
-  .albums-grid {
+  .artists-grid {
     width: 1020px;
   }
 }
 
 @media (min-width: 1470px) {
-  .albums-grid {
+  .artists-grid {
     width: 1275px;
   }
 }
 
 @media (min-width: 1725px) {
-  .albums-grid {
+  .artists-grid {
     width: 1530px;
   }
 }
 
 @media (min-width: 1975px) {
-  .albums-grid {
+  .artists-grid {
     width: 1785px;
   }
 }
