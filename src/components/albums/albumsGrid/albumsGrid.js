@@ -1,17 +1,10 @@
 import React from 'react';
-import Card from '../../Card/card';
+import Album from '../../albums/album/album';
 import './albumsGrid.css';
 
 const getAlbumsComponents = (albums = [], size) =>
-  albums.map(({ imgSrc, title, artist, id }) => (
-    <Card
-      imgSrc={imgSrc}
-      size={size}
-      title={title}
-      subtitle={artist.name}
-      subtitleHref={`/artists/${artist.id}`}
-      key={id}
-    />
+  albums.map(({ imgSrc, title, artist, id, date }) => (
+    <Album imgSrc={imgSrc} size={size} title={title} artist={artist} key={id} albumId={id} date={date} />
   ));
 
 const getClassName = (modifier) => (modifier ? `albums-grid--${modifier}` : '');

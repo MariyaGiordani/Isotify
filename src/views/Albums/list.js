@@ -20,7 +20,10 @@ export default class Albums extends Component {
       .then((rawAlbums) => {
         const albums = parseSavedAlbums(rawAlbums);
         const albumsAmount = albums.length;
-        const songsAmount = albums.reduce((total, currentAlbum) => total + currentAlbum.songsAmount, 0);
+        const songsAmount = albums.reduce(
+          (total, currentAlbum) => total + currentAlbum.songsAmount,
+          0
+        );
         this.setState({ albums, albumsAmount, songsAmount });
       })
       .catch((error) => {

@@ -1,0 +1,230 @@
+.popup__title--big-font {
+  color: var(--black);
+  font-size: 28px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
+}
+
+.popup__title--medium-font,
+.popup__title--small-font {
+  color: var(--gray);
+  font-size: 18px;
+  font-weight: 500;
+  
+}
+
+.popup__title--medium-font {
+  margin-right: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.popup__title--small-font {
+  margin-left: 15px;
+}
+
+.popup__title {
+  max-width: 60%;
+}
+
+.popup {
+  width: 390px;
+  height: 100%;
+}
+
+.tippy-tooltip,
+.tippy-tooltip--regular,
+.light-theme,
+.enter,
+.tippy-notransition {
+  background-color: var(--white-light) !important;
+  text-align: start;
+  width: 450px;
+  height: 450px;
+}
+
+.tippy-popper {
+  top: -70px !important;
+}
+
+.tippy-tooltip {
+  border-radius: 15px !important;
+  box-shadow: var(--popup__box-shadow) !important;
+  overflow-y: scroll !important;
+}
+
+.popup__header {
+  width: 410px;
+}
+
+.images__shuffle {
+  width: 20px;
+  height: 17px;
+  margin-right: 25px;
+}
+
+.images__three-dots {
+  width: 20px;
+  height: 20px;
+}
+
+.popup__subtitle {
+  display: flex;
+}
+
+.popup__dot {
+  height: 5px;
+  width: 7px;
+  background-color: var(--gray);
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+.popup__title {
+  margin-left: 20px;
+}
+
+.popup__songs--songName {
+  max-width: 240px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left:20px
+}
+
+.popup__header {
+  display: flex;
+  margin-top: 25px;
+}
+
+.popup__images {
+  margin-left: auto;
+  margin-top: 17px;
+}
+
+.popup__line--gray,
+.popup__line--pink {
+  width: 415px;
+  height: 3px;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.popup__line--gray {
+  background-color: var(--popup__line-bg--gray);
+}
+
+.popup__line--pink {
+  background-color: var(--popup__line-bg--pink);
+}
+
+.popup__songs {
+  font-size: 15px;
+  display: flex;
+  width: 100%;
+  margin: 20px;
+  font-weight: 600;
+}
+
+.popup__songs--songNumber,
+.popup__songs--songDuration {
+  color: var(--gray);
+}
+
+.popup__songs--songDuration {
+  margin-left: auto;
+}
+
+.popup__songs--songNumber {
+  width: 20px;
+}
+
+.related-link {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+.related-link__three-dots--horizontal {
+  transform: rotate(90deg);
+  width: 20px;
+  height: 20px;
+  margin-left: 25px;
+}
+
+.related-link__text {
+  color: var(--pink-light);
+}
+
+@media (max-width: 425px) {
+  .tippy-tooltip,
+  .tippy-tooltip--regular,
+  .light-theme,
+  .enter,
+  .tippy-notransition {
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  .popup__header {
+    width: 100%;
+  }
+
+  .popup__title--big-font {
+    color: var(--black);
+    font-size: 20px;
+  }
+
+  .popup__title--medium-font,
+  .popup__title--small-font {
+    color: var(--gray);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .popup__songs {
+    font-size: 12px;
+    margin: 0;
+    margin-top: 15px;
+    width: 93%;
+    margin-left: 15px;
+  }
+
+  .related-link {
+    margin-left: 0;
+  }
+
+  .popup {
+    width: 100%;
+    height: 100%;
+  }
+
+  .popup__line--gray,
+  .popup__line--pink {
+    width: 370px;
+  }
+
+}
+@media (max-width: 375px) {
+  .popup__line--gray,
+  .popup__line--pink {
+    width: 320px;
+  }
+
+}
+@media (max-width: 320px) {
+  .popup__line--gray,
+  .popup__line--pink {
+    width: 260px;
+  }
+
+  .popup__songs {
+    width: 90%;
+  }
+  
+}
