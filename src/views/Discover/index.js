@@ -23,7 +23,7 @@ export default class List extends Component {
         })
       );
       this.setState({
-        carouselArtists: carouselArtists,
+        carouselArtists,
         albums
       });
     });
