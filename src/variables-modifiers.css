@@ -20,7 +20,7 @@
 
     --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
     
-    --listen-to-shadow: rgba(0, 0, 0, 0.3); 
+    --listen-to-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2); 
     --listen-to-circule-shadow: rgba(0, 0, 0, 0.15);
 
     --loading-bar-bg: rgba(212, 37, 98, 0.25);

@@ -3,6 +3,10 @@
   flex-wrap: wrap;
 }
 
+.albums-grid--quarter {
+  width: 100% !important;
+}
+
 @media (min-width: 705px) {
   .albums-grid {
     width: 550px;
@@ -24,6 +28,10 @@
 @media (min-width: 1470px) {
   .albums-grid {
     width: 1275px;
+  }
+
+  .albums-grid--quarter{
+    width: 100%;
   }
 }
 
