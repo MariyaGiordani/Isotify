@@ -7,7 +7,7 @@ export function getResultsSearch(query) {
     .then((response) =>
     Promise.All(
         response.artists.items.map((artist) => getArtist(artist.id))
-    ).then()
+    ).then(response)
         Promise.All(getTopArtistsWithAlbums(response.artists.items.slice(0,4))));
 }
 
