@@ -17,17 +17,24 @@ const parsePlaylist = (playlistsInfo) => {
 };
 
 const albumTracks = (rawAlbumsTracks) => {
-  return rawAlbumsTracks.map((track) => parseAlbumTracks(track));
+  return rawAlbumsTracks.map((track) => parseTrack(track));
 };
 
-const parseAlbumTracks = (tracks) => {
-  return {
-    songName: tracks.name,
-    songDuration: tracks.duration_ms,
-    songNumber: tracks.track_number,
-    songId: tracks.id
-  };
-};
+const parseArtistTopTracks = (artistTracks) =>
+  artistTracks.map((track) => {
+    const artist = { name: track.artists[0].name, id: track.artists[0].id };
+    return {
+      ...parseTrack(track),
+      artist
+    };
+  });
+
+const parseTrack = (track) => ({
+  songName: track.name,
+  songDuration: track.duration_ms,
+  songNumber: track.track_number,
+  songId: track.id
+});
 
 const albumsList = (rawAlbums) =>
   rawAlbums.map((album) => parseAlbumInfo(album));
@@ -90,5 +97,6 @@ export {
   userInfo,
   artistWithAlbums,
   artistWithAlbumsAndRelated,
-  albumTracks
+  albumTracks,
+  parseArtistTopTracks
 };

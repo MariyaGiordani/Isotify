@@ -1,45 +1,64 @@
 import React, { Component } from 'react';
 import './discover.css';
 
-import Carousel from '../../components/Carousel/carousel';
 import { getNewReleases } from '../../services/newReleases';
+import { getMultipleArtistsTopTracks } from '../../services/tracks';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
+import { parseArtistTopTracks as parseTracks } from '../../utils/spotifyResponseParsers';
+
+import Carousel from '../../components/Carousel/carousel';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
 import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
 import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 
+const getArtistsIds = (artists = []) => artists.map((artist) => artist.id);
+
+const filterTopTracks = (artistsTracks) =>
+  artistsTracks.map((artist, index) => artistsTracks[index][0]);
+
 export default class List extends Component {
   state = {
     carouselArtists: [],
-    albums: []
+    albums: [],
+    topTracks: []
   };
 
   componentDidMount = () => {
     getNewReleases().then((rawAlbums) => {
       const albums = parseAlbums(rawAlbums);
+      console.log(rawAlbums);
       const carouselArtists = albums.map(
-        ({ artist: { name }, imgSrc, id }) => ({
+        ({ artist: { name, id }, imgSrc }) => ({
           name,
           imgSrc,
           id
         })
       );
-      this.setState({
-        carouselArtists,
-        albums
+      const artistsIds = getArtistsIds(carouselArtists);
+      getMultipleArtistsTopTracks(artistsIds).then((rawTopTracks) => {
+        const topArtistTracks = rawTopTracks.map((artist) =>
+          parseTracks(artist)
+        );
+        const topTracks = filterTopTracks(topArtistTracks);
+        console.log(topTracks);
+        this.setState({
+          carouselArtists,
+          albums
+        });
       });
     });
   };
 
   render = () => {
+    const { carouselArtists, albums } = this.state;
     return (
       <div className="container">
-        <Carousel items={this.state.carouselArtists} />
+        <Carousel items={carouselArtists} />
         <div className="discover">
-          <WhatsNew albums={this.state.albums.slice(0, 4)} />
+          <WhatsNew albums={albums.slice(0, 4)} />
           <div className="discover__top">
             <TopSongsAndArtists
-              artists={this.state.carouselArtists.slice(0, 4)}
+              artists={carouselArtists.slice(0, 4)}
               songs={[]}
             />
           </div>
