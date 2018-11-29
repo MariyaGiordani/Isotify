@@ -6,6 +6,7 @@ const userInfo = (rawUserInfo) => ({
 const albumTracks = (rawAlbumsTracks) => {
   return rawAlbumsTracks.map((track) => parseAlbumTracks(track));
 };
+
 const parseAlbumTracks = (tracks) => {
   return {
     songName: tracks.name,
@@ -14,6 +15,20 @@ const parseAlbumTracks = (tracks) => {
     songId: tracks.id
   };
 };
+
+const parseSearch = (data) => {
+  const albums = 
+  const artist = 
+  const playlist = 
+  const tracks = 
+  // return {
+  //   albums: data.albums.map((album) => parseAlbumInfo(album)),
+  //   artist: data.artists,
+  //   playlist: data.playlists,
+  //   tracks: data.tracks
+  // };
+};
+
 const albumsList = (rawAlbums) =>
   rawAlbums.map((album) => parseAlbumInfo(album));
 
@@ -75,5 +90,6 @@ export {
   userInfo,
   artistWithAlbums,
   artistWithAlbumsAndRelated,
-  albumTracks
+  albumTracks,
+  parseSearch
 };

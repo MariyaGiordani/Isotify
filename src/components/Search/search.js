@@ -24,6 +24,7 @@ class Search extends Component {
 
   render = () => {
     const { query } = this.state;
+
     return (
       <form className="search" onSubmit={this.handleSubmit}>
         <img className="search__image" alt="Search" src={searchImg} />

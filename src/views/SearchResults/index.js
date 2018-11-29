@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
+import { getResultsSearch } from '../../services/resultsSearch';
+import { parseSearch } from '../../utils/spotifyResponseParsers';
+import { getQuery } from '../../utils/getQuery';
 
 import './searchResults.css';
 
@@ -11,8 +14,22 @@ const titlePlaylists = 'Playlists';
 const subtitle = 'RESULTS';
 
 export default class searchResults extends Component {
-  //componentDidMount
-  //componentDidUpdate
+  state = {
+    artist: [],
+    albums: [],
+    tracks: [],
+    playlist: []
+  };
+
+  componentDidMount = () => {
+    const query = getQuery();
+    getResultsSearch(query).then((response) => {
+      const searchData = parseSearch(response);
+      // this.setState({
+      //   ...searchData
+      // });
+    });
+  };
 
   render = () => {
     return (
@@ -20,11 +37,24 @@ export default class searchResults extends Component {
         <div className="search-results">
           <div className="search-results__title">Search results for: </div>
           <div className="search-results__wrap">
-            <QuarterGrid title={titleSongs} subtitle={subtitle} />
+            <QuarterGrid
+              title={titleSongs}
+              subtitle={subtitle}
+              // tracks={this.state.tracks.slice(0, 4)}
+            />
             <div className="search-results__divider--vertical" />
-            <QuarterGrid title={titleArtists} subtitle={subtitle} />
+            <QuarterGrid
+              title={titleArtists}
+              subtitle={subtitle}
+              // artists={this.state.artists.slice(0, 4)}
+              // songs={[]}
+            />
             <div className="search-results__divider--horizontal" />
-            <QuarterGrid title={titleAlbums} subtitle={subtitle} />
+            <QuarterGrid
+              title={titleAlbums}
+              subtitle={subtitle}
+              // albums={this.state.albums.slice(0, 4)}
+            />
             <div className="search-results__divider--vertical" />
             <QuarterGrid title={titlePlaylists} subtitle={subtitle} />
           </div>
