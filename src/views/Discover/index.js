@@ -3,64 +3,61 @@ import './discover.css';
 
 import { getNewReleases } from '../../services/newReleases';
 import { getMultipleArtistsTopTracks } from '../../services/tracks';
+import { getMultipleArtists } from '../../services/artists';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
-import { parseArtistTopTracks as parseTracks } from '../../utils/spotifyResponseParsers';
+import {
+  parseArtistTopTracks as parseTracks,
+  parseArtist
+} from '../../utils/spotifyResponseParsers';
 
 import Carousel from '../../components/Carousel/carousel';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
 import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
 import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 
-const getArtistsIds = (artists = []) => artists.map((artist) => artist.id);
-
 const filterTopTracks = (artistsTracks) =>
   artistsTracks.map((artist, index) => artistsTracks[index][0]);
 
 export default class List extends Component {
   state = {
-    carouselArtists: [],
     albums: [],
-    topTracks: []
+    topTracks: [],
+    artists: []
   };
 
   componentDidMount = () => {
     getNewReleases().then((rawAlbums) => {
       const albums = parseAlbums(rawAlbums);
-      console.log(rawAlbums);
-      const carouselArtists = albums.map(
-        ({ artist: { name, id }, imgSrc }) => ({
-          name,
-          imgSrc,
-          id
-        })
-      );
-      const artistsIds = getArtistsIds(carouselArtists);
-      getMultipleArtistsTopTracks(artistsIds).then((rawTopTracks) => {
-        const topArtistTracks = rawTopTracks.map((artist) =>
+      const newReleasesArtistsIds = albums.map(({ artist: { id } }) => id);
+
+      Promise.all([
+        getMultipleArtistsTopTracks(newReleasesArtistsIds),
+        getMultipleArtists(newReleasesArtistsIds)
+      ]).then(([rawTopTracks, rawArtists]) => {
+        const topArtistsTracks = rawTopTracks.map((artist) =>
           parseTracks(artist)
         );
-        const topTracks = filterTopTracks(topArtistTracks);
-        console.log(topTracks);
+        const topTracks = filterTopTracks(topArtistsTracks);
+        const artists = rawArtists.map((artist) => parseArtist(artist));
+
         this.setState({
-          carouselArtists,
-          albums
+          albums,
+          artists,
+          topTracks
         });
       });
     });
   };
 
   render = () => {
-    const { carouselArtists, albums } = this.state;
+    const { artists = [], albums = [], topTracks = [] } = this.state;
     return (
       <div className="container">
-        <Carousel items={carouselArtists} />
+        <Carousel items={artists} />
         <div className="discover">
           <WhatsNew albums={albums.slice(0, 4)} />
           <div className="discover__top">
-            <TopSongsAndArtists
-              artists={carouselArtists.slice(0, 4)}
-              songs={[]}
-            />
+            <TopSongsAndArtists artists={artists} songs={topTracks} />
           </div>
           <div className="discover__divider" />
         </div>

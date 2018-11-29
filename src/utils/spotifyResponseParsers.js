@@ -59,7 +59,8 @@ const parseAlbumInfo = (album) => {
 const parseArtist = (artist) => ({
   imgSrc: artist.images.length > 0 ? artist.images[0].url : '',
   name: artist.name,
-  id: artist.id
+  id: artist.id,
+  genres: artist.genres
 });
 
 const artistWithAlbumsAndRelated = (artist) => {
@@ -98,5 +99,6 @@ export {
   artistWithAlbums,
   artistWithAlbumsAndRelated,
   albumTracks,
-  parseArtistTopTracks
+  parseArtistTopTracks,
+  parseArtist
 };
