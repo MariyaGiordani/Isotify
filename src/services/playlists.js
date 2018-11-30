@@ -9,7 +9,7 @@ function getPlaylists() {
 function getPlaylist(playlistId) {
   return spotifyInstance
     .get(`playlists/${playlistId}`, createHeader())
-    .then((response) => response);
+    .then((response) => response.data);
 }
 
 function getGlobalTopTracks() {

@@ -10,6 +10,7 @@ import {
   parseArtist
 } from '../../utils/spotifyResponseParsers';
 
+import PageContainer from '../../components/PageContainer/pageContainer';
 import Carousel from '../../components/Carousel/carousel';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
 import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
@@ -47,7 +48,7 @@ export default class List extends Component {
   render = () => {
     const { artists = [], albums = [], topTracks = [] } = this.state;
     return (
-      <div className="container">
+      <PageContainer noPadding={true}>
         <Carousel items={artists} />
         <div className="discover">
           <WhatsNew albums={albums.slice(0, 4)} />
@@ -57,7 +58,7 @@ export default class List extends Component {
           <div className="discover__divider" />
         </div>
         <UserPlaylist />
-      </div>
+      </PageContainer>
     );
   };
 }
