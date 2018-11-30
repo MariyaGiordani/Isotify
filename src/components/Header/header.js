@@ -30,19 +30,21 @@ export default class Header extends Component {
   };
 
   render = () => {
+    const { profilePicture, name } = this.state;
+
     return (
       <div className="header">
         <div className="header__icon">
-          {this.state.profilePicture && (
+          {profilePicture && (
             <img
               className="header__icon-image"
               alt="User Profile"
-              src={this.state.profilePicture}
+              src={profilePicture}
             />
           )}
         </div>
         <div className="header__wrap">
-          <p className="header__user-name">{this.state.name}</p>
+          <p className="header__user-name">{name}</p>
           <a className="header__user-profile" href="#viewprofile">
             VIEW PROFILE
           </a>

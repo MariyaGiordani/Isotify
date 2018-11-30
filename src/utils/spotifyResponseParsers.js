@@ -3,6 +3,19 @@ const userInfo = (rawUserInfo) => ({
   profilePicture: rawUserInfo.images[0].url
 });
 
+export const playlists = (rawPlaylists) => {
+  return rawPlaylists.map((playlistsInfo) => parsePlaylist(playlistsInfo));
+};
+
+const parsePlaylist = (playlistsInfo) => {
+  return {
+    namePlaylist: playlistsInfo.name,
+    nameUser: playlistsInfo.owner.display_name,
+    lengthTracks: playlistsInfo.tracks.total,
+    idPlaylist: playlistsInfo.id
+  };
+};
+
 const albumTracks = (rawAlbumsTracks) => {
   return rawAlbumsTracks.map((track) => parseAlbumTracks(track));
 };
@@ -16,17 +29,13 @@ const parseAlbumTracks = (tracks) => {
   };
 };
 
-const parseSearch = (data) => {
-  const albums = 
-  const artist = 
-  const playlist = 
-  const tracks = 
-  // return {
-  //   albums: data.albums.map((album) => parseAlbumInfo(album)),
-  //   artist: data.artists,
-  //   playlist: data.playlists,
-  //   tracks: data.tracks
-  // };
+const parseSearch = ({ albums, artist, playlists, tracks }) => {
+  return {
+    albums: albumsList(albums),
+    artists: artistWithAlbums(artist),
+    playlists: playlists(playlists),
+    tracks: albumTracks(tracks)
+  };
 };
 
 const albumsList = (rawAlbums) =>
