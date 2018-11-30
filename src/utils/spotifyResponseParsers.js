@@ -16,6 +16,19 @@ const parsePlaylist = (playlistsInfo) => {
   };
 };
 
+export const playlistsSearch = (rawPlaylists) => {
+  return rawPlaylists.map((playlistsInfo) =>
+    parsePlaylistSearch(playlistsInfo)
+  );
+};
+
+const parsePlaylistSearch = (playlistsInfo) => ({
+  namePlaylist: playlistsInfo.name,
+  idPlaylist: playlistsInfo.id,
+  imagePlaylist: playlistsInfo.images[0].url,
+  followersPlaylist: playlistsInfo.followers.total
+});
+
 const albumTracks = (rawAlbumsTracks) => {
   return rawAlbumsTracks.map((track) => parseAlbumTracks(track));
 };
@@ -33,7 +46,8 @@ const parseSearch = ({ albums, artists, playlists, tracks }) => {
   return {
     albums: albumsList(albums),
     artists: artistsWithAlbums(artists),
-    tracks: albumTracks(tracks)
+    tracks: albumTracks(tracks),
+    playlists: playlistsSearch(playlists)
   };
 };
 

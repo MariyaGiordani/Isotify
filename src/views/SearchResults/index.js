@@ -6,6 +6,7 @@ import { parseSearch } from '../../utils/spotifyResponseParsers';
 import { getQuery } from '../../utils/getQuery';
 
 import './searchResults.css';
+import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 
 const titleSongs = 'Songs';
 const titleArtists = 'Artists';
@@ -24,18 +25,16 @@ export default class searchResults extends Component {
   componentDidMount = () => {
     const query = getQuery();
     getResultsSearch(query).then((response) => {
-      console.log(response);
-
       const searchData = parseSearch(response);
-      console.log(searchData);
-
-      // this.setState({
-      //   ...searchData
-      // });
+      this.setState({
+        ...searchData
+      });
     });
   };
 
   render = () => {
+    console.log(this.state);
+
     return (
       <div className="container">
         <div className="search-results">
@@ -44,8 +43,10 @@ export default class searchResults extends Component {
             <QuarterGrid
               title={titleSongs}
               subtitle={subtitle}
-              // tracks={this.state.tracks.slice(0, 4)}
-            />
+              tracks={this.state.tracks.slice(0, 4)}
+            >
+              <AlbumsGrid />
+            </QuarterGrid>
             <div className="search-results__divider--vertical" />
             <QuarterGrid
               title={titleArtists}
@@ -57,7 +58,7 @@ export default class searchResults extends Component {
             <QuarterGrid
               title={titleAlbums}
               subtitle={subtitle}
-              // albums={this.state.albums.slice(0, 4)}
+              albums={this.state.albums.slice(0, 4)}
             />
             <div className="search-results__divider--vertical" />
             <QuarterGrid title={titlePlaylists} subtitle={subtitle} />

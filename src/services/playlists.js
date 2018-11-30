@@ -15,7 +15,7 @@ function getPlaylist(playlistId) {
 function getFollowers(playlists) {
   return Promise.all(
     playlists.map((playlist) =>
-      getPlaylist(playlist.id).then((followers) => ({
+      getPlaylist(playlist.id).then(({ data: { followers } }) => ({
         ...playlist,
         followers
       }))
