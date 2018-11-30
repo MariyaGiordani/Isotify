@@ -1,5 +1,3 @@
-import { release } from 'os';
-
 const userInfo = (rawUserInfo) => ({
   name: rawUserInfo.display_name,
   profilePicture: rawUserInfo.images[0].url

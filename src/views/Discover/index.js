@@ -15,9 +15,6 @@ import WhatsNew from '../../components/WhatsNew/whatsNew';
 import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
 import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 
-const filterTopTracks = (artistsTracks) =>
-  artistsTracks.map((artist, index) => artistsTracks[index][0]);
-
 const filterRepeated = (idsList) => [...new Set(idsList)];
 
 export default class List extends Component {
@@ -32,9 +29,8 @@ export default class List extends Component {
       ([rawAlbums, rawTopTracks]) => {
         const albums = parseAlbums(rawAlbums);
         const topTracks = parsePlaylistTracks(rawTopTracks.tracks.items);
-        const topArtists = filterRepeated(
-          topTracks.map((track) => track.artist.id)
-        );
+        const artistsIds = topTracks.map((track) => track.artist.id);
+        const topArtists = filterRepeated(artistsIds);
         getMultipleArtists(topArtists.slice(0, 5)).then((rawArtists) => {
           const artists = rawArtists.map((artist) => parseArtist(artist));
           this.setState({
