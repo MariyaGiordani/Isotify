@@ -6,6 +6,7 @@
 .artists-grid {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 
 @media (min-width: 705px) {
