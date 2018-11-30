@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import songIcon from '../../assets/img/headphone-song.svg';
 import TopItem from './topItem';
 
