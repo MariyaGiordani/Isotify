@@ -29,11 +29,10 @@ const parseAlbumTracks = (tracks) => {
   };
 };
 
-const parseSearch = ({ albums, artist, playlists, tracks }) => {
+const parseSearch = ({ albums, artists, playlists, tracks }) => {
   return {
     albums: albumsList(albums),
-    artists: artistWithAlbums(artist),
-    playlists: playlists(playlists),
+    artists: artistsWithAlbums(artists),
     tracks: albumTracks(tracks)
   };
 };
@@ -88,14 +87,14 @@ const artistWithAlbums = (artist) => {
   };
 };
 
-const topArtistsWithAlbums = (artists) =>
+const artistsWithAlbums = (artists) =>
   artists.map((artist) => artistWithAlbums(artist));
 
 export {
   albumsList,
   savedAlbums,
   parseAlbumInfo,
-  topArtistsWithAlbums,
+  artistsWithAlbums,
   userInfo,
   artistWithAlbums,
   artistWithAlbumsAndRelated,

@@ -15,16 +15,20 @@ const subtitle = 'RESULTS';
 
 export default class searchResults extends Component {
   state = {
-    artist: [],
+    artists: [],
     albums: [],
     tracks: [],
-    playlist: []
+    playlists: []
   };
 
   componentDidMount = () => {
     const query = getQuery();
     getResultsSearch(query).then((response) => {
+      console.log(response);
+
       const searchData = parseSearch(response);
+      console.log(searchData);
+
       // this.setState({
       //   ...searchData
       // });
