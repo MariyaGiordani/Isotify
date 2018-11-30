@@ -1,7 +1,7 @@
 .player {
   height: 90px;
   width: 100%;
-  background-color: var(--white-lightest);
+  background-color: var(--white-lighter);
   position: fixed;
   z-index: 10;
   top: calc(100% - 90px);
@@ -17,12 +17,17 @@
   margin-left: -8%
 }
 
-.prev-container__image,.next-container__image {
+.prev-container__image,
+.next-container__image {
   width: 15px;
   height: 15px;
 }
 
-.prev-container__image,.next-container__image,.pause-container__image,.playlisticon__image,.volume-container__image {
+.prev-container__image,
+.next-container__image,
+.pause-container__image,
+.playlist-icon__image,
+.volume-container__image {
   margin: auto;
 }
 
@@ -31,14 +36,37 @@
   height: 20px;
 }
 
-.buttons__prev-container,.buttons__pause-container,.buttons__next-container,.container__playlisticon,.player__volume-container {
+.buttons__prev-container,
+.buttons__pause-container,
+.buttons__next-container,
+.container__playlist-icon,
+.player__volume-container {
   background-image: var(--player-buttons-gradient);
-  border-radius: 50%;
   display: flex;
   box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.25);
 }
 
-.buttons__prev-container,.buttons__next-container {
+.buttons__prev-container,
+.buttons__pause-container,
+.buttons__next-container,
+.container__playlist-icon,
+.player__volume-container,
+.buttons__prev,
+.buttons__pause,
+.player__volume,
+.buttons__next,
+.container__button,
+.player__volume {
+  border-radius: 50%;
+}
+
+.buttons__pause {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.buttons__prev-container,
+.buttons__next-container {
   width: 50px;
   height: 50px;
 }
@@ -46,26 +74,29 @@
 .buttons__pause-container {
   width: 70px;
   height: 70px;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
-.playlisticon__image,.volume-container__image {
+.playlist-icon__image,
+.volume-container__image {
   width: 20px;
   height: 20px;
 }
 
-.container__playlisticon,.player__volume-container {
+.container__playlist-icon,
+.player__volume-container {
  width: 55px;
  height: 55px;
- margin-left: 20px;
+}
+.container__button {
+  margin-left: 20px;
 }
 
-.player__volume-container {
+.player__volume {
   margin-right: 20px;
 }
 
-.music-info__name,.music-info__name {
+.music-info__name,
+.music-info__name {
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -89,47 +120,61 @@
   align-items: center;
 }
 
-.playlisticon__music-info {
+.playlist-icon__music-info {
   margin-left: 30px;
 }
 
 @media (max-width:425px){
-  .playlisticon__music-info{
+  .playlist-icon__music-info {
     display: none;
   }
-  .player__buttons{
+
+  .player__buttons {
     margin-left: 0;
   }
-  .buttons__pause-container{
-    margin-left: 5px;
-    margin-right: 5px;
+
+  .buttons__pause-container {
     width: 60px;
     height: 60px;
   }
-  .pause-container__image{
-    width: 15px;
-    height: 15px;
+
+  .buttons__pause {
+    margin-left: 5px;
+    margin-right: 5px;
   }
-  .prev-container__image,.next-container__image {
+
+  .prev-container__image,
+  .next-container__image {
     width: 10px;
     height: 10px;
   }
-  .buttons__prev-container,.buttons__next-container {
+
+  .buttons__prev-container,
+  .buttons__next-container {
     width: 40px;
     height: 40px;
   }
-  .container__playlisticon,.player__volume-container {
+
+  .container__button{
+    margin-left: 10px;
+  }
+
+  .container__playlist-icon,
+  .player__volume-container {
     width: 45px;
     height: 45px;
-    margin-left: 10px;
-   }
-  .playlisticon__image,.volume-container__image {
+  }
+
+  .playlist-icon__image,
+  .volume-container__image,
+  .pause-container__image {
     width: 15px;
     height: 15px;
   }
-  .player__volume-container {
+
+  .player__volume {
     margin-right: 10px;
   }
-  
+
 }
 
