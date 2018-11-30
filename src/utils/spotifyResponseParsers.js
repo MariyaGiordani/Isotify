@@ -1,3 +1,5 @@
+import { release } from 'os';
+
 const userInfo = (rawUserInfo) => ({
   name: rawUserInfo.display_name,
   profilePicture: rawUserInfo.images[0].url
@@ -29,11 +31,18 @@ const parseArtistTopTracks = (artistTracks) =>
     };
   });
 
-const parseTrack = (track) => ({
-  songName: track.name,
-  songDuration: track.duration_ms,
-  songNumber: track.track_number,
-  songId: track.id
+const parsePlaylistTracks = (trackContainers) =>
+  trackContainers.map(({ track }) => parseTrack(track));
+
+const parseTrack = ({ name, duration_ms, track_number, id, artists }) => ({
+  songName: name,
+  songDuration: duration_ms,
+  songNumber: track_number,
+  songId: id,
+  artist: {
+    name: artists[0].name,
+    id: artists[0].id
+  }
 });
 
 const albumsList = (rawAlbums) =>
@@ -42,17 +51,24 @@ const albumsList = (rawAlbums) =>
 const savedAlbums = (rawAlbums) =>
   rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
-const parseAlbumInfo = (album) => {
+const parseAlbumInfo = ({
+  name,
+  release_date,
+  total_tracks,
+  id,
+  artists,
+  images
+}) => {
   return {
-    title: album.name,
+    title: name,
     artist: {
-      name: album.artists[0].name,
-      id: album.artists[0].id
+      name: artists[0].name,
+      id: artists[0].id
     },
-    date: album.release_date,
-    imgSrc: album.images[1].url,
-    songsAmount: album.total_tracks,
-    id: album.id
+    date: release_date,
+    imgSrc: images[1].url,
+    songsAmount: total_tracks,
+    id
   };
 };
 
@@ -100,5 +116,6 @@ export {
   artistWithAlbumsAndRelated,
   albumTracks,
   parseArtistTopTracks,
-  parseArtist
+  parseArtist,
+  parsePlaylistTracks
 };

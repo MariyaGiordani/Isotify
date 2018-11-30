@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './discover.css';
 
 import { getNewReleases } from '../../services/newReleases';
-import { getMultipleArtistsTopTracks } from '../../services/tracks';
 import { getMultipleArtists } from '../../services/artists';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
+import { getGlobalTopTracks } from '../../services/playlists';
 import {
-  parseArtistTopTracks as parseTracks,
+  parsePlaylistTracks,
   parseArtist
 } from '../../utils/spotifyResponseParsers';
 
@@ -18,6 +18,8 @@ import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 const filterTopTracks = (artistsTracks) =>
   artistsTracks.map((artist, index) => artistsTracks[index][0]);
 
+const filterRepeated = (idsList) => [...new Set(idsList)];
+
 export default class List extends Component {
   state = {
     albums: [],
@@ -26,27 +28,23 @@ export default class List extends Component {
   };
 
   componentDidMount = () => {
-    getNewReleases().then((rawAlbums) => {
-      const albums = parseAlbums(rawAlbums);
-      const newReleasesArtistsIds = albums.map(({ artist: { id } }) => id);
-
-      Promise.all([
-        getMultipleArtistsTopTracks(newReleasesArtistsIds),
-        getMultipleArtists(newReleasesArtistsIds)
-      ]).then(([rawTopTracks, rawArtists]) => {
-        const topArtistsTracks = rawTopTracks.map((artist) =>
-          parseTracks(artist)
+    Promise.all([getNewReleases(), getGlobalTopTracks()]).then(
+      ([rawAlbums, rawTopTracks]) => {
+        const albums = parseAlbums(rawAlbums);
+        const topTracks = parsePlaylistTracks(rawTopTracks.tracks.items);
+        const topArtists = filterRepeated(
+          topTracks.map((track) => track.artist.id)
         );
-        const topTracks = filterTopTracks(topArtistsTracks);
-        const artists = rawArtists.map((artist) => parseArtist(artist));
-
-        this.setState({
-          albums,
-          artists,
-          topTracks
+        getMultipleArtists(topArtists.slice(0, 5)).then((rawArtists) => {
+          const artists = rawArtists.map((artist) => parseArtist(artist));
+          this.setState({
+            artists,
+            albums,
+            topTracks
+          });
         });
-      });
-    });
+      }
+    );
   };
 
   render = () => {

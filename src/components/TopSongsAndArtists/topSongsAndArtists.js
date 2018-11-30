@@ -4,7 +4,10 @@ import TopItem from './topItem';
 
 import './topSongsAndArtists.css';
 
-const artistsGenresToString = (genres) => genres.slice(0, 2).join(', ');
+const artistsGenresToString = (genres) => {
+  const slicedGenres = genres.slice(0, 2).join(', ');
+  return genres.length > 2 ? `${slicedGenres} ...` : slicedGenres;
+};
 
 const topArtists = (artists, maxArtists) => (
   <Fragment>
