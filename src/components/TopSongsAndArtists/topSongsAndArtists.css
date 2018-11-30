@@ -40,6 +40,8 @@
 .top-item {
   display: flex;
   flex-direction: row;
+  position: relative;
+  margin-bottom: 10px;
 }
 
 .top-item__icon-space {
@@ -71,11 +73,20 @@
   width: 70%;
 }
 
-.top-item__divisor-line {
+.top-item::after {
+  position: absolute;
+  bottom: -2px;
+  left: 25%;
+  display: block;
+  content: '';
+  float: left;
   width: 65%;
-  margin-left: 25%;
   height: 2px;
   background: var(--white-dark);
+}
+
+.top-item:last-of-type::after {
+  display: none;
 }
 
 @media only screen and (max-width: 768px) {

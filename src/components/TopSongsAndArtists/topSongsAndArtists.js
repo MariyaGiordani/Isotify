@@ -9,34 +9,32 @@ const artistsGenresToString = (genres) => {
   return genres.length > 2 ? `${slicedGenres} ...` : slicedGenres;
 };
 
-const topArtists = (artists, maxArtists) => (
-  <Fragment>
+const topArtists = (artists) => (
+  <div className="top-songs-and-artists__artists">
     <h2 className="top-songs-and-artists__header">Top Artists</h2>
-    {artists.map((artist, index) => (
+    {artists.map((artist) => (
       <TopItem
         key={artist.id}
         icon={songIcon}
         title={artist.name}
         subtitle={artistsGenresToString(artist.genres)}
-        hasDivisor={index !== maxArtists - 1}
       />
     ))}
-  </Fragment>
+  </div>
 );
 
-const topSongs = (songs, maxSongs) => (
-  <Fragment>
+const topSongs = (songs) => (
+  <div className="top-songs-and-artists__songs">
     <h2 className="top-songs-and-artists__header">Top Songs</h2>
-    {songs.map((song, index) => (
+    {songs.map((song) => (
       <TopItem
         key={song.songId}
         icon={songIcon}
         title={song.songName}
         subtitle={song.artist.name}
-        hasDivisor={index !== maxSongs - 1}
       />
     ))}
-  </Fragment>
+  </div>
 );
 
 const TopSongsAndArtists = ({
