@@ -4,6 +4,7 @@ import './card.css';
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
 import grayDots from '../../assets/img/gray-dots.png';
+import play from '../../assets/img/play.svg';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
 
@@ -42,6 +43,15 @@ const Card = ({
   return (
     <div className={`card card--${size}`}>
       {cardImage}
+      <div className="card__cover card__cover--overlay">
+        <div className="card__play-button">
+          <img
+            src={play}
+            alt="play album"
+            className="card__play-button-image"
+          />
+        </div>
+      </div>
       <div className="card__info">
         <div className="card__text">
           {titleHref ? createLink(titleHref, titleParagraph) : titleParagraph}
