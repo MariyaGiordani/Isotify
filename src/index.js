@@ -12,6 +12,7 @@ import Discover from './views/Discover';
 import Settings from './views/Settings/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
+
 import { isUserLogged } from './utils/isUserLogged';
 import { showMenus } from './utils/showMenus';
 
