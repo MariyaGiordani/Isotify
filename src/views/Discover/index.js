@@ -31,6 +31,7 @@ export default class List extends Component {
         const topTracks = parsePlaylistTracks(rawTopTracks.tracks.items);
         const artistsIds = topTracks.map((track) => track.artist.id);
         const topArtists = filterRepeated(artistsIds);
+
         getMultipleArtists(topArtists.slice(0, 5)).then((rawArtists) => {
           const artists = rawArtists.map((artist) => parseArtist(artist));
           this.setState({

@@ -7,12 +7,12 @@ export const playlists = (rawPlaylists) => {
   return rawPlaylists.map((playlistsInfo) => parsePlaylist(playlistsInfo));
 };
 
-const parsePlaylist = (playlistsInfo) => {
+const parsePlaylist = ({ name, owner, tracks, id }) => {
   return {
-    namePlaylist: playlistsInfo.name,
-    nameUser: playlistsInfo.owner.display_name,
-    lengthTracks: playlistsInfo.tracks.total,
-    idPlaylist: playlistsInfo.id
+    namePlaylist: name,
+    nameUser: owner.display_name,
+    lengthTracks: tracks.total,
+    idPlaylist: id
   };
 };
 
@@ -70,11 +70,11 @@ const parseAlbumInfo = ({
   };
 };
 
-const parseArtist = (artist) => ({
-  imgSrc: artist.images.length > 0 ? artist.images[0].url : '',
-  name: artist.name,
-  id: artist.id,
-  genres: artist.genres
+const parseArtist = ({ images, name, id, genres }) => ({
+  imgSrc: images.length > 0 ? images[0].url : '',
+  name: name,
+  id: id,
+  genres: genres
 });
 
 const artistWithAlbumsAndRelated = (artist) => {
