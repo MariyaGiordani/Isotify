@@ -6,6 +6,8 @@
   --artist-line__albums-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.1);
   --artist-line__shadow: 0 30px 70px 0 rgba(0, 0, 0, 0.1);
 
+  --album-overlay: rgba(0, 0, 0, 0.18);
+
   --header-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.1);
   --header-icon-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 
