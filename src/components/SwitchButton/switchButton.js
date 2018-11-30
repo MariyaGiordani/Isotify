@@ -13,16 +13,31 @@ class SwitchButton extends Component {
   };
 
   render = () => {
-    const firstInputModifier = this.state.isFirstOptionSelected ? 'switch-button__option-selected' : '';
-    const secondInputModifier = !this.state.isFirstOptionSelected ? 'switch-button__option-selected' : '';
+    const { isFirstOptionSelected } = this.state;
+    const firstInputModifier = isFirstOptionSelected
+      ? 'switch-button__option-selected'
+      : '';
+    const secondInputModifier = !isFirstOptionSelected
+      ? 'switch-button__option-selected'
+      : '';
+    const { firstOption, secondOption } = this.props;
+
     return (
       <div className="switch-button">
-        <p className={`switch-button__option ${firstInputModifier}`}>{this.props.firstOption}</p>
+        <p className={`switch-button__option ${firstInputModifier}`}>
+          {firstOption}
+        </p>
         <label className="switch-button__input-container">
-          <input type="checkbox" className="switch-button__input" onChange={this.switchButtonInput} />
+          <input
+            type="checkbox"
+            className="switch-button__input"
+            onChange={this.switchButtonInput}
+          />
           <span className="switch-button__handle" />
         </label>
-        <p className={`switch-button__option ${secondInputModifier}`}>{this.props.secondOption}</p>
+        <p className={`switch-button__option ${secondInputModifier}`}>
+          {secondOption}
+        </p>
       </div>
     );
   };
