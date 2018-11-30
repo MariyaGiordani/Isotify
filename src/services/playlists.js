@@ -1,17 +1,19 @@
 import { spotifyInstance, createHeader } from './axiosInstances';
 
-export function getPlaylists() {
+function getPlaylists() {
   return spotifyInstance
     .get('me/playlists', createHeader())
     .then((response) => response.data.items);
 }
 
-export function getPlaylist(playListId) {
+function getPlaylist(playlistId) {
   return spotifyInstance
-    .get(`playlists/${playListId}`, createHeader())
-    .then((response) => response.data);
+    .get(`playlists/${playlistId}`, createHeader())
+    .then((response) => response);
 }
 
-export function getGlobalTopTracks() {
+function getGlobalTopTracks() {
   return getPlaylist('37i9dQZEVXbMDoHDwVN2tF');
 }
+
+export { getPlaylists, getPlaylist, getGlobalTopTracks };

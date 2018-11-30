@@ -21,7 +21,7 @@
   margin-top: 5px;
   position: relative;
   box-shadow: 0 10px 20px 0 var(--listen-to-circule-shadow);
-  background-color: var(--white-lighter);
+  background-color: var(--white-lightest);
 }
 
 .button-listen__triangle {
