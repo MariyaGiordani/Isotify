@@ -51,7 +51,7 @@ export default () => (
       <div className="player__volume-container">
         <img
           className="volume-container__image"
-          alt="Playlist-icon"
+          alt="Volume Button"
           src={volume}
         />
       </div>
