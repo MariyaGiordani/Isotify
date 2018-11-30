@@ -15,7 +15,7 @@ class Album extends Component {
   };
 
   componentDidMount() {
-    const albumId = this.props.albumId;
+    const { albumId } = this.props;
     getAlbumTracks(albumId).then((response) => {
       const tracks = albumTracks(response);
       this.setState({ tracks });
@@ -23,8 +23,8 @@ class Album extends Component {
   }
 
   render = () => {
-    const { imgSrc, size, title, date, artist, id } = this.props;
-    const popUp = createPopup(this.state.tracks, title, artist.name, date);
+    const { imgSrc, size, title, date, artist, id, tracks } = this.props;
+    const popUp = createPopup(tracks, title, artist.name, date);
     return (
       <Card
         imgSrc={imgSrc}
@@ -36,6 +36,7 @@ class Album extends Component {
         albumId={id}
         popup={popUp}
         date={date}
+        hasHover={true}
       />
     );
   };

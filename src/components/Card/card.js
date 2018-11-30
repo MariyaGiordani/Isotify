@@ -8,6 +8,14 @@ import play from '../../assets/img/play.svg';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
 
+const hover = (
+  <div className="card__cover card__cover--overlay">
+    <div className="card__play-button">
+      <img src={play} alt="play album" className="card__play-button-image" />
+    </div>
+  </div>
+);
+
 const createPopup = (option, popup, title) => {
   return (
     <Tooltip
@@ -32,7 +40,8 @@ const Card = ({
   subtitle,
   titleHref,
   subtitleHref,
-  popup
+  popup,
+  hasHover
 }) => {
   const cardImage = <img src={imgSrc} alt={title} className="card__cover" />;
   const optionDots = (
@@ -43,15 +52,7 @@ const Card = ({
   return (
     <div className={`card card--${size}`}>
       {cardImage}
-      <div className="card__cover card__cover--overlay">
-        <div className="card__play-button">
-          <img
-            src={play}
-            alt="play album"
-            className="card__play-button-image"
-          />
-        </div>
-      </div>
+      {hasHover && hover}
       <div className="card__info">
         <div className="card__text">
           {titleHref ? createLink(titleHref, titleParagraph) : titleParagraph}
