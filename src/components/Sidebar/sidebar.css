@@ -46,10 +46,10 @@
 
 .sidebar__header {
   margin: auto;
-  color: var(--white-lighter);
+  color: var(--white-lightest);
   text-align: center;
   font-size: 30px;
-  border-bottom: 1px var(--white-lighter) solid;
+  border-bottom: 1px var(--white-lightest) solid;
   width: 80%;
   padding: 25px
 }
