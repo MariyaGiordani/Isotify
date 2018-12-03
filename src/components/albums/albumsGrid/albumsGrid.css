@@ -1,6 +1,7 @@
 .albums-grid {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 
 .albums-grid--quarter {
@@ -25,7 +26,7 @@
   }
 }
 
-@media (min-width: 1470px) {
+@media (min-width: 1570px) {
   .albums-grid {
     width: 1275px;
   }

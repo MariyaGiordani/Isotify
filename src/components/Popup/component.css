@@ -158,7 +158,7 @@
 }
 
 .related-link__text {
-  color: var(--pink-light);
+  color: var(--pink-darker);
 }
 
 @media (max-width: 425px) {

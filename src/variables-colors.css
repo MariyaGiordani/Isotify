@@ -6,19 +6,20 @@
     --gray-darker: #666;
     --gray-dark: #707070;
     --gray: #888;
-    --gray-ligth: #bbb;
+    --gray-light: #bbb;
     --gray-lighter: #aaa;
+
     
     --white-dark: #ddd;
     --white: #eee;
     --white-light: #fafafa;
-    --white-lighter: #fff;
-
+    --white-lighter: #f2f2f2;
+    --white-lightest: #fff;
+    
     --pink-darkest: #cd2156;
     --pink-darker: #d42562;
     --pink-dark: #d42361;
     --pink: #d92c61;
-    --pink-light:#d42562;
     
     --peach-darker: #e13a56;
     --peach-dark: #e24352;
