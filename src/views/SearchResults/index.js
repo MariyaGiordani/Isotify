@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
+import PageContainer from '../../components/PageContainer/pageContainer';
 import { getResultsSearch } from '../../services/resultsSearch';
 import { parseSearch } from '../../utils/spotifyResponseParsers';
 import { getQuery } from '../../utils/getQuery';
@@ -28,11 +29,7 @@ export default class searchResults extends Component {
   componentDidMount = () => {
     const query = getQuery();
     getResultsSearch(query).then((response) => {
-      console.log(response);
-
       const searchData = parseSearch(response);
-      // console.log(response);
-
       this.setState({
         ...searchData
       });
@@ -40,50 +37,61 @@ export default class searchResults extends Component {
   };
 
   render = () => {
-    const { playlists } = this.state;
+    const { playlists, tracks, albums, artists } = this.state;
 
     return (
-      <div className="container">
+      <PageContainer>
         <div className="search-results">
           <div className="search-results__title">Search results for: </div>
           <div className="search-results__wrap">
-            <QuarterGrid title={titleSongs} subtitle={subtitle}>
-              <TracksGrid
-                tracks={this.state.tracks.slice(0, 4)}
-                size="quarter"
-                gridSize="quarter"
-              />
-            </QuarterGrid>
+            {!!tracks.length && (
+              <QuarterGrid
+                title={titleSongs}
+                subtitle={`${tracks.length} ${subtitle}`}
+              >
+                <TracksGrid
+                  tracks={tracks.slice(0, 4)}
+                  size="quarter"
+                  gridSize="quarter"
+                />
+              </QuarterGrid>
+            )}
             <div className="search-results__divider--vertical" />
-            <QuarterGrid title={titleArtists} subtitle={subtitle}>
+            <QuarterGrid
+              title={titleArtists}
+              subtitle={`${artists.length} ${subtitle}`}
+            >
               <ArtistsGrid
-                artists={this.state.artists.slice(0, 4)}
+                artists={artists.slice(0, 4)}
                 size="quarter"
                 gridSize="quarter"
               />
             </QuarterGrid>
             <div className="search-results__divider--horizontal" />
-            <QuarterGrid title={titleAlbums} subtitle={subtitle}>
+            <QuarterGrid
+              title={titleAlbums}
+              subtitle={`${albums.length} ${subtitle}`}
+            >
               <AlbumsGrid
-                albums={this.state.albums.slice(0, 4)}
+                albums={albums.slice(0, 4)}
                 size="quarter"
                 gridSize="quarter"
               />
             </QuarterGrid>
-            {/* <div className="search-results__divider--vertical" />
+            <div className="search-results__divider--vertical" />
             <QuarterGrid
               title={titlePlaylists}
               subtitle={`${playlists.length} ${subtitle}`}
             >
               <PlaylistGrid
-                playlists={this.state.playlists.slice(0, 4)}
+                playlists={playlists.slice(0, 4)}
                 size="quarter"
                 gridSize="quarter"
               />
-            </QuarterGrid> */}
+            </QuarterGrid>
           </div>
         </div>
-      </div>
+      </PageContainer>
     );
   };
 }

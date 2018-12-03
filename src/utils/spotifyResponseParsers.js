@@ -17,14 +17,11 @@ const parsePlaylist = (playlistsInfo) => {
 };
 
 export const playlistsSearch = (rawPlaylists) => {
-  return rawPlaylists.map((playlistsInfo) =>
-    parsePlaylistSearch(playlistsInfo)
-  );
+  return rawPlaylists.map((playlistsInfo) => playlistSearch(playlistsInfo));
 };
 
-const parsePlaylistSearch = (playlistsInfo) => ({
-  namePlaylist: playlistsInfo.name,
-  id: playlistsInfo.id,
+const playlistSearch = (playlistsInfo) => ({
+  ...parsePlaylist(playlistsInfo),
   imagePlaylist: playlistsInfo.images[0].url,
   followersPlaylist: playlistsInfo.followers.total
 });

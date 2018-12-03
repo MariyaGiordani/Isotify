@@ -8,7 +8,7 @@ const getPlaylistComponents = (playlists = [], size) =>
       imgSrc={imagePlaylist}
       size={size}
       title={namePlaylist}
-      followers={followersPlaylist}
+      subtitle={`${followersPlaylist} followers`}
       key={id}
     />
   ));
