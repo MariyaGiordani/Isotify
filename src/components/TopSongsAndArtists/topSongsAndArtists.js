@@ -1,7 +1,7 @@
 import React from 'react';
 import songIcon from '../../assets/img/headphone-song.svg';
 import TopItem from './topItem';
-import joinArrayOfStrings from '../../utils/strings';
+import { joinArrayOfStrings } from '../../utils/strings';
 
 import './topSongsAndArtists.css';
 
