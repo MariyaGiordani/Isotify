@@ -1,15 +1,14 @@
 import React from 'react';
 
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../headerLine/headerLine';
 
 import './quarterGrid.css';
 
-const QuarterGrid = (props) => {
+const QuarterGrid = ({ title, subtitle, children }) => {
   return (
     <div className="quarter-grid">
-      <HeaderLine title={props.title} subtitle={props.subtitle} />
-      <AlbumsGrid albums={props.albums} size="quarter" />
+      <HeaderLine title={title} subtitle={subtitle} />
+      {children}
     </div>
   );
 };

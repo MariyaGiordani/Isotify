@@ -68,6 +68,7 @@
 
 .card--quarter .card__cover {
   width: 80%;
+  height: 80%;
 }
 
 .card.card--big {

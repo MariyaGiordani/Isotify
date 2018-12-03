@@ -8,8 +8,8 @@ import grayDots from '../../assets/img/gray-dots.png';
 import pinkDots from '../../assets/img/pink-dots.png';
 
 const createMusics = (tracks) =>
-  tracks.map(({ songName, songDuration, songNumber, songId }) => (
-    <div className="popup__songs" key={songId}>
+  tracks.map(({ songName, songDuration, songNumber, id }) => (
+    <div className="popup__songs" key={id}>
       <p className="popup__songs--songNumber">{songNumber}</p>
       <p className="popup__songs--songName">{songName}</p>
       <p className="popup__songs--songDuration">{`${
