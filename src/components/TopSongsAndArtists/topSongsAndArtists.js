@@ -1,13 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import songIcon from '../../assets/img/headphone-song.svg';
 import TopItem from './topItem';
+import joinArrayOfStrings from '../../utils/strings';
 
 import './topSongsAndArtists.css';
-
-const artistsGenresToString = (genres) => {
-  const slicedGenres = genres.slice(0, 2).join(', ');
-  return genres.length > 2 ? `${slicedGenres} ...` : slicedGenres;
-};
 
 const topArtists = (artists) => (
   <div className="top-songs-and-artists__artists">
@@ -17,7 +13,7 @@ const topArtists = (artists) => (
         key={artist.id}
         icon={songIcon}
         title={artist.name}
-        subtitle={artistsGenresToString(artist.genres)}
+        subtitle={joinArrayOfStrings(artist.genres)}
       />
     ))}
   </div>
