@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import './search.css';
-
 import searchImg from '../../assets/img/search.png';
+
+import './search.css';
 
 class Search extends Component {
   state = {
@@ -10,14 +10,13 @@ class Search extends Component {
   };
 
   handleSubmit = (event) => {
-    // TODO: get string ready to send to parent component
     event.preventDefault();
     const { query } = this.state;
-    this.props.onFormSubmit(query);
+    const { onFormSubmit } = this.props;
+    onFormSubmit(query);
   };
 
   handleChange = (event) => {
-    // TODO: get the input value
     const query = event.target.value;
     this.setState({ query });
   };

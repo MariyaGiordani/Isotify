@@ -16,7 +16,6 @@ export default class Header extends Component {
   };
 
   handleSearchSubmit = (query) => {
-    // Update state
     window.location.assign(`/search?q=${query}`);
   };
 

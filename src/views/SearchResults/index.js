@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 
 import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
+import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import TracksGrid from '../../components/albums/TracksGrid/tracksGrid';
+import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
+import PlaylistGrid from '../../components/PlaylistGrid/playlistGrid';
+
 import { getResultsSearch } from '../../services/resultsSearch';
 import { parseSearch } from '../../utils/spotifyResponseParsers';
 import { getQuery } from '../../utils/getQuery';
 
 import './searchResults.css';
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
-import TracksGrid from '../../components/albums/TracksGrid/tracksGrid';
-import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
-import PlaylistGrid from '../../components/PlaylistGrid/playlistGrid';
 
 const titleSongs = 'Songs';
 const titleArtists = 'Artists';
 const titleAlbums = 'Albums';
 const titlePlaylists = 'Playlists';
 const subtitle = 'RESULTS';
-
 const query = getQuery();
 export default class searchResults extends Component {
   state = {
