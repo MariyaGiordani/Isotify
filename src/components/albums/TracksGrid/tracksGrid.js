@@ -13,10 +13,10 @@ const getSongsComponents = (tracks = [], size) =>
     />
   ));
 
-const getClassName = (modifier) => (modifier ? `songs-grid--${modifier}` : '');
+const getClassName = (modifier) => (modifier ? `tracks-grid--${modifier}` : '');
 
 const TracksGrid = ({ tracks, size, gridSize }) => (
-  <div className={`songs-grid ${getClassName(gridSize)}`}>
+  <div className={`tracks-grid ${getClassName(gridSize)}`}>
     {getSongsComponents(tracks, size)}
   </div>
 );
