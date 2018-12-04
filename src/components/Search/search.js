@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import searchImg from '../../assets/img/search.png';
 
@@ -12,8 +13,7 @@ class Search extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { query } = this.state;
-    const { onFormSubmit } = this.props;
-    onFormSubmit(query);
+    this.props.history.push(`/search/${query}`);
   };
 
   handleChange = (event) => {
@@ -40,4 +40,4 @@ class Search extends Component {
   };
 }
 
-export default Search;
+export default withRouter(Search);

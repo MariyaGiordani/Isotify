@@ -15,10 +15,6 @@ export default class Header extends Component {
     profilePicture: ''
   };
 
-  handleSearchSubmit = (query) => {
-    window.location.assign(`/search?q=${query}`);
-  };
-
   componentDidMount = () => {
     getUserInfo().then((response) => {
       const userInfo = parseUserInfo(response);
@@ -50,7 +46,7 @@ export default class Header extends Component {
         </div>
         <img className="header__image-triangle" alt="" src={triangleImg} />
         <div className="header__devider" />
-        <Search onFormSubmit={this.handleSearchSubmit} />
+        <Search />
         <div className="header__icon-right">
           <img
             className="header__image-playlist"

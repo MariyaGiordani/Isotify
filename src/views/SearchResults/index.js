@@ -9,7 +9,6 @@ import PlaylistGrid from '../../components/PlaylistGrid/playlistGrid';
 
 import { getResultsSearch } from '../../services/resultsSearch';
 import { parseSearch } from '../../utils/spotifyResponseParsers';
-import { getQuery } from '../../utils/getQuery';
 
 import './searchResults.css';
 
@@ -18,32 +17,42 @@ const titleArtists = 'Artists';
 const titleAlbums = 'Albums';
 const titlePlaylists = 'Playlists';
 const subtitle = 'RESULTS';
-const query = getQuery();
 export default class searchResults extends Component {
   state = {
     artists: [],
     albums: [],
     tracks: [],
-    playlists: []
+    playlists: [],
+    lastQuery: ''
   };
 
-  componentDidMount = () => {
-    getResultsSearch(query).then((response) => {
-      const searchData = parseSearch(response);
-      this.setState({
-        ...searchData
+  componentDidUpdate = () => {
+    const { lastQuery } = this.state;
+    const {
+      match: {
+        params: { query }
+      }
+    } = this.props;
+    if (lastQuery !== query) {
+      getResultsSearch(query).then((response) => {
+        const searchData = parseSearch(response);
+        this.setState({
+          ...searchData
+        });
       });
-    });
+      this.setState({ lastQuery: query });
+    }
   };
 
   render = () => {
-    const { playlists, tracks, albums, artists } = this.state;
+    const { playlists, tracks, albums, artists, lastQuery } = this.state;
+
     return (
       <PageContainer>
         <div className="search-results">
           <div className="search-results__title">
             Search results for:
-            <div className="search-results__result">{query}</div>
+            <div className="search-results__result">{lastQuery}</div>
           </div>
           <div className="search-results__wrap">
             {!!tracks.length && (
