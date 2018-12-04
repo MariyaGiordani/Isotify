@@ -1,5 +1,6 @@
 .search-results {
-  width: 100%
+  width: 100%;
+  margin-top: -2%;
 }
 
 .search-results__wrap {
@@ -8,15 +9,25 @@
   justify-content: center;
 }
 
+.search-results__result {
+  display: inline;
+  font-size: 22px;
+  margin-left: 10px;
+  font-weight: bold;
+  line-height: 3.5;
+  letter-spacing: normal;
+  color: var(--gray);
+}
+
 .search-results__divider--vertical {
   width: 4px;
-  height: 600px;
+  margin: 11% 2% 11% 2%;
   background-color: var(--white-dark);
 }
 
 .search-results__divider--horizontal {
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: -30px;
   width: 90%;
   height: 4px;
   background-color: var(--white-dark);
@@ -28,5 +39,17 @@
   line-height: 1.75;
   letter-spacing: 0.6px;
   color: var(--black);
-  padding-left: 1%;
+  padding-left: 5%;
 }
+
+@media only screen and (max-width: 500px) {
+  .search-results__divider--vertical,
+  .search-results__divider--horizontal {
+   display: none;
+  }
+
+  .search-results__wrap {
+    display: block;
+  }
+}
+
