@@ -23,7 +23,7 @@ class Album extends Component {
   }
 
   render = () => {
-    const { imgSrc, size, title, date, artist, id } = this.props;
+    const { children, imgSrc, size, title, date, artist, albumId } = this.props;
     const { tracks } = this.state;
     const popUp = createPopup(tracks, title, artist.name, date);
     return (
@@ -33,8 +33,8 @@ class Album extends Component {
         title={title}
         subtitle={artist.name}
         subtitleHref={`/artists/${artist.id}`}
-        key={id}
-        albumId={id}
+        key={albumId}
+        id={albumId}
         popup={popUp}
         date={date}
         hasHover={true}

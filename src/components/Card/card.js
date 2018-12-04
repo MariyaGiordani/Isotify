@@ -7,9 +7,12 @@ import grayDots from '../../assets/img/gray-dots.png';
 import play from '../../assets/img/play.svg';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
+const teste = (id) => {
+  console.log(id);
+};
 
-const hover = (
-  <div className="card__cover card__cover--overlay">
+const hover = (id) => (
+  <div className="card__cover card__cover--overlay" onClick={() => teste(id)}>
     <div className="card__play-button">
       <img src={play} alt="play album" className="card__play-button-image" />
     </div>
@@ -41,7 +44,8 @@ const Card = ({
   titleHref,
   subtitleHref,
   popup,
-  hasHover
+  hasHover,
+  id
 }) => {
   const cardImage = <img src={imgSrc} alt={title} className="card__cover" />;
   const optionDots = (
@@ -52,7 +56,7 @@ const Card = ({
   return (
     <div className={`card card--${size}`}>
       {cardImage}
-      {hasHover && hover}
+      {hasHover && hover(id)}
       <div className="card__info">
         <div className="card__text">
           {titleHref ? createLink(titleHref, titleParagraph) : titleParagraph}
