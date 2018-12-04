@@ -26,7 +26,7 @@ export default class searchResults extends Component {
     lastQuery: ''
   };
 
-  componentDidUpdate = () => {
+  searchQuery = () => {
     const { lastQuery } = this.state;
     const {
       match: {
@@ -42,6 +42,14 @@ export default class searchResults extends Component {
       });
       this.setState({ lastQuery: query });
     }
+  };
+
+  componentDidMount = () => {
+    this.searchQuery();
+  };
+
+  componentDidUpdate = () => {
+    this.searchQuery();
   };
 
   render = () => {
