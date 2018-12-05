@@ -1,5 +1,9 @@
 import React from 'react';
+
 import Card from '../../components/Card/card';
+
+import getClassName from '../../utils/getClassName';
+
 import './playlistGrid.css';
 
 const getPlaylistComponents = (playlists = [], size) =>
@@ -12,9 +16,6 @@ const getPlaylistComponents = (playlists = [], size) =>
       key={id}
     />
   ));
-
-const getClassName = (modifier) =>
-  modifier ? `playlist-grid--${modifier}` : '';
 
 const PlaylistGrid = ({ playlists, size, gridSize }) => (
   <div className={`playlist-grid ${getClassName(gridSize)}`}>

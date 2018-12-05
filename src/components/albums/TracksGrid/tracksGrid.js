@@ -1,5 +1,8 @@
 import React from 'react';
+
 import Card from '../../Card/card';
+import getClassName from '../../../utils/getClassName';
+
 import './tracksGrid.css';
 
 const getSongsComponents = (tracks = [], size) =>
@@ -12,8 +15,6 @@ const getSongsComponents = (tracks = [], size) =>
       key={id}
     />
   ));
-
-const getClassName = (modifier) => (modifier ? `tracks-grid--${modifier}` : '');
 
 const TracksGrid = ({ tracks, size, gridSize }) => (
   <div className={`tracks-grid ${getClassName(gridSize)}`}>
