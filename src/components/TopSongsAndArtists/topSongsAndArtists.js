@@ -8,7 +8,12 @@ const topArtists = (artists) => (
   <Fragment>
     <h2 className="top-songs-and-artists__header">Top Artists</h2>
     {artists.map((artist, index) => (
-      <TopItem icon={songIcon} title={artist.name} subtitle={artist.genre} hasDivisor={index !== 4} />
+      <TopItem
+        icon={songIcon}
+        title={artist.name}
+        subtitle={artist.genre}
+        hasDivisor={index !== 4}
+      />
     ))}
   </Fragment>
 );
@@ -17,7 +22,12 @@ const topSongs = (songs) => (
   <Fragment>
     <h2 className="top-songs-and-artists__header">Top Songs</h2>
     {songs.map((song, index) => (
-      <TopItem icon={songIcon} title={song.songName} subtitle={song.artist} hasDivisor={index !== 4} />
+      <TopItem
+        icon={songIcon}
+        title={song.songName}
+        subtitle={song.artist}
+        hasDivisor={index !== 4}
+      />
     ))}
   </Fragment>
 );

@@ -7,12 +7,17 @@ export const playlists = (rawPlaylists) => {
   return rawPlaylists.map((playlistsInfo) => parsePlaylist(playlistsInfo));
 };
 
-const parsePlaylist = ({ name, owner: { displayname }, tracks, id }) => {
+const parsePlaylist = ({
+  name,
+  owner: { displayname },
+  tracks: { total },
+  id
+}) => {
   return {
     namePlaylist: name,
     nameUser: displayname,
-    lengthTracks: tracks.total,
-    id: id
+    lengthTracks: total,
+    id
   };
 };
 
