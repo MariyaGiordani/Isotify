@@ -7,12 +7,12 @@ export const playlists = (rawPlaylists) => {
   return rawPlaylists.map((playlistsInfo) => parsePlaylist(playlistsInfo));
 };
 
-const parsePlaylist = (playlistsInfo) => {
+const parsePlaylist = ({ name, owner: { displayname }, tracks, id }) => {
   return {
-    namePlaylist: playlistsInfo.name,
-    nameUser: playlistsInfo.owner.display_name,
-    lengthTracks: playlistsInfo.tracks.total,
-    id: playlistsInfo.id
+    namePlaylist: name,
+    nameUser: displayname,
+    lengthTracks: tracks.total,
+    id: id
   };
 };
 
@@ -20,11 +20,14 @@ export const playlistsSearch = (rawPlaylists) => {
   return rawPlaylists.map((playlistsInfo) => playlistSearch(playlistsInfo));
 };
 
-const playlistSearch = (playlistsInfo) => ({
-  ...parsePlaylist(playlistsInfo),
-  imagePlaylist: playlistsInfo.images[0].url,
-  followersPlaylist: playlistsInfo.followers.total
-});
+const playlistSearch = (playlistsInfo) => {
+  const { images, followers } = playlistsInfo;
+  return {
+    ...parsePlaylist(playlistsInfo),
+    imagePlaylist: images[0].url,
+    followersPlaylist: followers.total
+  };
+};
 
 const albumTracks = (rawAlbumsTracks) => {
   return rawAlbumsTracks.map((track) => parseTrack(track));
