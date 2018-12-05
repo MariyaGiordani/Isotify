@@ -13,6 +13,7 @@ const topArtists = (artists) => (
         title={artist.name}
         subtitle={artist.genre}
         hasDivisor={index !== 4}
+        key={index}
       />
     ))}
   </Fragment>
@@ -27,6 +28,7 @@ const topSongs = (songs) => (
         title={song.songName}
         subtitle={song.artist}
         hasDivisor={index !== 4}
+        key={index}
       />
     ))}
   </Fragment>
