@@ -75,7 +75,7 @@ export default class searchResults extends Component {
                 />
               </QuarterGrid>
             )}
-            <div className="search-results__divider--vertical" />
+            <div className="search-results__divider-vertical" />
             {!!artists.length && (
               <QuarterGrid
                 title={titleArtists}
@@ -88,7 +88,7 @@ export default class searchResults extends Component {
                 />
               </QuarterGrid>
             )}
-            <div className="search-results__divider--horizontal" />
+            <div className="search-results__divider-horizontal" />
             {!!albums.length && (
               <QuarterGrid
                 title={titleAlbums}
@@ -101,7 +101,7 @@ export default class searchResults extends Component {
                 />
               </QuarterGrid>
             )}
-            <div className="search-results__divider--vertical" />
+            <div className="search-results__divider-vertical" />
             {!!playlists.length && (
               <QuarterGrid
                 title={titlePlaylists}
