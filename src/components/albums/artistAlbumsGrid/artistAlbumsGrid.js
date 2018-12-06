@@ -11,7 +11,9 @@ const getAlbumsComponents = (albums = [], size) =>
       titleHref={`/artists/${artist.id}`}
       subtitle={date.slice(0, 4)}
       key={id}
+      id={id}
       hasHover={true}
+      hoverCallback={(id) => window.player.onPlayClick2(id)}
     />
   ));
 

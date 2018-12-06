@@ -84,11 +84,9 @@ class MusicPlayer extends Component {
       };
 
       const onPlayClick2 = (id) => {
-        console.log(`spotify:album:${id}`);
+        const { deviceId } = this.state;
         fetch(
-          `https://api.spotify.com/v1/me/player/play?device_id=${
-            this.state.deviceId
-          }`,
+          `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
           {
             method: 'PUT',
             body: JSON.stringify({
@@ -99,7 +97,7 @@ class MusicPlayer extends Component {
               Authorization: `Bearer ${localStorage.access_token}`
             }
           }
-        ).catch((e) => console.log(e));
+        );
       };
       window.player = { onPrevClick, onPlayClick, onNextClick, onPlayClick2 };
       this.setState({ onPrevClick, onPlayClick, onNextClick });
