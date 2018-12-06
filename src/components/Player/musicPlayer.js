@@ -6,6 +6,8 @@ import pause from '../../assets/img/pause.png';
 import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
 
+import transferPlaybackHere from '../../services/transferPlaybackHere';
+
 import './musicPlayer.css';
 let player = {};
 const Context = React.createContext();
@@ -24,10 +26,14 @@ class MusicPlayer extends Component {
   };
 
   componentDidMount = () => {
-    this.playerCheckInterval = setInterval(() => this.checkForPlayer(), 1000);
+    this.playerCheckInterval = setInterval(
+      () => this.checkForPlayer(player),
+      1000
+    );
   };
 
   createEventHandlers = () => {
+    const { deviceId } = this.state;
     console.log(player);
     player.on('initialization_error', (e) => {
       console.error('1', e);
@@ -48,7 +54,7 @@ class MusicPlayer extends Component {
     player.on('ready', (data) => {
       let { device_id } = data;
       this.setState({ deviceId: device_id });
-      this.transferPlaybackHere();
+      transferPlaybackHere(deviceId);
     });
   };
 
@@ -66,21 +72,6 @@ class MusicPlayer extends Component {
       // finally, connect!
       player.connect();
     }
-  };
-
-  transferPlaybackHere = () => {
-    const { deviceId } = this.state;
-    fetch('https://api.spotify.com/v1/me/player', {
-      method: 'PUT',
-      headers: {
-        authorization: `Bearer ${localStorage.access_token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        device_ids: [deviceId],
-        play: false
-      })
-    });
   };
 
   onStateChanged = (state) => {
@@ -108,6 +99,16 @@ class MusicPlayer extends Component {
     }
   };
 
+  setVolumeTrack = () => {
+    player.getVolume().then((volume) => {
+      let volume_percentage = volume * 0.1;
+      console.log(`The volume of the player is ${volume_percentage * 1000}%`);
+      player.setVolume(volume_percentage).then(() => {
+        console.log('Volume updated!');
+      });
+    });
+  };
+
   onPrevClick() {
     player.previousTrack();
   }
@@ -119,6 +120,8 @@ class MusicPlayer extends Component {
   onNextClick() {
     player.nextTrack();
   }
+
+  onVolumeClick = () => player.setVolumeTrack();
 
   render = () => {
     const { trackName, artistName } = this.state;
@@ -170,7 +173,7 @@ class MusicPlayer extends Component {
             </div>
           </button>
         </div>
-        <button className="player__volume">
+        <button className="player__volume" onClick={this.setVolumeTrack}>
           <div className="player__volume-container">
             <img
               className="volume-container__image"
