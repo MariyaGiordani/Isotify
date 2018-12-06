@@ -8,7 +8,7 @@ import play from '../../assets/img/play.svg';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
 const teste = (id) => {
-  console.log(id);
+  const a = window.player.onPlayClick2(id);
 };
 
 const hover = (id) => (

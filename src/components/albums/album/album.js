@@ -23,7 +23,7 @@ class Album extends Component {
   }
 
   render = () => {
-    const { children, imgSrc, size, title, date, artist, albumId } = this.props;
+    const { imgSrc, size, title, date, artist, albumId } = this.props;
     const { tracks } = this.state;
     const popUp = createPopup(tracks, title, artist.name, date);
     return (

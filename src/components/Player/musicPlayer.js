@@ -9,10 +9,10 @@ import volume from '../../assets/img/speaker.png';
 import transferPlaybackHere from '../../services/transferPlaybackHere';
 
 import './musicPlayer.css';
-let player = {};
-const Context = React.createContext();
+
 class MusicPlayer extends Component {
   state = {
+    player: {},
     deviceId: '',
     loggedIn: true,
     error: '',
@@ -22,39 +22,39 @@ class MusicPlayer extends Component {
     playing: false,
     position: 0,
     duration: 0,
-    player: {}
+    onPrevClick: () => {},
+    onPlayClick: () => {},
+    onNextClick: () => {}
   };
 
   componentDidMount = () => {
     this.playerCheckInterval = setInterval(
-      () => this.checkForPlayer(player),
+      () => this.checkForPlayer(this.player),
       1000
     );
   };
 
   createEventHandlers = () => {
-    const { deviceId } = this.state;
-    console.log(player);
-    player.on('initialization_error', (e) => {
+    this.player.on('initialization_error', (e) => {
       console.error('1', e);
     });
-    player.on('account_error', (e) => {
+    this.player.on('account_error', (e) => {
       console.error('2', e);
     });
-    player.on('playback_error', (e) => {
+    this.player.on('playback_error', (e) => {
       console.error('3', e);
     });
 
     // Playback status updates
-    player.on('player_state_changed', (state) => {
+    this.player.on('player_state_changed', (state) => {
       this.onStateChanged(state);
     });
 
     // Ready
-    player.on('ready', (data) => {
+    this.player.on('ready', (data) => {
       let { device_id } = data;
       this.setState({ deviceId: device_id });
-      transferPlaybackHere(deviceId);
+      transferPlaybackHere(device_id);
     });
   };
 
@@ -62,15 +62,50 @@ class MusicPlayer extends Component {
     if (window.Spotify !== null) {
       clearInterval(this.playerCheckInterval);
 
-      player = new window.Spotify.Player({
+      this.player = new window.Spotify.Player({
         name: 'Isotify - EMA',
         getOAuthToken: (cb) => {
           cb(localStorage.access_token);
         }
       });
+
+      const onPrevClick = () => {
+        this.player.previousTrack();
+      };
+
+      const onPlayClick = () => {
+        this.player.togglePlay();
+        const { playing } = this.state;
+        this.setState({ playing: !playing });
+      };
+
+      const onNextClick = () => {
+        this.player.nextTrack();
+      };
+
+      const onPlayClick2 = (id) => {
+        console.log(`spotify:album:${id}`);
+        fetch(
+          `https://api.spotify.com/v1/me/player/play?device_id=${
+            this.state.deviceId
+          }`,
+          {
+            method: 'PUT',
+            body: JSON.stringify({
+              context_uri: `spotify:album:${id}`
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.access_token}`
+            }
+          }
+        ).catch((e) => console.log(e));
+      };
+      window.player = { onPrevClick, onPlayClick, onNextClick, onPlayClick2 };
+      this.setState({ onPrevClick, onPlayClick, onNextClick });
       this.createEventHandlers();
       // finally, connect!
-      player.connect();
+      this.player.connect();
     }
   };
 
@@ -94,37 +129,41 @@ class MusicPlayer extends Component {
         trackName,
         albumName,
         artistName,
-        playing
+        playing,
+        volume,
+        mute: false
       });
     }
   };
 
   setVolumeTrack = () => {
-    player.getVolume().then((volume) => {
-      let volume_percentage = volume * 0.1;
-      console.log(`The volume of the player is ${volume_percentage * 1000}%`);
-      player.setVolume(volume_percentage).then(() => {
-        console.log('Volume updated!');
+    this.player.getVolume().then((playerVolume) => {
+      const { mute } = this.state;
+      let newVolume;
+      if (mute) {
+        newVolume = this.state.volume;
+        this.setState({ mute: false });
+      } else {
+        newVolume = 0;
+        this.setState({ volume: playerVolume, mute: true });
+      }
+      this.player.setVolume(newVolume).then(() => {
+        this.setState({ mute: !mute });
       });
     });
   };
 
-  onPrevClick() {
-    player.previousTrack();
-  }
-
-  onPlayClick() {
-    player.togglePlay();
-  }
-
-  onNextClick() {
-    player.nextTrack();
-  }
-
-  onVolumeClick = () => player.setVolumeTrack();
+  onVolumeClick = () => this.player.setVolumeTrack();
 
   render = () => {
-    const { trackName, artistName } = this.state;
+    const {
+      trackName,
+      artistName,
+      playing,
+      onPrevClick,
+      onPlayClick,
+      onNextClick
+    } = this.state;
     return (
       <div className="player">
         <div className="player__container">
@@ -145,7 +184,7 @@ class MusicPlayer extends Component {
         </div>
 
         <div className="player__buttons">
-          <button className="buttons__prev" onClick={this.onPrevClick}>
+          <button className="buttons__prev" onClick={() => onPrevClick()}>
             <div className="buttons__prev-container">
               <img
                 className="prev-container__image"
@@ -154,7 +193,7 @@ class MusicPlayer extends Component {
               />
             </div>
           </button>
-          <button className="buttons__pause" onClick={this.onPlayClick}>
+          <button className="buttons__pause" onClick={() => onPlayClick()}>
             <div className="buttons__pause-container">
               <img
                 className="pause-container__image"
@@ -163,7 +202,7 @@ class MusicPlayer extends Component {
               />
             </div>
           </button>
-          <button className="buttons__next" onClick={this.onNextClick}>
+          <button className="buttons__next" onClick={() => onNextClick()}>
             <div className="buttons__next-container">
               <img
                 className="next-container__image"
