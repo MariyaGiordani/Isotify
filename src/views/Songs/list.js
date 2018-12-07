@@ -23,6 +23,7 @@ export default class Songs extends Component {
       })
       .catch((error) => {
         window.alert('Sorry, we cannot complete your request right now.');
+        console.log(error);
         serverError(error);
       });
   }

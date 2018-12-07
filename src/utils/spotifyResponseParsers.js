@@ -12,20 +12,50 @@ const parsePlaylist = (playlistsInfo) => {
     namePlaylist: playlistsInfo.name,
     nameUser: playlistsInfo.owner.display_name,
     lengthTracks: playlistsInfo.tracks.total,
-    idPlaylist: playlistsInfo.id
+    id: playlistsInfo.id
   };
 };
 
-const albumTracks = (rawAlbumsTracks) => {
-  return rawAlbumsTracks.map((track) => parseAlbumTracks(track));
+export const playlistsSearch = (rawPlaylists) => {
+  return rawPlaylists.map((playlistsInfo) => playlistSearch(playlistsInfo));
 };
 
-const parseAlbumTracks = (tracks) => {
+const playlistSearch = (playlistsInfo) => ({
+  ...parsePlaylist(playlistsInfo),
+  imagePlaylist: playlistsInfo.images[0].url,
+  followersPlaylist: playlistsInfo.followers.total
+});
+
+const albumTracks = (rawAlbumsTracks) => {
+  return rawAlbumsTracks.map((track) => parseTrack(track));
+};
+
+const parseTrack = (tracks) => ({
+  songName: tracks.name,
+  artist: {
+    name: tracks.artists[0].name,
+    id: tracks.artists[0].id
+  },
+  songDuration: tracks.duration_ms,
+  songNumber: tracks.track_number,
+  id: tracks.id
+});
+
+const completeTrack = (track) => ({
+  ...parseTrack(track),
+  albumImage: track.album.images[0].url
+});
+
+const completeTracks = (rawTracks) => {
+  return rawTracks.map((track) => completeTrack(track));
+};
+
+const parseSearch = ({ albums, artists, playlists, tracks }) => {
   return {
-    songName: tracks.name,
-    songDuration: tracks.duration_ms,
-    songNumber: tracks.track_number,
-    songId: tracks.id
+    albums: albumsList(albums),
+    artists: artistsWithAlbums(artists),
+    tracks: completeTracks(tracks),
+    playlists: playlistsSearch(playlists)
   };
 };
 
@@ -36,7 +66,7 @@ const savedAlbums = (rawAlbums) =>
   rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
 const savedTracks = (rawTracks) =>
-  rawTracks.map((track) => parseAlbumTracks(track));
+  rawTracks.map((trackInfo) => completeTrack(trackInfo.track));
 
 const parseAlbumInfo = (album) => {
   return {
@@ -46,7 +76,7 @@ const parseAlbumInfo = (album) => {
       id: album.artists[0].id
     },
     date: album.release_date,
-    imgSrc: album.images[1].url,
+    imgSrc: album.images[0].url,
     songsAmount: album.total_tracks,
     id: album.id
   };
@@ -82,17 +112,20 @@ const artistWithAlbums = (artist) => {
   };
 };
 
-const topArtistsWithAlbums = (artists) =>
+const artistsWithAlbums = (artists) =>
   artists.map((artist) => artistWithAlbums(artist));
 
 export {
   albumsList,
   savedAlbums,
   parseAlbumInfo,
-  topArtistsWithAlbums,
+  artistsWithAlbums,
   userInfo,
   artistWithAlbums,
   artistWithAlbumsAndRelated,
   albumTracks,
-  savedTracks
+  savedTracks,
+  parseSearch,
+  completeTrack,
+  completeTracks
 };

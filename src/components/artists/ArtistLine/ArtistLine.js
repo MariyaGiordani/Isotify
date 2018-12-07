@@ -11,10 +11,18 @@ const ArtistLine = ({ artist }) => (
     <div className="artist-line__section">
       <div className="artist-line__upper-line">
         <Link to={`/artists/${artist.id}`}>
-          <img src={artist.imgSrc} alt={artist.name} className="artist-line__artist-icon" />
+          <img
+            src={artist.imgSrc}
+            alt={artist.name}
+            className="artist-line__artist-icon"
+          />
         </Link>
         <div className="artist-line__buttons">
-          <img src={shuffle} alt="shuffle" className="artist-line__shuffle-button" />
+          <img
+            src={shuffle}
+            alt="shuffle"
+            className="artist-line__shuffle-button"
+          />
           <div className="artist-line__more-dot" />
         </div>
       </div>
@@ -22,7 +30,7 @@ const ArtistLine = ({ artist }) => (
         <Link to={`/artists/${artist.id}`}>
           <div className="artist-line__tittle">{artist.name}</div>
           <div className="artist-line__more-info">
-            {artist.totalTracks} Songs, {artist.albums.length} Albums}
+            {artist.totalTracks} Songs, {artist.albums.length} Albums
           </div>
         </Link>
       </div>
@@ -30,7 +38,11 @@ const ArtistLine = ({ artist }) => (
         <Link to={`/artists/${artist.id}`}>
           <div className="artist-line__see-more-button">
             See bio's
-            <img src={arrow} alt="see artist's bio" className="artist-line__arrow" />
+            <img
+              src={arrow}
+              alt="see artist's bio"
+              className="artist-line__arrow"
+            />
           </div>
         </Link>
       </div>
@@ -41,7 +53,11 @@ const ArtistLine = ({ artist }) => (
         <div className="artist-line__discography">Discography</div>
         <div className="artist-line__see-all">
           <Link to={`/artists/${artist.id}`}>See all</Link>
-          <img src={semiarrow} alt="See All" className="artist-line__semi-arrow" />
+          <img
+            src={semiarrow}
+            alt="See All"
+            className="artist-line__semi-arrow"
+          />
         </div>
       </div>
 

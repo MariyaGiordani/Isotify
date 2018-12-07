@@ -187,7 +187,6 @@ export class MusicPlayerProvider extends React.Component {
       playing
     } = this.state;
     const { children } = this.props;
-    console.log(playing);
 
     return (
       <PlayerContext.Provider value={this.state}>

@@ -12,4 +12,15 @@ function getPlaylist(playlistId) {
     .then((response) => response);
 }
 
-export { getPlaylists, getPlaylist };
+function getFollowers(playlists) {
+  return Promise.all(
+    playlists.map((playlist) =>
+      getPlaylist(playlist.id).then(({ data: { followers } }) => ({
+        ...playlist,
+        followers
+      }))
+    )
+  );
+}
+
+export { getPlaylists, getPlaylist, getFollowers };
