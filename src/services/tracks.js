@@ -5,3 +5,9 @@ export function getAlbumTracks(albumId) {
     .get(`albums/${albumId}/tracks`, createHeader())
     .then((response) => response.data.items);
 }
+
+export function getSavedTracks() {
+  return spotifyInstance
+    .get('me/tracks', createHeader())
+    .then((response) => response.data.items);
+}
