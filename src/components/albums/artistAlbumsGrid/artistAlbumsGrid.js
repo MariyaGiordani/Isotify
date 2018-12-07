@@ -2,19 +2,25 @@ import React from 'react';
 import Card from '../../Card/card';
 import './artistAlbumsGrid.css';
 
+import { PlayerContext } from '../../../components/Player/musicPlayer';
+
 const getAlbumsComponents = (albums = [], size) =>
   albums.map(({ imgSrc, title, date, id, artist }) => (
-    <Card
-      imgSrc={imgSrc}
-      size={size}
-      title={title}
-      titleHref={`/artists/${artist.id}`}
-      subtitle={date.slice(0, 4)}
-      key={id}
-      id={id}
-      hasHover={true}
-      hoverCallback={(id) => window.player.onPlayClickAlbum(id)}
-    />
+    <PlayerContext>
+      {(context) => (
+        <Card
+          imgSrc={imgSrc}
+          size={size}
+          title={title}
+          titleHref={`/artists/${artist.id}`}
+          subtitle={date.slice(0, 4)}
+          key={id}
+          id={id}
+          hasHover={true}
+          hoverCallback={(id) => context.onClickPlayAlbum(id)}
+        />
+      )}
+    </PlayerContext>
   ));
 
 const ArtistAlbumsGrid = ({ albums, size }) => (

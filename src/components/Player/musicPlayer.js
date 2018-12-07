@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import playlisticon from '../../assets/img/playlisticon.png';
 import prev from '../../assets/img/prev.png';
@@ -11,11 +11,13 @@ import secondPlayClick from '../../services/secondPlayClick';
 
 import './musicPlayer.css';
 
-class MusicPlayer extends Component {
+export const PlayerContext = React.createContext();
+
+export class MusicPlayerProvider extends React.Component {
   state = {
     player: {},
     deviceId: '',
-    loggedIn: true,
+    loggedIn: false,
     error: '',
     trackName: 'Track Name',
     artistName: 'Artist Name',
@@ -25,7 +27,8 @@ class MusicPlayer extends Component {
     duration: 0,
     onPrevClick: () => {},
     onPlayClick: () => {},
-    onNextClick: () => {}
+    onNextClick: () => {},
+    onClickPlayAlbum: () => {}
   };
 
   componentDidMount = () => {
@@ -51,42 +54,51 @@ class MusicPlayer extends Component {
     transferPlaybackHere(device_id);
   };
 
+  createPlayer = (accessToken) => {
+    this.player = new window.Spotify.Player({
+      name: 'Isotify - EMA',
+      getOAuthToken: (cb) => {
+        cb(accessToken);
+      }
+    });
+  };
+
+  updateStatePlayersFunction = () => {
+    const onPrevClick = () => {
+      this.player.previousTrack();
+    };
+
+    const onPlayClick = () => {
+      this.player.togglePlay();
+      const { playing } = this.state;
+      this.setState({ playing: !playing });
+    };
+
+    const onNextClick = () => {
+      this.player.nextTrack();
+    };
+
+    const onClickPlayAlbum = (id) => {
+      const { deviceId } = this.state;
+      secondPlayClick(deviceId, id);
+    };
+
+    this.setState({
+      onPrevClick,
+      onPlayClick,
+      onNextClick,
+      onClickPlayAlbum
+    });
+  };
   checkForPlayer = () => {
-    if (window.Spotify !== null) {
+    const { accessToken } = this.props;
+    if (window.Spotify !== null && accessToken) {
+      this.setState({ loggedIn: true });
       clearInterval(this.playerCheckInterval);
 
-      this.player = new window.Spotify.Player({
-        name: 'Isotify - EMA',
-        getOAuthToken: (cb) => {
-          cb(localStorage.access_token);
-        }
-      });
+      this.createPlayer(accessToken);
+      this.updateStatePlayersFunction();
 
-      const onPrevClick = () => {
-        this.player.previousTrack();
-      };
-
-      const onPlayClick = () => {
-        this.player.togglePlay();
-        const { playing } = this.state;
-        this.setState({ playing: !playing });
-      };
-
-      const onNextClick = () => {
-        this.player.nextTrack();
-      };
-
-      const onPlayClickAlbum = (id) => {
-        const { deviceId } = this.state;
-        secondPlayClick(deviceId, id);
-      };
-      window.player = {
-        onPrevClick,
-        onPlayClick,
-        onNextClick,
-        onPlayClickAlbum
-      };
-      this.setState({ onPrevClick, onPlayClick, onNextClick });
       this.createEventHandlers();
       this.player.connect();
     }
@@ -99,11 +111,13 @@ class MusicPlayer extends Component {
         position,
         duration
       } = state.track_window;
+
       const trackName = currentTrack.name;
       const albumName = currentTrack.album.name;
       const artistName = currentTrack.artists
         .map((artist) => artist.name)
         .join(', ');
+
       const playing = !state.paused;
       this.setState({
         position,
@@ -144,68 +158,74 @@ class MusicPlayer extends Component {
       artistName,
       onPrevClick,
       onPlayClick,
-      onNextClick
+      onNextClick,
+      loggedIn
     } = this.state;
+    const { children } = this.props;
+
     return (
-      <div className="player">
-        <div className="player__container">
-          <button className="container__button">
-            <div className="container__playlist-icon">
-              <img
-                className="playlist-icon__image"
-                alt="Playlist-icon"
-                src={playlisticon}
-              />
-            </div>
-          </button>
+      <PlayerContext.Provider value={this.state}>
+        {children}
+        {loggedIn && (
+          <div className="player">
+            <div className="player__container">
+              <button className="container__button">
+                <div className="container__playlist-icon">
+                  <img
+                    className="playlist-icon__image"
+                    alt="Playlist-icon"
+                    src={playlisticon}
+                  />
+                </div>
+              </button>
 
-          <div className="playlist-icon__music-info">
-            <h1 className="music-info__name">{trackName}</h1>
-            <h2 className="music-info__band">{artistName}</h2>
-          </div>
-        </div>
+              <div className="playlist-icon__music-info">
+                <h1 className="music-info__name">{trackName}</h1>
+                <h2 className="music-info__band">{artistName}</h2>
+              </div>
+            </div>
 
-        <div className="player__buttons">
-          <button className="buttons__prev" onClick={() => onPrevClick()}>
-            <div className="buttons__prev-container">
-              <img
-                className="prev-container__image"
-                alt="Prev Button"
-                src={prev}
-              />
+            <div className="player__buttons">
+              <button className="buttons__prev" onClick={() => onPrevClick()}>
+                <div className="buttons__prev-container">
+                  <img
+                    className="prev-container__image"
+                    alt="Prev Button"
+                    src={prev}
+                  />
+                </div>
+              </button>
+              <button className="buttons__pause" onClick={() => onPlayClick()}>
+                <div className="buttons__pause-container">
+                  <img
+                    className="pause-container__image"
+                    alt="Pause Button"
+                    src={pause}
+                  />
+                </div>
+              </button>
+              <button className="buttons__next" onClick={() => onNextClick()}>
+                <div className="buttons__next-container">
+                  <img
+                    className="next-container__image"
+                    alt="Next Button"
+                    src={next}
+                  />
+                </div>
+              </button>
             </div>
-          </button>
-          <button className="buttons__pause" onClick={() => onPlayClick()}>
-            <div className="buttons__pause-container">
-              <img
-                className="pause-container__image"
-                alt="Pause Button"
-                src={pause}
-              />
-            </div>
-          </button>
-          <button className="buttons__next" onClick={() => onNextClick()}>
-            <div className="buttons__next-container">
-              <img
-                className="next-container__image"
-                alt="Next Button"
-                src={next}
-              />
-            </div>
-          </button>
-        </div>
-        <button className="player__volume" onClick={this.setVolumeTrack}>
-          <div className="player__volume-container">
-            <img
-              className="volume-container__image"
-              alt="Volume Button"
-              src={volume}
-            />
+            <button className="player__volume" onClick={this.setVolumeTrack}>
+              <div className="player__volume-container">
+                <img
+                  className="volume-container__image"
+                  alt="Volume Button"
+                  src={volume}
+                />
+              </div>
+            </button>
           </div>
-        </button>
-      </div>
+        )}
+      </PlayerContext.Provider>
     );
   };
 }
-
-export default MusicPlayer;

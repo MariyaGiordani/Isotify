@@ -15,6 +15,7 @@ import Login from './views/Login';
 
 import { isUserLogged } from './utils/isUserLogged';
 import { showMenus } from './utils/showMenus';
+import { MusicPlayerProvider } from './components/Player/musicPlayer';
 
 import './index.css';
 import './variables-modifiers.css';
@@ -43,6 +44,8 @@ const routes = () => (
 );
 
 ReactDOM.render(
-  <BrowserRouter>{routes()}</BrowserRouter>,
+  <MusicPlayerProvider accessToken={localStorage.access_token}>
+    <BrowserRouter>{routes()}</BrowserRouter>
+  </MusicPlayerProvider>,
   document.getElementById('root')
 );
