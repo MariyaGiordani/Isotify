@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
-import TracksGrid from '../../components/albums/TracksGrid/tracksGrid';
+import Grid from '../../components/Grid/grid';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import PlaylistGrid from '../../components/PlaylistGrid/playlistGrid';
 
 import { getResultsSearch } from '../../services/resultsSearch';
 import { parseSearch } from '../../utils/spotifyResponseParsers';
+import { getSongsComponents } from '../../utils/parseToCard';
+import { getArtistsComponents } from '../../utils/parseToCard';
+import { getPlaylistComponents } from '../../utils/parseToCard';
 
 import './searchResults.css';
 
@@ -55,7 +58,9 @@ export default class searchResults extends Component {
 
   render = () => {
     const { playlists, tracks, albums, artists, lastQuery } = this.state;
-
+    const cardTracks = getSongsComponents(tracks);
+    const cardArtists = getArtistsComponents(artists);
+    const cardPlaylist = getPlaylistComponents(playlists);
     return (
       <PageContainer>
         <div className="search-results">
@@ -69,11 +74,7 @@ export default class searchResults extends Component {
                 title={titleSongs}
                 subtitle={`${tracks.length} ${subtitle}`}
               >
-                <TracksGrid
-                  tracks={tracks.slice(0, 4)}
-                  size="quarter"
-                  gridSize="quarter"
-                />
+                <Grid items={cardTracks.slice(0, 4)} size="quarter" />
               </QuarterGrid>
             )}
             <div className="search-results__divider-vertical" />
@@ -82,11 +83,7 @@ export default class searchResults extends Component {
                 title={titleArtists}
                 subtitle={`${artists.length} ${subtitle}`}
               >
-                <ArtistsGrid
-                  artists={artists.slice(0, 4)}
-                  size="quarter"
-                  gridSize="quarter"
-                />
+                <Grid items={cardArtists.slice(0, 4)} size="quarter" />
               </QuarterGrid>
             )}
             <div className="search-results__divider-horizontal" />
@@ -108,11 +105,7 @@ export default class searchResults extends Component {
                 title={titlePlaylists}
                 subtitle={`${playlists.length} ${subtitle}`}
               >
-                <PlaylistGrid
-                  playlists={playlists.slice(0, 4)}
-                  size="quarter"
-                  gridSize="quarter"
-                />
+                <Grid items={cardPlaylist.slice(0, 4)} size="quarter" />
               </QuarterGrid>
             )}
           </div>

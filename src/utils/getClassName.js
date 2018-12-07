@@ -1,3 +1,3 @@
-export default function getClassName(modifier) {
-  return modifier ? `tracks-grid--${modifier}` : '';
+export default function getClassName(base, modifier) {
+  return modifier ? `${base}--${modifier}` : '';
 }

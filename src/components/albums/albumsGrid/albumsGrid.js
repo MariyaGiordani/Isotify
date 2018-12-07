@@ -10,7 +10,7 @@ const getAlbumsComponents = (albums = [], size) =>
   albums.map((album) => <Album {...{ key: album.id, size, ...album }} />);
 
 const AlbumsGrid = ({ albums, size, gridSize }) => (
-  <div className={`albums-grid ${getClassName(gridSize)}`}>
+  <div className={`albums-grid ${getClassName('albums-grid', gridSize)}`}>
     {getAlbumsComponents(albums, size)}
   </div>
 );
