@@ -7,8 +7,7 @@ import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
-import playMusic from '../../services/playMusic';
-
+import { playMusic, playAlbum } from '../../services/playMusic';
 import './musicPlayer.css';
 
 export const PlayerContext = React.createContext();
@@ -28,7 +27,8 @@ export class MusicPlayerProvider extends React.Component {
     onPrevClick: () => {},
     onPlayClick: () => {},
     onNextClick: () => {},
-    onClickPlayAlbum: () => {}
+    onClickPlayAlbum: () => {},
+    onClickPlayTrack: () => {}
   };
 
   componentDidMount = () => {
@@ -80,6 +80,11 @@ export class MusicPlayerProvider extends React.Component {
 
     const onClickPlayAlbum = (id) => {
       const { deviceId } = this.state;
+      playAlbum(deviceId, id);
+    };
+
+    const onClickPlayTrack = (id) => {
+      const { deviceId } = this.state;
       playMusic(deviceId, id);
     };
 
@@ -87,7 +92,8 @@ export class MusicPlayerProvider extends React.Component {
       onPrevClick,
       onPlayClick,
       onNextClick,
-      onClickPlayAlbum
+      onClickPlayAlbum,
+      onClickPlayTrack
     });
   };
   checkForPlayer = () => {
