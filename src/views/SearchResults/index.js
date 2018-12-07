@@ -17,6 +17,7 @@ const titleArtists = 'Artists';
 const titleAlbums = 'Albums';
 const titlePlaylists = 'Playlists';
 const subtitle = 'RESULTS';
+
 export default class searchResults extends Component {
   state = {
     artists: [],
