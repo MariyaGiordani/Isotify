@@ -4,8 +4,6 @@ import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import Grid from '../../components/Grid/grid';
-import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
-import PlaylistGrid from '../../components/PlaylistGrid/playlistGrid';
 
 import { getResultsSearch } from '../../services/resultsSearch';
 import { parseSearch } from '../../utils/spotifyResponseParsers';

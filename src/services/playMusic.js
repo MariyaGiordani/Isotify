@@ -20,7 +20,7 @@ function playMusic(deviceId, id) {
     {
       method: 'PUT',
       body: JSON.stringify({
-        uris: `spotify:track:${id}`
+        uris: [`spotify:track:${id}`]
       }),
       headers: {
         'Content-Type': 'application/json',

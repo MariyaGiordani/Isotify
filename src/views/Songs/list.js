@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import Grid from '../../components/Grid/grid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import { getSavedTracks } from '../../services/tracks';
 import { savedTracks as parseSavedTracks } from '../../utils/spotifyResponseParsers';
+import { getSongsComponents } from '../../utils/parseToCard';
 import { serverError } from '../../services/errors';
 import './songs.css';
 
@@ -23,7 +24,6 @@ export default class Songs extends Component {
       })
       .catch((error) => {
         window.alert('Sorry, we cannot complete your request right now.');
-        console.log(error);
         serverError(error);
       });
   }
@@ -31,7 +31,7 @@ export default class Songs extends Component {
   render = () => {
     const { tracks, total } = this.state;
     const subtitle = `${total} Songs saved on Library`;
-
+    const cardTracks = getSongsComponents(tracks);
     return (
       <PageContainer>
         <HeaderLine
@@ -40,7 +40,7 @@ export default class Songs extends Component {
             subtitle
           }}
         />
-        <div className="albums-view__grid" />
+        <Grid items={tracks} size="big" type="tracks" />
       </PageContainer>
     );
   };
