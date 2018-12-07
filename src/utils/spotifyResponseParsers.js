@@ -35,6 +35,9 @@ const albumsList = (rawAlbums) =>
 const savedAlbums = (rawAlbums) =>
   rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
+const savedTracks = (rawTracks) =>
+  rawTracks.map((track) => parseAlbumTracks(track));
+
 const parseAlbumInfo = (album) => {
   return {
     title: album.name,
@@ -90,5 +93,6 @@ export {
   userInfo,
   artistWithAlbums,
   artistWithAlbumsAndRelated,
-  albumTracks
+  albumTracks,
+  savedTracks
 };

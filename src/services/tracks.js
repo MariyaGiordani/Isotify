@@ -7,7 +7,8 @@ export function getAlbumTracks(albumId) {
 }
 
 export function getSavedTracks() {
-  return spotifyInstance
-    .get('me/tracks', createHeader())
-    .then((response) => response.data.items);
+  return spotifyInstance.get('me/tracks', createHeader()).then((response) => {
+    const { total, items } = response.data;
+    return { total, items };
+  });
 }
