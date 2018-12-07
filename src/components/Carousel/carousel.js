@@ -20,19 +20,31 @@ class Carousel extends Component {
     items: []
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
+    this.initializingBar1();
     this.initializingBar();
-  }
+  };
 
-  initializingBar = () => {
-    const interval = setInterval(() => {
-      if (this.state.progress >= MAX_PROGRESS) {
-        return clearInterval(interval);
+  initializingBar1 = () => {
+    this.interval = () => {
+      const { progress } = this.state;
+      if (progress >= MAX_PROGRESS) {
+        return clearInterval(this.interval);
       } else {
         this.setState({
-          progress: this.state.progress + PERCENTAGE_LOAD
+          progress: progress + PERCENTAGE_LOAD
         });
       }
+    };
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.interval2);
+  };
+
+  initializingBar = () => {
+    this.interval2 = setInterval(() => {
+      this.interval();
     }, TIMEOUT);
   };
 
