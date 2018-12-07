@@ -7,12 +7,17 @@ export const playlists = (rawPlaylists) => {
   return rawPlaylists.map((playlistsInfo) => parsePlaylist(playlistsInfo));
 };
 
-const parsePlaylist = (playlistsInfo) => {
+const parsePlaylist = ({
+  name,
+  owner: { displayname },
+  tracks: { total },
+  id
+}) => {
   return {
-    namePlaylist: playlistsInfo.name,
-    nameUser: playlistsInfo.owner.display_name,
-    lengthTracks: playlistsInfo.tracks.total,
-    id: playlistsInfo.id
+    namePlaylist: name,
+    nameUser: displayname,
+    lengthTracks: total,
+    id
   };
 };
 
@@ -20,31 +25,37 @@ export const playlistsSearch = (rawPlaylists) => {
   return rawPlaylists.map((playlistsInfo) => playlistSearch(playlistsInfo));
 };
 
-const playlistSearch = (playlistsInfo) => ({
-  ...parsePlaylist(playlistsInfo),
-  imagePlaylist: playlistsInfo.images[0].url,
-  followersPlaylist: playlistsInfo.followers.total
-});
+const playlistSearch = (playlistsInfo) => {
+  const { images, followers } = playlistsInfo;
+  return {
+    ...parsePlaylist(playlistsInfo),
+    imagePlaylist: images[0].url,
+    followersPlaylist: followers.total
+  };
+};
 
 const albumTracks = (rawAlbumsTracks) => {
   return rawAlbumsTracks.map((track) => parseTrack(track));
 };
 
-const parseTrack = (tracks) => ({
-  songName: tracks.name,
+const parseTrack = ({ name, artists, duration_ms, track_number, id }) => ({
+  songName: name,
   artist: {
-    name: tracks.artists[0].name,
-    id: tracks.artists[0].id
+    name: artists[0].name,
+    id: artists[0].id
   },
-  songDuration: tracks.duration_ms,
-  songNumber: tracks.track_number,
-  id: tracks.id
+  songDuration: duration_ms,
+  songNumber: track_number,
+  id: id
 });
 
-const completeTrack = (track) => ({
-  ...parseTrack(track),
-  albumImage: track.album.images[0].url
-});
+const completeTrack = (track) => {
+  const { album } = track;
+  return {
+    ...parseTrack(track),
+    albumImage: album.images[0].url
+  };
+};
 
 const completeTracks = (rawTracks) => {
   return rawTracks.map((track) => completeTrack(track));
@@ -68,17 +79,24 @@ const savedAlbums = (rawAlbums) =>
 const savedTracks = (rawTracks) =>
   rawTracks.map((trackInfo) => completeTrack(trackInfo.track));
 
-const parseAlbumInfo = (album) => {
+const parseAlbumInfo = ({
+  name,
+  artists,
+  release_date,
+  images,
+  total_tracks,
+  id
+}) => {
   return {
-    title: album.name,
+    title: name,
     artist: {
-      name: album.artists[0].name,
-      id: album.artists[0].id
+      name: artists[0].name,
+      id: artists[0].id
     },
-    date: album.release_date,
-    imgSrc: album.images[0].url,
-    songsAmount: album.total_tracks,
-    id: album.id
+    date: release_date,
+    imgSrc: images[0].url,
+    songsAmount: total_tracks,
+    id: id
   };
 };
 

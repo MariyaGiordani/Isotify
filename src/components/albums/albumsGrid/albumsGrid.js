@@ -1,24 +1,16 @@
 import React from 'react';
+
 import Album from '../../albums/album/album';
+
+import getClassName from '../../../utils/getClassName';
+
 import './albumsGrid.css';
 
 const getAlbumsComponents = (albums = [], size) =>
-  albums.map(({ imgSrc, title, artist, id, date }) => (
-    <Album
-      imgSrc={imgSrc}
-      size={size}
-      title={title}
-      artist={artist}
-      key={id}
-      albumId={id}
-      date={date}
-    />
-  ));
-
-const getClassName = (modifier) => (modifier ? `albums-grid--${modifier}` : '');
+  albums.map((album) => <Album {...{ key: album.id, size, ...album }} />);
 
 const AlbumsGrid = ({ albums, size, gridSize }) => (
-  <div className={`albums-grid ${getClassName(gridSize)}`}>
+  <div className={`albums-grid ${getClassName('albums-grid', gridSize)}`}>
     {getAlbumsComponents(albums, size)}
   </div>
 );

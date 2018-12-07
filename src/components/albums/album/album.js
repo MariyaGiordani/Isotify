@@ -16,8 +16,8 @@ class Album extends Component {
   };
 
   componentDidMount() {
-    const { albumId } = this.props;
-    getAlbumTracks(albumId).then((response) => {
+    const { id } = this.props;
+    getAlbumTracks(id).then((response) => {
       const tracks = albumTracks(response);
       this.setState({ tracks });
     });
