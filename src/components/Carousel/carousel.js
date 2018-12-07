@@ -21,7 +21,7 @@ class Carousel extends Component {
   };
 
   componentDidMount = () => {
-    this.interval = () => {
+    this.updateCarouselProgress = () => {
       const { progress } = this.state;
       if (progress >= MAX_PROGRESS) {
         return clearInterval(progress);
@@ -36,12 +36,12 @@ class Carousel extends Component {
   };
 
   componentWillUnmount = () => {
-    clearInterval(this.intervalClear);
+    clearInterval(this.carouselInterval);
   };
 
   initializingBar = () => {
-    this.intervalClear = setInterval(() => {
-      this.interval();
+    this.carouselInterval = setInterval(() => {
+      this.updateCarouselProgress();
     }, TIMEOUT);
   };
 
