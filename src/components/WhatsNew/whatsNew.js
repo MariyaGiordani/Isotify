@@ -16,7 +16,7 @@ const WhatsNew = ({ albums }) => {
       <div className="whats-new__divider" />
       <div className="whats-new__header">
         <HeaderLine title={title} subtitle={subtitle}>
-          <ButtonSeeAll imgSrc={rightArrowImg} />
+          <ButtonSeeAll imgSrc={rightArrowImg} type="whats-new" />
         </HeaderLine>
       </div>
       <AlbumsGrid albums={albums} size="quarter" gridSize="quarter" />
