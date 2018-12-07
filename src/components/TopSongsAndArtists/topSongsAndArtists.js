@@ -33,7 +33,6 @@ const topSongs = (songs) => (
 );
 
 const TopSongsAndArtists = ({ songs = [], artists = [] }) => {
-  console.log(songs, artists);
   return (
     <div className="top-songs-and-artists">
       {topSongs(songs)}
