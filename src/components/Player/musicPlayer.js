@@ -3,6 +3,7 @@ import React from 'react';
 import playlisticon from '../../assets/img/playlisticon.png';
 import prev from '../../assets/img/prev.png';
 import pause from '../../assets/img/pause.png';
+import play from '../../assets/img/play_gray.svg';
 import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
 import { createPopUp } from '../../utils/popUp';
@@ -95,12 +96,13 @@ export class MusicPlayerProvider extends React.Component {
     const onClickPlayAlbum = (id, popUp) => {
       const { deviceId } = this.state;
       playAlbum(deviceId, id);
-      this.setState({ popUp });
+      this.setState({ popUp, playing: true });
     };
 
     const onClickPlayTrack = (id) => {
       const { deviceId } = this.state;
       playMusic(deviceId, id);
+      this.setState({ playing: true });
     };
 
     this.setState({
@@ -181,16 +183,19 @@ export class MusicPlayerProvider extends React.Component {
       onPlayClick,
       onNextClick,
       loggedIn,
-      popUp
+      popUp,
+      playing
     } = this.state;
     const { children } = this.props;
+    console.log(playing);
+
     return (
       <PlayerContext.Provider value={this.state}>
         {children}
         {loggedIn && (
           <div className="player">
             <div className="player__container">
-              {popUp ? createPopUp(button, popUp) : button}
+              {popUp ? createPopUp(button, popUp, 'top') : button}
               <div className="playlist-icon__music-info">
                 <h1 className="music-info__name">{trackName}</h1>
                 <h2 className="music-info__band">{artistName}</h2>
@@ -212,7 +217,7 @@ export class MusicPlayerProvider extends React.Component {
                   <img
                     className="pause-container__image"
                     alt="Pause Button"
-                    src={pause}
+                    src={playing ? pause : play}
                   />
                 </div>
               </button>
