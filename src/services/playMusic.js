@@ -1,4 +1,4 @@
-export default function secondPlayClick(deviceId, id) {
+export default function playMusic(deviceId, id) {
   return fetch(
     `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
     {

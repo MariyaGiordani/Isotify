@@ -7,7 +7,7 @@ import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
-import secondPlayClick from '../../services/secondPlayClick';
+import playMusic from '../../services/playMusic';
 
 import './musicPlayer.css';
 
@@ -80,7 +80,7 @@ export class MusicPlayerProvider extends React.Component {
 
     const onClickPlayAlbum = (id) => {
       const { deviceId } = this.state;
-      secondPlayClick(deviceId, id);
+      playMusic(deviceId, id);
     };
 
     this.setState({
