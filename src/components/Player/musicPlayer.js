@@ -7,6 +7,7 @@ import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
+import secondPlayClick from '../../services/secondPlayClick';
 
 import './musicPlayer.css';
 
@@ -35,27 +36,19 @@ class MusicPlayer extends Component {
   };
 
   createEventHandlers = () => {
-    this.player.on('initialization_error', (e) => {
-      console.error('1', e);
-    });
-    this.player.on('account_error', (e) => {
-      console.error('2', e);
-    });
-    this.player.on('playback_error', (e) => {
-      console.error('3', e);
-    });
+    this.player.on('initialization_error', (e) => {});
+    this.player.on('account_error', (e) => {});
+    this.player.on('playback_error', (e) => {});
 
-    // Playback status updates
-    this.player.on('player_state_changed', (state) => {
-      this.onStateChanged(state);
-    });
+    this.player.on('player_state_changed', this.onStateChanged);
 
-    // Ready
-    this.player.on('ready', (data) => {
-      let { device_id } = data;
-      this.setState({ deviceId: device_id });
-      transferPlaybackHere(device_id);
-    });
+    this.player.on('ready', this.transferMusicFromSpotify);
+  };
+
+  transferMusicFromSpotify = (data) => {
+    let { device_id } = data;
+    this.setState({ deviceId: device_id });
+    transferPlaybackHere(device_id);
   };
 
   checkForPlayer = () => {
@@ -83,32 +76,23 @@ class MusicPlayer extends Component {
         this.player.nextTrack();
       };
 
-      const onPlayClick2 = (id) => {
+      const onPlayClickAlbum = (id) => {
         const { deviceId } = this.state;
-        fetch(
-          `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
-          {
-            method: 'PUT',
-            body: JSON.stringify({
-              context_uri: `spotify:album:${id}`
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${localStorage.access_token}`
-            }
-          }
-        );
+        secondPlayClick(deviceId, id);
       };
-      window.player = { onPrevClick, onPlayClick, onNextClick, onPlayClick2 };
+      window.player = {
+        onPrevClick,
+        onPlayClick,
+        onNextClick,
+        onPlayClickAlbum
+      };
       this.setState({ onPrevClick, onPlayClick, onNextClick });
       this.createEventHandlers();
-      // finally, connect!
       this.player.connect();
     }
   };
 
   onStateChanged = (state) => {
-    // if we're no longer listening to music, we'll get a null state.
     if (state !== null) {
       const {
         current_track: currentTrack,
@@ -135,11 +119,12 @@ class MusicPlayer extends Component {
   };
 
   setVolumeTrack = () => {
+    const { volume } = this.state;
     this.player.getVolume().then((playerVolume) => {
       const { mute } = this.state;
       let newVolume;
       if (mute) {
-        newVolume = this.state.volume;
+        newVolume = volume;
         this.setState({ mute: false });
       } else {
         newVolume = 0;
@@ -157,7 +142,6 @@ class MusicPlayer extends Component {
     const {
       trackName,
       artistName,
-      playing,
       onPrevClick,
       onPlayClick,
       onNextClick

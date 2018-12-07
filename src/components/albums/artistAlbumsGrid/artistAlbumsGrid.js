@@ -13,7 +13,7 @@ const getAlbumsComponents = (albums = [], size) =>
       key={id}
       id={id}
       hasHover={true}
-      hoverCallback={(id) => window.player.onPlayClick2(id)}
+      hoverCallback={(id) => window.player.onPlayClickAlbum(id)}
     />
   ));
 

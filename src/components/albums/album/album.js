@@ -38,7 +38,7 @@ class Album extends Component {
         popup={popUp}
         date={date}
         hasHover={true}
-        hoverCallback={(id) => window.player.onPlayClick2(id)}
+        hoverCallback={(id) => window.player.onPlayClickAlbum(id)}
       />
     );
   };
