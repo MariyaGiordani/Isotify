@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './card.css';
-import 'react-tippy/dist/tippy.css';
-import { Tooltip } from 'react-tippy';
+import { createPopUp } from '../../utils/popUp';
 import grayDots from '../../assets/img/gray-dots.png';
 import play from '../../assets/img/play.svg';
 
@@ -15,22 +14,6 @@ const hover = (id, cb) => (
     </div>
   </div>
 );
-
-const createPopup = (option, popup) => {
-  return (
-    <Tooltip
-      useContext={true}
-      html={popup}
-      position="right"
-      trigger="click focus"
-      theme="light"
-      animation="fade"
-      interactive
-    >
-      {option}
-    </Tooltip>
-  );
-};
 
 const Card = ({
   imgSrc,
@@ -61,7 +44,7 @@ const Card = ({
             {subtitleHref
               ? createLink(subtitleHref, subtitleParagraph)
               : subtitleParagraph}
-            {popup ? createPopup(optionDots, popup) : optionDots}
+            {popup ? createPopUp(optionDots, popup, 'right') : optionDots}
           </div>
         </div>
       </div>

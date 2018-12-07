@@ -5,14 +5,25 @@ import prev from '../../assets/img/prev.png';
 import pause from '../../assets/img/pause.png';
 import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
-import { Tooltip } from 'react-tippy';
-import 'react-tippy/dist/tippy.css';
+import { createPopUp } from '../../utils/popUp';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
 import { playMusic, playAlbum } from '../../services/playMusic';
 import './musicPlayer.css';
 
 export const PlayerContext = React.createContext();
+
+const button = (
+  <button className="container__button">
+    <div className="container__playlist-icon">
+      <img
+        className="playlist-icon__image"
+        alt="Playlist-icon"
+        src={playlisticon}
+      />
+    </div>
+  </button>
+);
 
 export class MusicPlayerProvider extends React.Component {
   state = {
@@ -179,37 +190,7 @@ export class MusicPlayerProvider extends React.Component {
         {loggedIn && (
           <div className="player">
             <div className="player__container">
-              {popUp ? (
-                <Tooltip
-                  useContext={true}
-                  html={popUp}
-                  position="top-end"
-                  trigger="click focus"
-                  theme="light"
-                  animation="fade"
-                  interactive
-                >
-                  <button className="container__button">
-                    <div className="container__playlist-icon">
-                      <img
-                        className="playlist-icon__image"
-                        alt="Playlist-icon"
-                        src={playlisticon}
-                      />
-                    </div>
-                  </button>
-                </Tooltip>
-              ) : (
-                <button className="container__button">
-                  <div className="container__playlist-icon">
-                    <img
-                      className="playlist-icon__image"
-                      alt="Playlist-icon"
-                      src={playlisticon}
-                    />
-                  </div>
-                </button>
-              )}
+              {popUp ? createPopUp(button, popUp) : button}
               <div className="playlist-icon__music-info">
                 <h1 className="music-info__name">{trackName}</h1>
                 <h2 className="music-info__band">{artistName}</h2>
