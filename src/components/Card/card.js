@@ -16,7 +16,7 @@ const hover = (id, cb) => (
   </div>
 );
 
-const createPopup = (option, popup, title) => {
+const createPopup = (option, popup) => {
   return (
     <Tooltip
       useContext={true}
@@ -26,7 +26,6 @@ const createPopup = (option, popup, title) => {
       theme="light"
       animation="fade"
       interactive
-      title={title}
     >
       {option}
     </Tooltip>

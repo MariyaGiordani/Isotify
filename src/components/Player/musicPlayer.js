@@ -5,6 +5,8 @@ import prev from '../../assets/img/prev.png';
 import pause from '../../assets/img/pause.png';
 import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
+import { Tooltip } from 'react-tippy';
+import 'react-tippy/dist/tippy.css';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
 import { playMusic, playAlbum } from '../../services/playMusic';
@@ -21,6 +23,7 @@ export class MusicPlayerProvider extends React.Component {
     trackName: 'Track Name',
     artistName: 'Artist Name',
     albumName: 'Album Name',
+    popUp: {},
     playing: false,
     position: 0,
     duration: 0,
@@ -78,9 +81,10 @@ export class MusicPlayerProvider extends React.Component {
       this.player.nextTrack();
     };
 
-    const onClickPlayAlbum = (id) => {
+    const onClickPlayAlbum = (id, popUp) => {
       const { deviceId } = this.state;
       playAlbum(deviceId, id);
+      this.setState({ popUp });
     };
 
     const onClickPlayTrack = (id) => {
@@ -165,26 +169,47 @@ export class MusicPlayerProvider extends React.Component {
       onPrevClick,
       onPlayClick,
       onNextClick,
-      loggedIn
+      loggedIn,
+      popUp
     } = this.state;
     const { children } = this.props;
-
     return (
       <PlayerContext.Provider value={this.state}>
         {children}
         {loggedIn && (
           <div className="player">
             <div className="player__container">
-              <button className="container__button">
-                <div className="container__playlist-icon">
-                  <img
-                    className="playlist-icon__image"
-                    alt="Playlist-icon"
-                    src={playlisticon}
-                  />
-                </div>
-              </button>
-
+              {popUp ? (
+                <Tooltip
+                  useContext={true}
+                  html={popUp}
+                  position="top-end"
+                  trigger="click focus"
+                  theme="light"
+                  animation="fade"
+                  interactive
+                >
+                  <button className="container__button">
+                    <div className="container__playlist-icon">
+                      <img
+                        className="playlist-icon__image"
+                        alt="Playlist-icon"
+                        src={playlisticon}
+                      />
+                    </div>
+                  </button>
+                </Tooltip>
+              ) : (
+                <button className="container__button">
+                  <div className="container__playlist-icon">
+                    <img
+                      className="playlist-icon__image"
+                      alt="Playlist-icon"
+                      src={playlisticon}
+                    />
+                  </div>
+                </button>
+              )}
               <div className="playlist-icon__music-info">
                 <h1 className="music-info__name">{trackName}</h1>
                 <h2 className="music-info__band">{artistName}</h2>

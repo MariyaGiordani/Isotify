@@ -41,7 +41,7 @@ class Album extends Component {
             popup={popUp}
             date={date}
             hasHover={true}
-            hoverCallback={(id) => context.onClickPlayAlbum(id)}
+            hoverCallback={(id) => context.onClickPlayAlbum(id, popUp)}
           />
         )}
       </PlayerContext>
