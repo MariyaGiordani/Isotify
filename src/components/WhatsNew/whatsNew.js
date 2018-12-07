@@ -1,8 +1,10 @@
 import React from 'react';
 
-import ButtonSeeAll from '../ButtonSeeAll/buttonSeeAll';
+import rightArrowImg from '../../assets/img/rightArrow.png';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+
 import HeaderLine from '../headerLine/headerLine';
+import ButtonSeeAll from '../ButtonSeeAll/buttonSeeAll';
 
 import './whatsNew.css';
 
@@ -14,7 +16,7 @@ const WhatsNew = ({ albums }) => {
       <div className="whats-new__divider" />
       <div className="whats-new__header">
         <HeaderLine title={title} subtitle={subtitle}>
-          <ButtonSeeAll />
+          <ButtonSeeAll imgSrc={rightArrowImg} />
         </HeaderLine>
       </div>
       <AlbumsGrid albums={albums} size="quarter" gridSize="quarter" />
