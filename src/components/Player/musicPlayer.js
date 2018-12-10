@@ -72,8 +72,8 @@ export class MusicPlayerProvider extends Component {
   createPlayer = (accessToken) => {
     this.player = new window.Spotify.Player({
       name: 'Isotify - EMA',
-      getOAuthToken: (cb) => {
-        cb(accessToken);
+      getOAuthToken: (OAuthCallBack) => {
+        OAuthCallBack(accessToken);
       }
     });
   };
