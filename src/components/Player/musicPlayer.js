@@ -54,10 +54,6 @@ export class MusicPlayerProvider extends Component {
   };
 
   createEventHandlers = () => {
-    this.player.on('initialization_error', (e) => {});
-    this.player.on('account_error', (e) => {});
-    this.player.on('playback_error', (e) => {});
-
     this.player.on('player_state_changed', this.onStateChanged);
 
     this.player.on('ready', this.transferMusicFromSpotify);
@@ -113,6 +109,7 @@ export class MusicPlayerProvider extends Component {
       onClickPlayTrack
     });
   };
+
   checkForPlayer = () => {
     const { accessToken } = this.props;
     if (window.Spotify !== null && accessToken) {
