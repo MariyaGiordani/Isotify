@@ -18,19 +18,18 @@ export default class RelatedArtistsView extends Component {
   };
 
   fetchArtistData(artists) {
-    console.log(123, artists);
-    // getArtistsWithAlbums(artists)
-    //   .then((response) => {
-    //     const artists = parseArtists(response);
-    //     this.setState({
-    //       artists
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     window.alert('Sorry, we cannot complete your request right now.');
-    //     console.log(error);
-    //     serverError(error);
-    //   });
+    getArtistsWithAlbums(artists)
+      .then((response) => {
+        console.log(response);
+        const artists = parseArtists(response);
+        this.setState({
+          artists
+        });
+      })
+      .catch((error) => {
+        window.alert('Sorry, we cannot complete your request right now.');
+        serverError(error);
+      });
   }
 
   getCurrentArtistId = () => this.props.match.params.artistsId;
