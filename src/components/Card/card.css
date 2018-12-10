@@ -82,6 +82,11 @@
   color: var(--gray);
 }
 
+.card__options {
+  width: 15px;
+  height: 15px;
+}
+
 .card--big .card__cover {
   width: 230px;
   height: 230px;

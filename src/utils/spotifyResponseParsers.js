@@ -7,27 +7,41 @@ export const playlists = (rawPlaylists) => {
   return rawPlaylists.map((playlistsInfo) => parsePlaylist(playlistsInfo));
 };
 
-const parsePlaylist = (playlistsInfo) => {
+const parsePlaylist = ({ name, owner, tracks, id }) => {
   return {
-    namePlaylist: playlistsInfo.name,
-    nameUser: playlistsInfo.owner.display_name,
-    lengthTracks: playlistsInfo.tracks.total,
-    idPlaylist: playlistsInfo.id
+    namePlaylist: name,
+    nameUser: owner.display_name,
+    lengthTracks: tracks.total,
+    idPlaylist: id
   };
 };
 
 const albumTracks = (rawAlbumsTracks) => {
-  return rawAlbumsTracks.map((track) => parseAlbumTracks(track));
+  return rawAlbumsTracks.map((track) => parseTrack(track));
 };
 
-const parseAlbumTracks = (tracks) => {
-  return {
-    songName: tracks.name,
-    songDuration: tracks.duration_ms,
-    songNumber: tracks.track_number,
-    songId: tracks.id
-  };
-};
+const parseArtistTopTracks = (artistTracks) =>
+  artistTracks.map((track) => {
+    const artist = { name: track.artists[0].name, id: track.artists[0].id };
+    return {
+      ...parseTrack(track),
+      artist
+    };
+  });
+
+const parsePlaylistTracks = (trackContainers) =>
+  trackContainers.map(({ track }) => parseTrack(track));
+
+const parseTrack = ({ name, duration_ms, track_number, id, artists }) => ({
+  songName: name,
+  songDuration: duration_ms,
+  songNumber: track_number,
+  songId: id,
+  artist: {
+    name: artists[0].name,
+    id: artists[0].id
+  }
+});
 
 const albumsList = (rawAlbums) =>
   rawAlbums.map((album) => parseAlbumInfo(album));
@@ -35,24 +49,32 @@ const albumsList = (rawAlbums) =>
 const savedAlbums = (rawAlbums) =>
   rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
-const parseAlbumInfo = (album) => {
+const parseAlbumInfo = ({
+  name,
+  release_date,
+  total_tracks,
+  id,
+  artists,
+  images
+}) => {
   return {
-    title: album.name,
+    title: name,
     artist: {
-      name: album.artists[0].name,
-      id: album.artists[0].id
+      name: artists[0].name,
+      id: artists[0].id
     },
-    date: album.release_date,
-    imgSrc: album.images[1].url,
-    songsAmount: album.total_tracks,
-    id: album.id
+    date: release_date,
+    imgSrc: images[1].url,
+    songsAmount: total_tracks,
+    id
   };
 };
 
-const parseArtist = (artist) => ({
-  imgSrc: artist.images.length > 0 ? artist.images[0].url : '',
-  name: artist.name,
-  id: artist.id
+const parseArtist = ({ images, name, id, genres }) => ({
+  imgSrc: images.length > 0 ? images[0].url : '',
+  name: name,
+  id: id,
+  genres: genres
 });
 
 const artistWithAlbumsAndRelated = (artist) => {
@@ -90,5 +112,8 @@ export {
   userInfo,
   artistWithAlbums,
   artistWithAlbumsAndRelated,
-  albumTracks
+  albumTracks,
+  parseArtistTopTracks,
+  parseArtist,
+  parsePlaylistTracks
 };
