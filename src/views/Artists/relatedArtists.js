@@ -44,7 +44,6 @@ export default class RelatedArtistsView extends Component {
 
   componentDidMount = () => {
     const artistsId = this.getCurrentArtistId();
-    console.log(artistsId);
     this.fetchArtistData(artistsId);
   };
 
@@ -56,6 +55,7 @@ export default class RelatedArtistsView extends Component {
 
     return (
       <PageContainer>
+        aaaaaaaaaaaaaaaaaaaaaa
         <HeaderLine
           {...{
             title: 'Artists',
@@ -68,12 +68,11 @@ export default class RelatedArtistsView extends Component {
             inputFunction={this.changeViewMode}
           />
         </HeaderLine>
-
-        {isListSelected ? (
+        {/* {isListSelected ? (
           <ArtistsList artists={artists} />
         ) : (
           <ArtistsGrid artists={artists} size={'big'} />
-        )}
+        )} */}
       </PageContainer>
     );
   };
