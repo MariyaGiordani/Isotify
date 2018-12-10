@@ -86,7 +86,7 @@
 }
 
 .top-item:last-of-type::after {
-  display: none;
+  content: none;
 }
 
 @media only screen and (max-width: 768px) {
