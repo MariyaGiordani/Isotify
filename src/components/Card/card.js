@@ -7,8 +7,11 @@ import play from '../../assets/img/play.svg';
 
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
 
-const hover = (id, cb) => (
-  <div className="card__cover card__cover--overlay" onClick={() => cb(id)}>
+const hover = (id, playerCallBack) => (
+  <div
+    className="card__cover card__cover--overlay"
+    onClick={() => playerCallBack(id)}
+  >
     <div className="card__play-button">
       <img src={play} alt="play album" className="card__play-button-image" />
     </div>
