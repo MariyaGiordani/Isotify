@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './settings.css';
+import PageContainer from '../../components/PageContainer/pageContainer';
 
 export default () => {
   return (
-    <Fragment>
-      <div className="container">
-        <h1>Settings</h1>
-      </div>
-    </Fragment>
+    <PageContainer>
+      <h1>Settings</h1>
+    </PageContainer>
   );
 };
