@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './playlists.css';
+import PageContainer from '../../components/PageContainer/pageContainer';
 
 export default () => {
   return (
-    <Fragment>
-      <div className="container">
-        <h1>Playlists</h1>
-      </div>
-    </Fragment>
+    <PageContainer>
+      <h1>Playlists</h1>
+    </PageContainer>
   );
 };

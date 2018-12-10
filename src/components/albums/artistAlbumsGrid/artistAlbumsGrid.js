@@ -6,18 +6,20 @@ import { PlayerContext } from '../../../components/Player/musicPlayer';
 
 const getAlbumsComponents = (albums = [], size) =>
   albums.map(({ imgSrc, title, date, id, artist }) => (
-    <PlayerContext>
+    <PlayerContext key={id}>
       {(context) => (
         <Card
-          imgSrc={imgSrc}
-          size={size}
-          title={title}
-          titleHref={`/artists/${artist.id}`}
-          subtitle={date.slice(0, 4)}
-          key={id}
-          id={id}
-          hasHover={true}
-          hoverCallback={(id) => context.onClickPlayAlbum(id)}
+          {...{
+            imgSrc,
+            size,
+            title,
+            id,
+            titleHref: `/artists/${artist.id}`,
+            subtitle: date.slice(0, 4),
+            key: id,
+            hasHover: true,
+            hoverCallback: () => context.onClickPlayAlbum(id)
+          }}
         />
       )}
     </PlayerContext>

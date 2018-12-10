@@ -20,8 +20,10 @@ const getComponents = (items = [], size, type) =>
     : items.map((track) => <Track {...track} size={size} key={track.id} />);
 
 const Grid = ({ items, size, type }) => (
-  <div className="grid__centering">
-    <div className="grid">{getComponents(items, size, type)}</div>
+  <div className="grid">
+    <div className="grid grid--centering">
+      {getComponents(items, size, type)}
+    </div>
   </div>
 );
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import playlisticon from '../../assets/img/playlisticon.png';
 import prev from '../../assets/img/prev.png';
@@ -26,7 +26,7 @@ const button = (
   </button>
 );
 
-export class MusicPlayerProvider extends React.Component {
+export class MusicPlayerProvider extends Component {
   state = {
     player: {},
     deviceId: '',
@@ -54,10 +54,6 @@ export class MusicPlayerProvider extends React.Component {
   };
 
   createEventHandlers = () => {
-    this.player.on('initialization_error', (e) => {});
-    this.player.on('account_error', (e) => {});
-    this.player.on('playback_error', (e) => {});
-
     this.player.on('player_state_changed', this.onStateChanged);
 
     this.player.on('ready', this.transferMusicFromSpotify);
@@ -72,8 +68,8 @@ export class MusicPlayerProvider extends React.Component {
   createPlayer = (accessToken) => {
     this.player = new window.Spotify.Player({
       name: 'Isotify - EMA',
-      getOAuthToken: (cb) => {
-        cb(accessToken);
+      getOAuthToken: (OAuthCallBack) => {
+        OAuthCallBack(accessToken);
       }
     });
   };
@@ -113,6 +109,7 @@ export class MusicPlayerProvider extends React.Component {
       onClickPlayTrack
     });
   };
+
   checkForPlayer = () => {
     const { accessToken } = this.props;
     if (window.Spotify !== null && accessToken) {
@@ -149,31 +146,31 @@ export class MusicPlayerProvider extends React.Component {
         albumName,
         artistName,
         playing,
-        volume,
-        mute: false
+        volume: 1,
+        isMute: false
       });
     }
   };
 
-  setVolumeTrack = () => {
+  muteVolume = () => {
     const { volume } = this.state;
     this.player.getVolume().then((playerVolume) => {
-      const { mute } = this.state;
-      let newVolume;
-      if (mute) {
-        newVolume = volume;
-        this.setState({ mute: false });
-      } else {
-        newVolume = 0;
-        this.setState({ volume: playerVolume, mute: true });
-      }
+      const { isMute } = this.state;
+      const newIsMute = !isMute;
+
+      const newVolume = newIsMute ? 0 : volume;
+
+      newIsMute
+        ? this.setState({ volume: playerVolume, isMute: true })
+        : this.setState({ isMute: false });
+
       this.player.setVolume(newVolume).then(() => {
-        this.setState({ mute: !mute });
+        this.setState({ isMute: newIsMute });
       });
     });
   };
 
-  onVolumeClick = () => this.player.setVolumeTrack();
+  onVolumeClick = () => this.player.muteVolume();
 
   render = () => {
     const {
@@ -230,7 +227,7 @@ export class MusicPlayerProvider extends React.Component {
                 </div>
               </button>
             </div>
-            <button className="player__volume" onClick={this.setVolumeTrack}>
+            <button className="player__volume" onClick={this.muteVolume}>
               <div className="player__volume-container">
                 <img
                   className="volume-container__image"

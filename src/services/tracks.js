@@ -12,3 +12,13 @@ export function getSavedTracks() {
     return { total, items };
   });
 }
+
+export function getArtistTopTracks(artistId) {
+  return spotifyInstance
+    .get(`/artists/${artistId}/top-tracks?country=br`, createHeader())
+    .then((response) => response.data.tracks);
+}
+
+export function getMultipleArtistsTopTracks(artistsIds) {
+  return Promise.all(artistsIds.map((artist) => getArtistTopTracks(artist)));
+}

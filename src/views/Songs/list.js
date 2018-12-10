@@ -31,7 +31,6 @@ export default class Songs extends Component {
   render = () => {
     const { tracks, total } = this.state;
     const subtitle = `${total} Songs saved on Library`;
-    const cardTracks = getSongsComponents(tracks);
     return (
       <PageContainer>
         <HeaderLine

@@ -24,24 +24,26 @@ class Album extends Component {
   }
 
   render = () => {
-    const { imgSrc, size, title, date, artist, albumId } = this.props;
+    const { imgSrc, size, title, date, artist, id } = this.props;
     const { tracks } = this.state;
-    const popUp = createPopup(tracks, title, artist.name, date);
+    const popup = createPopup(tracks, title, artist.name, date);
     return (
       <PlayerContext>
         {(context) => (
           <Card
-            imgSrc={imgSrc}
-            size={size}
-            title={title}
-            subtitle={artist.name}
-            subtitleHref={`/artists/${artist.id}`}
-            key={albumId}
-            id={albumId}
-            popup={popUp}
-            date={date}
-            hasHover={true}
-            hoverCallback={(id) => context.onClickPlayAlbum(id, popUp)}
+            {...{
+              imgSrc,
+              size,
+              title,
+              subtitle: artist.name,
+              subtitleHref: `/artists/${artist.id}`,
+              popup,
+              date,
+              hasHover: true,
+              key: id,
+              id: id,
+              hoverCallback: () => context.onClickPlayAlbum(id, popup)
+            }}
           />
         )}
       </PlayerContext>

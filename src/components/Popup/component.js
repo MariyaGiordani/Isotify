@@ -10,9 +10,9 @@ import pinkDots from '../../assets/img/pink-dots.png';
 const createMusics = (tracks) =>
   tracks.map(({ songName, songDuration, songNumber, id }) => (
     <div className="popup__songs" key={id}>
-      <p className="popup__songs--songNumber">{songNumber}</p>
-      <p className="popup__songs--songName">{songName}</p>
-      <p className="popup__songs--songDuration">{`${
+      <p className="popup__songs-number">{songNumber}</p>
+      <p className="popup__songs-name">{songName}</p>
+      <p className="popup__songs-duration">{`${
         convertDuration(songDuration).min
       }:${convertDuration(songDuration).sec}`}</p>
     </div>

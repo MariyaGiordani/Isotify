@@ -51,6 +51,10 @@ function getArtistsWithAlbums(artists) {
     });
 }
 
+function getMultipleArtists(artistsIds) {
+  return Promise.all(artistsIds.map((artistId) => getArtist(artistId)));
+}
+
 function getTopArtistsWithAlbums() {
   return getTopArtists().then((artists) => {
     return Promise.all(
@@ -68,6 +72,7 @@ export {
   getTopArtists,
   getTopArtistsWithAlbums,
   getArtist,
-  getArtistsAlbums,
-  getArtistsWithAlbums
+  getArtistsWithAlbums,
+  getMultipleArtists,
+  getArtistsAlbums
 };

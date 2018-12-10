@@ -20,19 +20,28 @@ class Carousel extends Component {
     items: []
   };
 
-  componentDidMount() {
-    this.initializingBar();
-  }
-
-  initializingBar = () => {
-    const interval = setInterval(() => {
-      if (this.state.progress >= MAX_PROGRESS) {
-        return clearInterval(interval);
+  componentDidMount = () => {
+    this.updateCarouselProgress = () => {
+      const { progress } = this.state;
+      if (progress >= MAX_PROGRESS) {
+        return clearInterval(progress);
       } else {
         this.setState({
-          progress: this.state.progress + PERCENTAGE_LOAD
+          progress: progress + PERCENTAGE_LOAD
         });
       }
+    };
+
+    this.initializingBar();
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.carouselInterval);
+  };
+
+  initializingBar = () => {
+    this.carouselInterval = setInterval(() => {
+      this.updateCarouselProgress();
     }, TIMEOUT);
   };
 
@@ -47,7 +56,6 @@ class Carousel extends Component {
     pauseOnHover: true,
     afterChange: () => {
       this.setState({ progress: 0 });
-      this.initializingBar();
     },
     responsive: [
       {
