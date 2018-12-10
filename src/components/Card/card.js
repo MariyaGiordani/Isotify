@@ -43,7 +43,11 @@ const Card = ({
   popup,
   hasHover
 }) => {
-  const cardImage = <img src={imgSrc} alt={title} className="card__cover" />;
+  const cardImage = !!imgSrc ? (
+    <img src={imgSrc} alt={title} className="card__cover" />
+  ) : (
+    <div className="card__cover card__cover--no-picture" />
+  );
   const optionDots = (
     <img className="card__options" src={grayDots} alt="Teste" />
   );

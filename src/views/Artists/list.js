@@ -5,7 +5,7 @@ import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import { getTopArtistsWithAlbums } from '../../services/artists';
-import { topArtistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
+import { artistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
 import './Artists.css';
 

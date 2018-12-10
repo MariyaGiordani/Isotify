@@ -1,0 +1,9 @@
+.quarter-grid {
+  width: 46%;
+}
+
+@media only screen and (max-width: 500px) {
+  .quarter-grid {
+    width: 100%;
+  }
+}

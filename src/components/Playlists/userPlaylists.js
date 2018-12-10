@@ -8,14 +8,14 @@ import { userInfo as parseUserInfo } from '../../utils/spotifyResponseParsers';
 import HeaderLine from '../headerLine/headerLine';
 
 const createPlaylist = ({
-  idPlaylist,
+  id,
   lengthTracks,
   namePlaylist,
   nameUser,
   playlistLength,
   profilePicture
 }) => (
-  <div key={idPlaylist}>
+  <div key={id}>
     <div className="user-playlists">
       <h2 className="user-playlists__name">{namePlaylist}</h2>
       <p className="user-playlists__tracks">{lengthTracks} Tracks</p>
