@@ -7,19 +7,25 @@ import ButtonPlaylist from '../ButtonPlaylist/buttonPlaylist';
 
 import RelatedArtists from '../../components/RelatedArtists/relatedArtists';
 
-const BannerArtist = (props) => {
+const BannerArtist = ({
+  name,
+  imgSrc,
+  songsAmount,
+  albumsAmount,
+  relatedArtists
+}) => {
   return (
     <div className="banner-artist">
-      <img className="banner-artist__image" alt={props.name} src={props.imgSrc} />
+      <img className="banner-artist__image" alt={name} src={imgSrc} />
       <div className="banner-artist__container">
-        <h1 className="banner-artist__title">{props.name}</h1>
+        <h1 className="banner-artist__title">{name}</h1>
         <p className="banner-artist__information">
-          {props.albumsAmount} Albums, {props.songsAmount} Songs
+          {albumsAmount} Albums, {songsAmount} Songs
         </p>
         <div className="banner-artist__buttons-wrapper">
           <ButtonFollow />
           <ButtonPlaylist />
-          <RelatedArtists artists={props.relatedArtists || []} />
+          <RelatedArtists artists={relatedArtists || []} />
         </div>
       </div>
     </div>

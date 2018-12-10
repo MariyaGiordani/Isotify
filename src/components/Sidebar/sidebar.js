@@ -54,14 +54,13 @@ class SideBar extends Component {
   }
 
   render() {
+    const { isCollapsed } = this.state;
     return (
       <Fragment>
         <Hamburger hamburgerClick={this.changeIsCollapsed} />
         <div
           className={
-            this.state.isCollapsed
-              ? 'sidebar sidebar--collapsed'
-              : 'sidebar sidebar--show'
+            isCollapsed ? 'sidebar sidebar--collapsed' : 'sidebar sidebar--show'
           }
         >
           {this._renderIcons()}
@@ -69,7 +68,7 @@ class SideBar extends Component {
         <div
           onClick={this.changeIsCollapsed}
           className={
-            this.state.isCollapsed
+            isCollapsed
               ? 'sidebar__screen sidebar__screen--collapsed'
               : 'sidebar__screen'
           }

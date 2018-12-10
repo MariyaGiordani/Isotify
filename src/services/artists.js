@@ -39,6 +39,12 @@ function getArtistsAlbums(artists) {
   );
 }
 
+function getArtistsWithAlbums(artists) {
+  return spotifyInstance
+    .get(`artists?ids=${artists}`, createHeader())
+    .then((artistsResponse) => getArtistsAlbums(artistsResponse.data.items));
+}
+
 function getTopArtistsWithAlbums() {
   return getTopArtists().then((artists) => {
     return Promise.all(
@@ -52,4 +58,10 @@ function getTopArtistsWithAlbums() {
   });
 }
 
-export { getTopArtists, getTopArtistsWithAlbums, getArtist, getArtistsAlbums };
+export {
+  getTopArtists,
+  getTopArtistsWithAlbums,
+  getArtist,
+  getArtistsAlbums,
+  getArtistsWithAlbums
+};

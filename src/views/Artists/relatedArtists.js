@@ -4,8 +4,8 @@ import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import { getTopArtistsWithAlbums } from '../../services/artists';
-import { artistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
+import { getArtistsWithAlbums } from '../../services/artists';
+import { artistsWithAlbums as parseArtists } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
 import './Artists.css';
 
@@ -17,62 +17,36 @@ export default class RelatedArtistsView extends Component {
     songsAmount: 0
   };
 
-  fetchArtistData(artistId) {
-    getArtist(artistId)
-      .then((response) => {
-        const artist = parseArtist(response);
-        this.setState({
-          name: artist.name,
-          albums: artist.albums,
-          songsAmount: artist.totalTracks,
-          relatedArtists: artist.relatedArtists,
-          albumsAmount: artist.albums.length,
-          imgSrc: artist.imgSrc
-        });
-      })
-      .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
-      });
+  fetchArtistData(artists) {
+    console.log(123, artists);
+    // getArtistsWithAlbums(artists)
+    //   .then((response) => {
+    //     const artists = parseArtists(response);
+    //     this.setState({
+    //       artists
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     window.alert('Sorry, we cannot complete your request right now.');
+    //     console.log(error);
+    //     serverError(error);
+    //   });
   }
 
-  getCurrentArtistId = () => this.props.match.params.artistId;
+  getCurrentArtistId = () => this.props.match.params.artistsId;
 
   componentDidUpdate = (prevProps) => {
-    const artistId = this.getCurrentArtistId();
-    if (prevProps.match.params.artistId !== artistId) {
-      this.fetchArtistData(artistId);
+    const artistsId = this.getCurrentArtistId();
+    if (prevProps.match.params.artistId !== artistsId) {
+      this.fetchArtistData(artistsId);
     }
   };
 
   componentDidMount = () => {
-    const artistId = this.getCurrentArtistId();
-    this.fetchArtistData(artistId);
+    const artistsId = this.getCurrentArtistId();
+    console.log(artistsId);
+    this.fetchArtistData(artistsId);
   };
-
-  componentDidMount() {
-    getTopArtistsWithAlbums()
-      .then((artists) => {
-        const parsedArtists = parseTopArtists(artists).filter(
-          (artist) => artist.albums.length > 0
-        );
-
-        const totalTracks = parsedArtists.reduce(
-          (total, currentArtist) => total + currentArtist.totalTracks,
-          0
-        );
-
-        this.setState({
-          songsAmount: totalTracks,
-          artists: parsedArtists,
-          artistsAmount: parsedArtists.length
-        });
-      })
-      .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
-      });
-  }
 
   changeViewMode = (isListSelected) => this.setState({ isListSelected });
 
