@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import playlisticon from '../../assets/img/playlisticon.png';
 import prev from '../../assets/img/prev.png';
@@ -26,7 +26,7 @@ const button = (
   </button>
 );
 
-export class MusicPlayerProvider extends React.Component {
+export class MusicPlayerProvider extends Component {
   state = {
     player: {},
     deviceId: '',
