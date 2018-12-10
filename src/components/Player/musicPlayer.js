@@ -146,31 +146,31 @@ export class MusicPlayerProvider extends Component {
         albumName,
         artistName,
         playing,
-        volume,
-        mute: false
+        volume: 1,
+        isMute: false
       });
     }
   };
 
-  setVolumeTrack = () => {
+  muteVolume = () => {
     const { volume } = this.state;
     this.player.getVolume().then((playerVolume) => {
-      const { mute } = this.state;
-      let newVolume;
-      if (mute) {
-        newVolume = volume;
-        this.setState({ mute: false });
-      } else {
-        newVolume = 0;
-        this.setState({ volume: playerVolume, mute: true });
-      }
+      const { isMute } = this.state;
+      const newIsMute = !isMute;
+
+      const newVolume = newIsMute ? 0 : volume;
+
+      newIsMute
+        ? this.setState({ volume: playerVolume, isMute: true })
+        : this.setState({ isMute: false });
+
       this.player.setVolume(newVolume).then(() => {
-        this.setState({ mute: !mute });
+        this.setState({ isMute: newIsMute });
       });
     });
   };
 
-  onVolumeClick = () => this.player.setVolumeTrack();
+  onVolumeClick = () => this.player.muteVolume();
 
   render = () => {
     const {
@@ -227,7 +227,7 @@ export class MusicPlayerProvider extends Component {
                 </div>
               </button>
             </div>
-            <button className="player__volume" onClick={this.setVolumeTrack}>
+            <button className="player__volume" onClick={this.muteVolume}>
               <div className="player__volume-container">
                 <img
                   className="volume-container__image"
