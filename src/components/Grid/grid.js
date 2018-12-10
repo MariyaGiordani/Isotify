@@ -17,7 +17,7 @@ const getComponents = (items = [], size, type) =>
           }}
         />
       ))
-    : items.map((track) => <Track {...track} size={size} />);
+    : items.map((track) => <Track {...track} size={size} key={track.id} />);
 
 const Grid = ({ items, size, type }) => (
   <div className="grid__centering">

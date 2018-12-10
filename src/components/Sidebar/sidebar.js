@@ -23,28 +23,32 @@ class SideBar extends Component {
     this.setState({ selectedLink });
   }
 
-  changeIsCollapsed = () =>
-    this.setState({ isCollapsed: !this.state.isCollapsed });
+  changeIsCollapsed = () => {
+    const { isCollapsed } = this.state;
+    this.setState({ isCollapsed: !isCollapsed });
+  };
 
   _renderIcons() {
     const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
     const { selectedLink } = this.state;
 
-    return LINKS.map(({ to, src, name, spacer, alt }, index) => {
+    return LINKS.map(({ to, src, name, spacer, alt, active }, index) => {
       const matchCase = new RegExp(`^${to}`);
       return (
-        <SidebarIcon
-          {...{
-            key: index,
-            to,
-            src,
-            onLinkClicked,
-            name,
-            spacer,
-            alt,
-            isSelected: !!selectedLink.match(matchCase)
-          }}
-        />
+        active && (
+          <SidebarIcon
+            {...{
+              key: index,
+              to,
+              src,
+              onLinkClicked,
+              name,
+              spacer,
+              alt,
+              isSelected: !!selectedLink.match(matchCase)
+            }}
+          />
+        )
       );
     });
   }
