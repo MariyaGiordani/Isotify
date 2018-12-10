@@ -85,7 +85,7 @@ review:
     - branches
   except:
     - master
-    - develop
+    - dev
 
 stop_review:
   stage: cleanup
