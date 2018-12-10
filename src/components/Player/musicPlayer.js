@@ -39,6 +39,7 @@ export class MusicPlayerProvider extends Component {
     playing: false,
     position: 0,
     duration: 0,
+    isMute: false,
     onPrevClick: () => {},
     onPlayClick: () => {},
     onNextClick: () => {},
@@ -112,7 +113,7 @@ export class MusicPlayerProvider extends Component {
 
   checkForPlayer = () => {
     const { accessToken } = this.props;
-    if (window.Spotify !== null && accessToken) {
+    if (!!window.Spotify && accessToken) {
       this.setState({ loggedIn: true });
       clearInterval(this.playerCheckInterval);
 
@@ -153,24 +154,17 @@ export class MusicPlayerProvider extends Component {
   };
 
   muteVolume = () => {
-    const { volume } = this.state;
-    this.player.getVolume().then((playerVolume) => {
-      const { isMute } = this.state;
-      const newIsMute = !isMute;
-
-      const newVolume = newIsMute ? 0 : volume;
-
-      newIsMute
-        ? this.setState({ volume: playerVolume, isMute: true })
-        : this.setState({ isMute: false });
-
-      this.player.setVolume(newVolume).then(() => {
-        this.setState({ isMute: newIsMute });
-      });
+    const { isMute } = this.state;
+    this.setState({ isMute: !isMute }, () => {
+      this.changeVolume();
     });
   };
 
-  onVolumeClick = () => this.player.muteVolume();
+  changeVolume = () => {
+    const { isMute, volume } = this.state;
+    const newVolume = isMute ? 0 : volume;
+    this.player.setVolume(newVolume);
+  };
 
   render = () => {
     const {
