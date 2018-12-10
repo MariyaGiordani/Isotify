@@ -12,7 +12,7 @@ import Discover from './views/Discover';
 import Settings from './views/Settings/list';
 import NotFound from './views/NotFound';
 import Login from './views/Login';
-
+import SearchResults from './views/SearchResults';
 import { isUserLogged } from './utils/isUserLogged';
 import { showMenus } from './utils/showMenus';
 import { MusicPlayerProvider } from './components/Player/musicPlayer';
@@ -37,6 +37,7 @@ const routes = () => (
       <Route path="/genres" component={Genres} />
       <Route path="/discover" component={Discover} />
       <Route path="/settings" component={Settings} />
+      <Route path="/search/:query" component={SearchResults} />
       <Redirect exact from="/" to="login" />
       <Route component={NotFound} />
     </Switch>

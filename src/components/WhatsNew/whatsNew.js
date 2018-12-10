@@ -1,21 +1,25 @@
 import React from 'react';
-import './whatsNew.css';
-import ButtonSeeAll from '../ButtonSeeAll/buttonSeeAll';
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
-import HeaderLine from '../headerLine/headerLine';
 
-const title = "What's new";
-const subtitle = "SEE WHAT'S POPPING THIS WEEK";
-const WhatsNew = (props) => {
+import rightArrowImg from '../../assets/img/rightArrow.png';
+import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+
+import HeaderLine from '../headerLine/headerLine';
+import ButtonSeeAll from '../ButtonSeeAll/buttonSeeAll';
+
+import './whatsNew.css';
+
+const title = 'What\'s new';
+const subtitle = 'SEE WHAT\'S POPPING THIS WEEK';
+const WhatsNew = ({ albums }) => {
   return (
     <div className="whats-new">
       <div className="whats-new__divider" />
       <div className="whats-new__header">
         <HeaderLine title={title} subtitle={subtitle}>
-          <ButtonSeeAll />
+          <ButtonSeeAll imgSrc={rightArrowImg} type="whats-new" />
         </HeaderLine>
       </div>
-      <AlbumsGrid albums={props.albums} size="quarter" gridSize="quarter" />
+      <AlbumsGrid albums={albums} size="quarter" gridSize="quarter" />
     </div>
   );
 };

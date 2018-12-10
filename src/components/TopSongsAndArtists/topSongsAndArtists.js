@@ -24,7 +24,7 @@ const topSongs = (songs) => (
     <h2 className="top-songs-and-artists__header">Top Songs</h2>
     {songs.map((song) => (
       <TopItem
-        key={song.songId}
+        key={song.id}
         icon={songIcon}
         title={song.songName}
         subtitle={song.artist.name}
