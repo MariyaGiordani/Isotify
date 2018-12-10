@@ -18,6 +18,7 @@ export default class RelatedArtistsView extends Component {
   };
 
   fetchArtistData(artists) {
+    console.log(artists);
     getArtistsWithAlbums(artists)
       .then((response) => {
         console.log(response);
@@ -27,12 +28,13 @@ export default class RelatedArtistsView extends Component {
         });
       })
       .catch((error) => {
+        console.log(error);
         window.alert('Sorry, we cannot complete your request right now.');
         serverError(error);
       });
   }
 
-  getCurrentArtistId = () => this.props.match.params.artistsId;
+  getCurrentArtistId = () => this.props.match.params.artistsIds;
 
   componentDidUpdate = (prevProps) => {
     const artistsId = this.getCurrentArtistId();
@@ -54,7 +56,6 @@ export default class RelatedArtistsView extends Component {
 
     return (
       <PageContainer>
-        aaaaaaaaaaaaaaaaaaaaaa
         <HeaderLine
           {...{
             title: 'Artists',
