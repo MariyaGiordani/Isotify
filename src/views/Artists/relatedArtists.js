@@ -18,7 +18,7 @@ export default class RelatedArtistsView extends Component {
   };
 
   fetchArtistData(artists) {
-    console.log(artists);
+    console.log(12312312312312312, artists);
     getArtistsWithAlbums(artists)
       .then((response) => {
         console.log(response);
@@ -39,12 +39,16 @@ export default class RelatedArtistsView extends Component {
   componentDidUpdate = (prevProps) => {
     const artistsId = this.getCurrentArtistId();
     if (prevProps.match.params.artistId !== artistsId) {
-      this.fetchArtistData(artistsId);
+      console.log('didupdate aimeupai');
+
+      //this.fetchArtistData(artistsId);
     }
   };
 
   componentDidMount = () => {
     const artistsId = this.getCurrentArtistId();
+    console.log('didMount aimeupai');
+
     this.fetchArtistData(artistsId);
   };
 
