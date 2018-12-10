@@ -18,7 +18,7 @@ const getComponents = (items = [], size) =>
   ));
 
 const Grid = ({ items, size }) => (
-  <div className="grid__centering">
+  <div className="grid--centering">
     <div className="grid">{getComponents(items, size)}</div>
   </div>
 );

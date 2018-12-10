@@ -1,4 +1,4 @@
-.grid__centering {
+.grid--centering {
   display: flex;
   justify-content: center;
 }
