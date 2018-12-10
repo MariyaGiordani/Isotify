@@ -25,12 +25,13 @@ class Carousel extends Component {
   }
 
   initializingBar = () => {
+    const { progress } = this.state;
     const interval = setInterval(() => {
-      if (this.state.progress >= MAX_PROGRESS) {
+      if (progress >= MAX_PROGRESS) {
         return clearInterval(interval);
       } else {
         this.setState({
-          progress: this.state.progress + PERCENTAGE_LOAD
+          progress: progress + PERCENTAGE_LOAD
         });
       }
     }, TIMEOUT);

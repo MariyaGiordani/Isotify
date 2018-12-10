@@ -9,18 +9,22 @@ function getPlaylists() {
 function getPlaylist(playlistId) {
   return spotifyInstance
     .get(`playlists/${playlistId}`, createHeader())
-    .then((response) => response);
+    .then((response) => response.data);
 }
 
 function getFollowers(playlists) {
   return Promise.all(
-    playlists.map((playlist) =>
-      getPlaylist(playlist.id).then(({ data: { followers } }) => ({
+    playlists.map((playlist) => {
+      return getPlaylist(playlist.id).then(({ followers }) => ({
         ...playlist,
         followers
-      }))
-    )
+      }));
+    })
   );
 }
 
-export { getPlaylists, getPlaylist, getFollowers };
+function getGlobalTopTracks() {
+  return getPlaylist('37i9dQZEVXbMDoHDwVN2tF');
+}
+
+export { getPlaylists, getPlaylist, getGlobalTopTracks, getFollowers };
