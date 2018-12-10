@@ -4,7 +4,6 @@
 }
 
 .grid--centering {
-  display: flex;
   flex-wrap: wrap;
   margin-bottom: 100px;
 }

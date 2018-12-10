@@ -87,7 +87,7 @@
   margin-left: 20px;
 }
 
-.popup__songs-songName {
+.popup__songs-name {
   max-width: 240px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -129,16 +129,16 @@
   font-weight: 600;
 }
 
-.popup__songs-songNumber,
-.popup__songs-songDuration {
+.popup__songs-number,
+.popup__songs-duration {
   color: var(--gray);
 }
 
-.popup__songs-songDuration {
+.popup__songs-duration {
   margin-left: auto;
 }
 
-.popup__songs-songNumber {
+.popup__songs-number {
   width: 20px;
 }
 
