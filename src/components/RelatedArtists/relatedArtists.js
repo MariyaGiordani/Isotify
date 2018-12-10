@@ -27,7 +27,7 @@ const RelatedArtists = ({ artists }) => {
       <div className="related-artists__wrap">
         {listIcons()}
         {artists.length >= 4 && (
-          <Link to={`/artists/related/${artistsIds.slice(0, 1)}`}>
+          <Link to={`/artists/related/${artistsIds}`}>
             <RelatedArtistsMore />
           </Link>
         )}

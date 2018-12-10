@@ -18,17 +18,22 @@ export default class RelatedArtistsView extends Component {
   };
 
   fetchArtistData(artists) {
-    console.log(12312312312312312, artists);
     getArtistsWithAlbums(artists)
       .then((response) => {
-        console.log(response);
         const artists = parseArtists(response);
+
+        const songsAmount = artists.reduce(
+          (total, currentArtist) => total + currentArtist.totalTracks,
+          0
+        );
+
         this.setState({
-          artists
+          artists,
+          songsAmount,
+          artistsAmount: artists.length
         });
       })
       .catch((error) => {
-        console.log(error);
         window.alert('Sorry, we cannot complete your request right now.');
         serverError(error);
       });
@@ -47,7 +52,6 @@ export default class RelatedArtistsView extends Component {
 
   componentDidMount = () => {
     const artistsId = this.getCurrentArtistId();
-    console.log('didMount aimeupai');
 
     this.fetchArtistData(artistsId);
   };
@@ -72,11 +76,11 @@ export default class RelatedArtistsView extends Component {
             inputFunction={this.changeViewMode}
           />
         </HeaderLine>
-        {/* {isListSelected ? (
+        {isListSelected ? (
           <ArtistsList artists={artists} />
         ) : (
           <ArtistsGrid artists={artists} size={'big'} />
-        )} */}
+        )}
       </PageContainer>
     );
   };
