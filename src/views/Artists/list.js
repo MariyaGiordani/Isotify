@@ -7,6 +7,7 @@ import PageContainer from '../../components/PageContainer/pageContainer';
 import { getTopArtistsWithAlbums } from '../../services/artists';
 import { artistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
+import { errorHandler } from '../../components/Error/errorHandler';
 import './Artists.css';
 
 export default class ArtistsListView extends Component {
@@ -18,27 +19,30 @@ export default class ArtistsListView extends Component {
   };
 
   componentDidMount() {
-    getTopArtistsWithAlbums()
-      .then((artists) => {
-        const parsedArtists = parseTopArtists(artists).filter(
-          (artist) => artist.albums.length > 0
-        );
+    getTopArtistsWithAlbums().then((artists) => {
+      const parsedArtists = parseTopArtists(artists).filter(
+        (artist) => artist.albums.length > 0
+      );
 
-        const totalTracks = parsedArtists.reduce(
-          (total, currentArtist) => total + currentArtist.totalTracks,
-          0
-        );
+      const totalTracks = parsedArtists.reduce(
+        (total, currentArtist) => total + currentArtist.totalTracks,
+        0
+      );
 
-        this.setState({
-          songsAmount: totalTracks,
-          artists: parsedArtists,
-          artistsAmount: parsedArtists.length
-        });
-      })
-      .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
+      this.setState({
+        songsAmount: totalTracks,
+        artists: parsedArtists,
+        artistsAmount: parsedArtists.length
       });
+    });
+    // .catch((error) => {
+    //   window.alert('Sorry, we cannot complete your request right now.');
+    //   serverError(error);
+    // });
+  }
+  componentDidCatch(error) {
+    errorHandler(true);
+    serverError(error);
   }
 
   changeViewMode = (isListSelected) => this.setState({ isListSelected });

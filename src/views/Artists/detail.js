@@ -6,6 +6,7 @@ import PageContainer from '../../components/PageContainer/pageContainer';
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
+import { errorHandler } from '../../components/Error/errorHandler';
 
 export default class Details extends Component {
   state = {
@@ -18,22 +19,25 @@ export default class Details extends Component {
   };
 
   fetchArtistData(artistId) {
-    getArtist(artistId)
-      .then((response) => {
-        const artist = parseArtist(response);
-        this.setState({
-          name: artist.name,
-          albums: artist.albums,
-          songsAmount: artist.totalTracks,
-          relatedArtists: artist.relatedArtists,
-          albumsAmount: artist.albums.length,
-          imgSrc: artist.imgSrc
-        });
-      })
-      .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
+    getArtist(artistId).then((response) => {
+      const artist = parseArtist(response);
+      this.setState({
+        name: artist.name,
+        albums: artist.albums,
+        songsAmount: artist.totalTracks,
+        relatedArtists: artist.relatedArtists,
+        albumsAmount: artist.albums.length,
+        imgSrc: artist.imgSrc
       });
+    });
+    // .catch((error) => {
+    //   window.alert('Sorry, we cannot complete your request right now.');
+    //   serverError(error);
+    // });
+  }
+  componentDidCatch(error) {
+    errorHandler(true);
+    serverError(error);
   }
 
   getCurrentArtistId = () => this.props.match.params.artistId;
