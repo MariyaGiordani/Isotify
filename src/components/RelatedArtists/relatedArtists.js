@@ -12,10 +12,14 @@ const RelatedArtists = ({ artists }) => {
     return artists
       .slice(0, 4)
       .map((artist) => (
-        <RelatedArtistsIcon key={artist.id} src={artist.imgSrc} id={artist.id} artistName={artist.name} />
+        <RelatedArtistsIcon
+          key={artist.id}
+          src={artist.imgSrc}
+          id={artist.id}
+          artistName={artist.name}
+        />
       ));
   };
-
   return (
     <div className="related-artists">
       <div className="related-artists__line" />
