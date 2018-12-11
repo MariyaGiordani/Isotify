@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import SidebarIcon from '../SidebarIcon/sidebarIcon';
 import Hamburger from '../../components/Hamburger/hamburger';
+import getClassName from '../../utils/getClassName';
 
 import './sidebar.css';
 import { LINKS } from './constants';
@@ -55,23 +56,20 @@ class SideBar extends Component {
 
   render() {
     const { isCollapsed } = this.state;
+    const sidebarCollapsed = getClassName('sidebar', 'collapsed');
+    const sidebarShow = getClassName('sidebar', 'show');
+    const sidebarScreenCollapsed = getClassName('sidebar__screen', 'collapsed');
     return (
       <Fragment>
         <Hamburger hamburgerClick={this.changeIsCollapsed} />
         <div
-          className={
-            isCollapsed ? 'sidebar sidebar--collapsed' : 'sidebar sidebar--show'
-          }
+          className={`sidebar ${isCollapsed ? sidebarCollapsed : sidebarShow}`}
         >
           {this._renderIcons()}
         </div>
         <div
           onClick={this.changeIsCollapsed}
-          className={
-            isCollapsed
-              ? 'sidebar__screen sidebar__screen--collapsed'
-              : 'sidebar__screen'
-          }
+          className={`sidebar__screen ${isCollapsed && sidebarScreenCollapsed}`}
         />
       </Fragment>
     );
