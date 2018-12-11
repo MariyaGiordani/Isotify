@@ -82,6 +82,9 @@ const albumsList = (rawAlbums) =>
 const savedAlbums = (rawAlbums) =>
   rawAlbums.map((albumInfo) => parseAlbumInfo(albumInfo.album));
 
+const savedTracks = (rawTracks) =>
+  rawTracks.map((trackInfo) => completeTrack(trackInfo.track));
+
 const parseAlbumInfo = ({
   name,
   artists,
@@ -140,6 +143,7 @@ const artistsWithAlbums = (artists) =>
 export {
   albumsList,
   savedAlbums,
+  savedTracks,
   parseAlbumInfo,
   artistsWithAlbums,
   userInfo,
