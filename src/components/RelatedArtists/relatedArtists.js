@@ -11,13 +11,8 @@ const RelatedArtists = ({ artists }) => {
   const listIcons = () => {
     return artists
       .slice(0, 4)
-      .map((artist) => (
-        <RelatedArtistsIcon
-          key={artist.id}
-          src={artist.imgSrc}
-          id={artist.id}
-          artistName={artist.name}
-        />
+      .map(({ id, imgSrc, name }) => (
+        <RelatedArtistsIcon key={id} src={imgSrc} id={id} artistName={name} />
       ));
   };
   return (
