@@ -41,15 +41,6 @@ export default class RelatedArtistsView extends Component {
 
   getCurrentArtistId = () => this.props.match.params.artistsIds;
 
-  componentDidUpdate = (prevProps) => {
-    const artistsId = this.getCurrentArtistId();
-    if (prevProps.match.params.artistId !== artistsId) {
-      console.log('didupdate aimeupai');
-
-      //this.fetchArtistData(artistsId);
-    }
-  };
-
   componentDidMount = () => {
     const artistsId = this.getCurrentArtistId();
 
