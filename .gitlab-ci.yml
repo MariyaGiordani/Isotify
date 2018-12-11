@@ -57,7 +57,7 @@ staging:
     url: http://$PROJECT_SUBDOMAIN-staging.$KUBE_DOMAIN
   only:
     - autodevops
-    - develop
+    - dev
 
 validation:
   stage: validation
