@@ -41,7 +41,7 @@ export default class Songs extends Component {
         />
         <Grid size="big" type="tracks">
           {tracks.map((track) => {
-            return <Track {...track} key={track.id} size={'big'} />;
+            return <Track {...{ key: track.id, size: 'big', ...track }} />;
           })}
         </Grid>
       </PageContainer>
