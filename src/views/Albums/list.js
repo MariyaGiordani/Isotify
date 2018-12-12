@@ -6,7 +6,6 @@ import PageContainer from '../../components/PageContainer/pageContainer';
 import { getSavedAlbums } from '../../services/albums';
 import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../services/errors';
-import { errorHandler } from '../../components/Error/errorHandler';
 import './albums.css';
 
 export default class Albums extends Component {
@@ -17,23 +16,19 @@ export default class Albums extends Component {
   };
 
   componentDidMount() {
-    getSavedAlbums().then((rawAlbums) => {
-      const albums = parseSavedAlbums(rawAlbums);
-      const albumsAmount = albums.length;
-      const songsAmount = albums.reduce(
-        (total, currentAlbum) => total + currentAlbum.songsAmount,
-        0
-      );
-      this.setState({ albums, albumsAmount, songsAmount });
-    });
-    // .catch((error) => {
-    //   window.alert('Sorry, we cannot complete your request right now.');
-    //   serverError(error);
-    // });
-  }
-  componentDidCatch(error) {
-    errorHandler(true);
-    serverError(error);
+    getSavedAlbums()
+      .then((rawAlbums) => {
+        const albums = parseSavedAlbums(rawAlbums);
+        const albumsAmount = albums.length;
+        const songsAmount = albums.reduce(
+          (total, currentAlbum) => total + currentAlbum.songsAmount,
+          0
+        );
+        this.setState({ albums, albumsAmount, songsAmount });
+      })
+      .catch((error) => {
+        serverError(error);
+      });
   }
 
   render = () => {
