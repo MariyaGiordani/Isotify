@@ -17,8 +17,7 @@ export function getMultipleArtistsTopTracks(artistsIds) {
 }
 
 export function getSavedTracks() {
-  return spotifyInstance.get('me/tracks', createHeader()).then((response) => {
-    const { total, items } = response.data;
-    return { total, items };
-  });
+  return spotifyInstance
+    .get('me/tracks', createHeader())
+    .then(({ data: { total, items } }) => ({ total, items }));
 }
