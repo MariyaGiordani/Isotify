@@ -62,15 +62,17 @@ export default class RelatedArtistsView extends Component {
           }}
         >
           <SwitchButton
-            firstOption="Grid"
-            secondOption="List"
-            inputFunction={this.changeViewMode}
+            {...{
+              firstOption: 'Grid',
+              secondOption: 'List',
+              inputFunction: this.changeViewMode
+            }}
           />
         </HeaderLine>
         {isListSelected ? (
-          <ArtistsList artists={artists} />
+          <ArtistsList {...{ artists }} />
         ) : (
-          <ArtistsGrid artists={artists} size={'big'} />
+          <ArtistsGrid {...{ size: 'big', ...{ artists } }} size={'big'} />
         )}
       </PageContainer>
     );
