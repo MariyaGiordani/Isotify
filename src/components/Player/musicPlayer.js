@@ -8,11 +8,16 @@ import next from '../../assets/img/next.png';
 import volume from '../../assets/img/speaker.png';
 import { createPopUp } from '../../utils/popUp';
 
+import LoadingBar from '../LoadingBar/loadingBar';
+
 import transferPlaybackHere from '../../services/transferPlaybackHere';
 import { playMusic, playAlbum } from '../../services/playMusic';
 import './musicPlayer.css';
 
 export const PlayerContext = React.createContext();
+
+const MAX_PROGRESS = 100;
+const PERCENTAGE_LOAD = 0.5;
 
 const button = (
   <button className="container__button">
@@ -38,6 +43,7 @@ export class MusicPlayerProvider extends Component {
     popUp: {},
     playing: false,
     position: 0,
+    progress: 0,
     duration: 0,
     isMute: false,
     onPrevClick: () => {},
@@ -102,15 +108,26 @@ export class MusicPlayerProvider extends Component {
       this.setState({ playing: true });
     };
 
+    const updatePlayerProgress = () => {
+      const { progress } = this.state;
+      if (progress >= MAX_PROGRESS) {
+        this.setState({ progress: 0 });
+      } else {
+        this.setState({
+          progress: progress + PERCENTAGE_LOAD
+        });
+      }
+    };
+
     this.setState({
       onPrevClick,
       onPlayClick,
       onNextClick,
       onClickPlayAlbum,
-      onClickPlayTrack
+      onClickPlayTrack,
+      updatePlayerProgress
     });
   };
-
   checkForPlayer = () => {
     const { accessToken } = this.props;
     if (!!window.Spotify && accessToken) {
@@ -127,19 +144,28 @@ export class MusicPlayerProvider extends Component {
 
   onStateChanged = (state) => {
     if (state !== null) {
-      const {
-        current_track: currentTrack,
-        position,
-        duration
-      } = state.track_window;
-
+      console.log(state.position, state.duration);
+      const { current_track: currentTrack } = state.track_window;
+      const { position, duration } = state;
+      const { previousTrack } = this.state;
       const trackName = currentTrack.name;
       const albumName = currentTrack.album.name;
       const artistName = currentTrack.artists
         .map((artist) => artist.name)
         .join(', ');
 
+      const clearProgress = () =>
+        this.setState({ progress: 0, previousTrack: trackName });
+
+      trackName !== previousTrack && clearProgress();
       const playing = !state.paused;
+      const { lastPlaying } = this.state;
+      clearInterval(this.playerlInterval);
+
+      !(playing && lastPlaying)
+        ? clearInterval(this.playerlInterval)
+        : this.initializingBar(state.duration, state.position, playing);
+
       this.setState({
         position,
         duration,
@@ -147,10 +173,21 @@ export class MusicPlayerProvider extends Component {
         albumName,
         artistName,
         playing,
+        lastPlaying: playing,
         volume: 1,
         isMute: false
       });
     }
+  };
+
+  initializingBar = (duration, position, playing) => {
+    const TIMEOUT = (duration / MAX_PROGRESS) * PERCENTAGE_LOAD;
+    console.log(duration, position, playing);
+    this.asd = () => {
+      this.state.updatePlayerProgress(duration, position, playing);
+    };
+    this.playerlInterval = setInterval(this.asd, TIMEOUT);
+    console.log(this.playerlInterval);
   };
 
   muteVolume = () => {
@@ -175,7 +212,8 @@ export class MusicPlayerProvider extends Component {
       onNextClick,
       loggedIn,
       popUp,
-      playing
+      playing,
+      progress
     } = this.state;
     const { children } = this.props;
 
@@ -184,6 +222,7 @@ export class MusicPlayerProvider extends Component {
         {children}
         {loggedIn && (
           <div className="player">
+            <LoadingBar progress={progress} type="player" />
             <div className="player__container">
               {popUp ? createPopUp(button, popUp, 'top') : button}
               <div className="playlist-icon__music-info">
