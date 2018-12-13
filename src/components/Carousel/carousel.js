@@ -90,7 +90,7 @@ class Carousel extends Component {
             {slides}
           </Slider>
         </div>
-        <LoadingBar progress={progress} />
+        <LoadingBar progress={progress} type="carousel" />
         <div className="carousel__arrows">
           <button className="carousel__button" onClick={this.previous}>
             <img
