@@ -145,7 +145,6 @@ export class MusicPlayerProvider extends Component {
 
   onStateChanged = (state) => {
     if (state !== null) {
-      console.log(state.position, state.duration);
       const { current_track: currentTrack } = state.track_window;
       const { position, duration } = state;
       const { previousTrack } = this.state;
