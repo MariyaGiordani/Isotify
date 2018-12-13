@@ -108,14 +108,15 @@ export class MusicPlayerProvider extends Component {
       this.setState({ playing: true });
     };
 
-    const updatePlayerProgress = () => {
+    const updatePlayerProgress = (duration, position) => {
       const { progress } = this.state;
-      if (progress >= MAX_PROGRESS) {
-        this.setState({ progress: 0 });
-      } else {
-        this.setState({
-          progress: progress + PERCENTAGE_LOAD
-        });
+      const initial = (position / duration) * 100;
+
+      const newProgress =
+        initial > progress ? initial : progress + PERCENTAGE_LOAD;
+
+      if (newProgress < MAX_PROGRESS) {
+        this.setState({ progress: newProgress });
       }
     };
 
@@ -181,13 +182,12 @@ export class MusicPlayerProvider extends Component {
   };
 
   initializingBar = (duration, position, playing) => {
-    const TIMEOUT = (duration / MAX_PROGRESS) * PERCENTAGE_LOAD;
-    console.log(duration, position, playing);
+    const { updatePlayerProgress } = this.state;
+    const TIMEOUT = Math.floor(duration / (MAX_PROGRESS / PERCENTAGE_LOAD));
     this.asd = () => {
-      this.state.updatePlayerProgress(duration, position, playing);
+      updatePlayerProgress(duration, position, playing);
     };
     this.playerlInterval = setInterval(this.asd, TIMEOUT);
-    console.log(this.playerlInterval);
   };
 
   muteVolume = () => {
