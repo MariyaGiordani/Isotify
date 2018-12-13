@@ -125,6 +125,10 @@
   margin-left: 30px;
 }
 
+.tippy-popper {
+  margin-top: 150px !important;
+}
+
 @media (max-width: 650px) {
   .playlist-icon__music-info {
     display: none;
