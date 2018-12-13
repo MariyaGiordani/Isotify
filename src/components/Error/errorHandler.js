@@ -1,14 +1,28 @@
 import React from 'react';
-import wrong from '../../assets/img/wrong.gif';
-import { logOut } from '../../services/spotify';
+import PageContainer from '../PageContainer/pageContainer';
+import HeaderLine from '../headerLine/headerLine';
+import dinosaur from '../../assets/img/dinosaur.gif';
+
+import './errorHandler.css';
+
+const logOut = () => {
+  localStorage.clear();
+  window.location.reload();
+};
 
 export const ErrorHandler = () => {
   return (
-    <div>
-      <h1>Something went</h1>
-      <img src={wrong} alt="Wrong" />
-      <p />
-      <button onClick={logOut()}>Reload</button>
-    </div>
+    <PageContainer>
+      <HeaderLine
+        title={'Sorry, your session has expired.'}
+        subtitle={'Please refresh the page.'}
+      />
+      <div className="error-handler">
+        <img className="error-handler__image" src={dinosaur} alt="Wrong" />
+        <button className="error-handler__button" onClick={logOut}>
+          Refresh
+        </button>
+      </div>
+    </PageContainer>
   );
 };
