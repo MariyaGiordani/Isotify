@@ -1,14 +1,15 @@
 @font-face {
-    font-family: "Montserrat";
-    src: url("./assets/Montserrat-Regular.otf");
-    margin:0;
-    letter-spacing: 2px;
+  font-family: 'Montserrat';
+  src: url('./assets/Montserrat-Regular.otf');
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: 0;
 }
 
 a {
@@ -18,7 +19,7 @@ a {
 
 body {
   background-color: var(--white);
-  font-family: "Montserrat", sans-serif,Arial, Helvetica;
+  font-family: 'Montserrat', sans-serif, Arial, Helvetica;
 }
 
 .container {
@@ -40,7 +41,6 @@ body {
 
 @media only screen and (max-width: 500px) {
   .container {
-    margin-top: 50px; 
+    margin-top: 50px;
   }
 }
-
