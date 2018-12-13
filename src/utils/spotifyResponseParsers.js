@@ -1,6 +1,6 @@
 const userInfo = (rawUserInfo) => ({
   name: rawUserInfo.display_name,
-  profilePicture: rawUserInfo.images[0].url
+  profilePicture: rawUserInfo.images.length > 0 ? rawUserInfo.images[0].url : ''
 });
 
 export const playlists = (rawPlaylists) => {
