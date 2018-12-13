@@ -15,7 +15,7 @@ export const ErrorHandler = () => {
     <PageContainer>
       <HeaderLine
         title={'Sorry, your session has expired.'}
-        subtitle={'Please refresh the page.'}
+        subtitle={'Please press the button to refresh the page.'}
       />
       <div className="error-handler">
         <img className="error-handler__image" src={dinosaur} alt="Wrong" />

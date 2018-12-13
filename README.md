@@ -87,3 +87,15 @@ They should be all named with the main colors of the gradient.
 #### Modifiers
 
 Here the convention is for rgba and shadows (and some other specific properties that will be used only once), so everything that goes here should have as prefix the BEM of the css class calling the variable, and the property (shadow, for instance).
+
+#### Error Handler
+To add the error handler to a request on the API, use:
+```
+.catch((error) => {
+    serverError(error);
+});
+```
+To a new error create a new case in the error handler.
+
+
+
