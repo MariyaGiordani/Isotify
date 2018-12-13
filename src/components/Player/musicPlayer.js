@@ -183,10 +183,10 @@ export class MusicPlayerProvider extends Component {
   initializingBar = (duration, position, playing) => {
     const { updatePlayerProgress } = this.state;
     const TIMEOUT = Math.floor(duration / (MAX_PROGRESS / PERCENTAGE_LOAD));
-    this.asd = () => {
+    this.barCallBack = () => {
       updatePlayerProgress(duration, position, playing);
     };
-    this.playerlInterval = setInterval(this.asd, TIMEOUT);
+    this.playerlInterval = setInterval(this.barCallBack, TIMEOUT);
   };
 
   muteVolume = () => {
