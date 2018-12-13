@@ -15,9 +15,10 @@
 .sidebar__screen {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: calc(100% - 100px);
+  left: 100px;
   height: 200vh;
-  z-index: 2;
+  z-index: 3;
 }
 
 .sidebar__screen--collapsed {
@@ -51,7 +52,7 @@
   font-size: 30px;
   border-bottom: 1px var(--white-lightest) solid;
   width: 80%;
-  padding: 25px
+  padding: 25px;
 }
 
 @media (min-width: 600px) {

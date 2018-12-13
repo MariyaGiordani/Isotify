@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import SidebarIcon from '../SidebarIcon/sidebarIcon';
 import Hamburger from '../../components/Hamburger/hamburger';
+import getClassName from '../../utils/getClassName';
 
 import './sidebar.css';
 import { LINKS } from './constants';
@@ -23,52 +24,52 @@ class SideBar extends Component {
     this.setState({ selectedLink });
   }
 
-  changeIsCollapsed = () =>
-    this.setState({ isCollapsed: !this.state.isCollapsed });
+  changeIsCollapsed = () => {
+    const { isCollapsed } = this.state;
+    this.setState({ isCollapsed: !isCollapsed });
+  };
 
   _renderIcons() {
     const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
     const { selectedLink } = this.state;
 
-    return LINKS.map(({ to, src, name, spacer, alt }, index) => {
+    return LINKS.map(({ to, src, name, spacer, alt, active }, index) => {
       const matchCase = new RegExp(`^${to}`);
       return (
-        <SidebarIcon
-          {...{
-            key: index,
-            to,
-            src,
-            onLinkClicked,
-            name,
-            spacer,
-            alt,
-            isSelected: !!selectedLink.match(matchCase)
-          }}
-        />
+        active && (
+          <SidebarIcon
+            {...{
+              key: index,
+              to,
+              src,
+              onLinkClicked,
+              name,
+              spacer,
+              alt,
+              isSelected: !!selectedLink.match(matchCase)
+            }}
+          />
+        )
       );
     });
   }
 
   render() {
+    const { isCollapsed } = this.state;
+    const sidebarCollapsed = getClassName('sidebar', 'collapsed');
+    const sidebarShow = getClassName('sidebar', 'show');
+    const sidebarScreenCollapsed = getClassName('sidebar__screen', 'collapsed');
     return (
       <Fragment>
         <Hamburger hamburgerClick={this.changeIsCollapsed} />
         <div
-          className={
-            this.state.isCollapsed
-              ? 'sidebar sidebar--collapsed'
-              : 'sidebar sidebar--show'
-          }
+          className={`sidebar ${isCollapsed ? sidebarCollapsed : sidebarShow}`}
         >
           {this._renderIcons()}
         </div>
         <div
           onClick={this.changeIsCollapsed}
-          className={
-            this.state.isCollapsed
-              ? 'sidebar__screen sidebar__screen--collapsed'
-              : 'sidebar__screen'
-          }
+          className={`sidebar__screen ${isCollapsed && sidebarScreenCollapsed}`}
         />
       </Fragment>
     );
