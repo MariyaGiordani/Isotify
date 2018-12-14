@@ -1,10 +1,10 @@
 .sidebar {
-  margin-top: 100px;
+  margin-top: var(--header-height);
   padding-top: 40px;
   padding-bottom: 30px;
-  margin-bottom: 100px;
+  margin-bottom: var(--music-player-height);
   width: 100px;
-  height: calc(100% - 190px);
+  height: calc(100% - calc(var(--music-player-height) + var(--header-height)));
   overflow-y: scroll;
   overflow-x: hidden;
   z-index: 2;
@@ -63,15 +63,15 @@
   }
 
   .sidebar {
-    margin-top: 80px;
-    height: calc(100% - 180px);
+    margin-top: var(--header-height-medium);
+    height: calc(100% - calc(var(--music-player-height) + var(--header-height-medium)));
   }
 }
 
-@media (max-width: 595px) {
+@media (max-width: 600px) {
   .sidebar {
-    margin-top: 80px;
-    height: calc(100% - 170px);
+    margin-top: var(--header-height-small);
+    height: calc(100% - calc(var(--music-player-height) + var(--header-height-small)));
   }
 }
 
@@ -80,7 +80,7 @@
     margin-top: 60px;
     transition: 1s;
     padding-bottom: 50px;
-    height: 50%;
+    height: calc(100% - calc(var(--music-player-height) + var(--header-height-tiny)));
     padding-top: 30px;
   }
 }
