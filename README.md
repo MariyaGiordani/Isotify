@@ -92,7 +92,7 @@ Here the convention is for rgba and shadows (and some other specific properties 
 To add the error handler to a request on the API, use:
 ```
 .catch((error) => {
-    serverError(error);
+    this.setState({ error: serverError(error) });
 });
 ```
 To a new error create a new case in the error handler.
