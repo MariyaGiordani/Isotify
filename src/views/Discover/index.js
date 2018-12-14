@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './discover.css';
 
 import { getNewReleases } from '../../services/newReleases';
@@ -9,6 +9,7 @@ import {
   parsePlaylistTracks,
   parseArtist
 } from '../../utils/spotifyResponseParsers';
+import { serverError } from '../../utils/errors';
 
 import PageContainer from '../../components/PageContainer/pageContainer';
 import Carousel from '../../components/Carousel/carousel';
@@ -22,12 +23,14 @@ export default class List extends Component {
   state = {
     albums: [],
     topTracks: [],
-    artists: []
+    artists: [],
+    error: '',
+    noPadding: true
   };
 
   componentDidMount = () => {
-    Promise.all([getNewReleases(), getGlobalTopTracks()]).then(
-      ([rawAlbums, rawTopTracks]) => {
+    Promise.all([getNewReleases(), getGlobalTopTracks()])
+      .then(([rawAlbums, rawTopTracks]) => {
         const albums = parseAlbums(rawAlbums);
         const topTracks = parsePlaylistTracks(rawTopTracks.tracks.items);
         const artistsIds = topTracks.map((track) => track.artist.id);
@@ -41,23 +44,35 @@ export default class List extends Component {
             topTracks
           });
         });
-      }
-    );
+      })
+      .catch((error) => {
+        this.setState({ error: serverError(error), noPadding: false });
+      });
   };
 
   render = () => {
-    const { artists = [], albums = [], topTracks = [] } = this.state;
+    const {
+      artists = [],
+      albums = [],
+      topTracks = [],
+      error,
+      noPadding
+    } = this.state;
     return (
-      <PageContainer noPadding={true}>
-        <Carousel items={artists} />
-        <div className="discover">
-          <WhatsNew albums={albums.slice(0, 4)} />
-          <div className="discover__top">
-            <TopSongsAndArtists artists={artists} songs={topTracks} />
-          </div>
-          <div className="discover__divider" />
-        </div>
-        <UserPlaylist />
+      <PageContainer noPadding={noPadding}>
+        {error || (
+          <Fragment>
+            <Carousel items={artists} />
+            <div className="discover">
+              <WhatsNew albums={albums.slice(0, 4)} />
+              <div className="discover__top">
+                <TopSongsAndArtists artists={artists} songs={topTracks} />
+              </div>
+              <div className="discover__divider" />
+            </div>
+            <UserPlaylist />
+          </Fragment>
+        )}
       </PageContainer>
     );
   };
