@@ -1,26 +1,26 @@
-.settings-item__text {
-  margin-bottom: 10px;
-  margin-top: 20px;
-  width: 70%;
-}
-
-.settings-item__title {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.38;
-  letter-spacing: 2.6px;
-  color: var(--black);
-}
-
 .settings-item {
   display: flex;
   flex-direction: row;
   position: relative;
   margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.settings-item__text {
+  margin: auto;
+  width: 70%;
+}
+
+.settings-item__title {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.38;
+  letter-spacing: 1.6px;
+  color: var(--black);
 }
 
 .settings-item__icon-space {
-  margin-top: 20px;
+  margin-top: auto;
   margin-left: 5%;
   width: 20%;
 }
@@ -28,20 +28,16 @@
 .settings-item__icon-ball {
   background-color: rgba(212, 37, 98, 0.25);
   margin-left: 18%;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   display: block;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .settings-item__icon {
   width: 100%;
-  height: auto;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  position: absolute;
 }
