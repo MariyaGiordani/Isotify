@@ -1,5 +1,5 @@
 .card {
-  position: relative; 
+  position: relative;
 }
 .card__cover {
   background-color: #353535;
@@ -42,6 +42,7 @@
   top: 0;
   background-color: var(--album-overlay);
   border: 3px solid var(--pink-darker);
+  cursor: pointer;
 }
 
 .card__info {
@@ -158,11 +159,6 @@
   justify-content: space-between;
   width: 115%;
   margin-top: -10px;
-}
-
-.card__cover,
-.card__options{
-  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px) {
