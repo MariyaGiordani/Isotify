@@ -16,7 +16,6 @@ import SearchResults from './views/SearchResults';
 import { isUserLogged } from './utils/isUserLogged';
 import { showMenus } from './utils/showMenus';
 import { MusicPlayerProvider } from './components/Player/musicPlayer';
-import { ErrorHandler } from './components/Error/errorHandler';
 
 import './index.css';
 import './variables-modifiers.css';
@@ -39,7 +38,6 @@ const routes = () => (
       <Route path="/discover" component={Discover} />
       <Route path="/settings" component={Settings} />
       <Route path="/search/:query" component={SearchResults} />
-      <Route path="/error" component={ErrorHandler} />
       <Redirect exact from="/" to="login" />
       <Route component={NotFound} />
     </Switch>
