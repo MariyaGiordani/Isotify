@@ -1,5 +1,5 @@
 .player {
-  height: 90px;
+  height: var(--music-player-height);
   width: 100%;
   background-color: var(--white-lighter);
   position: fixed;

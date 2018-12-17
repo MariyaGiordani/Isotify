@@ -36,4 +36,11 @@
 
   --switch-shadow: 0 9px 20px 0 rgba(0, 0, 0, 0.3);
   --playlist-line: rgba(34, 34, 34, 0.25);
+
+  --header-height: 100px;
+  --header-height-medium: 90px;
+  --header-height-small: 80px;
+  --header-height-tiny: 60px;
+
+  --music-player-height: 90px;
 }
