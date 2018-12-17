@@ -1,12 +1,17 @@
-.artist-grid__centering {
-  display: flex;
-  justify-content: center;
-}
-
 .artists-grid {
   display: flex;
   flex-wrap: wrap;
+}
+
+.artist-grid--centering {
+  justify-content: center;
   margin-bottom: 100px;
+}
+
+@media (max-width: 599px) {
+  .artists-grid {
+    justify-content: center;
+  }
 }
 
 @media (min-width: 705px) {
