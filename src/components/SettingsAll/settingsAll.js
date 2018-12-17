@@ -5,17 +5,38 @@ import SettingsItem from '../SettingsItem/settingsItem';
 import { LINKS } from './constants';
 
 class SettingsAll extends Component {
+  state = {
+    selectedLink: window.location.pathname
+  };
+
+  componentDidUpdate = (prevState) => {
+    const currentLink = window.location.pathname;
+    if (currentLink !== prevState.selectedLink) {
+      this.setState({ selectedLink: currentLink });
+    }
+  };
+
+  handlePageChange(selectedLink) {
+    this.setState({ selectedLink });
+  }
+
   _renderItems() {
-    return LINKS.map(({ to, src, name, alt, active }, index) => {
+    const onLinkClicked = (selectedLink) => this.handlePageChange(selectedLink);
+    const { selectedLink } = this.state;
+
+    return LINKS.map(({ src, name, alt, active, to }, index) => {
+      const matchCase = new RegExp(`^${to}`);
       return (
         active && (
           <SettingsItem
             {...{
               key: index,
-              to,
               src,
               name,
-              alt
+              alt,
+              to,
+              onLinkClicked,
+              isSelected: !!selectedLink.match(matchCase)
             }}
           />
         )

@@ -1,4 +1,4 @@
-import gear from '../../assets/img/gear.svg';
+import gear from '../../assets/img/gear.png';
 
 export const LINKS = [
   {
@@ -6,7 +6,7 @@ export const LINKS = [
     to: '/general',
     src: gear,
     alt: 'General',
-    active: false
+    active: true
   },
   {
     name: 'Appearence',
@@ -20,7 +20,7 @@ export const LINKS = [
     to: '/notifications',
     src: gear,
     alt: 'Notifications',
-    active: false
+    active: true
   },
   {
     name: 'Accounts',
