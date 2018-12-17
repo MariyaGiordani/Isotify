@@ -1,12 +1,12 @@
 import React from 'react';
-import './appearence.css';
-import HeaderLine from '../../components/headerLine/headerLine';
+import './appearance.css';
+import HeaderLine from '../headerLine/headerLine';
 
 const title = 'Appearence';
 
 const Appearence = () => {
   return (
-    <div className="appearence">
+    <div className="appearance">
       <HeaderLine title={title} />
     </div>
   );

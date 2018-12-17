@@ -6,7 +6,7 @@ import SettingsAll from '../../components/SettingsAll/settingsAll';
 export default () => {
   return (
     <PageContainer>
-      <div className="settings">
+      <div className="settings-container">
         <SettingsAll />
       </div>
     </PageContainer>

@@ -1,11 +1,18 @@
 .selected-icon {
+  width: 2.5px;
+  left: 74px;
+  background-color: var(--pink-darkest);
+}
+
+.selected-icon__sidebar {
   position: absolute;
   top: 80%;
   margin-top: -55px;
   height: 75px;
-  width: 2.5px;
-  left: 74px;
-  background-color: var(--pink-darkest);
+}
+
+.selected-icon__settings {
+  height: 65px;
 }
 
 @media (max-width: 425px) {
