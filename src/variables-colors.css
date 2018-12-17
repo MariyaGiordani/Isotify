@@ -1,29 +1,44 @@
 :root {
-    --black-darkest: #000;
-    --black: #222;
+  --black-darkest: #000;
+  --black-darker: #232323;
+  --black: #222;
+  --black-lighter: #1e1e1e;
 
-    --gray-darkest: #444;
-    --gray-darker: #666;
-    --gray-dark: #707070;
-    --gray: #888;
-    --gray-light: #bbb;
-    --gray-lighter: #aaa;
+  --gray-darkest: #444;
+  --gray-darker: #666;
+  --gray-dark: #707070;
+  --gray: #888;
+  --gray-light: #bbb;
+  --gray-lighter: #aaa;
 
-    
-    --white-dark: #ddd;
-    --white: #eee;
-    --white-light: #fafafa;
-    --white-lighter: #f2f2f2;
-    --white-lightest: #fff;
-    
-    --pink-darkest: #cd2156;
-    --pink-darker: #d42562;
-    --pink-dark: #d42361;
-    --pink: #d92c61;
-    
-    --peach-darker: #e13a56;
-    --peach-dark: #e24352;
-    --peach: #e24d4d;
-    --peach-light: #e26659;
-    --peach-ligther: #dc7252;
+  --white-dark: #ddd;
+  --white: #eee;
+  --white-light: #fafafa;
+  --white-lighter: #f2f2f2;
+  --white-lightest: #fff;
+
+  --pink-darkest: #cd2156;
+  --pink-darker: #d42562;
+  --pink-dark: #d42361;
+  --pink: #d92c61;
+
+  --peach-darker: #e13a56;
+  --peach-dark: #e24352;
+  --peach: #e24d4d;
+  --peach-light: #e26659;
+  --peach-ligther: #dc7252;
+}
+
+.dark-mode {
+  --page-background: var(--black-lighter);
+  --header-background: var(--black-darker);
+  --header-search-background: var(--black-darker);
+  --player-background: var(--black);
+}
+
+.default {
+  --page-background: var(--white);
+  --header-background: var(--black-darker);
+  --header-search-background: var(--white-light);
+  --player-background: var(--white-lighter);
 }

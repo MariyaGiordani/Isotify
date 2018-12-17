@@ -8,8 +8,8 @@
   padding: 0;
 }
 
-@media(max-width: 600px){
-  .page-container{
+@media (max-width: 600px) {
+  .page-container {
     margin-left: 0;
   }
 }

@@ -23,7 +23,7 @@ import './variables-gradients.css';
 import './variables-colors.css';
 
 const routes = () => (
-  <Fragment>
+  <div className="dark-mode">
     {isUserLogged() && showMenus()}
     <Switch>
       <Route path="/login" component={Login} />
@@ -41,7 +41,7 @@ const routes = () => (
       <Redirect exact from="/" to="login" />
       <Route component={NotFound} />
     </Switch>
-  </Fragment>
+  </div>
 );
 
 ReactDOM.render(

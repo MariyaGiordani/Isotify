@@ -1,7 +1,7 @@
 .player {
   height: 90px;
   width: 100%;
-  background-color: var(--white-lighter);
+  background-color: var(--player-background);
   position: fixed;
   z-index: 10;
   top: calc(100% - 90px);
