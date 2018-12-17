@@ -17,7 +17,7 @@ if (!access_token_test) {
 }
 export default () => {
   return isUserLogged() ? (
-    <Redirect to="/albums" />
+    <Redirect to="/discover" />
   ) : (
     <div className="content-background">
       <div className="content-background__content-login">
