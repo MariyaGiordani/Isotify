@@ -72,6 +72,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--text-title);
 }
 
 .card__text-subtitle {
@@ -79,7 +80,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 13px;
-  color: var(--gray);
+  color: var(--text-subtitle);
 }
 
 .card__options {

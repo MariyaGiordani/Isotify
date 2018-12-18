@@ -3,8 +3,7 @@ import './pageContainer.css';
 
 const PageContainer = ({ children, noPadding }) => (
   <div
-    className={`dark-mode page-container ${noPadding &&
-      'page-container--no-padding'}`}
+    className={`page-container ${noPadding && 'page-container--no-padding'}`}
   >
     {children}
   </div>

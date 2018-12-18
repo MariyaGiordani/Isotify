@@ -34,6 +34,8 @@
   --header-background: var(--black-darker);
   --header-search-background: var(--black-darker);
   --player-background: var(--black);
+  --text-title: var(--white);
+  --text-subtitle: var(--gray);
 }
 
 .default {
@@ -41,4 +43,6 @@
   --header-background: var(--black-darker);
   --header-search-background: var(--white-light);
   --player-background: var(--white-lighter);
+  --text-title: var(--black);
+  --text-subtitle: var(--gray);
 }

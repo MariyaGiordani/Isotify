@@ -17,8 +17,8 @@ a {
 }
 
 body {
-  background-color: var(--page-background);
   font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+  background: var(--page-background);
 }
 
 .container {
