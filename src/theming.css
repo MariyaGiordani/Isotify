@@ -25,7 +25,7 @@
 
 .default {
   --theme-page-bg: var(--white);
-  --theme-header-bg: var(--black-darker);
+  --theme-header-bg: var(--white-light);
   --theme-header-search-bg: var(--white-light);
   --theme-player-bg: var(--white-lighter);
   --theme-player-button-bg: var(--player-buttons-gradient);
