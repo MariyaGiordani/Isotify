@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
@@ -6,7 +6,7 @@ import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import { getTopArtistsWithAlbums } from '../../services/artists';
 import { artistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
-import { serverError } from '../../services/errors';
+import { serverError } from '../../utils/errors';
 import './Artists.css';
 
 export default class ArtistsListView extends Component {
@@ -14,7 +14,8 @@ export default class ArtistsListView extends Component {
     isListSelected: false,
     artists: [],
     artistsAmount: 0,
-    songsAmount: 0
+    songsAmount: 0,
+    error: ''
   };
 
   componentDidMount() {
@@ -36,36 +37,45 @@ export default class ArtistsListView extends Component {
         });
       })
       .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
+        this.setState({ error: serverError(error) });
       });
   }
 
   changeViewMode = (isListSelected) => this.setState({ isListSelected });
 
   render = () => {
-    const { artists, isListSelected, artistsAmount, songsAmount } = this.state;
+    const {
+      artists,
+      isListSelected,
+      artistsAmount,
+      songsAmount,
+      error
+    } = this.state;
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
 
     return (
       <PageContainer>
-        <HeaderLine
-          {...{
-            title: 'Artists',
-            subtitle
-          }}
-        >
-          <SwitchButton
-            firstOption="Grid"
-            secondOption="List"
-            inputFunction={this.changeViewMode}
-          />
-        </HeaderLine>
+        {error || (
+          <Fragment>
+            <HeaderLine
+              {...{
+                title: 'Artists',
+                subtitle
+              }}
+            >
+              <SwitchButton
+                firstOption="Grid"
+                secondOption="List"
+                inputFunction={this.changeViewMode}
+              />
+            </HeaderLine>
 
-        {isListSelected ? (
-          <ArtistsList artists={artists} />
-        ) : (
-          <ArtistsGrid artists={artists} size={'big'} />
+            {isListSelected ? (
+              <ArtistsList artists={artists} />
+            ) : (
+              <ArtistsGrid artists={artists} size={'big'} />
+            )}
+          </Fragment>
         )}
       </PageContainer>
     );
