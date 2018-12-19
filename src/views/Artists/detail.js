@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
 import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
-import { serverError } from '../../services/errors';
+import { serverError } from '../../utils/errors';
 
 export default class Details extends Component {
   state = {
@@ -14,7 +14,8 @@ export default class Details extends Component {
     albumsAmount: 0,
     songsAmount: 0,
     relatedArtists: [],
-    imgSrc: ''
+    imgSrc: '',
+    error: ''
   };
 
   fetchArtistData(artistId) {
@@ -31,8 +32,7 @@ export default class Details extends Component {
         });
       })
       .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
+        this.setState({ error: serverError(error) });
       });
   }
 
@@ -57,23 +57,29 @@ export default class Details extends Component {
       songsAmount,
       albumsAmount,
       relatedArtists,
-      imgSrc
+      imgSrc,
+      error
     } = this.state;
+
     return (
       <PageContainer noPadding={true}>
-        <BannerArtist
-          {...{
-            name,
-            albumsAmount,
-            songsAmount,
-            relatedArtists,
-            imgSrc
-          }}
-        />
-        <ArtistNavigationItems />
-        <div className="artists-view__wrap">
-          <AlbumsGrid {...{ albums, size: 'big' }} />
-        </div>
+        {error || (
+          <Fragment>
+            <BannerArtist
+              {...{
+                name,
+                albumsAmount,
+                songsAmount,
+                relatedArtists,
+                imgSrc
+              }}
+            />
+            <ArtistNavigationItems />
+            <div className="artists-view__wrap">
+              <AlbumsGrid {...{ albums, size: 'big' }} />
+            </div>
+          </Fragment>
+        )}
       </PageContainer>
     );
   };
