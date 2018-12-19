@@ -1,0 +1,49 @@
+.dark-mode {
+  --theme-page-bg: var(--black-lighter);
+  --theme-header-bg: var(--black-darker);
+  --theme-header-search-bg: var(--black-darker);
+  --theme-player-bg: var(--black);
+  --theme-player-button-bg: var(--player-buttons-gradient-dark);
+  --theme-playlist-bg: var(--playlist-gradient-dark);
+  --theme-artist-line-section-bg: var(--dark-gray-gradient);
+  --theme-artist-line-albums-bg: var(--black-lightest);
+  --theme-artist-line-corners-bg: var(--theme-artist-line-albums-bg);
+  --theme-top-songs-artists-bg: var(--metal-gray);
+
+  --theme-text-title: var(--white);
+  --theme-text-subtitle: var(--gray);
+  --theme-text-light: var(--gray-lighter);
+  --theme-navigation-text-active: var(--black);
+
+  --theme-search-border: var(--gray-darkest);
+  --theme-search-placeholder: var(--gray-light);
+
+  --carousel-border: var(--black);
+  --theme-top-songs-artists-divider: var(--gray-darkest);
+  --theme-divider: var(--metal-gray);
+}
+
+.default {
+  --theme-page-bg: var(--white);
+  --theme-header-bg: var(--black-darker);
+  --theme-header-search-bg: var(--white-light);
+  --theme-player-bg: var(--white-lighter);
+  --theme-player-button-bg: var(--player-buttons-gradient);
+  --theme-playlist-bg: var(--playlist-gradient-dark);
+  --theme-artist-line-section-bg: var(--gray-gradient);
+  --theme-artist-line-albums-bg: var(--white-light);
+  --theme-artist-line-corners-bg: var(--white-light);
+  --theme-top-songs-artists-bg: var(--white-light);
+
+  --theme-text-title: var(--black);
+  --theme-text-subtitle: var(--gray);
+  --theme-text-light: var(--gray-lighter);
+  --theme-navigation-text-active: var(--black);
+
+  --theme-search-border: var(--gray-light);
+  --theme-search-placeholder: var(--gray-darker);
+
+  --carousel-border: var(--white);
+  --theme-top-songs-artists-divider: var(--white-dark);
+  --theme-divider: var(--white-dark);
+}
