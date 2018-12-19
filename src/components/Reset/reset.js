@@ -5,7 +5,7 @@ import './reset.css';
 const Reset = () => (
   <button className="reset">
     {/* <img className="reset__icon" alt="sarrow representing reset" src={reset} /> */}
-    Reset
+    Reset all
   </button>
 );
 

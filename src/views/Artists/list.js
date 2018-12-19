@@ -52,7 +52,8 @@ export default class ArtistsListView extends Component {
         <HeaderLine
           {...{
             title: 'Artists',
-            subtitle
+            subtitle,
+            size: 'big'
           }}
         >
           <SwitchButton

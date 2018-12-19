@@ -41,7 +41,8 @@ export default class Albums extends Component {
         <HeaderLine
           {...{
             title: 'Albums',
-            subtitle
+            subtitle,
+            size: 'big'
           }}
         />
         <div className="albums-view__grid">
