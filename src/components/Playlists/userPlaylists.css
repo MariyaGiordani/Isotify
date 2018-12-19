@@ -63,10 +63,29 @@
   color: var(--theme-text-title);
 }
 
+.user-info__name,
+.user-info__number-playlists {
+  width: 160px;
+}
+
 .user-playlists__name {
   font-size: 20px;
   margin-left: 30px;
   color: var(--theme-text-title);
+}
+
+.user-playlists__tracks,
+.user-playlists__name,
+.user-info__name,
+.user-info__number-playlists {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-playlists__tracks,
+.user-playlists__name {
+  width: 190px;
 }
 
 .container__subtitle {

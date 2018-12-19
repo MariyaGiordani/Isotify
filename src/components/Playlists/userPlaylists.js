@@ -70,7 +70,7 @@ export class UserPlaylist extends Component {
 
   render = () => {
     const title = 'Playlists';
-    const subtitle = "SEE WHAT'S POPPING THIS WEEK";
+    const subtitle = 'SEE WHAT\'S POPPING THIS WEEK';
     const { playlists, profilePicture } = this.state;
     return (
       <div className="user-playlists__content">
