@@ -14,13 +14,14 @@ function playAlbum(deviceId, id) {
   );
 }
 
-function playMusic(deviceId, id) {
+function playMusic(deviceId, ids) {
+  const uris = ids.map((id) => `spotify:track:${id}`);
   return fetch(
     `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
     {
       method: 'PUT',
       body: JSON.stringify({
-        uris: `spotify:track:${id}`
+        uris
       }),
       headers: {
         'Content-Type': 'application/json',

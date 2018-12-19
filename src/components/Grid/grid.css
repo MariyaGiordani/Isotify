@@ -11,6 +11,7 @@
 @media (min-width: 705px) {
   .grid--centering {
     width: 550px;
+    justify-content: left;
   }
 }
 
