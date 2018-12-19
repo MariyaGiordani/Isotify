@@ -25,7 +25,7 @@
 }
 
 .navigation-items__text.active {
-  color: var(--theme-navigation-text-active);
+  color: var(--theme-text-navigation-active);
 }
 
 @media only screen and (max-width: 1024px) {

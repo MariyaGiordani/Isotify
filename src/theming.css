@@ -13,7 +13,7 @@
   --theme-text-title: var(--white);
   --theme-text-subtitle: var(--gray);
   --theme-text-light: var(--gray-lighter);
-  --theme-navigation-text-active: var(--black);
+  --theme-text-navigation-active: var(--black);
 
   --theme-search-border: var(--gray-darkest);
   --theme-search-placeholder: var(--gray-light);
@@ -38,7 +38,7 @@
   --theme-text-title: var(--black);
   --theme-text-subtitle: var(--gray);
   --theme-text-light: var(--gray-lighter);
-  --theme-navigation-text-active: var(--black);
+  --theme-text-navigation-active: var(--black);
 
   --theme-search-border: var(--gray-light);
   --theme-search-placeholder: var(--gray-darker);
