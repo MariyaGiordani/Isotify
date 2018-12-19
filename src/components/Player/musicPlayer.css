@@ -1,7 +1,7 @@
 .player {
   height: 90px;
   width: 100%;
-  background-color: var(--player-background);
+  background-color: var(--theme-player-bg);
   position: fixed;
   z-index: 10;
   top: calc(100% - 90px);
@@ -44,7 +44,7 @@
 .buttons__next-container,
 .container__playlist-icon,
 .player__volume-container {
-  background-image: var(--player-buttons-gradient);
+  background-image: var(--theme-player-button-bg);
   display: flex;
   box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.25);
 }
@@ -60,7 +60,9 @@
 .buttons__next,
 .container__button,
 .player__volume {
+  border: 0;
   border-radius: 50%;
+  background: var(--theme-player-button-bg);
 }
 
 .buttons__pause {
@@ -108,11 +110,12 @@
 
 .music-info__name {
   font-size: 16px;
+  color: var(--theme-text-title);
 }
 
 .music-info__band {
   font-size: 12px;
-  color: var(--gray);
+  color: var(--theme-text-subtitle);
   text-transform: uppercase;
   margin-top: 2px;
 }

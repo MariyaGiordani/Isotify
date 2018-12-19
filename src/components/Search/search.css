@@ -17,12 +17,12 @@
   letter-spacing: 1px;
   border: none;
   text-decoration: none;
-  border-bottom: 2px solid var(--gray-light);
-  background-color: var(--header-search-background);
+  border-bottom: 2px solid var(--theme-search-border);
+  background-color: var(--theme-header-search-bg);
 }
 
 .search__song::placeholder {
-  color: var(--gray-light);
+  color: var(--theme-search-placeholder);
   padding-left: 10px;
 }
 

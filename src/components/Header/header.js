@@ -45,7 +45,7 @@ export default class Header extends Component {
           </a>
         </div>
         <img className="header__image-triangle" alt="" src={triangleImg} />
-        <div className="header__devider" />
+        <div className="header__divider" />
         <Search />
         <div className="header__icon-right">
           <img
@@ -53,7 +53,7 @@ export default class Header extends Component {
             alt=""
             src={playlisticonImg}
           />
-          <div className="header__devider" />
+          <div className="header__divider" />
           <img className="header__image-mountain" alt="" src={mountainImg} />
         </div>
       </div>

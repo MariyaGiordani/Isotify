@@ -68,19 +68,19 @@
   width: 90%;
 }
 
-.card__text-title {
+.card__theme-text-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--text-title);
+  color: var(--theme-text-title);
 }
 
-.card__text-subtitle {
+.card__theme-text-subtitle {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 13px;
-  color: var(--text-subtitle);
+  color: var(--theme-text-subtitle);
 }
 
 .card__options {
@@ -130,12 +130,12 @@
   margin-left: 25px;
 }
 
-.card--big .card__text-title {
+.card--big .card__theme-text-title {
   font-size: 18px;
   font-weight: 600;
 }
 
-.card--big .card__text-subtitle {
+.card--big .card__theme-text-subtitle {
   font-size: 12px;
   font-weight: 600;
 }
@@ -145,11 +145,11 @@
   margin: 10px;
 }
 
-.card--small .card__text-title {
+.card--small .card__theme-text-title {
   font-size: 14px;
 }
 
-.card--small .card__text-subtitle {
+.card--small .card__theme-text-subtitle {
   font-size: 11px;
 }
 

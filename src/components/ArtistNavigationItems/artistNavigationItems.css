@@ -13,7 +13,7 @@
   font-weight: 600;
   line-height: 3.23;
   letter-spacing: 1px;
-  color: var(--text-navigation-item-text);
+  color: var(--theme-text-light);
   padding: 40px 60px 10px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .navigation-items__text.active {
-  color: var(--text-navigation-item-text-active);
+  color: var(--theme-navigation-text-active);
 }
 
 @media only screen and (max-width: 1024px) {
