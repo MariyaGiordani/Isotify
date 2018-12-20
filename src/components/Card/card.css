@@ -1,6 +1,7 @@
 .card {
   position: relative;
 }
+
 .card__cover {
   background-color: #353535;
   border-radius: 10px;
@@ -42,6 +43,7 @@
   top: 0;
   background-color: var(--album-overlay);
   border: 3px solid var(--pink-darker);
+  cursor: pointer;
 }
 
 .card__info {

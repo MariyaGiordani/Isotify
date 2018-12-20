@@ -19,11 +19,11 @@
   text-decoration: none;
   border-bottom: 2px solid var(--gray-light);
   background-color: var(--white-light);
+  padding-left: 10px;
 }
 
 .search__song::placeholder {
     color: var(--gray-light);
-    padding-left: 10px;
 }
 
 @media only screen and (max-width: 991px) {

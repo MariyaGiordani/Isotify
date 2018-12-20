@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import ArtistDetails from './views/Artists/detail';
 import ArtistsList from './views/Artists/list';
+import RelatedArtistsView from './views/Artists/relatedArtists';
 import Albums from './views/Albums/list';
 import Songs from './views/Songs/list';
 import Playlists from './views/Playlists/list';
@@ -28,10 +29,13 @@ const routes = () => (
     <Switch>
       <Route path="/login" component={Login} />
       {!isUserLogged() && <Redirect to="/login" />}
+      <Route
+        path="/artists/related/:artistsIds"
+        component={RelatedArtistsView}
+      />
       <Route path="/artists/:artistId" component={ArtistDetails} />
       <Route path="/albums" component={Albums} />
       <Route path="/artists" component={ArtistsList} />
-      <Route path="/artists/related/:artistsIds" component={ArtistsList} />
       <Route path="/songs" component={Songs} />
       <Route path="/playlists" component={Playlists} />
       <Route path="/genres" component={Genres} />

@@ -39,6 +39,14 @@ function getArtistsAlbums(artists) {
   );
 }
 
+function getArtistsWithAlbums(artists) {
+  return spotifyInstance
+    .get(`artists?ids=${artists}`, createHeader())
+    .then((artistsResponse) => {
+      return getArtistsAlbums(artistsResponse.data.artists);
+    });
+}
+
 function getMultipleArtists(artistsIds) {
   return Promise.all(artistsIds.map((artistId) => getArtist(artistId)));
 }
@@ -60,6 +68,7 @@ export {
   getTopArtists,
   getTopArtistsWithAlbums,
   getArtist,
+  getArtistsWithAlbums,
   getMultipleArtists,
   getArtistsAlbums
 };

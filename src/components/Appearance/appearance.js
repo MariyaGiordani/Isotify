@@ -3,7 +3,7 @@ import './appearance.css';
 import HeaderLine from '../headerLine/headerLine';
 import Reset from '../../components/Reset/reset';
 import PushNotifications from './pushNotifications';
-import NightMode from './pushNotifications';
+import NightMode from './nightMode';
 import CheckBox from '../../components/CheckBox/checkBox';
 
 export default class Appearence extends Component {

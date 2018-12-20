@@ -11,9 +11,14 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer; 
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
+  cursor: pointer; 
 }
 
 body {

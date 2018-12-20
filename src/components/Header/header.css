@@ -1,7 +1,7 @@
 .header {
     box-shadow: var(--header-box-shadow);
     background-color: var(--white-light);
-    height: 100px;
+    height: var(--header-height);
     width: 100%;
     position: fixed;
     top: 0px;
@@ -34,6 +34,10 @@
     font-weight: 900;
     color: var(--black);
     padding: 5px 0 0 4px;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header__user-profile {
@@ -103,7 +107,7 @@
 
 @media only screen and (max-width: 768px) {
     .header {
-        height: 90px;
+        height: var(--header-height-medium);
         padding-top: 25px;
     }
 
@@ -130,7 +134,7 @@
 @media only screen and (max-width: 600px) {
     .header {
         padding-left: 80px;
-        height: 80px;
+        height: var(--header-height-small);
         padding-top: 15px;
     }
 

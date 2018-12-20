@@ -15,7 +15,7 @@ const getArtists = (artists = [], size) =>
   ));
 
 const ArtistsGrid = ({ artists, size }) => (
-  <div className="artist-grid__centering">
+  <div className="artists-grid artists-grid--centering">
     <div className="artists-grid">{getArtists(artists, size)}</div>
   </div>
 );

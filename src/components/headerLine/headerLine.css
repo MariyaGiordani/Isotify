@@ -9,6 +9,7 @@
 }
 
 .header-line__title {
+  font-size: 28px;
   color: var(--black);
 }
 
@@ -46,18 +47,25 @@
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 1024px) {
+.header-line__texts {
+  max-width: 50%;
+}
+
+@media (max-width: 400px) {
   .header-line__title {
     font-size: 22px;
   }
+
   .header-line__subtitle {
     font-size: 12px;
   }
-}
 
-@media only screen and (max-width: 1020px) {
+  .header-line__texts {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
   .header-line {
     display: block;
-    padding-left: 30px;
   }
 }

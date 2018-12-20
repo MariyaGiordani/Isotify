@@ -10,7 +10,8 @@ class SwitchButton extends Component {
   switchButtonInput = (event) => {
     const isFirstOptionSelected = !this.state.isFirstOptionSelected;
     this.setState({ isFirstOptionSelected });
-    this.props.inputFunction(event.target.checked);
+    const { inputFunction } = this.props;
+    inputFunction(event.target.checked);
   };
 
   componentDidMount = () => {
@@ -21,17 +22,15 @@ class SwitchButton extends Component {
   render = () => {
     const { isFirstOptionSelected, isButtonOnOff } = this.state;
 
-    const firstInputModifier = isFirstOptionSelected
-      ? 'switch-button__option-selected'
-      : '';
-    const secondInputModifier = !isFirstOptionSelected
-      ? 'switch-button__option-selected'
-      : '';
+    const firstInputModifier =
+      isFirstOptionSelected && 'switch-button__option-selected';
+    const secondInputModifier =
+      !isFirstOptionSelected && 'switch-button__option-selected';
 
     const labelModifier =
-      isButtonOnOff && isFirstOptionSelected
-        ? 'switch-button__input-container--inactive'
-        : '';
+      isButtonOnOff &&
+      isFirstOptionSelected &&
+      'switch-button__input-container--inactive';
 
     const { firstOption, secondOption } = this.props;
 

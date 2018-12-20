@@ -6,25 +6,22 @@ import SwitchButton from '../../components/SwitchButton/switchButton';
 export default class NightMode extends Component {
   state = {
     subtitle: '',
-    isButtonOnOff: true
+    isDisabled: false
   };
 
   changeViewMode = () => {
-    const { isButtonOnOff } = this.state;
-    isButtonOnOff
-      ? this.setState({ isButtonOnOff: false, subtitle: 'ENABLED' })
-      : this.setState({ isButtonOnOff: true, subtitle: 'DISABLED' });
+    const { isDisabled } = this.state;
+    isDisabled
+      ? this.setState({ isDisabled: false, subtitle: 'ENABLED' })
+      : this.setState({ isDisabled: true, subtitle: 'DISABLED' });
   };
 
   componentDidMount = () => {
-    const { isButtonOnOff } = this.state;
-    !isButtonOnOff
-      ? this.setState({ subtitle: 'ENABLED' })
-      : this.setState({ subtitle: 'DISABLED' });
+    this.changeViewMode();
   };
 
   render = () => {
-    const { subtitle, isButtonOnOff } = this.state;
+    const { subtitle } = this.state;
 
     return (
       <HeaderLine
@@ -36,7 +33,7 @@ export default class NightMode extends Component {
       >
         <SwitchButton
           inputFunction={this.changeViewMode}
-          isButtonOnOff={isButtonOnOff}
+          isButtonOnOff={true}
         />
       </HeaderLine>
     );

@@ -15,3 +15,9 @@ export function getArtistTopTracks(artistId) {
 export function getMultipleArtistsTopTracks(artistsIds) {
   return Promise.all(artistsIds.map((artist) => getArtistTopTracks(artist)));
 }
+
+export function getSavedTracks() {
+  return spotifyInstance
+    .get('me/tracks', createHeader())
+    .then(({ data: { total, items } }) => ({ total, items }));
+}
