@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './appearance.css';
 import HeaderLine from '../headerLine/headerLine';
-import SwitchButton from '../../components/SwitchButton/switchButton';
+import CheckBox from '../../components/CheckBox/checkBox';
 
-export default class PushNotifications extends Component {
+export default class NewAlbumNotifications extends Component {
   state = {
     subtitle: '',
     isDisabled: false
@@ -26,14 +26,16 @@ export default class PushNotifications extends Component {
     return (
       <HeaderLine
         {...{
-          title: 'Push Notifications',
+          title: 'New album notification',
           subtitle: subtitle,
           size: 'small'
         }}
       >
-        <SwitchButton
-          inputFunction={this.changeViewMode}
-          isButtonOnOff={true}
+        <CheckBox
+          {...{
+            inputFunction: this.changeViewMode,
+            isButtonOnOff: false
+          }}
         />
       </HeaderLine>
     );

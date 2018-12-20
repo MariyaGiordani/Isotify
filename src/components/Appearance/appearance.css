@@ -1,12 +1,59 @@
 .appearance {
-    width: 60%;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 150px
+  width: 60%;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 200px
 }
 
 .appearance__divider {
-    margin: 5px 35px;
-    height: 3px;
-    background-color: var(--white-dark);
+  margin: 5px 35px;
+  height: 3px;
+  background-color: var(--white-dark);
+}
+
+.popup-fonts {
+  padding: 20px;
+  box-shadow: var(--popup-fonts-shadow);
+  background-color: var(--white-light);
+  border-radius: 20px;
+  z-index: 3;
+  position: absolute;
+}
+
+.popup-fonts__text {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--black);
+  margin-right: 35px;
+  margin-left: 5px;
+  line-height: 2;
+  letter-spacing: 1.5px;
+}
+
+.popup {
+  position: relative;
+}
+
+.popup-fonts__screen {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 100px;
+  height: 100vh;
+  z-index: 2;
+}
+
+.popup-fonts__screen--collapsed {
+  display: none;
+}
+
+.popup-fonts--collapsed {
+  position: fixed;
+  top: 0;
+}
+
+.popup-fonts--show {
+  position: absolute;
+  top: -17px;
+  left: 25px;
 }
