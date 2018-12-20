@@ -3,7 +3,7 @@
 }
 
 .card__cover {
-  background-color: #353535;
+  background-color: var(--black-lightest);
   border-radius: 10px;
   box-shadow: var(--black-shadow);
   object-fit: cover;
