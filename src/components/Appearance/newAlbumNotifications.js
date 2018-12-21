@@ -4,24 +4,32 @@ import HeaderLine from '../headerLine/headerLine';
 import CheckBox from '../../components/CheckBox/checkBox';
 
 export default class NewAlbumNotifications extends Component {
-  state = {
-    subtitle: '',
-    isDisabled: false
-  };
+  constructor(props) {
+    super(props);
 
-  changeViewMode = () => {
-    const { isDisabled } = this.state;
-    isDisabled
-      ? this.setState({ isDisabled: false, subtitle: 'ENABLED' })
-      : this.setState({ isDisabled: true, subtitle: 'DISABLED' });
-  };
+    const storageSubtitle = localStorage.getItem('status');
+    const isChecked = storageSubtitle === 'ENABLED';
 
-  componentDidMount = () => {
-    this.changeViewMode();
+    this.state = {
+      subtitle: isChecked ? 'ENABLED' : 'DISABLED',
+      isChecked: isChecked
+    };
+  }
+
+  changeViewMode = (event) => {
+    const checked = event.target.checked;
+    const status = checked ? 'ENABLED' : 'DISABLED';
+
+    this.setState({
+      isChecked: checked,
+      subtitle: status
+    });
+
+    localStorage.setItem('status', status);
   };
 
   render = () => {
-    const { subtitle } = this.state;
+    const { isChecked, subtitle } = this.state;
 
     return (
       <HeaderLine
@@ -33,8 +41,8 @@ export default class NewAlbumNotifications extends Component {
       >
         <CheckBox
           {...{
-            inputFunction: this.changeViewMode,
-            isButtonOnOff: false
+            onChange: this.changeViewMode,
+            isChecked: isChecked
           }}
         />
       </HeaderLine>

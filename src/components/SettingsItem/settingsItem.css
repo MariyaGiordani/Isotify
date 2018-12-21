@@ -3,6 +3,7 @@
   flex-direction: row;
   position: relative;
   height: 65px;
+  cursor: pointer;
 }
 
 .settings-item--color {

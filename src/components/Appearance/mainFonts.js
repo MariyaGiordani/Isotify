@@ -5,7 +5,8 @@ import getClassName from '../../utils/getClassName';
 
 export default class MainFonts extends Component {
   state = {
-    popUp: false
+    popUp: false,
+    font: 'Classic'
   };
 
   showPopUp = () => {
@@ -16,6 +17,12 @@ export default class MainFonts extends Component {
     this.setState({ popUp: false });
   };
 
+  changeMainFont = (name) => {
+    this.setState({ font: name }, () => {
+      localStorage.setItem('Font', name);
+    });
+  };
+
   popUpMainFonts = () => {
     const { popUp } = this.state;
     const popUpCollapsed = getClassName('popup-fonts', 'collapsed');
@@ -24,10 +31,31 @@ export default class MainFonts extends Component {
       popUp && (
         <div className="popup">
           <div className={`popup-fonts ${popUp ? popUpShow : popUpCollapsed}`}>
-            <div className="popup-fonts__text"> Classic </div>
-            <div className="popup-fonts__text"> Modern </div>
-            <div className="popup-fonts__text"> Typewriter </div>
-            <div className="popup-fonts__text"> Strong </div>
+            <p
+              onClick={this.changeMainFont.bind(this, 'Classic')}
+              className="popup-fonts__text"
+            >
+              Classic
+            </p>
+
+            <p
+              onClick={this.changeMainFont.bind(this, 'Modern')}
+              className="popup-fonts__text"
+            >
+              Modern
+            </p>
+            <p
+              onClick={this.changeMainFont.bind(this, 'Typewriter')}
+              className="popup-fonts__text"
+            >
+              Typewriter
+            </p>
+            <p
+              onClick={this.changeMainFont.bind(this, 'Strong')}
+              className="popup-fonts__text"
+            >
+              Strong
+            </p>
           </div>
         </div>
       )
@@ -36,15 +64,20 @@ export default class MainFonts extends Component {
 
   render = () => {
     const { popUp } = this.state;
+    const font = localStorage.getItem('Font')
+      ? localStorage.getItem('Font')
+      : 'Classic';
+
     const popUpScreenCollapsed = getClassName(
       'popup-fonts__screen',
       'collapsed'
     );
     return (
-      <div>
+      <div className="main-fonts">
         <HeaderLine
           {...{
             title: 'Main fonts',
+            subtitle: font,
             size: 'small'
           }}
           showPopUp={this.showPopUp}

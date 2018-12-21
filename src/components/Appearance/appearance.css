@@ -11,6 +11,10 @@
   background-color: var(--white-dark);
 }
 
+.main-fonts {
+  cursor: pointer; 
+}
+
 .popup-fonts {
   padding: 20px;
   box-shadow: var(--popup-fonts-shadow);
@@ -28,6 +32,7 @@
   margin-left: 5px;
   line-height: 2;
   letter-spacing: 1.5px;
+  cursor: pointer;
 }
 
 .popup {
