@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
-
-import HeaderLine from '../headerLine/headerLine';
-
-import CheckBox from '../../components/CheckBox/checkBox';
-
 import './appearance.css';
+import HeaderLine from '../headerLine/headerLine';
+import CheckBox from '../CheckBox/checkBox';
 
-export default class NewAlbumNotifications extends Component {
+export default class InterfaceTheme extends Component {
   constructor(props) {
     super(props);
 
     const storageSubtitle = localStorage.getItem('status');
-    const isChecked = storageSubtitle === 'ENABLED';
+    const isChecked = storageSubtitle === 'DARK';
 
     this.state = {
-      subtitle: isChecked ? 'ENABLED' : 'DISABLED',
+      subtitle: isChecked ? 'DARK' : 'LIGHT',
       isChecked: isChecked
     };
   }
 
   changeViewMode = (event) => {
     const checked = event.target.checked;
-    const status = checked ? 'ENABLED' : 'DISABLED';
+    const status = checked ? 'DARK' : 'LIGHT';
 
     this.setState({
       isChecked: checked,
@@ -37,7 +34,7 @@ export default class NewAlbumNotifications extends Component {
     return (
       <HeaderLine
         {...{
-          title: 'New album notification',
+          title: 'Interface theme',
           subtitle: subtitle,
           size: 'small'
         }}

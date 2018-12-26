@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './appearance.css';
+
 import HeaderLine from '../headerLine/headerLine';
+
 import SwitchButton from '../../components/SwitchButton/switchButton';
+
+import './appearance.css';
 
 export default class PushNotifications extends Component {
   state = {

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './appearance.css';
+
 import HeaderLine from '../headerLine/headerLine';
+
 import getClassName from '../../utils/getClassName';
+
+import './appearance.css';
 
 export default class MainFonts extends Component {
   state = {
