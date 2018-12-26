@@ -1,7 +1,7 @@
 .user-playlists {
   width: 260px;
   height: 200px;
-  background-image: var(--playlist-gradient);
+  background-image: var(--theme-playlist-bg);
   border-radius: 15px;
   padding-top: 90px;
   margin-top: 30px;
@@ -11,14 +11,14 @@
 .user-playlists__content {
   margin-top: 100px;
   margin-left: 50px;
-  margin-bottom: 150px
+  margin-bottom: 150px;
 }
 
 .content__playlists {
   display: flex;
   overflow: scroll;
   width: auto;
-  margin-left: 20px
+  margin-left: 20px;
 }
 
 .user-playlists__line {
@@ -45,7 +45,7 @@
 .user-playlists__tracks,
 .user-info__number-playlists {
   font-size: 9px;
-  color: var(--black);
+  color: var(--theme-text-title);
   opacity: 0.5;
   letter-spacing: 0.7px;
   font-weight: bold;
@@ -60,11 +60,32 @@
   font-weight: 600;
   letter-spacing: 0.7px;
   font-stretch: normal;
+  color: var(--theme-text-title);
+}
+
+.user-info__name,
+.user-info__number-playlists {
+  width: 160px;
 }
 
 .user-playlists__name {
   font-size: 20px;
   margin-left: 30px;
+  color: var(--theme-text-title);
+}
+
+.user-playlists__tracks,
+.user-playlists__name,
+.user-info__name,
+.user-info__number-playlists {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-playlists__tracks,
+.user-playlists__name {
+  width: 190px;
 }
 
 .container__subtitle {
@@ -87,7 +108,6 @@
 }
 
 .content__subtitle {
-  color: var(--gray);
   font-size: 13px;
   font-weight: bold;
   font-style: normal;

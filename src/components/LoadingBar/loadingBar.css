@@ -17,6 +17,7 @@
 }
 
 .loading-bar__inner {
+  transition: 1s;
   width: 100%;
   transition: 1s;
   height: 5px;

@@ -10,7 +10,8 @@ export const LINKS = [
     name: 'Songs',
     to: '/songs',
     src: musicImage,
-    alt: 'Musical note representing songs icon'
+    alt: 'Musical note representing songs icon',
+    active: true
   },
   {
     name: 'Albums',
@@ -23,31 +24,36 @@ export const LINKS = [
     name: 'Artists',
     to: '/artists',
     src: headphoneImage,
-    alt: 'Headphones representing artists icon'
+    alt: 'Headphones representing artists icon',
+    active: true
   },
   {
     name: 'Playlists',
     to: '/playlists',
     src: playlistsImage,
-    alt: 'Playlists icon'
+    alt: 'Playlists icon',
+    active: false
   },
   {
     name: 'Genres',
     to: '/genres',
     src: genresImage,
-    alt: 'Genres icon'
+    alt: 'Genres icon',
+    active: false
   },
   {
     name: 'Discover',
     to: '/discover',
     src: discoverImage,
     spacer: true,
-    alt: 'Compass representing discover icon'
+    alt: 'Compass representing discover icon',
+    active: true
   },
   {
     name: 'Settings',
     to: '/settings',
     src: settingsImage,
-    alt: 'Gears representing settings icon'
+    alt: 'Gears representing settings icon',
+    active: false
   }
 ];

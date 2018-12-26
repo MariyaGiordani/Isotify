@@ -1,7 +1,7 @@
 .player {
-  height: 90px;
+  height: var(--music-player-height);
   width: 100%;
-  background-color: var(--white-lighter);
+  background-color: var(--theme-player-bg);
   position: fixed;
   z-index: 10;
   top: calc(100% - 90px);
@@ -14,10 +14,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: absolute;
-  width: 220px;
-  margin-left: -110px;
-  left: 50%;
+  margin-left: -25%;
 }
 
 .prev-container__image,
@@ -44,7 +41,7 @@
 .buttons__next-container,
 .container__playlist-icon,
 .player__volume-container {
-  background-image: var(--player-buttons-gradient);
+  background-image: var(--theme-player-button-bg);
   display: flex;
   box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.25);
 }
@@ -60,7 +57,9 @@
 .buttons__next,
 .container__button,
 .player__volume {
+  border: 0;
   border-radius: 50%;
+  background: var(--theme-player-button-bg);
 }
 
 .buttons__pause {
@@ -77,6 +76,12 @@
 .buttons__pause-container {
   width: 70px;
   height: 70px;
+}
+
+.buttons__next:focus,
+.buttons__pause:focus,
+.buttons__prev:focus {
+  box-shadow: var(--outline-player-shadow);
 }
 
 .playlist-icon__image,
@@ -99,20 +104,25 @@
 }
 
 .music-info__name,
-.music-info__name {
+.music-info__band {
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
 }
 
 .music-info__name {
   font-size: 16px;
+  color: var(--theme-text-title);
 }
 
 .music-info__band {
   font-size: 12px;
-  color: var(--gray);
+  color: var(--theme-text-subtitle);
   text-transform: uppercase;
   margin-top: 2px;
 }
@@ -124,13 +134,28 @@
 }
 
 .playlist-icon__music-info {
-  width: 300px;
   margin-left: 30px;
 }
 
-@media (max-width: 425px) {
+.tippy-popper {
+  margin-top: 150px !important;
+}
+
+@media (max-width: 800px) {
+  .music-info__name,
+  .music-info__band {
+    width: 140px;
+  }
+}
+
+@media (max-width: 700px) {
   .playlist-icon__music-info {
     display: none;
+  }
+
+  .player__container {
+    flex-direction: column;
+    align-items: initial;
   }
 
   .player__buttons {

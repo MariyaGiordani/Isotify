@@ -61,6 +61,7 @@ For the variables we have the following files:
 1. variables-colors.css (for all colors)
 2. variables-gradients.css (for all gradients)
 3. variables-modifiers.css (for rgba and shadows)
+4. theming.css (this will be explained in the next question)
 
 #### Colors
 When creating a css Variable for the **colors** file, choose a base color and go three scales up or down in accord to the color being used, adding a suffix, like this:
@@ -82,8 +83,26 @@ For instance, if we were to create a new color, named `brick`, and after we were
 `--brick-lightest`
 
 #### Gradients
-They should be all named with the main colors of the gradient.
+They should be all named with the main colors of the gradient and eventually their modifiers (e.g.: `--carousel-black-gradient` and `--red-yellow-gradient-76deg`).
 
 #### Modifiers
 
 Here the convention is for rgba and shadows (and some other specific properties that will be used only once), so everything that goes here should have as prefix the BEM of the css class calling the variable, and the property (shadow, for instance).
+
+## Theming
+There are two main themes, `default` and `night-mode`, that are basically a bright mode and a dark mode respectively. Two create a new theme, change a theme, or create a component that is sensitive to the theme, add and use all related properties in the `theming.css` file. Each class is a theme (e.g.: `.night-mode` and `.default`), each class has the same variables, but with different content for each. For instance, the `--theme-page-bg` has the variable `--black-lighter` in the dark mode and `--white` in the default mode.
+
+* Titles, Subtitles and some dividers are usually the same acrros the application, so they share the same attributes: `theme-text-title`, `theme-text-subtitle`, `theme-divider` respectively.
+
+* If you are about to add a new variable in a theme, don't forget to add in all available themes, and to also include the prefix `--theme-`, so there is a way to differentiate between regular variables and theming variables.
+
+* Don't reuse variables unless you are certain they are to be the same in different components. They may share the same color, gradient, box shadow in the moment, but can eventually grow apart and become different, that will cause a change in a component an unexpected change in another. 
+
+## Error Handler
+To add the error handler to a request on the API, use:
+```
+.catch((error) => {
+    this.setState({ error: serverError(error) });
+});
+```
+To a new error create a new case in the error handler.

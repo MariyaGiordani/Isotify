@@ -1,8 +1,9 @@
 .card {
   position: relative;
 }
+
 .card__cover {
-  background-color: #353535;
+  background-color: var(--black-lightest);
   border-radius: 10px;
   box-shadow: var(--black-shadow);
   object-fit: cover;
@@ -42,6 +43,7 @@
   top: 0;
   background-color: var(--album-overlay);
   border: 3px solid var(--pink-darker);
+  cursor: pointer;
 }
 
 .card__info {
@@ -68,18 +70,19 @@
   width: 90%;
 }
 
-.card__text-title {
+.card__theme-text-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--theme-text-title);
 }
 
-.card__text-subtitle {
+.card__theme-text-subtitle {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 13px;
-  color: var(--gray);
+  color: var(--theme-text-subtitle);
 }
 
 .card__options {
@@ -129,12 +132,12 @@
   margin-left: 25px;
 }
 
-.card--big .card__text-title {
+.card--big .card__theme-text-title {
   font-size: 18px;
   font-weight: 600;
 }
 
-.card--big .card__text-subtitle {
+.card--big .card__theme-text-subtitle {
   font-size: 12px;
   font-weight: 600;
 }
@@ -144,11 +147,11 @@
   margin: 10px;
 }
 
-.card--small .card__text-title {
+.card--small .card__theme-text-title {
   font-size: 14px;
 }
 
-.card--small .card__text-subtitle {
+.card--small .card__theme-text-subtitle {
   font-size: 11px;
 }
 

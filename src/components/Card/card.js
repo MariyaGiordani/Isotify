@@ -38,8 +38,10 @@ const Card = ({
   const optionDots = (
     <img className="card__options" src={grayDots} alt="Teste" />
   );
-  const titleParagraph = <p className="card__text-title">{title}</p>;
-  const subtitleParagraph = <p className="card__text-subtitle">{subtitle}</p>;
+  const titleParagraph = <p className="card__theme-text-title">{title}</p>;
+  const subtitleParagraph = (
+    <p className="card__theme-text-subtitle">{subtitle}</p>
+  );
   return (
     <div className={`card card--${size}`}>
       {cardImage}

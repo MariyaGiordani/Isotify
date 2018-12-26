@@ -1,8 +1,8 @@
 @font-face {
-    font-family: "Montserrat";
-    src: url("./assets/Montserrat-Regular.otf");
-    margin:0;
-    letter-spacing: 2px;
+  font-family: 'Montserrat';
+  src: url('./assets/Montserrat-Regular.otf');
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 * {
@@ -11,14 +11,29 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
+  cursor: pointer;
+}
+
+a:focus {
+  text-decoration: underline;
+  outline: 0;
+}
+
+button:focus {
+  box-shadow: var(--outline-shadow);
+  outline: 0;
 }
 
 body {
-  background-color: var(--white);
-  font-family: "Montserrat", sans-serif,Arial, Helvetica;
+  font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+  background: var(--theme-page-bg);
 }
 
 .container {
@@ -40,7 +55,6 @@ body {
 
 @media only screen and (max-width: 500px) {
   .container {
-    margin-top: 50px; 
+    margin-top: 50px;
   }
 }
-
