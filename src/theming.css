@@ -9,6 +9,7 @@
   --theme-artist-line-albums-bg: var(--black-lightest);
   --theme-artist-line-corners-bg: var(--theme-artist-line-albums-bg);
   --theme-top-songs-artists-bg: var(--metal-gray);
+  --theme-sidebar-bg: var(--black-darkest);
 
   --theme-text-title: var(--white);
   --theme-text-subtitle: var(--gray);
@@ -34,6 +35,7 @@
   --theme-artist-line-albums-bg: var(--white-light);
   --theme-artist-line-corners-bg: var(--white-light);
   --theme-top-songs-artists-bg: var(--white-light);
+  --theme-sidebar-bg: var(--black-darkest);
 
   --theme-text-title: var(--black);
   --theme-text-subtitle: var(--gray);
