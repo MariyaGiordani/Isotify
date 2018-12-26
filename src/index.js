@@ -25,7 +25,7 @@ import './variables-colors.css';
 import './theming.css';
 
 const routes = () => (
-  <div>
+  <Fragment>
     {isUserLogged() && showMenus()}
     <Switch>
       <Route path="/login" component={Login} />
@@ -46,7 +46,7 @@ const routes = () => (
       <Redirect exact from="/" to="login" />
       <Route component={NotFound} />
     </Switch>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(
