@@ -9,14 +9,15 @@
   overflow-x: hidden;
   z-index: 2;
   background-color: var(--black-darkest);
+  transition: 1s;
 }
 
 .sidebar__screen {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: calc(100% - 100px);
   left: 100px;
-  height: 200vh;
+  height: 100vh;
   z-index: 3;
 }
 
@@ -24,12 +25,6 @@
   position: fixed;
   top: 0;
   left: -100%;
-}
-
-.sidebar__screen--show {
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 .sidebar--collapsed {
