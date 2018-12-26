@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react';
 
-import './settingsAll.css';
 import SettingsItem from '../SettingsItem/settingsItem';
+
 import Appearance from '../../components/Appearance/appearance';
+
 import { LINKS } from './constants';
+import './settingsAll.css';
 
 class SettingsAll extends Component {
   state = {
-    selectedItem: ''
+    selectedItem: 'Appearance'
   };
 
   handleItemChange(selectedItem) {

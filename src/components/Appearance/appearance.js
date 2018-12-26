@@ -8,11 +8,11 @@ import MainFonts from './mainFonts';
 import InterfaceTheme from './interfaceTheme';
 import './appearance.css';
 
-export default class Appearence extends Component {
+export default class Appearance extends Component {
   render = () => {
     return (
       <div className="appearance">
-        <HeaderLine size="big" title={'Appearence'}>
+        <HeaderLine size="big" title={'Appearance'}>
           <Reset />
         </HeaderLine>
         <InterfaceTheme />
