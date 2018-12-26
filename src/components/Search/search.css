@@ -19,11 +19,11 @@
   text-decoration: none;
   border-bottom: 2px solid var(--theme-search-border);
   background-color: var(--theme-header-search-bg);
+  padding-left: 10px;
 }
 
 .search__song::placeholder {
   color: var(--theme-search-placeholder);
-  padding-left: 10px;
 }
 
 .search__song::placeholder {
