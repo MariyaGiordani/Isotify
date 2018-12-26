@@ -10,11 +10,11 @@
 }
 
 .switch-button__option {
-  color: var(--gray);
+  color: var(--theme-text-subtitle);
 }
 
 .switch-button__option-selected {
-  color: var(--black);
+  color: var(--theme-text-title);
   font-weight: 600;
 }
 

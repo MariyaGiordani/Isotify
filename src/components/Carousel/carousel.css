@@ -16,10 +16,11 @@
 .carousel__button {
   outline: 0;
   border: none;
-  background-color: var(--white);
+  background: none;
 }
 
-.carousel__arrow--right, .carousel__arrow--left {
+.carousel__arrow--right,
+.carousel__arrow--left {
   width: 25px;
   height: 29px;
 }
@@ -29,7 +30,8 @@
 }
 
 @media only screen and (max-width: 1440px) {
-  .carousel__arrow--right, .carousel__arrow--left {
+  .carousel__arrow--right,
+  .carousel__arrow--left {
     width: 18px;
     height: 20px;
   }

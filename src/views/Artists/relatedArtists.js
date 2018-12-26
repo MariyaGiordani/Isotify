@@ -6,7 +6,7 @@ import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import { getArtistsWithAlbums } from '../../services/artists';
 import { artistsWithAlbums as parseArtists } from '../../utils/spotifyResponseParsers';
-import { serverError } from '../../services/errors';
+import { serverError } from '../../utils/errors';
 import './Artists.css';
 
 export default class RelatedArtistsView extends Component {

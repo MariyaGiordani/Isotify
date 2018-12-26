@@ -15,7 +15,7 @@
   margin-top: 50px;
   width: 90%;
   height: 4px;
-  background-color: var(--white-dark);
+  background-color: var(--theme-divider);
 }
 
 @media only screen and (max-width: 830px) {

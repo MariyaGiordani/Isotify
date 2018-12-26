@@ -17,13 +17,17 @@
   letter-spacing: 1px;
   border: none;
   text-decoration: none;
-  border-bottom: 2px solid var(--gray-light);
-  background-color: var(--white-light);
+  border-bottom: 2px solid var(--theme-search-border);
+  background-color: var(--theme-header-search-bg);
+}
+
+.search__song::placeholder {
+  color: var(--theme-search-placeholder);
   padding-left: 10px;
 }
 
 .search__song::placeholder {
-    color: var(--gray-light);
+  color: var(--gray-light);
 }
 
 @media only screen and (max-width: 991px) {
@@ -77,7 +81,7 @@
   .search {
     margin-left: 10px;
   }
-  
+
   .search__song::placeholder {
     padding-left: 0;
   }
