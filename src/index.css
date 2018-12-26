@@ -12,13 +12,23 @@
 }
 
 button {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 a {
   color: inherit;
   text-decoration: inherit;
-  cursor: pointer; 
+  cursor: pointer;
+}
+
+a:focus {
+  text-decoration: underline;
+  outline: 0;
+}
+
+button:focus {
+  box-shadow: var(--outline-shadow);
+  outline: 0;
 }
 
 body {

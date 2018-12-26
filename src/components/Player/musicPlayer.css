@@ -78,6 +78,12 @@
   height: 70px;
 }
 
+.buttons__next:focus,
+.buttons__pause:focus,
+.buttons__prev:focus {
+  box-shadow: var(--outline-player-shadow);
+}
+
 .playlist-icon__image,
 .volume-container__image {
   width: 20px;
@@ -135,7 +141,7 @@
   margin-top: 150px !important;
 }
 
-@media (max-width:800px){
+@media (max-width: 800px) {
   .music-info__name,
   .music-info__band {
     width: 140px;
