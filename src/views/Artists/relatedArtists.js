@@ -34,8 +34,7 @@ export default class RelatedArtistsView extends Component {
         });
       })
       .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
+        this.setState({ error: serverError(error) });
       });
   }
 
