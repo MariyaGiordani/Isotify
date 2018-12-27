@@ -10,6 +10,7 @@ import { parseSearch } from '../../utils/spotifyResponseParsers';
 import { getSongsComponents } from '../../utils/parseToCard';
 import { getArtistsComponents } from '../../utils/parseToCard';
 import { getPlaylistComponents } from '../../utils/parseToCard';
+import { serverError } from '../../utils/errors';
 
 import './searchResults.css';
 
@@ -25,7 +26,8 @@ export default class searchResults extends Component {
     albums: [],
     tracks: [],
     playlists: [],
-    lastQuery: ''
+    lastQuery: '',
+    loaded: false
   };
 
   searchQuery = () => {
@@ -36,12 +38,17 @@ export default class searchResults extends Component {
       }
     } = this.props;
     if (lastQuery !== query) {
-      getResultsSearch(query).then((response) => {
-        const searchData = parseSearch(response);
-        this.setState({
-          ...searchData
+      getResultsSearch(query)
+        .then((response) => {
+          const searchData = parseSearch(response);
+          this.setState({
+            ...searchData,
+            loaded: true
+          });
+        })
+        .catch((error) => {
+          this.setState({ error: serverError(error) });
         });
-      });
       this.setState({ lastQuery: query });
     }
   };
@@ -55,12 +62,21 @@ export default class searchResults extends Component {
   };
 
   render = () => {
-    const { playlists, tracks, albums, artists, lastQuery } = this.state;
+    const {
+      playlists,
+      tracks,
+      albums,
+      artists,
+      lastQuery,
+      loaded,
+      error
+    } = this.state;
     const cardTracks = getSongsComponents(tracks);
     const cardArtists = getArtistsComponents(artists);
     const cardPlaylist = getPlaylistComponents(playlists);
+
     return (
-      <PageContainer>
+      <PageContainer {...{ error, loaded }}>
         <div className="search-results">
           <div className="search-results__title">
             Search results for:
