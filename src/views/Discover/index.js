@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './discover.css';
 
 import { getNewReleases } from '../../services/newReleases';

@@ -1,10 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import Spinner from '../../components/Spinner/spinner';
 
 import { getArtistsWithAlbums } from '../../services/artists';
 import { artistsWithAlbums as parseArtists } from '../../utils/spotifyResponseParsers';
