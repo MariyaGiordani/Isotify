@@ -54,6 +54,6 @@ export const LINKS = [
     to: '/settings',
     src: settingsImage,
     alt: 'Gears representing settings icon',
-    active: false
+    active: true
   }
 ];

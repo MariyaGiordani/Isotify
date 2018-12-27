@@ -74,7 +74,7 @@ export class UserPlaylist extends Component {
     const { playlists, profilePicture } = this.state;
     return (
       <div className="user-playlists__content">
-        <HeaderLine title={title} subtitle={subtitle} />
+        <HeaderLine title={title} subtitle={subtitle} size="big" />
         <div className="content__playlists">
           {mapPlaylistInfo(playlists, profilePicture)}
         </div>
