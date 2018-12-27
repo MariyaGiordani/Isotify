@@ -14,7 +14,7 @@
 }
 
 .header-line__subtitle {
-  color: var(--gray);
+  color: var(--theme-text-subtitle);
   letter-spacing: 2.5px;
   margin-top: 5px;
   text-transform: uppercase;
