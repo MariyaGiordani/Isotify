@@ -10,7 +10,7 @@ export default class Appearance extends Component {
   render = () => {
     return (
       <div className="appearance">
-        <HeaderLine size="big" title={'Appearance'} />
+        <HeaderLine size="big" title="Appearance" />
         <InterfaceTheme />
         <div className="appearance__divider" />
         <MainFonts />
