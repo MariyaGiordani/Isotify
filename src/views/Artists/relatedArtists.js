@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';
+import Spinner from '../../components/Spinner/spinner';
+
 import { getArtistsWithAlbums } from '../../services/artists';
 import { artistsWithAlbums as parseArtists } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
@@ -14,7 +16,9 @@ export default class RelatedArtistsView extends Component {
     isListSelected: false,
     artists: [],
     artistsAmount: 0,
-    songsAmount: 0
+    songsAmount: 0,
+    error: '',
+    loaded: false
   };
 
   fetchArtistData(artists) {
@@ -30,12 +34,12 @@ export default class RelatedArtistsView extends Component {
         this.setState({
           artists,
           songsAmount,
-          artistsAmount: artists.length
+          artistsAmount: artists.length,
+          loaded: true
         });
       })
       .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
+        this.setState({ error: serverError(error) });
       });
   }
 
@@ -50,11 +54,18 @@ export default class RelatedArtistsView extends Component {
   changeViewMode = (isListSelected) => this.setState({ isListSelected });
 
   render = () => {
-    const { artists, isListSelected, artistsAmount, songsAmount } = this.state;
+    const {
+      artists,
+      isListSelected,
+      artistsAmount,
+      songsAmount,
+      error,
+      loaded
+    } = this.state;
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
 
-    return (
-      <PageContainer>
+    const relatedArtistsViews = (
+      <Fragment>
         <HeaderLine
           {...{
             title: 'Artists',
@@ -74,6 +85,11 @@ export default class RelatedArtistsView extends Component {
         ) : (
           <ArtistsGrid {...{ size: 'big', ...{ artists } }} size={'big'} />
         )}
+      </Fragment>
+    );
+    return (
+      <PageContainer>
+        {error || loaded ? relatedArtistsViews : <Spinner />}
       </PageContainer>
     );
   };

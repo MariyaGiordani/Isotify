@@ -2,7 +2,7 @@
   position: fixed;
   width: 20%;
   z-index: 2;
-  top: 40%;
+  top: 30%;
   left: 50%;
   margin-left: calc(-20% + 100px);
 }

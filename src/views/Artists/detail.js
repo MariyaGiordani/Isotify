@@ -3,6 +3,8 @@ import BannerArtist from '../../components/BannerArtist/bannerArtist';
 import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
+import Spinner from '../../components/Spinner/spinner';
+
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
@@ -15,7 +17,8 @@ export default class Details extends Component {
     songsAmount: 0,
     relatedArtists: [],
     imgSrc: '',
-    error: ''
+    error: '',
+    loaded: false
   };
 
   fetchArtistData(artistId) {
@@ -28,7 +31,8 @@ export default class Details extends Component {
           songsAmount: artist.totalTracks,
           relatedArtists: artist.relatedArtists,
           albumsAmount: artist.albums.length,
-          imgSrc: artist.imgSrc
+          imgSrc: artist.imgSrc,
+          loaded: true
         });
       })
       .catch((error) => {
@@ -58,28 +62,31 @@ export default class Details extends Component {
       albumsAmount,
       relatedArtists,
       imgSrc,
-      error
+      error,
+      loaded
     } = this.state;
+
+    const detailsView = (
+      <Fragment>
+        <BannerArtist
+          {...{
+            name,
+            albumsAmount,
+            songsAmount,
+            relatedArtists,
+            imgSrc
+          }}
+        />
+        <ArtistNavigationItems />
+        <div className="artists-view__wrap">
+          <AlbumsGrid {...{ albums, size: 'big' }} />
+        </div>
+      </Fragment>
+    );
 
     return (
       <PageContainer noPadding={true}>
-        {error || (
-          <Fragment>
-            <BannerArtist
-              {...{
-                name,
-                albumsAmount,
-                songsAmount,
-                relatedArtists,
-                imgSrc
-              }}
-            />
-            <ArtistNavigationItems />
-            <div className="artists-view__wrap">
-              <AlbumsGrid {...{ albums, size: 'big' }} />
-            </div>
-          </Fragment>
-        )}
+        {error || loaded ? detailsView : <Spinner />}
       </PageContainer>
     );
   };

@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import Grid from '../../components/Grid/grid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import Track from '../../components/Track/track';
+import Spinner from '../../components/Spinner/spinner';
 import { getSavedTracks } from '../../services/tracks';
 import { savedTracks as parseSavedTracks } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
@@ -12,7 +13,8 @@ import './songs.css';
 export default class Songs extends Component {
   state = {
     tracks: [],
-    total: 0
+    total: 0,
+    loaded: false
   };
 
   componentDidMount() {
@@ -20,7 +22,7 @@ export default class Songs extends Component {
       .then((rawTracks) => {
         const tracks = parseSavedTracks(rawTracks.items);
         const { total } = rawTracks;
-        this.setState({ tracks, total });
+        this.setState({ tracks, total, loaded: true });
       })
       .catch((error) => {
         window.alert('Sorry, we cannot complete your request right now.');
@@ -29,10 +31,10 @@ export default class Songs extends Component {
   }
 
   render = () => {
-    const { tracks, total } = this.state;
+    const { tracks, total, loaded } = this.state;
     const subtitle = `${total} Songs saved on Library`;
-    return (
-      <PageContainer>
+    const songsView = (
+      <Fragment>
         <HeaderLine
           {...{
             title: 'Tracks',
@@ -44,7 +46,8 @@ export default class Songs extends Component {
             return <Track {...{ key: track.id, size: 'big', ...track }} />;
           })}
         </Grid>
-      </PageContainer>
+      </Fragment>
     );
+    return <PageContainer>{loaded ? songsView : <Spinner />}</PageContainer>;
   };
 }

@@ -54,34 +54,30 @@ export default class ArtistsListView extends Component {
       error
     } = this.state;
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
-    const isPageLoading = artists.length === 0;
-    return (
-      <PageContainer>
-        {error || isPageLoading ? (
-          <Spinner />
-        ) : (
-          <Fragment>
-            <HeaderLine
-              {...{
-                title: 'Artists',
-                subtitle
-              }}
-            >
-              <SwitchButton
-                firstOption="Grid"
-                secondOption="List"
-                inputFunction={this.changeViewMode}
-              />
-            </HeaderLine>
+    const loading = artists.length === 0 && <Spinner />;
+    const artistsView = (
+      <Fragment>
+        <HeaderLine
+          {...{
+            title: 'Artists',
+            subtitle
+          }}
+        >
+          <SwitchButton
+            firstOption="Grid"
+            secondOption="List"
+            inputFunction={this.changeViewMode}
+          />
+        </HeaderLine>
 
-            {isListSelected ? (
-              <ArtistsList artists={artists} />
-            ) : (
-              <ArtistsGrid artists={artists} size={'big'} />
-            )}
-          </Fragment>
+        {isListSelected ? (
+          <ArtistsList artists={artists} />
+        ) : (
+          <ArtistsGrid artists={artists} size={'big'} />
         )}
-      </PageContainer>
+      </Fragment>
     );
+
+    return <PageContainer>{error || loading || artistsView}</PageContainer>;
   };
 }

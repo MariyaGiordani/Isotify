@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import PageContainer from '../../components/PageContainer/pageContainer';
+import Spinner from '../../components/Spinner/spinner';
 import { getSavedAlbums } from '../../services/albums';
 import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
@@ -13,7 +14,8 @@ export default class Albums extends Component {
     albums: [],
     albumsAmount: 0,
     songsAmount: 0,
-    error: ''
+    error: '',
+    loaded: false
   };
 
   componentDidMount() {
@@ -25,7 +27,7 @@ export default class Albums extends Component {
           (total, currentAlbum) => total + currentAlbum.songsAmount,
           0
         );
-        this.setState({ albums, albumsAmount, songsAmount });
+        this.setState({ albums, albumsAmount, songsAmount, loaded: true });
       })
       .catch((error) => {
         this.setState({ error: serverError(error) });
@@ -33,24 +35,24 @@ export default class Albums extends Component {
   }
 
   render = () => {
-    const { albums, albumsAmount, songsAmount, error } = this.state;
+    const { albums, albumsAmount, songsAmount, error, loaded } = this.state;
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
-
+    const albumsView = (
+      <Fragment>
+        <HeaderLine
+          {...{
+            title: 'Albums',
+            subtitle
+          }}
+        />
+        <div className="albums-view__grid">
+          <AlbumsGrid size="big" albums={albums} />
+        </div>
+      </Fragment>
+    );
     return (
       <PageContainer>
-        {error || (
-          <Fragment>
-            <HeaderLine
-              {...{
-                title: 'Albums',
-                subtitle
-              }}
-            />
-            <div className="albums-view__grid">
-              <AlbumsGrid size="big" albums={albums} />
-            </div>
-          </Fragment>
-        )}
+        {error || loaded ? albumsView : <Spinner />}
       </PageContainer>
     );
   };

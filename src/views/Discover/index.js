@@ -15,6 +15,7 @@ import PageContainer from '../../components/PageContainer/pageContainer';
 import Carousel from '../../components/Carousel/carousel';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
 import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
+import Spinner from '../../components/Spinner/spinner';
 import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 
 const filterRepeated = (idsList) => [...new Set(idsList)];
@@ -25,7 +26,8 @@ export default class List extends Component {
     topTracks: [],
     artists: [],
     error: '',
-    noPadding: true
+    noPadding: true,
+    loaded: false
   };
 
   componentDidMount = () => {
@@ -41,7 +43,8 @@ export default class List extends Component {
           this.setState({
             artists,
             albums,
-            topTracks
+            topTracks,
+            loaded: true
           });
         });
       })
@@ -56,23 +59,27 @@ export default class List extends Component {
       albums = [],
       topTracks = [],
       error,
-      noPadding
+      noPadding,
+      loaded
     } = this.state;
+
+    const discoverView = (
+      <Fragment>
+        <Carousel items={artists} />
+        <div className="discover">
+          <WhatsNew albums={albums.slice(0, 4)} />
+          <div className="discover__top">
+            <TopSongsAndArtists artists={artists} songs={topTracks} />
+          </div>
+          <div className="discover__divider" />
+        </div>
+        <UserPlaylist />
+      </Fragment>
+    );
+
     return (
       <PageContainer noPadding={noPadding}>
-        {error || (
-          <Fragment>
-            <Carousel items={artists} />
-            <div className="discover">
-              <WhatsNew albums={albums.slice(0, 4)} />
-              <div className="discover__top">
-                <TopSongsAndArtists artists={artists} songs={topTracks} />
-              </div>
-              <div className="discover__divider" />
-            </div>
-            <UserPlaylist />
-          </Fragment>
-        )}
+        {error || loaded ? discoverView : <Spinner />}
       </PageContainer>
     );
   };
