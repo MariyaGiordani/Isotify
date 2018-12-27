@@ -51,26 +51,34 @@ export default class MainFonts extends Component {
             }`}
           >
             <p
-              onClick={this.changeMainFont.bind(this, 'classic')}
+              onClick={() => {
+                this.changeMainFont('classic');
+              }}
               className="main-fonts__popup-text "
             >
               Classic
             </p>
 
             <p
-              onClick={this.changeMainFont.bind(this, 'modern')}
+              onClick={() => {
+                this.changeMainFont('modern');
+              }}
               className="main-fonts__popup-text "
             >
               Modern
             </p>
             <p
-              onClick={this.changeMainFont.bind(this, 'typewriter')}
+              onClick={() => {
+                this.changeMainFont('typewriter');
+              }}
               className="main-fonts__popup-text "
             >
               Typewriter
             </p>
             <p
-              onClick={this.changeMainFont.bind(this, 'strong')}
+              onClick={() => {
+                this.changeMainFont('strong');
+              }}
               className="main-fonts__popup-text "
             >
               Strong
@@ -101,7 +109,7 @@ export default class MainFonts extends Component {
         {this.popupMainFonts()}
         <div
           onClick={this.closePopUp}
-          className={`main-fonts__popup-screen${!popup &&
+          className={`main-fonts__popup-screen ${!popup &&
             popupScreenCollapsed}`}
         />
       </div>
