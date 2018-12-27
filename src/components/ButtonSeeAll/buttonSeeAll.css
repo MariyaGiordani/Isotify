@@ -10,7 +10,6 @@
   letter-spacing: 2px;
 }
 
-
 .button-see-all__search {
   font-size: 19px;
   font-weight: 600;
@@ -19,12 +18,6 @@
   color: var(--pink-darker);
   border: none;
   background-color: var(--white);
-}
-
-
-.button-see-all__search:focus {
-  box-shadow: none;
-  border-bottom: 2px solid var(--pink-darker);
 }
 
 .button-see-all__image {

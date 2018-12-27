@@ -10,6 +10,7 @@ import { parseSearch } from '../../utils/spotifyResponseParsers';
 import { getSongsComponents } from '../../utils/parseToCard';
 import { getArtistsComponents } from '../../utils/parseToCard';
 import { getPlaylistComponents } from '../../utils/parseToCard';
+import { serverError } from '../../utils/errors';
 
 import './searchResults.css';
 
@@ -36,12 +37,16 @@ export default class searchResults extends Component {
       }
     } = this.props;
     if (lastQuery !== query) {
-      getResultsSearch(query).then((response) => {
-        const searchData = parseSearch(response);
-        this.setState({
-          ...searchData
+      getResultsSearch(query)
+        .then((response) => {
+          const searchData = parseSearch(response);
+          this.setState({
+            ...searchData
+          });
+        })
+        .catch((error) => {
+          this.setState({ error: serverError(error) });
         });
-      });
       this.setState({ lastQuery: query });
     }
   };
