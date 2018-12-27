@@ -1,11 +1,12 @@
 import React from 'react';
 import './pageContainer.css';
+import Spinner from '../../components/Spinner/spinner';
 
-const PageContainer = ({ children, noPadding }) => (
+const PageContainer = ({ children, noPadding, loaded = true, error }) => (
   <div
     className={`page-container ${noPadding && 'page-container--no-padding'}`}
   >
-    {children}
+    {error || loaded ? children : <Spinner />}
   </div>
 );
 

@@ -64,8 +64,9 @@ export default class RelatedArtistsView extends Component {
     } = this.state;
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
 
-    const relatedArtistsViews = (
-      <Fragment>
+    const relatedArtistsViews = <Fragment />;
+    return (
+      <PageContainer {...{ error, loaded }}>
         <HeaderLine
           {...{
             title: 'Artists',
@@ -85,11 +86,6 @@ export default class RelatedArtistsView extends Component {
         ) : (
           <ArtistsGrid {...{ size: 'big', ...{ artists } }} size={'big'} />
         )}
-      </Fragment>
-    );
-    return (
-      <PageContainer>
-        {error || loaded ? relatedArtistsViews : <Spinner />}
       </PageContainer>
     );
   };

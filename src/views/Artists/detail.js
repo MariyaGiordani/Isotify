@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
 import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import Spinner from '../../components/Spinner/spinner';
 
 import { getArtist } from '../../services/artists';
 import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
@@ -66,8 +65,8 @@ export default class Details extends Component {
       loaded
     } = this.state;
 
-    const detailsView = (
-      <Fragment>
+    return (
+      <PageContainer {...{ error, loaded, noPadding: true }}>
         <BannerArtist
           {...{
             name,
@@ -81,12 +80,6 @@ export default class Details extends Component {
         <div className="artists-view__wrap">
           <AlbumsGrid {...{ albums, size: 'big' }} />
         </div>
-      </Fragment>
-    );
-
-    return (
-      <PageContainer noPadding={true}>
-        {error || loaded ? detailsView : <Spinner />}
       </PageContainer>
     );
   };

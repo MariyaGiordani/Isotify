@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
 import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
-import Spinner from '../../components/Spinner/spinner';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import { getTopArtistsWithAlbums } from '../../services/artists';
 import { artistsWithAlbums as parseTopArtists } from '../../utils/spotifyResponseParsers';
@@ -17,7 +16,8 @@ export default class ArtistsListView extends Component {
     artists: [],
     artistsAmount: 0,
     songsAmount: 0,
-    error: ''
+    error: '',
+    loaded: false
   };
 
   componentDidMount() {
@@ -35,7 +35,8 @@ export default class ArtistsListView extends Component {
         this.setState({
           songsAmount: totalTracks,
           artists: parsedArtists,
-          artistsAmount: parsedArtists.length
+          artistsAmount: parsedArtists.length,
+          loaded: true
         });
       })
       .catch((error) => {
@@ -51,12 +52,13 @@ export default class ArtistsListView extends Component {
       isListSelected,
       artistsAmount,
       songsAmount,
-      error
+      error,
+      loaded
     } = this.state;
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
-    const loading = artists.length === 0 && <Spinner />;
-    const artistsView = (
-      <Fragment>
+
+    return (
+      <PageContainer {...{ error, loaded }}>
         <HeaderLine
           {...{
             title: 'Artists',
@@ -75,9 +77,7 @@ export default class ArtistsListView extends Component {
         ) : (
           <ArtistsGrid artists={artists} size={'big'} />
         )}
-      </Fragment>
+      </PageContainer>
     );
-
-    return <PageContainer>{error || loading || artistsView}</PageContainer>;
   };
 }

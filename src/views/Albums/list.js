@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import Spinner from '../../components/Spinner/spinner';
 import { getSavedAlbums } from '../../services/albums';
 import { savedAlbums as parseSavedAlbums } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
@@ -37,8 +36,8 @@ export default class Albums extends Component {
   render = () => {
     const { albums, albumsAmount, songsAmount, error, loaded } = this.state;
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
-    const albumsView = (
-      <Fragment>
+    return (
+      <PageContainer {...{ error, loaded }}>
         <HeaderLine
           {...{
             title: 'Albums',
@@ -48,11 +47,6 @@ export default class Albums extends Component {
         <div className="albums-view__grid">
           <AlbumsGrid size="big" albums={albums} />
         </div>
-      </Fragment>
-    );
-    return (
-      <PageContainer>
-        {error || loaded ? albumsView : <Spinner />}
       </PageContainer>
     );
   };
