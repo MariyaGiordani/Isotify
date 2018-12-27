@@ -5,6 +5,27 @@
   letter-spacing: 2px;
 }
 
+@font-face {
+  font-family: 'Montserrat-ExtraBold';
+  src: url('./assets/Montserrat-ExtraBold.ttf');
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('./assets/RobotoMono-Regular.ttf');
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/Roboto-Regular.ttf');
+  margin: 0;
+  letter-spacing: 2px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +53,6 @@ button:focus {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif, Arial, Helvetica;
   background: var(--theme-page-bg);
 }
 

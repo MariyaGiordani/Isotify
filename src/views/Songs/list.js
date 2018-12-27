@@ -50,7 +50,8 @@ export default class Songs extends Component {
         <HeaderLine
           {...{
             title: 'Tracks',
-            subtitle
+            subtitle,
+            size: 'big'
           }}
         />
         <Grid size="big" type="tracks">
