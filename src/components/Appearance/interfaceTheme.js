@@ -20,7 +20,7 @@ export default class InterfaceTheme extends Component {
     };
   }
 
-  changeViewMode = (event) => {
+  changeViewTheme = (event) => {
     const checked = event.target.checked;
     const status = checked ? 'DARK' : 'LIGHT';
 
@@ -46,7 +46,7 @@ export default class InterfaceTheme extends Component {
       >
         <CheckBox
           {...{
-            onChange: this.changeViewMode,
+            onChange: this.changeViewTheme,
             isChecked: isChecked
           }}
         />
