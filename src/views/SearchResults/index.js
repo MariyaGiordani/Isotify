@@ -26,7 +26,8 @@ export default class searchResults extends Component {
     albums: [],
     tracks: [],
     playlists: [],
-    lastQuery: ''
+    lastQuery: '',
+    loaded: false
   };
 
   searchQuery = () => {
@@ -41,7 +42,8 @@ export default class searchResults extends Component {
         .then((response) => {
           const searchData = parseSearch(response);
           this.setState({
-            ...searchData
+            ...searchData,
+            loaded: true
           });
         })
         .catch((error) => {
@@ -60,12 +62,21 @@ export default class searchResults extends Component {
   };
 
   render = () => {
-    const { playlists, tracks, albums, artists, lastQuery } = this.state;
+    const {
+      playlists,
+      tracks,
+      albums,
+      artists,
+      lastQuery,
+      loaded,
+      error
+    } = this.state;
     const cardTracks = getSongsComponents(tracks);
     const cardArtists = getArtistsComponents(artists);
     const cardPlaylist = getPlaylistComponents(playlists);
+
     return (
-      <PageContainer>
+      <PageContainer {...{ error, loaded }}>
         <div className="search-results">
           <div className="search-results__title">
             Search results for:
