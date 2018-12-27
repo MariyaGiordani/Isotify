@@ -9,7 +9,7 @@ import { updateAppClasses } from '../../utils/theming';
 
 export default class MainFonts extends Component {
   state = {
-    popUp: false,
+    popup: false,
     font: 'Modern'
   };
 
@@ -21,11 +21,11 @@ export default class MainFonts extends Component {
   };
 
   showPopUp = () => {
-    this.setState({ popUp: true });
+    this.setState({ popup: true });
   };
 
   closePopUp = () => {
-    this.setState({ popUp: false });
+    this.setState({ popup: false });
   };
 
   changeMainFont = (name) => {
@@ -35,19 +35,19 @@ export default class MainFonts extends Component {
     });
   };
 
-  popUpMainFonts = () => {
-    const { popUp } = this.state;
-    const popUpCollapsed = getClassName(
+  popupMainFonts = () => {
+    const { popup } = this.state;
+    const popupCollapsed = getClassName(
       'main-fonts__popup-container',
       'collapsed'
     );
-    const popUpShow = getClassName('main-fonts__popup-container', 'show');
+    const popupShow = getClassName('main-fonts__popup-container', 'show');
     return (
-      popUp && (
+      popup && (
         <div className="main-fonts__popup">
           <div
             className={`main-fonts__popup-container ${
-              popUp ? popUpShow : popUpCollapsed
+              popup ? popupShow : popupCollapsed
             }`}
           >
             <p
@@ -82,9 +82,9 @@ export default class MainFonts extends Component {
   };
 
   render = () => {
-    const { popUp, font } = this.state;
+    const { popup, font } = this.state;
 
-    const popUpScreenCollapsed = getClassName(
+    const popupScreenCollapsed = getClassName(
       'main-fonts__popup-screen',
       'collapsed'
     );
@@ -98,11 +98,11 @@ export default class MainFonts extends Component {
           }}
           showPopUp={this.showPopUp}
         />
-        {this.popUpMainFonts()}
+        {this.popupMainFonts()}
         <div
           onClick={this.closePopUp}
-          className={`main-fonts__popup-screen${!popUp &&
-            popUpScreenCollapsed}`}
+          className={`main-fonts__popup-screen${!popup &&
+            popupScreenCollapsed}`}
         />
       </div>
     );
