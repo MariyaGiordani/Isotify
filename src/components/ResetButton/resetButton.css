@@ -1,4 +1,4 @@
-.reset {
+.reset-button {
     border: 0;
     height: 65px;
     padding: 10px 25px;
@@ -9,19 +9,19 @@
     background-color: var(--theme-page-bg);
 }
 
-.reset:focus {
+.reset-button:focus {
     box-shadow: none;
     border-bottom: 2px solid var(--pink-darker);
 }
 
-.reset__icon {
+.reset-button__icon {
     width: 24px;
     margin-right: 18px;
     vertical-align: middle;
 }
 
 @media only screen and (max-width: 500px) {
-    .reset {
+    .reset-button {
         font-size: 16px;
         padding: 0;
     }

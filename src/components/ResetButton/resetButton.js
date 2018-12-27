@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './reset.css';
 
-class Reset extends Component {
+class ResetButton extends Component {
   render = () => {
     const { onClick } = this.props;
 
     return (
-      <button className="reset" onClick={onClick}>
+      <button className="reset-button" onClick={onClick}>
         Reset all
       </button>
     );
   };
 }
 
-export default Reset;
+export default ResetButton;
