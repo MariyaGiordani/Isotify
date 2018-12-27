@@ -12,7 +12,9 @@ import './songs.css';
 export default class Songs extends Component {
   state = {
     tracks: [],
-    total: 0
+    total: 0,
+    loaded: false,
+    error: ''
   };
 
   componentDidMount() {
@@ -20,7 +22,7 @@ export default class Songs extends Component {
       .then((rawTracks) => {
         const tracks = parseSavedTracks(rawTracks.items);
         const { total } = rawTracks;
-        this.setState({ tracks, total });
+        this.setState({ tracks, total, loaded: true });
       })
       .catch((error) => {
         this.setState({ error: serverError(error) });
@@ -28,10 +30,11 @@ export default class Songs extends Component {
   }
 
   render = () => {
-    const { tracks, total } = this.state;
+    const { tracks, total, loaded, error } = this.state;
     const subtitle = `${total} Songs saved on Library`;
+
     return (
-      <PageContainer>
+      <PageContainer {...{ error, loaded }}>
         <HeaderLine
           {...{
             title: 'Tracks',
