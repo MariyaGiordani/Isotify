@@ -47,9 +47,9 @@ function getArtistsAlbums(artists) {
 function getArtistsWithAlbums(artists) {
   return spotifyInstance
     .get(`artists?ids=${artists}`, createHeader())
-    .then((artistsResponse) => {
-      return getArtistsAlbums(artistsResponse.data.artists);
-    });
+    .then(({ data: { artists } }) =>
+      getArtistsAlbums(artists).then((items) => ({ items }))
+    );
 }
 
 function getMultipleArtists(artistsIds) {

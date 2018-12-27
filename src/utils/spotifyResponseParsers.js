@@ -100,7 +100,7 @@ const parseAlbumInfo = ({
       id: artists[0].id
     },
     date: release_date,
-    imgSrc: images[0].url,
+    imgSrc: images.length > 0 ? images[0].url : '',
     songsAmount: total_tracks,
     id
   };
