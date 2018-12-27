@@ -5,7 +5,8 @@ import prev from '../../assets/img/prev.png';
 import pause from '../../assets/img/pause.png';
 import play from '../../assets/img/play_gray.svg';
 import next from '../../assets/img/next.png';
-import volume from '../../assets/img/speaker.png';
+import noMute from '../../assets/img/speaker.svg';
+import mute from '../../assets/img/mute.svg';
 import { createPopUp } from '../../utils/popUp';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
@@ -175,9 +176,11 @@ export class MusicPlayerProvider extends Component {
       onNextClick,
       loggedIn,
       popUp,
-      playing
+      playing,
+      isMute
     } = this.state;
     const { children } = this.props;
+    console.log(isMute);
 
     return (
       <PlayerContext.Provider value={this.state}>
@@ -226,7 +229,7 @@ export class MusicPlayerProvider extends Component {
                 <img
                   className="volume-container__image"
                   alt="Volume Button"
-                  src={volume}
+                  src={isMute ? mute : noMute}
                 />
               </div>
             </button>
