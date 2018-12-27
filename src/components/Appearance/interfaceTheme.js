@@ -12,11 +12,11 @@ export default class InterfaceTheme extends Component {
     super(props);
 
     const storageSubtitle = localStorage.getItem('status');
-    const isChecked = storageSubtitle === 'DARK';
+    const isDark = storageSubtitle === 'DARK';
 
     this.state = {
-      subtitle: isChecked ? 'DARK' : 'LIGHT',
-      isChecked: isChecked
+      subtitle: isDark ? 'DARK' : 'LIGHT',
+      isChecked: isDark
     };
   }
 
