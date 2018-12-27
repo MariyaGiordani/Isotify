@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import './appearance.css';
+
 import HeaderLine from '../headerLine/headerLine';
 import CheckBox from '../CheckBox/checkBox';
+
+import { updateAppClasses } from '../../utils/theming';
+
+import './appearance.css';
 
 export default class InterfaceTheme extends Component {
   constructor(props) {
@@ -26,6 +30,7 @@ export default class InterfaceTheme extends Component {
     });
 
     localStorage.setItem('status', status);
+    updateAppClasses();
   };
 
   render = () => {

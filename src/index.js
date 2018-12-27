@@ -22,6 +22,7 @@ import './index.css';
 import './variables-modifiers.css';
 import './variables-gradients.css';
 import './variables-colors.css';
+import './theming.css';
 
 const routes = () => (
   <Fragment>

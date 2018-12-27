@@ -8,17 +8,17 @@
 .appearance__divider {
   margin: 5px 35px;
   height: 3px;
-  background-color: var(--white-dark);
+  background-color: var(--theme-divider);
 }
 
 .main-fonts {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .popup-fonts {
   padding: 20px;
   box-shadow: var(--popup-fonts-shadow);
-  background-color: var(--white-light);
+  background-color: var(--theme-popup-fonts-bg);
   border-radius: 20px;
   z-index: 3;
   position: absolute;
@@ -27,7 +27,7 @@
 .popup-fonts__text {
   font-weight: 600;
   font-size: 18px;
-  color: var(--black);
+  color: var(--theme-text-title);
   margin-right: 35px;
   margin-left: 5px;
   line-height: 2;
@@ -61,4 +61,12 @@
   position: absolute;
   top: -17px;
   left: 25px;
+}
+
+@media only screen and (max-width: 900px) {
+  .appearance {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 300px;
+  }
 }

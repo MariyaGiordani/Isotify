@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './reset.css';
-// import reset from '../../assets/img/reset.png';
 
-const Reset = () => (
-  <button className="reset">
-    {/* <img className="reset__icon" alt="sarrow representing reset" src={reset} /> */}
-    Reset all
-  </button>
-);
+class Reset extends Component {
+  render = () => {
+    const { onClick } = this.props;
+
+    return (
+      <button className="reset" onClick={onClick}>
+        Reset all
+      </button>
+    );
+  };
+}
 
 export default Reset;

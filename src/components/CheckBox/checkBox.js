@@ -6,7 +6,7 @@ class CheckBox extends Component {
     const { onChange, isChecked } = this.props;
 
     return (
-      <label className={'check-box'}>
+      <label className="check-box">
         <input type="checkbox" onChange={onChange} checked={isChecked} />
         <span className="check-box__checkmark" />
       </label>

@@ -17,9 +17,6 @@
 
 @media (max-width: 425px) {
   .selected-icon {
-    width: 2px;
-    left: 68px;
-    margin-top: -49px;
-    height: 68px;
+    left: 72px;
   }
 }

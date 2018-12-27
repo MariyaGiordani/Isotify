@@ -1,7 +1,10 @@
 import React from 'react';
-import './settingsItem.css';
+
 import classnames from 'classnames';
+
 import SelectedIcon from '../SelectedIcon/selectedIcon';
+
+import './settingsItem.css';
 
 const SettingsItem = ({ src, name, alt, isSelected, onClicked }) => {
   const linkClass = classnames({

@@ -1,61 +1,58 @@
 .banner-artist {
-    position: relative;
-    height: 553px;
-    background: var(--banner-artist-background-color);
-    padding: 122px 80px 0;
-    background-size: cover;
-    background-position: top;
+  position: relative;
+  height: 553px;
+  background: var(--banner-artist-background-color);
+  padding: 122px 80px 0;
+  background-size: cover;
+  background-position: top;
 }
 
-.banner-artist__image{
-    object-fit: cover;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
+.banner-artist__image {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
-
 
 .banner-artist__title {
-    font-size: 52px;
-    line-height: 1.05;
-    margin-bottom: 10px;
-    color: var(--white);
+  font-size: 52px;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  color: var(--white);
 }
 
 .banner-artist__information {
-    opacity: 0.75;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 0.9px;
-    color: var(--white);
-    margin-bottom: 40px;
+  opacity: 0.75;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  color: var(--white);
+  margin-bottom: 40px;
 }
 
 .banner-artist__buttons-wrapper {
-    display: flex;
+  display: flex;
 }
 
 @media only screen and (max-width: 425px) {
-    .banner-artist {
-        height: 380px;
-    }
+  .banner-artist {
+    height: 380px;
+  }
 
-    .banner-artist__title {
-        font-size: 28px;
-    }
-    
-    .banner-artist__information {
-        font-size: 18px;
-    }
+  .banner-artist__title {
+    font-size: 28px;
+  }
+
+  .banner-artist__information {
+    font-size: 18px;
+  }
 }
 
-@media only screen and (max-width: 768px){
-
-    .banner-artist{
-        padding: 60px 40px 0;
-    }
-    
+@media only screen and (max-width: 768px) {
+  .banner-artist {
+    padding: 60px 40px 0;
+  }
 }

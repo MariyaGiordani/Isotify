@@ -10,7 +10,7 @@
 
 .header-line__title {
   font-size: 28px;
-  color: var(--black);
+  color: var(--theme-text-title);
 }
 
 .header-line__subtitle {

@@ -7,7 +7,7 @@
 }
 
 .settings-item--color {
-  background-color: var(--gray-lightest);
+  background-color: var(--theme-settings-appearance-bg);
 }
 
 .settings-item__text {
@@ -20,7 +20,7 @@
   font-weight: 900;
   line-height: 1.38;
   letter-spacing: 1.6px;
-  color: var(--black);
+  color: var(--theme-text-title);
 }
 
 .settings-item__icon-space {

@@ -5,15 +5,15 @@
 
 .settings-all {
   width: 40%;
-  height: 120vh;
-  background: var(--white-light);
+  height: 65vh;
+  background: var(--theme-settings-bg);
   box-shadow: var(--settings-shadow);
   overflow-y: scroll;
   overflow-x: hidden;
   border-radius: 15px;
-  ;
-  margin-top: 20px;
   padding-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 300px;
 }
 
 .settings-all__header {
@@ -23,12 +23,19 @@
   font-weight: 900;
   line-height: 1.75;
   letter-spacing: 0.6px;
-  color: var(--black);
+  color: var(--theme-text-title);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   .settings {
     width: 100%;
-    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .settings-all {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }

@@ -7,6 +7,7 @@ import Track from '../../components/Track/track';
 import { getSavedTracks } from '../../services/tracks';
 import { savedTracks as parseSavedTracks } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
+
 import './songs.css';
 
 export default class Songs extends Component {
@@ -36,7 +37,8 @@ export default class Songs extends Component {
         <HeaderLine
           {...{
             title: 'Tracks',
-            subtitle
+            subtitle,
+            size: 'big'
           }}
         />
         <Grid size="big" type="tracks">
