@@ -64,7 +64,6 @@ export default class RelatedArtistsView extends Component {
     } = this.state;
     const subtitle = `${artistsAmount} Artists, ${songsAmount} Songs`;
 
-    const relatedArtistsViews = <Fragment />;
     return (
       <PageContainer {...{ error, loaded }}>
         <HeaderLine

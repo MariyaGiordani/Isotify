@@ -5,9 +5,11 @@ import { getNewReleases } from '../../services/newReleases';
 import { getMultipleArtists } from '../../services/artists';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
 import { getGlobalTopTracks } from '../../services/playlists';
+import { getMultipleArtistsTopTracks } from '../../services/tracks';
 import {
   parsePlaylistTracks,
-  parseArtist
+  parseArtist,
+  parseArtistTopTracks
 } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
 
@@ -15,7 +17,6 @@ import PageContainer from '../../components/PageContainer/pageContainer';
 import Carousel from '../../components/Carousel/carousel';
 import WhatsNew from '../../components/WhatsNew/whatsNew';
 import TopSongsAndArtists from '../../components/TopSongsAndArtists/topSongsAndArtists';
-import Spinner from '../../components/Spinner/spinner';
 import { UserPlaylist } from '../../components/Playlists/userPlaylists';
 
 const filterRepeated = (idsList) => [...new Set(idsList)];
@@ -26,7 +27,6 @@ export default class List extends Component {
     topTracks: [],
     artists: [],
     error: '',
-    noPadding: true,
     loaded: false
   };
 
@@ -39,12 +39,23 @@ export default class List extends Component {
         const topArtists = filterRepeated(artistsIds);
 
         getMultipleArtists(topArtists.slice(0, 5)).then((rawArtists) => {
-          const artists = rawArtists.map((artist) => parseArtist(artist));
-          this.setState({
-            artists,
-            albums,
-            topTracks,
-            loaded: true
+          const artistsWithoutSongs = rawArtists.map((artist) =>
+            parseArtist(artist)
+          );
+          getMultipleArtistsTopTracks(topArtists.slice(0, 5)).then((tracks) => {
+            const artistSongs = tracks.map((songs) =>
+              parseArtistTopTracks(songs)
+            );
+            const artists = artistsWithoutSongs.map((artist, index) => ({
+              ...artist,
+              topSongs: artistSongs[index]
+            }));
+            this.setState({
+              artists,
+              albums,
+              topTracks,
+              loaded: true
+            });
           });
         });
       })
@@ -59,12 +70,11 @@ export default class List extends Component {
       albums = [],
       topTracks = [],
       error,
-      noPadding,
       loaded
     } = this.state;
 
-    const discoverView = (
-      <Fragment>
+    return (
+      <PageContainer {...{ error, loaded, noPadding: true }}>
         <Carousel items={artists} />
         <div className="discover">
           <WhatsNew albums={albums.slice(0, 4)} />
@@ -74,12 +84,6 @@ export default class List extends Component {
           <div className="discover__divider" />
         </div>
         <UserPlaylist />
-      </Fragment>
-    );
-
-    return (
-      <PageContainer noPadding={noPadding}>
-        {error || loaded ? discoverView : <Spinner />}
       </PageContainer>
     );
   };

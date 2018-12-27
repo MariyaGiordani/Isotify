@@ -25,8 +25,7 @@ export default class Songs extends Component {
         this.setState({ tracks, total, loaded: true });
       })
       .catch((error) => {
-        window.alert('Sorry, we cannot complete your request right now.');
-        serverError(error);
+        this.setState({ error: serverError(error) });
       });
   }
 
