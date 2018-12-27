@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.popup-fonts {
+.main-fonts__popup-container {
   padding: 20px;
   box-shadow: var(--popup-fonts-shadow);
   background-color: var(--theme-popup-fonts-bg);
@@ -24,7 +24,7 @@
   position: absolute;
 }
 
-.popup-fonts__text {
+.main-fonts__popup-text {
   font-weight: 600;
   font-size: 18px;
   color: var(--theme-text-title);
@@ -35,11 +35,11 @@
   cursor: pointer;
 }
 
-.popup {
+.main-fonts__popup {
   position: relative;
 }
 
-.popup-fonts__screen {
+.main-fonts__popup-screen {
   position: fixed;
   top: 0;
   width: 100%;
@@ -48,16 +48,16 @@
   z-index: 2;
 }
 
-.popup-fonts__screen--collapsed {
+.main-fonts__popup-screen--collapsed {
   display: none;
 }
 
-.popup-fonts--collapsed {
+.main-fonts__popup-container--collapsed {
   position: fixed;
   top: 0;
 }
 
-.popup-fonts--show {
+.main-fonts__popup-container--show {
   position: absolute;
   top: -17px;
   left: 25px;

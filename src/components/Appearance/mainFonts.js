@@ -37,34 +37,41 @@ export default class MainFonts extends Component {
 
   popUpMainFonts = () => {
     const { popUp } = this.state;
-    const popUpCollapsed = getClassName('popup-fonts', 'collapsed');
-    const popUpShow = getClassName('popup-fonts', 'show');
+    const popUpCollapsed = getClassName(
+      'main-fonts__popup-container',
+      'collapsed'
+    );
+    const popUpShow = getClassName('main-fonts__popup-container', 'show');
     return (
       popUp && (
-        <div className="popup">
-          <div className={`popup-fonts ${popUp ? popUpShow : popUpCollapsed}`}>
+        <div className="main-fonts__popup">
+          <div
+            className={`main-fonts__popup-container ${
+              popUp ? popUpShow : popUpCollapsed
+            }`}
+          >
             <p
               onClick={this.changeMainFont.bind(this, 'classic')}
-              className="popup-fonts__text"
+              className="main-fonts__popup-text "
             >
               Classic
             </p>
 
             <p
               onClick={this.changeMainFont.bind(this, 'modern')}
-              className="popup-fonts__text"
+              className="main-fonts__popup-text "
             >
               Modern
             </p>
             <p
               onClick={this.changeMainFont.bind(this, 'typewriter')}
-              className="popup-fonts__text"
+              className="main-fonts__popup-text "
             >
               Typewriter
             </p>
             <p
               onClick={this.changeMainFont.bind(this, 'strong')}
-              className="popup-fonts__text"
+              className="main-fonts__popup-text "
             >
               Strong
             </p>
@@ -78,7 +85,7 @@ export default class MainFonts extends Component {
     const { popUp, font } = this.state;
 
     const popUpScreenCollapsed = getClassName(
-      'popup-fonts__screen',
+      'main-fonts__popup-screen',
       'collapsed'
     );
     return (
@@ -94,7 +101,8 @@ export default class MainFonts extends Component {
         {this.popUpMainFonts()}
         <div
           onClick={this.closePopUp}
-          className={`popup-fonts__screen ${!popUp && popUpScreenCollapsed}`}
+          className={`main-fonts__popup-screen${!popUp &&
+            popUpScreenCollapsed}`}
         />
       </div>
     );
