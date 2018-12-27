@@ -42,21 +42,23 @@ export default class List extends Component {
           const artistsWithoutSongs = rawArtists.map((artist) =>
             parseArtist(artist)
           );
-          getMultipleArtistsTopTracks(topArtists.slice(0, 5)).then((tracks) => {
-            const artistSongs = tracks.map((songs) =>
-              parseArtistTopTracks(songs)
-            );
-            const artists = artistsWithoutSongs.map((artist, index) => ({
-              ...artist,
-              topSongs: artistSongs[index]
-            }));
-            this.setState({
-              artists,
-              albums,
-              topTracks,
-              loaded: true
-            });
-          });
+          getMultipleArtistsTopTracks(topArtists.slice(0, 5)).then(
+            (rawTracks) => {
+              const artistSongs = rawTracks.map(({ tracks }) =>
+                parseArtistTopTracks(tracks)
+              );
+              const artists = artistsWithoutSongs.map((artist, index) => ({
+                ...artist,
+                topSongs: artistSongs[index]
+              }));
+              this.setState({
+                artists,
+                albums,
+                topTracks,
+                loaded: true
+              });
+            }
+          );
         });
       })
       .catch((error) => {
