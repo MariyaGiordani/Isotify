@@ -180,7 +180,6 @@ export class MusicPlayerProvider extends Component {
       isMute
     } = this.state;
     const { children } = this.props;
-    console.log(isMute);
 
     return (
       <PlayerContext.Provider value={this.state}>
