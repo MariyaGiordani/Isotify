@@ -176,13 +176,13 @@
   }
 
   .popup__title--big-font {
-    color: var(--black);
+    color: var(--theme-text-title););
     font-size: 20px;
   }
 
   .popup__title--medium-font,
   .popup__title--small-font {
-    color: var(--gray);
+    color: var(--theme-text-subtitle);
     font-size: 12px;
     font-weight: 500;
   }
