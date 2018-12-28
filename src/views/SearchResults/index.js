@@ -97,7 +97,7 @@ export default class searchResults extends Component {
                 title={titleArtists}
                 subtitle={`${artists.length} ${subtitle}`}
               >
-                <Grid items={cardArtists.slice(0, 4)} size="quarter" />
+                <Grid items={cardPlaylist.slice(0, 4)} size="quarter" />
               </QuarterGrid>
             )}
             <div className="search-results__divider-horizontal" />
@@ -119,7 +119,7 @@ export default class searchResults extends Component {
                 title={titlePlaylists}
                 subtitle={`${playlists.length} ${subtitle}`}
               >
-                <Grid items={cardPlaylist.slice(0, 4)} size="quarter" />
+                <Grid items={cardArtists.slice(0, 4)} size="quarter" />
               </QuarterGrid>
             )}
           </div>
