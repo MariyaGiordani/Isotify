@@ -18,10 +18,10 @@ const getComponents = (items = [], size) =>
   ));
 
 const Grid = ({ items, size, children }) => (
-  <div className="grid">
+  <div className={`${size === 'quarter' ? 'grid-quarter' : 'grid'}`}>
     <div
       className={`${
-        size === 'quarter' ? 'grid--quarter' : 'grid grid--centering'
+        size === 'quarter' ? 'grid-quarter' : 'grid grid--centering'
       }`}
     >
       {children || getComponents(items, size)}
