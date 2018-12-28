@@ -4,8 +4,11 @@
   width: 100%;
 }
 
-.grid--quarter {
+.grid-quarter {
   width: 100% !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
 }
 
 .grid--centering {

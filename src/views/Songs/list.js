@@ -54,7 +54,7 @@ export default class Songs extends Component {
             size: 'big'
           }}
         />
-        <div className="tracks-view-wrap">
+        <div className="tracks-view__wrap">
           <Grid size="big" type="tracks">
             {tracks.map((track) => {
               return <Track {...{ key: track.id, size: 'big', ...track }} />;
