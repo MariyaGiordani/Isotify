@@ -30,6 +30,10 @@
   box-sizing: content-box;
 }
 
+.switch-button__input-container--inactive {
+  background-image: var(--light-gray-gradient);
+}
+
 .switch-button__input {
   position: absolute;
   top: 0;

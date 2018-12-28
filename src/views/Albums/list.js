@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
@@ -13,7 +13,8 @@ export default class Albums extends Component {
     albums: [],
     albumsAmount: 0,
     songsAmount: 0,
-    error: ''
+    error: '',
+    loaded: false
   };
 
   componentDidMount() {
@@ -25,7 +26,7 @@ export default class Albums extends Component {
           (total, currentAlbum) => total + currentAlbum.songsAmount,
           0
         );
-        this.setState({ albums, albumsAmount, songsAmount });
+        this.setState({ albums, albumsAmount, songsAmount, loaded: true });
       })
       .catch((error) => {
         this.setState({ error: serverError(error) });
@@ -33,24 +34,20 @@ export default class Albums extends Component {
   }
 
   render = () => {
-    const { albums, albumsAmount, songsAmount, error } = this.state;
+    const { albums, albumsAmount, songsAmount, error, loaded } = this.state;
     const subtitle = `${albumsAmount} Albums, ${songsAmount} Songs`;
-
     return (
-      <PageContainer>
-        {error || (
-          <Fragment>
-            <HeaderLine
-              {...{
-                title: 'Albums',
-                subtitle
-              }}
-            />
-            <div className="albums-view__grid">
-              <AlbumsGrid size="big" albums={albums} />
-            </div>
-          </Fragment>
-        )}
+      <PageContainer {...{ error, loaded }}>
+        <HeaderLine
+          {...{
+            title: 'Albums',
+            subtitle,
+            size: 'big'
+          }}
+        />
+        <div className="albums-view__grid">
+          <AlbumsGrid size="big" albums={albums} />
+        </div>
       </PageContainer>
     );
   };

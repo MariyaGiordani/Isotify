@@ -1,13 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './discover.css';
 
 import { getNewReleases } from '../../services/newReleases';
 import { getMultipleArtists } from '../../services/artists';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
 import { getGlobalTopTracks } from '../../services/playlists';
+import { getMultipleArtistsTopTracks } from '../../services/tracks';
 import {
   parsePlaylistTracks,
-  parseArtist
+  parseArtist,
+  parseArtistTopTracks
 } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
 
@@ -25,7 +27,7 @@ export default class List extends Component {
     topTracks: [],
     artists: [],
     error: '',
-    noPadding: true
+    loaded: false
   };
 
   componentDidMount = () => {
@@ -37,11 +39,23 @@ export default class List extends Component {
         const topArtists = filterRepeated(artistsIds);
 
         getMultipleArtists(topArtists.slice(0, 5)).then((rawArtists) => {
-          const artists = rawArtists.map((artist) => parseArtist(artist));
-          this.setState({
-            artists,
-            albums,
-            topTracks
+          const artistsWithoutSongs = rawArtists.map((artist) =>
+            parseArtist(artist)
+          );
+          getMultipleArtistsTopTracks(topArtists.slice(0, 5)).then((tracks) => {
+            const artistSongs = tracks.map((songs) =>
+              parseArtistTopTracks(songs)
+            );
+            const artists = artistsWithoutSongs.map((artist, index) => ({
+              ...artist,
+              topSongs: artistSongs[index]
+            }));
+            this.setState({
+              artists,
+              albums,
+              topTracks,
+              loaded: true
+            });
           });
         });
       })
@@ -56,23 +70,20 @@ export default class List extends Component {
       albums = [],
       topTracks = [],
       error,
-      noPadding
+      loaded
     } = this.state;
+
     return (
-      <PageContainer noPadding={noPadding}>
-        {error || (
-          <Fragment>
-            <Carousel items={artists} />
-            <div className="discover">
-              <WhatsNew albums={albums.slice(0, 4)} />
-              <div className="discover__top">
-                <TopSongsAndArtists artists={artists} songs={topTracks} />
-              </div>
-              <div className="discover__divider" />
-            </div>
-            <UserPlaylist />
-          </Fragment>
-        )}
+      <PageContainer {...{ error, loaded, noPadding: true }}>
+        <Carousel items={artists} />
+        <div className="discover">
+          <WhatsNew albums={albums.slice(0, 4)} />
+          <div className="discover__top">
+            <TopSongsAndArtists artists={artists} songs={topTracks} />
+          </div>
+          <div className="discover__divider" />
+        </div>
+        <UserPlaylist />
       </PageContainer>
     );
   };

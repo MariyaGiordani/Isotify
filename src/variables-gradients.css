@@ -44,6 +44,8 @@
 
   --white-gray-gradient: linear-gradient(to bottom, #fff, #f0f0f0);
 
+  --light-gray-gradient: linear-gradient(to bottom, #ccc, #c0c0c0);
+
   --switch-gradient: linear-gradient(
       to left,
       rgba(191, 10, 69, 0.9),

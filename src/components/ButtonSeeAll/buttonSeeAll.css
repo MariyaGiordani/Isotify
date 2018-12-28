@@ -15,10 +15,16 @@
   font-weight: 600;
   line-height: 3.27;
   letter-spacing: 1px;
-  color: var(--pink-darker);
+  color: var(--theme-button-see-all);
   border: none;
-  background-color: var(--white);
+  background-color: var(--theme-button-see-all-bg);
 }
+
+.button-see-all__search:focus {
+  box-shadow: none;
+  border-bottom: 2px solid var(--pink-darker);
+}
+
 
 .button-see-all__image {
   width: 24px;

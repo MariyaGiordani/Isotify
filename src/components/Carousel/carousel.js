@@ -79,8 +79,8 @@ class Carousel extends Component {
     const { progress } = this.state;
     const { items } = this.props;
 
-    const slides = items.map(({ id: key, name, imgSrc }) => (
-      <Slide {...{ key, name, imgSrc }} />
+    const slides = items.map(({ id: key, name, imgSrc, id, topSongs }) => (
+      <Slide {...{ key, name, imgSrc, id, topSongs }} />
     ));
 
     return (

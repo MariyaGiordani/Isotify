@@ -1,7 +1,9 @@
 .night-mode {
   --theme-page-bg: var(--black-lighter);
+  --theme-settings-appearance-bg: var(--black);
   --theme-header-bg: var(--black-darker);
   --theme-header-search-bg: var(--black-darker);
+  --theme-settings-bg: var(--black-lightest);
   --theme-player-bg: var(--black);
   --theme-player-button-bg: var(--player-buttons-gradient-dark);
   --theme-playlist-bg: var(--playlist-gradient-dark);
@@ -10,11 +12,18 @@
   --theme-artist-line-corners-bg: var(--theme-artist-line-albums-bg);
   --theme-top-songs-artists-bg: var(--metal-gray);
   --theme-sidebar-bg: var(--black-darkest);
+  --theme-button-see-all-bg: var(--black-lighter);
+  --theme-popup-fonts-bg: var(--black-lightest);
+  --theme-check-box-bg: var(--black-lightest);
 
   --theme-text-title: var(--white);
   --theme-text-subtitle: var(--gray);
   --theme-text-light: var(--gray-lighter);
-  --theme-text-navigation-active: var(--black);
+  --theme-text-navigation-active: var(--black); 
+
+  --theme-check-box-hover: var(--smoke-gray-light);
+  --theme-check-box-checked: var(--pink-darker);
+  --theme-check-box: var(--white);
 
   --theme-search-border: var(--gray-darkest);
   --theme-search-placeholder: var(--gray-light);
@@ -22,12 +31,16 @@
   --carousel-border: var(--black);
   --theme-top-songs-artists-divider: var(--gray-darkest);
   --theme-divider: var(--metal-gray);
+
+  --theme-button-see-all: var(--pink-darker);
 }
 
 .default {
+  --theme-settings-appearance-bg: var(--gray-lightest);
   --theme-page-bg: var(--white);
   --theme-header-bg: var(--white-light);
   --theme-header-search-bg: var(--white-light);
+  --theme-settings-bg: var(--white-light);
   --theme-player-bg: var(--white-lighter);
   --theme-player-button-bg: var(--player-buttons-gradient);
   --theme-playlist-bg: var(--playlist-gradient-dark);
@@ -36,11 +49,18 @@
   --theme-artist-line-corners-bg: var(--white-light);
   --theme-top-songs-artists-bg: var(--white-light);
   --theme-sidebar-bg: var(--black-darkest);
+  --theme-button-see-all-bg: var(--white);
+  --theme-popup-fonts-bg: var(--white-light);
+  --theme-check-box-bg: var(--white-lightest);
 
   --theme-text-title: var(--black);
   --theme-text-subtitle: var(--gray);
   --theme-text-light: var(--gray-lighter);
   --theme-text-navigation-active: var(--black);
+
+  --theme-check-box-hover: var(--smoke-gray-light);
+  --theme-check-box-checked: var(--pink-darker);
+  --theme-check-box: var(--white);
 
   --theme-search-border: var(--gray-light);
   --theme-search-placeholder: var(--gray-darker);
@@ -48,4 +68,22 @@
   --carousel-border: var(--white);
   --theme-top-songs-artists-divider: var(--white-dark);
   --theme-divider: var(--white-dark);
+
+  --theme-button-see-all: var(--pink-darker);
+}
+
+.modern {
+  font-family: 'Montserrat';
+}
+
+.classic {
+  font-family: 'Roboto';
+}
+
+.typewriter {
+  font-family: 'RobotoMono';
+}
+
+.strong {
+  font-family: 'Montserrat-ExtraBold';
 }

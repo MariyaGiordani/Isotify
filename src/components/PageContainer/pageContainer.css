@@ -1,7 +1,8 @@
 .page-container {
   padding: 50px 45px 0px 45px;
   margin-left: 100px;
-  margin-top: 100px;
+  margin-top: var(--header-height);
+  margin-bottom: var(--music-player-height);
 }
 
 .page-container--no-padding {

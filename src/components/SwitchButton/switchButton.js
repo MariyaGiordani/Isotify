@@ -3,23 +3,35 @@ import './switchButton.css';
 
 class SwitchButton extends Component {
   state = {
-    isFirstOptionSelected: true
+    isFirstOptionSelected: true,
+    isButtonOnOff: false
   };
 
   switchButtonInput = (event) => {
     const isFirstOptionSelected = !this.state.isFirstOptionSelected;
     this.setState({ isFirstOptionSelected });
-    this.props.inputFunction(event.target.checked);
+    const { inputFunction } = this.props;
+    inputFunction(event.target.checked);
+  };
+
+  componentDidMount = () => {
+    const { isButtonOnOff } = this.props;
+    isButtonOnOff && this.setState({ isButtonOnOff });
   };
 
   render = () => {
-    const { isFirstOptionSelected } = this.state;
-    const firstInputModifier = isFirstOptionSelected
-      ? 'switch-button__option-selected'
-      : '';
-    const secondInputModifier = !isFirstOptionSelected
-      ? 'switch-button__option-selected'
-      : '';
+    const { isFirstOptionSelected, isButtonOnOff } = this.state;
+
+    const firstInputModifier =
+      isFirstOptionSelected && 'switch-button__option-selected';
+    const secondInputModifier =
+      !isFirstOptionSelected && 'switch-button__option-selected';
+
+    const labelModifier =
+      isButtonOnOff &&
+      isFirstOptionSelected &&
+      'switch-button__input-container--inactive';
+
     const { firstOption, secondOption } = this.props;
 
     return (
@@ -27,7 +39,7 @@ class SwitchButton extends Component {
         <p className={`switch-button__option ${firstInputModifier}`}>
           {firstOption}
         </p>
-        <label className="switch-button__input-container">
+        <label className={`switch-button__input-container ${labelModifier}`}>
           <input
             type="checkbox"
             className="switch-button__input"

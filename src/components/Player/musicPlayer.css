@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: -25%;
+  margin-left: -200px;
 }
 
 .prev-container__image,
@@ -137,14 +137,14 @@
   margin-left: 30px;
 }
 
-.tippy-popper {
-  margin-top: 150px !important;
-}
-
 @media (max-width: 800px) {
   .music-info__name,
   .music-info__band {
     width: 140px;
+  }
+
+  .player__buttons {
+    margin-left: -140px;
   }
 }
 
