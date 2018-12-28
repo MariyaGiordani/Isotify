@@ -22,17 +22,17 @@ class NavigationItem extends Component {
 
   renderTabs = () => {
     const { items = [] } = this.props;
-    return items.map((item) => {
+    return items.map(({ name }) => {
       const { selectedItem } = this.state;
-      const elementClasses = `navigation__item ${selectedItem === item.name &&
+      const elementClasses = `navigation__item ${selectedItem === name &&
         getClassName('navigation__item', 'active')}`;
       return (
         <div
-          key={item.name}
+          key={name}
           className={elementClasses}
-          onClick={() => this.handleItemChange(item.name)}
+          onClick={() => this.handleItemChange(name)}
         >
-          {item.name}
+          {name}
         </div>
       );
     });
