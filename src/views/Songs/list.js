@@ -54,11 +54,13 @@ export default class Songs extends Component {
             size: 'big'
           }}
         />
-        <Grid size="big" type="tracks">
-          {tracks.map((track) => {
-            return <Track {...{ key: track.id, size: 'big', ...track }} />;
-          })}
-        </Grid>
+        <div className="tracks-view-wrap">
+          <Grid size="big" type="tracks">
+            {tracks.map((track) => {
+              return <Track {...{ key: track.id, size: 'big', ...track }} />;
+            })}
+          </Grid>
+        </div>
         {next && (
           <BottomScrollListener
             onBottom={() => {

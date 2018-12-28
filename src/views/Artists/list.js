@@ -81,12 +81,13 @@ export default class ArtistsListView extends Component {
             inputFunction={this.changeViewMode}
           />
         </HeaderLine>
-
-        {isListSelected ? (
-          <ArtistsList artists={artists} />
-        ) : (
-          <ArtistsGrid artists={artists} size={'big'} />
-        )}
+        <div className="artists-view__wrap">
+          {isListSelected ? (
+            <ArtistsList artists={artists} />
+          ) : (
+            <ArtistsGrid artists={artists} size={'big'} />
+          )}
+        </div>
         {next && (
           <BottomScrollListener
             onBottom={() => {
