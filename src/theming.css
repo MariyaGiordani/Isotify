@@ -10,11 +10,12 @@
   --theme-artist-line-corners-bg: var(--theme-artist-line-albums-bg);
   --theme-top-songs-artists-bg: var(--metal-gray);
   --theme-sidebar-bg: var(--black-darkest);
+  --theme-button-see-all-bg: var(--black-lighter);
 
   --theme-text-title: var(--white);
   --theme-text-subtitle: var(--gray);
   --theme-text-light: var(--gray-lighter);
-  --theme-text-navigation-active: var(--black);
+  --theme-text-navigation-active: var(--black); 
 
   --theme-search-border: var(--gray-darkest);
   --theme-search-placeholder: var(--gray-light);
@@ -22,6 +23,8 @@
   --carousel-border: var(--black);
   --theme-top-songs-artists-divider: var(--gray-darkest);
   --theme-divider: var(--metal-gray);
+
+  --theme-button-see-all: var(--pink-darker);
 }
 
 .default {
@@ -36,6 +39,7 @@
   --theme-artist-line-corners-bg: var(--white-light);
   --theme-top-songs-artists-bg: var(--white-light);
   --theme-sidebar-bg: var(--black-darkest);
+  --theme-button-see-all-bg: var(--white);
 
   --theme-text-title: var(--black);
   --theme-text-subtitle: var(--gray);
@@ -48,4 +52,6 @@
   --carousel-border: var(--white);
   --theme-top-songs-artists-divider: var(--white-dark);
   --theme-divider: var(--white-dark);
+
+  --theme-button-see-all: var(--pink-darker);
 }
