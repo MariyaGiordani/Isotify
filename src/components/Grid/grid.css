@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.grid--quarter {
+  width: 100% !important;
+}
+
 .grid--centering {
   flex-wrap: wrap;
   margin-bottom: 100px;
