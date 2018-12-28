@@ -1,0 +1,18 @@
+.error-player__title {
+  color: var(--theme-text-title);
+  font-size: 14px;
+}
+
+.error-player__button {
+  border-radius: 10px;
+  background-image: var(--red-yellow-gradient);
+  width: 80px;
+  color: var(--white-lightest);
+  height: 25px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.error-player {
+  margin-left: 20px;
+}

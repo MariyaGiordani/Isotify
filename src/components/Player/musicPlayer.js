@@ -10,6 +10,7 @@ import mute from '../../assets/img/mute.svg';
 import { createPopUp } from '../../utils/popUp';
 
 import LoadingBar from '../LoadingBar/loadingBar';
+import { ErrorPlayer } from '../../components/Error/errorPlayer';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
 import { playMusic, playAlbum, playArtist } from '../../services/playMusic';
@@ -149,7 +150,15 @@ export class MusicPlayerProvider extends Component {
 
       this.createEventHandlers();
       this.player.connect();
+
+      this.checkAuthentication();
     }
+  };
+
+  checkAuthentication = () => {
+    this.player.on('authentication_error', (error) => {
+      this.setState({ loggedIn: false, error: true });
+    });
   };
 
   onStateChanged = (state) => {
@@ -222,7 +231,8 @@ export class MusicPlayerProvider extends Component {
       popUp,
       playing,
       progress,
-      isMute
+      isMute,
+      error
     } = this.state;
     const { children } = this.props;
 
@@ -278,6 +288,15 @@ export class MusicPlayerProvider extends Component {
                 />
               </div>
             </button>
+          </div>
+        )}
+        {error && (
+          <div className="player">
+            <ErrorPlayer
+              title={
+                'Sorry, your session has expired. Please press the button to refresh the page.'
+              }
+            />
           </div>
         )}
       </PlayerContext.Provider>
