@@ -10,14 +10,13 @@ const topArtists = (artists, playerCallBack) => (
   <div className="top-songs-and-artists__artists">
     <h2 className="top-songs-and-artists__header">Top Artists</h2>
     {artists.map((artist) => {
-      const topSongs = artist.topSongs.map((song) => song.id);
       return (
         <TopItem
           key={artist.id}
           icon={songIcon}
           title={artist.name}
           subtitle={joinArrayOfStrings(artist.genres)}
-          ids={topSongs}
+          ids={artist.id}
           clickCallBack={playerCallBack}
         />
       );
@@ -53,11 +52,12 @@ const TopSongsAndArtists = ({
     <PlayerContext>
       {(context) => {
         const playerCallBack = (id) => context.onClickPlayTrack(id);
+        const playerCallBack2 = (id) => context.onClickPlayArtist(id);
         return (
           <div className="top-songs-and-artists">
             {topSongs(topSongsItems, playerCallBack)}
             <div className="top-songs-and-artists__line" />
-            {topArtists(topArtistsItems, playerCallBack)}
+            {topArtists(topArtistsItems, playerCallBack2)}
           </div>
         );
       }}
