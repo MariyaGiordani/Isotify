@@ -43,7 +43,7 @@
 
 .sidebar-icon .sidebar-icon__image-wrapper:hover {
   background-color: Rgb(191, 10, 69);
-  box-shadow: var(--sidebar-hover-shadow);
+  box-shadow: var(--hover-shadow);
   transition: 0.3s;
 }
 

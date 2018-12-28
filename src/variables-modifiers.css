@@ -1,7 +1,7 @@
 :root {
   --black-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
 
-  --sidebar-hover-shadow: 0px 0px 25px 5px rgba(228, 48, 93, 0.9);
+  --hover-shadow: 0px 0px 25px 5px rgba(228, 48, 93, 0.9);
 
   --login-button-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2);
 
