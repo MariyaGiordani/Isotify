@@ -76,12 +76,6 @@ export default class Details extends Component {
             imgSrc
           }}
         />
-        <HeaderLine
-          {...{
-            title: 'Albums',
-            size: 'big'
-          }}
-        />
 
         <div className="artists-view__wrap">
           <AlbumsGrid {...{ albums, size: 'big' }} />
