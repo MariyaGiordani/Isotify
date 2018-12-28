@@ -47,7 +47,7 @@ export class MusicPlayerProvider extends Component {
     position: 0,
     progress: 0,
     duration: 0,
-    isMute: false,
+    isMute: true,
     onPrevClick: () => {},
     onPlayClick: () => {},
     onNextClick: () => {},
@@ -150,7 +150,7 @@ export class MusicPlayerProvider extends Component {
 
       this.createEventHandlers();
       this.player.connect();
-
+      this.changeVolume();
       this.checkAuthentication();
     }
   };
@@ -192,7 +192,7 @@ export class MusicPlayerProvider extends Component {
         artistName,
         playing,
         lastPlaying: playing,
-        volume: 1,
+        volume: .5,
         isMute: false
       });
     }
