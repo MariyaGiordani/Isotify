@@ -52,12 +52,12 @@ const TopSongsAndArtists = ({
   return (
     <PlayerContext>
       {(context) => {
-        const songCallBack = (id) => context.onClickPlayTrack(id);
+        const playerCallBack = (id) => context.onClickPlayTrack(id);
         return (
           <div className="top-songs-and-artists">
-            {topSongs(topSongsItems, songCallBack)}
+            {topSongs(topSongsItems, playerCallBack)}
             <div className="top-songs-and-artists__line" />
-            {topArtists(topArtistsItems, songCallBack)}
+            {topArtists(topArtistsItems, playerCallBack)}
           </div>
         );
       }}
