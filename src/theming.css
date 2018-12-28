@@ -12,12 +12,9 @@
   --theme-artist-line-corners-bg: var(--theme-artist-line-albums-bg);
   --theme-top-songs-artists-bg: var(--metal-gray);
   --theme-sidebar-bg: var(--black-darkest);
-<<<<<<< HEAD
   --theme-button-see-all-bg: var(--black-lighter);
-=======
   --theme-popup-fonts-bg: var(--black-lightest);
   --theme-check-box-bg: var(--black-lightest);
->>>>>>> 2c141b128bdd6a68616eb0f5f89f28deb1ffec91
 
   --theme-text-title: var(--white);
   --theme-text-subtitle: var(--gray);
