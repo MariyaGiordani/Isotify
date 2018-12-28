@@ -43,7 +43,7 @@
   --theme-settings-bg: var(--white-light);
   --theme-player-bg: var(--white-lighter);
   --theme-player-button-bg: var(--player-buttons-gradient);
-  --theme-playlist-bg: var(--playlist-gradient-dark);
+  --theme-playlist-bg: var(--playlist-gradient);
   --theme-artist-line-section-bg: var(--gray-gradient);
   --theme-artist-line-albums-bg: var(--white-light);
   --theme-artist-line-corners-bg: var(--white-light);

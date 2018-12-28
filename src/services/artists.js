@@ -1,10 +1,15 @@
 import { spotifyInstance, createHeader } from './axiosInstances';
 import { getAlbumsFromArtist as getAllAlbums } from './albums';
+import axios from 'axios';
 
-function getTopArtists() {
-  return spotifyInstance
-    .get('me/top/artists', createHeader())
-    .then((response) => response.data.items);
+function getTopArtists(url) {
+  return url
+    ? axios
+        .get(url, createHeader())
+        .then(({ data: { items, next } }) => ({ items, next }))
+    : spotifyInstance
+        .get('me/top/artists', createHeader())
+        .then(({ data: { items, next } }) => ({ items, next }));
 }
 
 function getRelatedArtists(artistId) {
@@ -42,25 +47,25 @@ function getArtistsAlbums(artists) {
 function getArtistsWithAlbums(artists) {
   return spotifyInstance
     .get(`artists?ids=${artists}`, createHeader())
-    .then((artistsResponse) => {
-      return getArtistsAlbums(artistsResponse.data.artists);
-    });
+    .then(({ data: { artists } }) =>
+      getArtistsAlbums(artists).then((items) => ({ items }))
+    );
 }
 
 function getMultipleArtists(artistsIds) {
   return Promise.all(artistsIds.map((artistId) => getArtist(artistId)));
 }
 
-function getTopArtistsWithAlbums() {
-  return getTopArtists().then((artists) => {
+function getTopArtistsWithAlbums(url) {
+  return getTopArtists(url).then(({ items, next }) => {
     return Promise.all(
-      artists.map((artist) =>
+      items.map((artist) =>
         getAllAlbums(artist.id).then((albums) => ({
           ...artist,
           albums
         }))
       )
-    );
+    ).then((items) => ({ items, next }));
   });
 }
 
