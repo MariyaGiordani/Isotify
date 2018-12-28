@@ -2,11 +2,24 @@
   position: relative;
 }
 
+.card__container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.card__container--overlay {
+  position: absolute;
+  top: 0;
+}
+
 .card__cover {
   background-color: var(--black-lightest);
   border-radius: 10px;
   box-shadow: var(--black-shadow);
   object-fit: cover;
+  position: absolute;
+  top: 0;
 }
 
 .card__play-button-image {
@@ -30,11 +43,13 @@
 }
 
 .card__cover--overlay {
-  display: none;
+  opacity: 0;
 }
 
 .card__cover--overlay:hover,
 .card__cover:hover + .card__cover--overlay {
+  opacity: 1;
+  transition: 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,7 +132,7 @@
 
 .card--quarter .card__cover {
   width: 100%;
-  height: 80%;
+  height: 100%;
 }
 
 .card__cover--no-picture {
