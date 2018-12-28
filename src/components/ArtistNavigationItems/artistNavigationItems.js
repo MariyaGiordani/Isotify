@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './artistNavigationItems.css';
+import getClassName from '../../utils/getClassName';
 
 class NavigationItem extends Component {
   state = {
@@ -23,14 +24,12 @@ class NavigationItem extends Component {
     const { items = [] } = this.props;
     return items.map((item) => {
       const { selectedItem } = this.state;
-      const elementClass =
-        selectedItem === item.name
-          ? 'navigation__item navigation__item--active'
-          : 'navigation__item';
+      const elementClasses = `navigation__item ${selectedItem === item.name &&
+        getClassName('navigation__item', 'active')}`;
       return (
         <div
           key={item.name}
-          className={elementClass}
+          className={elementClasses}
           onClick={() => this.handleItemChange(item.name)}
         >
           {item.name}
