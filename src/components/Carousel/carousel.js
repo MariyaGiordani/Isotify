@@ -79,8 +79,8 @@ class Carousel extends Component {
     const { progress } = this.state;
     const { items } = this.props;
 
-    const slides = items.map(({ id: key, name, imgSrc, id, topSongs }) => (
-      <Slide {...{ key, name, imgSrc, id, topSongs }} />
+    const slides = items.map(({ id: key, name, imgSrc, id }) => (
+      <Slide {...{ key, name, imgSrc, id }} />
     ));
 
     return (
@@ -90,7 +90,7 @@ class Carousel extends Component {
             {slides}
           </Slider>
         </div>
-        <LoadingBar progress={progress} />
+        <LoadingBar progress={progress} type="carousel" />
         <div className="carousel__arrows">
           <button className="carousel__button" onClick={this.previous}>
             <img

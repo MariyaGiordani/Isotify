@@ -7,7 +7,7 @@ import Track from '../../components/Track/track';
 import { getSavedTracks } from '../../services/tracks';
 import { savedTracks as parseSavedTracks } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
-
+import BottomScrollListener from 'react-bottom-scroll-listener';
 import './songs.css';
 
 export default class Songs extends Component {
@@ -15,23 +15,34 @@ export default class Songs extends Component {
     tracks: [],
     total: 0,
     loaded: false,
-    error: ''
+    error: '',
+    next: ''
   };
 
   componentDidMount() {
-    getSavedTracks()
+    this.loadTracks();
+  }
+
+  loadTracks = () => {
+    const { tracks, next } = this.state;
+    getSavedTracks(next)
       .then((rawTracks) => {
-        const tracks = parseSavedTracks(rawTracks.items);
-        const { total } = rawTracks;
-        this.setState({ tracks, total, loaded: true });
+        const newTracks = parseSavedTracks(rawTracks.items);
+        const { total, next } = rawTracks;
+        this.setState({
+          tracks: tracks.concat(newTracks),
+          total,
+          next,
+          loaded: true
+        });
       })
       .catch((error) => {
         this.setState({ error: serverError(error) });
       });
-  }
+  };
 
   render = () => {
-    const { tracks, total, loaded, error } = this.state;
+    const { tracks, total, loaded, error, next } = this.state;
     const subtitle = `${total} Songs saved on Library`;
 
     return (
@@ -48,6 +59,13 @@ export default class Songs extends Component {
             return <Track {...{ key: track.id, size: 'big', ...track }} />;
           })}
         </Grid>
+        {next && (
+          <BottomScrollListener
+            onBottom={() => {
+              this.loadTracks();
+            }}
+          />
+        )}
       </PageContainer>
     );
   };

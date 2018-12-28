@@ -16,13 +16,13 @@
   font-weight: bold;
   line-height: 3.5;
   letter-spacing: normal;
-  color: var(--gray);
+  color: var(--theme-text-subtitle);
 }
 
 .search-results__divider-vertical {
   width: 4px;
   margin: 12% 2% 11% 2%;
-  background-color: var(--white-dark);
+  background-color: var(--theme-divider);
 }
 
 .search-results__divider-horizontal {
@@ -30,7 +30,7 @@
   margin-top: -30px;
   width: 90%;
   height: 4px;
-  background-color: var(--white-dark);
+  background-color: var(--theme-divider);
 }
 
 .search-results__title {
@@ -38,7 +38,7 @@
   font-weight: 600;
   line-height: 1.75;
   letter-spacing: 0.6px;
-  color: var(--black);
+  color: var(--theme-text-title);
   padding-left: 5%;
 }
 
