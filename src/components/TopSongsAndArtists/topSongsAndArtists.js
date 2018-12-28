@@ -6,35 +6,40 @@ import { PlayerContext } from '../../components/Player/musicPlayer';
 
 import './topSongsAndArtists.css';
 
-const topArtists = (artists, playerCallBack) => (
+const topArtists = (artists, clickCallBack) => (
   <div className="top-songs-and-artists__artists">
     <h2 className="top-songs-and-artists__header">Top Artists</h2>
-    {artists.map((artist) => {
+    {artists.map(({ id, name: title, genres }) => {
+      const subtitle = joinArrayOfStrings(genres);
       return (
         <TopItem
-          key={artist.id}
-          icon={songIcon}
-          title={artist.name}
-          subtitle={joinArrayOfStrings(artist.genres)}
-          ids={artist.id}
-          clickCallBack={playerCallBack}
+          {...{
+            title,
+            subtitle,
+            clickCallBack,
+            key: id,
+            ids: id,
+            icon: songIcon
+          }}
         />
       );
     })}
   </div>
 );
 
-const topSongs = (songs, playerCallBack) => (
+const topSongs = (songs, clickCallBack) => (
   <div className="top-songs-and-artists__songs">
     <h2 className="top-songs-and-artists__header">Top Songs</h2>
-    {songs.map((song) => (
+    {songs.map(({ id, songName: title, artist: { name: subtitle } }) => (
       <TopItem
-        key={song.id}
-        icon={songIcon}
-        title={song.songName}
-        subtitle={song.artist.name}
-        ids={[song.id]}
-        clickCallBack={playerCallBack}
+        {...{
+          title,
+          subtitle,
+          clickCallBack,
+          key: id,
+          ids: [id],
+          icon: songIcon
+        }}
       />
     ))}
   </div>
@@ -51,13 +56,13 @@ const TopSongsAndArtists = ({
   return (
     <PlayerContext>
       {(context) => {
-        const playerCallBack = (id) => context.onClickPlayTrack(id);
-        const playerCallBack2 = (id) => context.onClickPlayArtist(id);
+        const playSongCallBack = (id) => context.onClickPlayTrack(id);
+        const playArtistCallBack = (id) => context.onClickPlayArtist(id);
         return (
           <div className="top-songs-and-artists">
-            {topSongs(topSongsItems, playerCallBack)}
+            {topSongs(topSongsItems, playSongCallBack)}
             <div className="top-songs-and-artists__line" />
-            {topArtists(topArtistsItems, playerCallBack2)}
+            {topArtists(topArtistsItems, playArtistCallBack)}
           </div>
         );
       }}

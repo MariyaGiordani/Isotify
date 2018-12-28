@@ -8,7 +8,6 @@ import './slide.css';
 
 const Slide = (props) => {
   const { imgSrc, name, topSongs, id } = props;
-  const songsIds = topSongs.map((song) => song.id);
   return (
     <PlayerContext>
       {(context) => (
@@ -18,7 +17,7 @@ const Slide = (props) => {
             <Link to={`/artists/${id}`}>{name}</Link>
 
             <ButtonListenTo
-              {...{ playerCallback: () => context.onClickPlayTrack(songsIds) }}
+              {...{ playerCallback: () => context.onClickPlayArtist(id) }}
             />
           </div>
         </div>

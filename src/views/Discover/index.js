@@ -39,26 +39,13 @@ export default class List extends Component {
         const topArtists = filterRepeated(artistsIds);
 
         getMultipleArtists(topArtists.slice(0, 5)).then((rawArtists) => {
-          const artistsWithoutSongs = rawArtists.map((artist) =>
-            parseArtist(artist)
-          );
-          getMultipleArtistsTopTracks(topArtists.slice(0, 5)).then(
-            (rawTracks) => {
-              const artistSongs = rawTracks.map(({ tracks }) =>
-                parseArtistTopTracks(tracks)
-              );
-              const artists = artistsWithoutSongs.map((artist, index) => ({
-                ...artist,
-                topSongs: artistSongs[index]
-              }));
-              this.setState({
-                artists,
-                albums,
-                topTracks,
-                loaded: true
-              });
-            }
-          );
+          const artists = rawArtists.map((artist) => parseArtist(artist));
+          this.setState({
+            artists,
+            albums,
+            topTracks,
+            loaded: true
+          });
         });
       })
       .catch((error) => {
