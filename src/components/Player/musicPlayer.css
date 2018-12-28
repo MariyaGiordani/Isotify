@@ -137,10 +137,6 @@
   margin-left: 30px;
 }
 
-.tippy-popper {
-  margin-top: 150px !important;
-}
-
 @media (max-width: 800px) {
   .music-info__name,
   .music-info__band {

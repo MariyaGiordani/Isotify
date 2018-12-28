@@ -5,14 +5,16 @@
   --black-lighter: #1e1e1e;
   --black-lightest: #353535;
 
-  --metal-gray: #333;
-
   --gray-darkest: #444;
   --gray-darker: #666;
   --gray-dark: #707070;
   --gray: #888;
   --gray-light: #bbb;
   --gray-lighter: #aaa;
+  --gray-lightest: #e8e8e8;
+
+  --smoke-gray-light: #ccc;
+  --metal-gray: #333;
 
   --white-dark: #ddd;
   --white: #eee;
