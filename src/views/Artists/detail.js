@@ -1,17 +1,40 @@
 import React, { Component } from 'react';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
-import HeaderLine from '../../components/headerLine/headerLine';
+import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import Grid from '../../components/Grid/grid';
+import Track from '../../components/Track/track';
 import PageContainer from '../../components/PageContainer/pageContainer';
 
 import { getArtist } from '../../services/artists';
-import { artistWithAlbumsAndRelated as parseArtist } from '../../utils/spotifyResponseParsers';
+import { getArtistTopTracks } from '../../services/tracks';
+import {
+  artistWithAlbumsAndRelated as parseArtist,
+  completeTracks as parseTracks
+} from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
+
+const createAlbumComponent = (albums) => (
+  <div className="artists-view__wrap">
+    <AlbumsGrid {...{ albums, size: 'big' }} />
+  </div>
+);
+
+const createTopSongsComponent = (tracks) => (
+  <div className="artists-view__wrap">
+    <Grid size="big" type="tracks">
+      {tracks.map((track) => {
+        return <Track {...{ key: track.id, size: 'big', ...track }} />;
+      })}
+    </Grid>
+  </div>
+);
 
 export default class Details extends Component {
   state = {
     name: '',
     albums: [],
+    tracks: [],
     albumsAmount: 0,
     songsAmount: 0,
     relatedArtists: [],
@@ -20,10 +43,12 @@ export default class Details extends Component {
     loaded: false
   };
 
-  fetchArtistData(artistId) {
-    getArtist(artistId)
-      .then((response) => {
-        const artist = parseArtist(response);
+  fetchArtistData = (artistId) => {
+    Promise.all([getArtist(artistId), getArtistTopTracks(artistId)])
+      .then(([artistInfo, { tracks: artistTracks }]) => {
+        const artist = parseArtist(artistInfo);
+        const tracks = parseTracks(artistTracks);
+
         this.setState({
           name: artist.name,
           albums: artist.albums,
@@ -31,13 +56,30 @@ export default class Details extends Component {
           relatedArtists: artist.relatedArtists,
           albumsAmount: artist.albums.length,
           imgSrc: artist.imgSrc,
-          loaded: true
+          loaded: true,
+          tracks
         });
       })
       .catch((error) => {
         this.setState({ error: serverError(error) });
       });
-  }
+  };
+
+  getTracks = () => {
+    const { artistId, nextTrack, tracks } = this.state;
+    getArtistTopTracks(artistId, nextTrack)
+      .then((rawTracks) => {
+        const newTracks = parseTracks(rawTracks.items);
+        const { next } = rawTracks;
+        this.setState({
+          tracks: tracks.concat(newTracks),
+          next
+        });
+      })
+      .catch((error) => {
+        this.setState({ error: serverError(error) });
+      });
+  };
 
   getCurrentArtistId = () => this.props.match.params.artistId;
 
@@ -57,6 +99,7 @@ export default class Details extends Component {
     const {
       name,
       albums,
+      tracks,
       songsAmount,
       albumsAmount,
       relatedArtists,
@@ -64,6 +107,17 @@ export default class Details extends Component {
       error,
       loaded
     } = this.state;
+
+    const items = [
+      {
+        name: 'Albums',
+        component: createAlbumComponent(albums)
+      },
+      {
+        name: 'Top Songs',
+        component: createTopSongsComponent(tracks)
+      }
+    ];
 
     return (
       <PageContainer {...{ error, loaded, noPadding: true }}>
@@ -77,9 +131,7 @@ export default class Details extends Component {
           }}
         />
 
-        <div className="artists-view__wrap">
-          <AlbumsGrid {...{ albums, size: 'big' }} />
-        </div>
+        <ArtistNavigationItems {...{ items }} />
       </PageContainer>
     );
   };
