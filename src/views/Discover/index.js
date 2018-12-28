@@ -5,11 +5,9 @@ import { getNewReleases } from '../../services/newReleases';
 import { getMultipleArtists } from '../../services/artists';
 import { albumsList as parseAlbums } from '../../utils/spotifyResponseParsers';
 import { getGlobalTopTracks } from '../../services/playlists';
-import { getMultipleArtistsTopTracks } from '../../services/tracks';
 import {
   parsePlaylistTracks,
-  parseArtist,
-  parseArtistTopTracks
+  parseArtist
 } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
 

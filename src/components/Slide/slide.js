@@ -7,7 +7,7 @@ import { PlayerContext } from '../../components/Player/musicPlayer';
 import './slide.css';
 
 const Slide = (props) => {
-  const { imgSrc, name, topSongs, id } = props;
+  const { imgSrc, name, id } = props;
   return (
     <PlayerContext>
       {(context) => (
