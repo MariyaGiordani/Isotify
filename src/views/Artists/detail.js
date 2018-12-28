@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
-import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
+import HeaderLine from '../../components/headerLine/headerLine';
 import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
 
@@ -76,7 +76,13 @@ export default class Details extends Component {
             imgSrc
           }}
         />
-        <ArtistNavigationItems />
+        <HeaderLine
+          {...{
+            title: 'Albums',
+            size: 'big'
+          }}
+        />
+
         <div className="artists-view__wrap">
           <AlbumsGrid {...{ albums, size: 'big' }} />
         </div>
