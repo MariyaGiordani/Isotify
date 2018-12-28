@@ -46,16 +46,22 @@ export default class Details extends Component {
   fetchArtistData = (artistId) => {
     Promise.all([getArtist(artistId), getArtistTopTracks(artistId)])
       .then(([artistInfo, { tracks: artistTracks }]) => {
-        const artist = parseArtist(artistInfo);
+        const {
+          name,
+          albums,
+          totalTracks: songsAmount,
+          relatedArtists,
+          imgSrc
+        } = parseArtist(artistInfo);
         const tracks = parseTracks(artistTracks);
 
         this.setState({
-          name: artist.name,
-          albums: artist.albums,
-          songsAmount: artist.totalTracks,
-          relatedArtists: artist.relatedArtists,
-          albumsAmount: artist.albums.length,
-          imgSrc: artist.imgSrc,
+          name,
+          albums,
+          songsAmount,
+          relatedArtists,
+          albumsAmount: albums.length,
+          imgSrc,
           loaded: true,
           tracks
         });
