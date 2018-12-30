@@ -1,14 +1,14 @@
 import React from 'react';
-import Card from '../../Card/card';
 import './artistAlbumsGrid.css';
 
 import { PlayerContext } from '../../../components/Player/musicPlayer';
+import AlbumCard from '../../Card/albumCard';
 
 const getAlbumsComponents = (albums = [], size) =>
   albums.map(({ imgSrc, title, date, id, artist }) => (
     <PlayerContext key={id}>
       {(context) => (
-        <Card
+        <AlbumCard
           {...{
             imgSrc,
             size,

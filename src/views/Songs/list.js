@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Grid from '../../components/Grid/grid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import Track from '../../components/Track/track';
+import TrackCard from '../../components/Card/trackCard';
 import { getSavedTracks } from '../../services/tracks';
 import { savedTracks as parseSavedTracks } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
@@ -56,7 +56,7 @@ export default class Songs extends Component {
         />
         <Grid size="big" type="tracks">
           {tracks.map((track) => {
-            return <Track {...{ key: track.id, size: 'big', ...track }} />;
+            return <TrackCard {...{ key: track.id, size: 'big', ...track }} />;
           })}
         </Grid>
         {next && (

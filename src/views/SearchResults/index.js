@@ -8,12 +8,12 @@ import NotFoundSearch from '../../components/NotFoundSearch/notFoundSearch';
 
 import { getResultsSearch } from '../../services/resultsSearch';
 import { parseSearch } from '../../utils/spotifyResponseParsers';
-import { getSongsComponents } from '../../utils/parseToCard';
-import { getArtistsComponents } from '../../utils/parseToCard';
-import { getPlaylistComponents } from '../../utils/parseToCard';
 import { serverError } from '../../utils/errors';
 
 import './searchResults.css';
+import PlaylistCard from '../../components/Card/playlistCard';
+import TrackCard from '../../components/Card/trackCard';
+import ArtistCard from '../../components/Card/artistCard';
 
 const titleSongs = 'Songs';
 const titleArtists = 'Artists';
@@ -72,9 +72,6 @@ export default class searchResults extends Component {
       loaded,
       error
     } = this.state;
-    const cardTracks = getSongsComponents(tracks);
-    const cardArtists = getArtistsComponents(artists);
-    const cardPlaylist = getPlaylistComponents(playlists);
     const totalLength =
       tracks.length + artists.length + albums.length + playlists.length;
 
@@ -93,7 +90,11 @@ export default class searchResults extends Component {
                 length={tracks.length}
               >
                 {!!tracks.length ? (
-                  <Grid items={cardTracks.slice(0, 4)} size="quarter" />
+                  <Grid size="quarter">
+                    {tracks.slice(0, 4).map((track) => (
+                      <TrackCard {...{ ...track, size: 'quarter' }} />
+                    ))}
+                  </Grid>
                 ) : (
                   <NotFoundSearch item="songs" />
                 )}
@@ -105,7 +106,11 @@ export default class searchResults extends Component {
                 length={artists.length}
               >
                 {!!artists.length ? (
-                  <Grid items={cardArtists.slice(0, 4)} size="quarter" />
+                  <Grid size="quarter">
+                    {artists.slice(0, 4).map((artist) => (
+                      <ArtistCard {...{ ...artist, size: 'quarter' }} />
+                    ))}
+                  </Grid>
                 ) : (
                   <NotFoundSearch item="artists" />
                 )}
@@ -133,7 +138,11 @@ export default class searchResults extends Component {
                 length={playlists.length}
               >
                 {!!playlists.length ? (
-                  <Grid items={cardPlaylist.slice(0, 4)} size="quarter" />
+                  <Grid size="quarter">
+                    {playlists.slice(0, 4).map((playlist) => (
+                      <PlaylistCard {...{ ...playlist, size: 'quarter' }} />
+                    ))}
+                  </Grid>
                 ) : (
                   <NotFoundSearch item="playlist" />
                 )}

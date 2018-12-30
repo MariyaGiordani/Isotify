@@ -13,7 +13,12 @@ import LoadingBar from '../LoadingBar/loadingBar';
 import { ErrorPlayer } from '../../components/Error/errorPlayer';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
-import { playMusic, playAlbum, playArtist } from '../../services/playMusic';
+import {
+  playMusic,
+  playAlbum,
+  playArtist,
+  playPlaylist
+} from '../../services/playMusic';
 import './musicPlayer.css';
 
 export const PlayerContext = React.createContext();
@@ -53,7 +58,8 @@ export class MusicPlayerProvider extends Component {
     onNextClick: () => {},
     onClickPlayAlbum: () => {},
     onClickPlayTrack: () => {},
-    onClickPlayArtist: () => {}
+    onClickPlayArtist: () => {},
+    onClickPlayPlaylist: () => {}
   };
 
   componentDidMount = () => {
@@ -117,6 +123,12 @@ export class MusicPlayerProvider extends Component {
       this.setState({ playing: true });
     };
 
+    const onClickPlayPlaylist = (id) => {
+      const { deviceId } = this.state;
+      playPlaylist(deviceId, id);
+      this.setState({ playing: true });
+    };
+
     const updatePlayerProgress = (duration, position) => {
       const { progress } = this.state;
       const initial = (position / duration) * 100;
@@ -136,6 +148,7 @@ export class MusicPlayerProvider extends Component {
       onClickPlayAlbum,
       onClickPlayTrack,
       onClickPlayArtist,
+      onClickPlayPlaylist,
       updatePlayerProgress
     });
   };

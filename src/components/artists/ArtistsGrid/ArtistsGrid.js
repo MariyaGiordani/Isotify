@@ -1,18 +1,9 @@
 import React from 'react';
-import Card from '../../Card/card';
+import ArtistCard from '../../Card/artistCard';
 import './artistsGrid.css';
 
 const getArtists = (artists = [], size) =>
-  artists.map(({ imgSrc, name, id, albums, totalTracks }) => (
-    <Card
-      imgSrc={imgSrc}
-      size={size}
-      title={name}
-      subtitle={`${albums.length} Albums, ${totalTracks} Songs`}
-      titleHref={`/artists/${id}`}
-      key={id}
-    />
-  ));
+  artists.map((artist) => <ArtistCard {...{ ...artist, size: 'big' }} />);
 
 const ArtistsGrid = ({ artists, size }) => (
   <div className="artists-grid artists-grid--centering">
