@@ -53,6 +53,7 @@ export class MusicPlayerProvider extends Component {
     progress: 0,
     duration: 0,
     isMute: false,
+    volume: 0.2,
     onPrevClick: () => {},
     onPlayClick: () => {},
     onNextClick: () => {},
@@ -86,7 +87,8 @@ export class MusicPlayerProvider extends Component {
       name: 'Isotify - EMA',
       getOAuthToken: (OAuthCallBack) => {
         OAuthCallBack(accessToken);
-      }
+      },
+      volume: 0.2
     });
   };
 
@@ -205,7 +207,6 @@ export class MusicPlayerProvider extends Component {
         artistName,
         playing,
         lastPlaying: playing,
-        volume: 1,
         isMute: false
       });
     }
