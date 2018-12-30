@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '../../components/Card/card';
+import Card from '../Card/card';
 
 import './grid.css';
 

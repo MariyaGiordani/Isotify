@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
 import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import AlbumsGrid from '../../components/Grid/albumsGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
 
 import { getArtist } from '../../services/artists';

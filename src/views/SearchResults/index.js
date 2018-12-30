@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import AlbumsGrid from '../../components/Grid/albumsGrid';
 import Grid from '../../components/Grid/grid';
 import NotFoundSearch from '../../components/NotFoundSearch/notFoundSearch';
 

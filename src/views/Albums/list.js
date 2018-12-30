@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import AlbumsGrid from '../../components/Grid/albumsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import PageContainer from '../../components/PageContainer/pageContainer';
 import { getSavedAlbums } from '../../services/albums';

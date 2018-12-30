@@ -1,9 +1,11 @@
 import React from 'react';
-import ArtistCard from '../../Card/artistCard';
+import ArtistCard from '../Card/artistCard';
 import './artistsGrid.css';
 
 const getArtists = (artists = [], size) =>
-  artists.map((artist) => <ArtistCard {...{ ...artist, size: 'big' }} />);
+  artists.map((artist) => (
+    <ArtistCard {...{ ...artist, size: 'big', key: artist.id }} />
+  ));
 
 const ArtistsGrid = ({ artists, size }) => (
   <div className="artists-grid artists-grid--centering">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
-import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
+import ArtistsGrid from '../../components/Grid/artistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';

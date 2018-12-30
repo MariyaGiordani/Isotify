@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AlbumCard from '../../Card/albumCard';
+import AlbumCard from '../Card/albumCard';
 
-import getClassName from '../../../utils/getClassName';
+import getClassName from '../../utils/getClassName';
 
 import './albumsGrid.css';
 
