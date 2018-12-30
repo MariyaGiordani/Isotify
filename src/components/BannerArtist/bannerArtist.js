@@ -11,7 +11,8 @@ const BannerArtist = ({
   imgSrc,
   songsAmount,
   albumsAmount,
-  relatedArtists
+  relatedArtists,
+  id
 }) => {
   return (
     <div className="banner-artist">
@@ -22,7 +23,7 @@ const BannerArtist = ({
           {albumsAmount} Albums, {songsAmount} Songs
         </p>
         <div className="banner-artist__buttons-wrapper">
-          <ButtonFollow />
+          <ButtonFollow {...{ id }} />
           <ButtonPlaylist />
           <RelatedArtists artists={relatedArtists || []} />
         </div>

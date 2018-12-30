@@ -35,7 +35,8 @@ export default class Details extends Component {
     relatedArtists: [],
     imgSrc: '',
     error: '',
-    loaded: false
+    loaded: false,
+    id: ''
   };
 
   fetchArtistData = (artistId) => {
@@ -46,7 +47,8 @@ export default class Details extends Component {
           albums,
           totalTracks: songsAmount,
           relatedArtists,
-          imgSrc
+          imgSrc,
+          id
         } = parseArtist(artistInfo);
         const tracks = parseTracks(artistTracks);
 
@@ -58,7 +60,8 @@ export default class Details extends Component {
           albumsAmount: albums.length,
           imgSrc,
           loaded: true,
-          tracks
+          tracks,
+          id
         });
       })
       .catch((error) => {
@@ -106,7 +109,8 @@ export default class Details extends Component {
       relatedArtists,
       imgSrc,
       error,
-      loaded
+      loaded,
+      id
     } = this.state;
 
     const items = [
@@ -128,7 +132,8 @@ export default class Details extends Component {
             albumsAmount,
             songsAmount,
             relatedArtists,
-            imgSrc
+            imgSrc,
+            id
           }}
         />
 
