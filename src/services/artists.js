@@ -76,28 +76,17 @@ function getTopArtistsWithAlbums(url) {
 }
 
 function followArtist(id) {
-  return fetch(
-    `https://api.spotify.com/v1/me/following?type=artist&ids=${id}`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.access_token}`
-      }
-    }
+  return spotifyInstance.put(
+    `me/following?type=artist&ids=${id}`,
+    {},
+    createHeader()
   );
 }
 
 function unfollowArtist(id) {
-  return fetch(
-    `https://api.spotify.com/v1/me/following?type=artist&ids=${id}`,
-    {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.access_token}`
-      }
-    }
+  return spotifyInstance.delete(
+    `me/following?type=artist&ids=${id}`,
+    createHeader()
   );
 }
 
