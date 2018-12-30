@@ -3,5 +3,6 @@
 }
 
 .artists-view__wrap {
-  margin-top: 70px;
+  display: flex;
+  justify-content: center;
 }
