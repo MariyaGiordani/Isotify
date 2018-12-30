@@ -17,7 +17,8 @@ export default class Details extends Component {
     relatedArtists: [],
     imgSrc: '',
     error: '',
-    loaded: false
+    loaded: false,
+    id: ''
   };
 
   fetchArtistData(artistId) {
@@ -31,7 +32,8 @@ export default class Details extends Component {
           relatedArtists: artist.relatedArtists,
           albumsAmount: artist.albums.length,
           imgSrc: artist.imgSrc,
-          loaded: true
+          loaded: true,
+          id: artistId
         });
       })
       .catch((error) => {
@@ -62,7 +64,8 @@ export default class Details extends Component {
       relatedArtists,
       imgSrc,
       error,
-      loaded
+      loaded,
+      id
     } = this.state;
 
     return (
@@ -73,7 +76,8 @@ export default class Details extends Component {
             albumsAmount,
             songsAmount,
             relatedArtists,
-            imgSrc
+            imgSrc,
+            id
           }}
         />
         <ArtistNavigationItems />
