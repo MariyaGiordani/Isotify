@@ -7,24 +7,6 @@
   box-shadow: var(--artist-line__shadow);
 }
 
-
-.artist-line__albums::-webkit-scrollbar {
-  width: 10px;
-}
-
-.artist-line__albums::-webkit-scrollbar-track {
-  background: none; 
-}
-
-.artist-line__albums::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-.artist-line__albums::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-
-
 .artist-line__section {
   background-color: var(--theme-artist-line-albums-bg);
   display: flex;
