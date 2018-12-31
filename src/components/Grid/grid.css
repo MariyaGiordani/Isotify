@@ -1,11 +1,12 @@
 .grid {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   width: 100%;
 }
 
 .grid--centering {
   flex-wrap: wrap;
+  justify-content: left;
   margin-bottom: 100px;
 }
 
