@@ -4,11 +4,16 @@
   width: 100%;
 }
 
-.grid__elements {
+.grid__elements,
+.grid__elements-quarter {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
   margin-bottom: 100px;
+}
+
+.grid__elements-quarter {
+  width: 100%;
 }
 
 @media (max-width: 599px) {

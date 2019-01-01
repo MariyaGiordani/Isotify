@@ -17,12 +17,14 @@ const getComponents = (items = [], size) =>
     />
   ));
 
-const Grid = ({ items, size, children }) => (
-  <div className="grid">
-    <div className="grid__elements">
-      {children || getComponents(items, size)}
+const Grid = ({ items, size, children }) => {
+  const gridClass =
+    size === 'quarter' ? 'grid__elements-quarter' : 'grid__elements';
+  return (
+    <div className="grid">
+      <div className={gridClass}>{children || getComponents(items, size)}</div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Grid;

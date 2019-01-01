@@ -7,7 +7,7 @@ const getAlbumsComponents = (tracks = [], size) =>
   tracks.map((track) => <TrackCard {...{ key: track.id, size, ...track }} />);
 
 const TracksGrid = ({ tracks, size }) => (
-  <Grid>{getAlbumsComponents(tracks, size)}</Grid>
+  <Grid {...{ size }}>{getAlbumsComponents(tracks, size)}</Grid>
 );
 
 export default TracksGrid;
