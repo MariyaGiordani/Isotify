@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-import Grid from '../../components/Grid/grid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import TrackCard from '../../components/Card/trackCard';
 import { getSavedTracks } from '../../services/tracks';
 import { savedTracks as parseSavedTracks } from '../../utils/spotifyResponseParsers';
 import { serverError } from '../../utils/errors';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import './songs.css';
+import TracksGrid from '../../components/Grid/tracksGrid';
 
 export default class Songs extends Component {
   state = {
@@ -54,11 +53,7 @@ export default class Songs extends Component {
             size: 'big'
           }}
         />
-        <Grid size="big" type="tracks">
-          {tracks.map((track) => {
-            return <TrackCard {...{ key: track.id, size: 'big', ...track }} />;
-          })}
-        </Grid>
+        <TracksGrid {...{ tracks, size: 'big' }} />
         {next && (
           <BottomScrollListener
             onBottom={() => {
