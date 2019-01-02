@@ -7,11 +7,15 @@ import ButtonSeeAll from '../../components/ButtonSeeAll/buttonSeeAll';
 
 import './quarterGrid.css';
 
+const isActive = false;
 const QuarterGrid = ({ title, subtitle, length, children }) => {
+  const buttonVisible = !!length && isActive;
   return (
     <div className="quarter-grid">
       <HeaderLine title={title} subtitle={subtitle} size="big">
-        {!!length && <ButtonSeeAll imgSrc={rightArrowPinkImg} type="search" />}
+        {buttonVisible && (
+          <ButtonSeeAll imgSrc={rightArrowPinkImg} type="search" />
+        )}
       </HeaderLine>
       {children}
     </div>
