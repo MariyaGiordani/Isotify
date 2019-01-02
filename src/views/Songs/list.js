@@ -48,7 +48,7 @@ export default class Songs extends Component {
       <PageContainer {...{ error, loaded }}>
         <HeaderLine
           {...{
-            title: 'Tracks',
+            title: 'Songs',
             subtitle,
             size: 'big'
           }}

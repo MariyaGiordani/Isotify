@@ -3,7 +3,6 @@ import React from 'react';
 import './bannerArtist.css';
 
 import ButtonFollow from '../ButtonFollow/buttonFollow';
-import ButtonPlaylist from '../ButtonPlaylist/buttonPlaylist';
 import RelatedArtists from '../../components/RelatedArtists/relatedArtists';
 
 const BannerArtist = ({
@@ -24,7 +23,6 @@ const BannerArtist = ({
         </p>
         <div className="banner-artist__buttons-wrapper">
           <ButtonFollow {...{ id }} />
-          <ButtonPlaylist />
           <RelatedArtists artists={relatedArtists || []} />
         </div>
       </div>
