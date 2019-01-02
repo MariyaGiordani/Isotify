@@ -9,11 +9,17 @@ import noMute from '../../assets/img/speaker.svg';
 import mute from '../../assets/img/mute.svg';
 import { createPopUp } from '../../utils/popUp';
 
+import LoadingBar from '../LoadingBar/loadingBar';
+import { ErrorPlayer } from '../../components/Error/errorPlayer';
+
 import transferPlaybackHere from '../../services/transferPlaybackHere';
-import { playMusic, playAlbum } from '../../services/playMusic';
+import { playMusic, playTracks } from '../../services/playMusic';
 import './musicPlayer.css';
 
 export const PlayerContext = React.createContext();
+
+const MAX_PROGRESS = 100;
+const PERCENTAGE_LOAD = 0.5;
 
 const button = (
   <button className="container__button">
@@ -39,13 +45,16 @@ export class MusicPlayerProvider extends Component {
     popUp: {},
     playing: false,
     position: 0,
+    progress: 0,
     duration: 0,
     isMute: false,
     onPrevClick: () => {},
     onPlayClick: () => {},
     onNextClick: () => {},
     onClickPlayAlbum: () => {},
-    onClickPlayTrack: () => {}
+    onClickPlayTrack: () => {},
+    onClickPlayArtist: () => {},
+    onClickPlayPlaylist: () => {}
   };
 
   componentDidMount = () => {
@@ -72,7 +81,8 @@ export class MusicPlayerProvider extends Component {
       name: 'Isotify - EMA',
       getOAuthToken: (OAuthCallBack) => {
         OAuthCallBack(accessToken);
-      }
+      },
+      volume: 0.2
     });
   };
 
@@ -93,14 +103,38 @@ export class MusicPlayerProvider extends Component {
 
     const onClickPlayAlbum = (id, popUp) => {
       const { deviceId } = this.state;
-      playAlbum(deviceId, id);
+      playMusic(deviceId, id, 'album');
       this.setState({ popUp, playing: true });
     };
 
     const onClickPlayTrack = (id) => {
       const { deviceId } = this.state;
-      playMusic(deviceId, id);
+      playTracks(deviceId, id);
       this.setState({ playing: true });
+    };
+
+    const onClickPlayArtist = (id) => {
+      const { deviceId } = this.state;
+      playMusic(deviceId, id, 'artist');
+      this.setState({ playing: true });
+    };
+
+    const onClickPlayPlaylist = (id) => {
+      const { deviceId } = this.state;
+      playMusic(deviceId, id, 'playlist');
+      this.setState({ playing: true });
+    };
+
+    const updatePlayerProgress = (duration, position) => {
+      const { progress } = this.state;
+      const initial = (position / duration) * 100;
+
+      const newProgress =
+        initial > progress ? initial : progress + PERCENTAGE_LOAD;
+
+      if (newProgress < MAX_PROGRESS) {
+        this.setState({ progress: newProgress });
+      }
     };
 
     this.setState({
@@ -108,10 +142,12 @@ export class MusicPlayerProvider extends Component {
       onPlayClick,
       onNextClick,
       onClickPlayAlbum,
-      onClickPlayTrack
+      onClickPlayTrack,
+      onClickPlayArtist,
+      onClickPlayPlaylist,
+      updatePlayerProgress
     });
   };
-
   checkForPlayer = () => {
     const { accessToken } = this.props;
     if (!!window.Spotify && accessToken) {
@@ -123,24 +159,40 @@ export class MusicPlayerProvider extends Component {
 
       this.createEventHandlers();
       this.player.connect();
+
+      this.checkAuthentication();
     }
+  };
+
+  checkAuthentication = () => {
+    this.player.on('authentication_error', (error) => {
+      this.setState({ loggedIn: false, error: true });
+    });
   };
 
   onStateChanged = (state) => {
     if (state !== null) {
-      const {
-        current_track: currentTrack,
-        position,
-        duration
-      } = state.track_window;
-
+      const { current_track: currentTrack } = state.track_window;
+      const { position, duration } = state;
+      const { previousTrack } = this.state;
       const trackName = currentTrack.name;
       const albumName = currentTrack.album.name;
       const artistName = currentTrack.artists
         .map((artist) => artist.name)
         .join(', ');
 
+      const clearProgress = () =>
+        this.setState({ progress: 0, previousTrack: trackName });
+
+      trackName !== previousTrack && clearProgress();
       const playing = !state.paused;
+      const { lastPlaying } = this.state;
+      clearInterval(this.playerlInterval);
+
+      !(playing && lastPlaying)
+        ? clearInterval(this.playerlInterval)
+        : this.initializingBar(state.duration, state.position, playing);
+
       this.setState({
         position,
         duration,
@@ -148,10 +200,20 @@ export class MusicPlayerProvider extends Component {
         albumName,
         artistName,
         playing,
-        volume: 1,
+        lastPlaying: playing,
+        volume: 0.2,
         isMute: false
       });
     }
+  };
+
+  initializingBar = (duration, position, playing) => {
+    const { updatePlayerProgress } = this.state;
+    const TIMEOUT = Math.floor(duration / (MAX_PROGRESS / PERCENTAGE_LOAD));
+    this.barCallBack = () => {
+      updatePlayerProgress(duration, position, playing);
+    };
+    this.playerlInterval = setInterval(this.barCallBack, TIMEOUT);
   };
 
   muteVolume = () => {
@@ -177,7 +239,9 @@ export class MusicPlayerProvider extends Component {
       loggedIn,
       popUp,
       playing,
-      isMute
+      progress,
+      isMute,
+      error
     } = this.state;
     const { children } = this.props;
 
@@ -186,6 +250,7 @@ export class MusicPlayerProvider extends Component {
         {children}
         {loggedIn && (
           <div className="player">
+            <LoadingBar progress={progress} type="player" />
             <div className="player__container">
               {popUp ? createPopUp(button, popUp, 'top') : button}
               <div className="playlist-icon__music-info">
@@ -232,6 +297,15 @@ export class MusicPlayerProvider extends Component {
                 />
               </div>
             </button>
+          </div>
+        )}
+        {error && (
+          <div className="player">
+            <ErrorPlayer
+              title={
+                'Sorry, your session has expired. Please press the button to refresh the page.'
+              }
+            />
           </div>
         )}
       </PlayerContext.Provider>

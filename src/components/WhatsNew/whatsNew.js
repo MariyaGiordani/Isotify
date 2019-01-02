@@ -1,7 +1,7 @@
 import React from 'react';
 
 import rightArrowImg from '../../assets/img/rightArrow.png';
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
+import AlbumsGrid from '../../components/Grid/albumsGrid';
 
 import HeaderLine from '../headerLine/headerLine';
 import ButtonSeeAll from '../ButtonSeeAll/buttonSeeAll';
@@ -19,7 +19,9 @@ const WhatsNew = ({ albums }) => {
           <ButtonSeeAll imgSrc={rightArrowImg} type="whats-new" />
         </HeaderLine>
       </div>
-      <AlbumsGrid albums={albums} size="quarter" gridSize="quarter" />
+      <div className="whats-new__album">
+        <AlbumsGrid albums={albums} size="quarter" gridSize="quarter" />
+      </div>
     </div>
   );
 };

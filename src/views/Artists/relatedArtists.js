@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ArtistsList from '../../components/artists/ArtistsList/ArtistsList';
-import ArtistsGrid from '../../components/artists/ArtistsGrid/ArtistsGrid';
+import ArtistsGrid from '../../components/Grid/artistsGrid';
 import HeaderLine from '../../components/headerLine/headerLine';
 import SwitchButton from '../../components/SwitchButton/switchButton';
 import PageContainer from '../../components/PageContainer/pageContainer';
@@ -20,11 +20,10 @@ export default class RelatedArtistsView extends Component {
     loaded: false
   };
 
-  fetchArtistData(artists) {
+  fetchArtistData = (artists) => {
     getArtistsWithAlbums(artists)
-      .then((response) => {
-        const artists = parseArtists(response);
-
+      .then(({ items }) => {
+        const artists = parseArtists(items);
         const songsAmount = artists.reduce(
           (total, currentArtist) => total + currentArtist.totalTracks,
           0
@@ -40,7 +39,7 @@ export default class RelatedArtistsView extends Component {
       .catch((error) => {
         this.setState({ error: serverError(error) });
       });
-  }
+  };
 
   getCurrentArtistId = () => this.props.match.params.artistsIds;
 
@@ -67,7 +66,7 @@ export default class RelatedArtistsView extends Component {
       <PageContainer {...{ error, loaded }}>
         <HeaderLine
           {...{
-            title: 'Artists',
+            title: 'Related Artists',
             subtitle
           }}
         >

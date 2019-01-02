@@ -1,16 +1,20 @@
 import { spotifyInstance, createHeader, urlPrefix } from './axiosInstances';
 import axios from 'axios';
 
-function getSavedAlbums() {
-  return spotifyInstance
-    .get('me/albums', createHeader())
-    .then((response) => response.data.items);
+function getSavedAlbums(url) {
+  return url
+    ? axios
+        .get(url, createHeader())
+        .then(({ data: { items, next } }) => ({ items, next }))
+    : spotifyInstance
+        .get('me/albums', createHeader())
+        .then(({ data: { items, next } }) => ({ items, next }));
 }
 
 function getAlbums(ids) {
   return spotifyInstance
     .get(`/albums/?ids=${ids}`, createHeader())
-    .then((response) => response.data.items);
+    .then(({ data: { items, next } }) => ({ items, next }));
 }
 
 function getAlbumsFromArtist(artistId) {

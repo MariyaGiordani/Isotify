@@ -12,5 +12,12 @@ export function serverError(error) {
         subtitle={'Please press the button to refresh the page.'}
       />
     );
+  } else {
+    return (
+      <ErrorHandler
+        title={'Sorry, something went wrong.'}
+        subtitle={'Please press the button to refresh the page.'}
+      />
+    );
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Card from '../../components/Card/card';
+import Card from '../Card/card';
+import { getClassName } from '../../utils/getClassName';
 
 import './grid.css';
 
@@ -17,12 +18,14 @@ const getComponents = (items = [], size) =>
     />
   ));
 
-const Grid = ({ items, size, children }) => (
-  <div className="grid">
-    <div className="grid grid--centering">
-      {children || getComponents(items, size)}
+const Grid = ({ items, size, children }) => {
+  const gridClass = getClassName('grid__elements', size);
+  const content = children || getComponents(items, size);
+  return (
+    <div className={`grid ${size === 'small' && gridClass}`}>
+      {size === 'small' ? content : <div className={gridClass}>{content}</div>}
     </div>
-  </div>
-);
+  );
+};
 
 export default Grid;

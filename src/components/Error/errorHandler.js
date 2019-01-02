@@ -4,10 +4,7 @@ import dinosaur from '../../assets/img/dinosaur.gif';
 
 import './errorHandler.css';
 
-const logOut = () => {
-  localStorage.clear();
-  window.location.reload();
-};
+import { logOut } from '../../utils/logOut';
 
 export const ErrorHandler = ({ title, subtitle }) => {
   return (

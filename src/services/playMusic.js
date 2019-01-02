@@ -1,10 +1,10 @@
-function playAlbum(deviceId, id) {
+function playMusic(deviceId, id, type) {
   return fetch(
     `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
     {
       method: 'PUT',
       body: JSON.stringify({
-        context_uri: `spotify:album:${id}`
+        context_uri: `spotify:${type}:${id}`
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ function playAlbum(deviceId, id) {
   );
 }
 
-function playMusic(deviceId, ids) {
+function playTracks(deviceId, ids) {
   const uris = ids.map((id) => `spotify:track:${id}`);
   return fetch(
     `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
@@ -31,4 +31,4 @@ function playMusic(deviceId, ids) {
   );
 }
 
-export { playMusic, playAlbum };
+export { playMusic, playTracks };

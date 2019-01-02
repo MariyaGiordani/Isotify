@@ -8,12 +8,14 @@ import play from '../../assets/img/play.svg';
 const createLink = (link, element) => <Link to={link}>{element}</Link>;
 
 const hover = (id, playerCallBack) => (
-  <div
-    className="card__cover card__cover--overlay"
-    onClick={() => playerCallBack(id)}
-  >
-    <div className="card__play-button">
-      <img src={play} alt="play album" className="card__play-button-image" />
+  <div className="card__container card__container--overlay">
+    <div
+      className="card__cover card__cover--overlay"
+      onClick={() => playerCallBack(id)}
+    >
+      <div className="card__play-button">
+        <img src={play} alt="play album" className="card__play-button-image" />
+      </div>
     </div>
   </div>
 );
@@ -31,9 +33,13 @@ const Card = ({
   hoverCallback
 }) => {
   const cardImage = !!imgSrc ? (
-    <img src={imgSrc} alt={title} className="card__cover" />
+    <div className="card__container">
+      <img src={imgSrc} alt={title} className="card__cover" />
+    </div>
   ) : (
-    <div className="card__cover card__cover--no-picture" />
+    <div className="card__container">
+      <div className="card__cover card__cover--no-picture" />
+    </div>
   );
   const optionDots = (
     <img className="card__options" src={grayDots} alt="Teste" />
@@ -53,7 +59,7 @@ const Card = ({
             {subtitleHref
               ? createLink(subtitleHref, subtitleParagraph)
               : subtitleParagraph}
-            {popup ? createPopUp(optionDots, popup, 'right') : optionDots}
+            {popup && createPopUp(optionDots, popup, 'right')}
           </div>
         </div>
       </div>

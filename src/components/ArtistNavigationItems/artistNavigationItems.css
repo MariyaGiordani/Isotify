@@ -1,14 +1,23 @@
-.navigation-items {
-  overflow: hidden;
-  margin-left: 60px;
+.artist-navigation-items {
+  margin-bottom: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
-.navigation-items__text {
+.navigation-tab {
+  overflow-y: scroll;
+  width: 100%;
+  display: flex;
+  margin-bottom: 80px;
+  justify-content: center;
+}
+
+.navigation__item {
   float: left;
   display: block;
   text-align: center;
   text-decoration: none;
-  border-bottom: 3px solid var(--white-darker);
+  border-bottom: 3px solid var(--white-dark);
   font-size: 20px;
   font-weight: 600;
   line-height: 3.23;
@@ -17,32 +26,26 @@
   padding: 40px 60px 10px;
 }
 
-.navigation-items__text:hover,
-.navigation-items__text.active {
+.navigation__item:hover,
+.navigation__item--active {
   border-bottom: 3px solid transparent;
   border-image: var(--orange-pink-gradient);
   border-image-slice: 1;
 }
 
-.navigation-items__text.active {
-  color: var(--theme-text-navigation-active);
+.navigation__item--active {
+  color: var(--theme-text-title);
 }
 
 @media only screen and (max-width: 1024px) {
-  .navigation-items__text {
+  .navigation__item {
     font-size: 18px;
     padding: 20px 20px 5px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .navigation-items {
-    margin-left: 0;
-    overflow: auto;
-    display: flex;
-  }
-
-  .navigation-items__text {
+  .navigation__item {
     display: inline-block;
     white-space: nowrap;
     font-size: 15px;

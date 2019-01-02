@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 
-import Popup from '../../../components/Popup/component';
-import Card from '../../Card/card';
-import { getAlbumTracks } from '../../../services/tracks';
-import { albumTracks } from '../../../utils/spotifyResponseParsers';
-import { PlayerContext } from '../../../components/Player/musicPlayer';
+import Popup from '../../components/Popup/component';
+import Card from './card';
+import { getAlbumTracks } from '../../services/tracks';
+import { albumTracks } from '../../utils/spotifyResponseParsers';
+import { PlayerContext } from '../../components/Player/musicPlayer';
 
 const createPopup = (tracks, title, subtitle, date) => (
   <Popup tracks={tracks} title={title} subtitle={subtitle} date={date} />
 );
 
-class Album extends Component {
+class AlbumCard extends Component {
   state = {
     tracks: []
   };
 
   componentDidMount() {
     const { id } = this.props;
-    getAlbumTracks(id).then((response) => {
-      const tracks = albumTracks(response);
+    getAlbumTracks(id).then(({ items }) => {
+      const tracks = albumTracks(items);
       this.setState({ tracks });
     });
   }
@@ -51,4 +51,4 @@ class Album extends Component {
   };
 }
 
-export default Album;
+export default AlbumCard;

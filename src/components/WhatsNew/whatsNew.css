@@ -11,6 +11,11 @@
   background-color: var(--theme-divider);
 }
 
+.whats-new__album {
+  width: 100%;
+  margin-left: -5%;
+}
+
 .whats-new__header {
   width: 94%;
   margin-left: -2%;
@@ -37,6 +42,10 @@
     width: 100%;
     margin-left: 0px;
     margin-top: 70px;
+  }
+
+  .whats-new__album {
+    margin-left: 0;
   }
 
   .whats-new__header {

@@ -7,7 +7,7 @@ export function authenticate() {
   const client_id = process.env.REACT_APP_API_KEY;
   const redirect_uri = `${process.env.REACT_APP_API_URI}login/`;
   const scope =
-    'user-read-private user-read-email user-library-read user-top-read streaming user-read-birthdate user-read-email user-read-private';
+    'user-read-private user-read-email user-library-read user-top-read streaming user-read-birthdate user-read-email user-read-private user-follow-read user-follow-modify ';
 
   let url = 'https://accounts.spotify.com/authorize';
 

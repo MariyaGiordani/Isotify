@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Card from '../../components/Card/card';
-import { PlayerContext } from '../../components/Player/musicPlayer';
+import Card from './card';
+import { PlayerContext } from '../Player/musicPlayer';
 
 export default ({
   albumImage: imgSrc = '',
