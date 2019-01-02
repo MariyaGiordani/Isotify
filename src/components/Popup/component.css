@@ -1,5 +1,5 @@
 .popup__title--big-font {
-  color: var(--black);
+  color: var(--theme-text-title);
   font-size: 28px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -9,10 +9,9 @@
 
 .popup__title--medium-font,
 .popup__title--small-font {
-  color: var(--gray);
+  color: var(--theme-text-subtitle);
   font-size: 18px;
   font-weight: 500;
-  
 }
 
 .popup__title--medium-font {
@@ -40,7 +39,7 @@
 .light-theme,
 .enter,
 .tippy-notransition {
-  background-color: var(--white-light) !important;
+  background-color: var(--theme-popup-bg) !important;
   text-align: start;
   width: 450px;
   height: 450px;
@@ -88,11 +87,12 @@
 }
 
 .popup__songs-name {
+  color: var(--theme-text-title);
   max-width: 240px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-left:20px
+  margin-left: 20px;
 }
 
 .popup__header {
@@ -208,14 +208,12 @@
   .popup__line--pink {
     width: 370px;
   }
-
 }
 @media (max-width: 375px) {
   .popup__line--gray,
   .popup__line--pink {
     width: 320px;
   }
-
 }
 @media (max-width: 320px) {
   .popup__line--gray,
@@ -226,5 +224,4 @@
   .popup__songs {
     width: 90%;
   }
-  
 }
