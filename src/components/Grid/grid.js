@@ -20,9 +20,10 @@ const getComponents = (items = [], size) =>
 
 const Grid = ({ items, size, children }) => {
   const gridClass = getClassName('grid__elements', size);
+  const content = children || getComponents(items, size);
   return (
-    <div className="grid">
-      <div className={gridClass}>{children || getComponents(items, size)}</div>
+    <div className={`grid size === 'small' && ${gridClass}`}>
+      {size === 'small' ? content : <div className={gridClass}>{content}</div>}
     </div>
   );
 };
