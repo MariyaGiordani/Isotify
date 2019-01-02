@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import BannerArtist from '../../components/BannerArtist/bannerArtist';
 import ArtistNavigationItems from '../../components/ArtistNavigationItems/artistNavigationItems';
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
-import Grid from '../../components/Grid/grid';
-import Track from '../../components/Track/track';
+import AlbumsGrid from '../../components/Grid/albumsGrid';
+import TracksGrid from '../../components/Grid/tracksGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
 
 import { getArtist } from '../../services/artists';
@@ -15,19 +14,11 @@ import {
 import { serverError } from '../../utils/errors';
 
 const createAlbumComponent = (albums) => (
-  <div className="artists-view__wrap">
-    <AlbumsGrid {...{ albums, size: 'big' }} />
-  </div>
+  <AlbumsGrid {...{ albums, size: 'big' }} />
 );
 
 const createTopSongsComponent = (tracks) => (
-  <div className="artists-view__wrap">
-    <Grid size="big" type="tracks">
-      {tracks.map((track) => {
-        return <Track {...{ key: track.id, size: 'big', ...track }} />;
-      })}
-    </Grid>
-  </div>
+  <TracksGrid {...{ tracks, size: 'big' }} />
 );
 
 export default class Details extends Component {

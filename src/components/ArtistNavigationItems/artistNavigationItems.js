@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './artistNavigationItems.css';
-import getClassName from '../../utils/getClassName';
+import { getClassModifier } from '../../utils/getClassName';
 
 class NavigationItem extends Component {
   state = {
@@ -25,7 +25,7 @@ class NavigationItem extends Component {
     return items.map(({ name }) => {
       const { selectedItem } = this.state;
       const elementClasses = `navigation__item ${selectedItem === name &&
-        getClassName('navigation__item', 'active')}`;
+        getClassModifier('navigation__item', 'active')}`;
       return (
         <div
           key={name}

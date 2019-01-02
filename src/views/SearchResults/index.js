@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 
 import QuarterGrid from '../../components/QuarterGrid/quarterGrid';
 import PageContainer from '../../components/PageContainer/pageContainer';
-import AlbumsGrid from '../../components/albums/albumsGrid/albumsGrid';
-import Grid from '../../components/Grid/grid';
 import NotFoundSearch from '../../components/NotFoundSearch/notFoundSearch';
 
 import { getResultsSearch } from '../../services/resultsSearch';
 import { parseSearch } from '../../utils/spotifyResponseParsers';
-import { getSongsComponents } from '../../utils/parseToCard';
-import { getArtistsComponents } from '../../utils/parseToCard';
-import { getPlaylistComponents } from '../../utils/parseToCard';
 import { serverError } from '../../utils/errors';
 
 import './searchResults.css';
+import TracksGrid from '../../components/Grid/tracksGrid';
+import ArtistsGrid from '../../components/Grid/artistsGrid';
+import AlbumsGrid from '../../components/Grid/albumsGrid';
+import PlaylistGrid from '../../components/Grid/playlistGrid';
 
 const titleSongs = 'Songs';
 const titleArtists = 'Artists';
@@ -72,9 +71,6 @@ export default class searchResults extends Component {
       loaded,
       error
     } = this.state;
-    const cardTracks = getSongsComponents(tracks);
-    const cardArtists = getArtistsComponents(artists);
-    const cardPlaylist = getPlaylistComponents(playlists);
     const totalLength =
       tracks.length + artists.length + albums.length + playlists.length;
 
@@ -93,7 +89,7 @@ export default class searchResults extends Component {
                 length={tracks.length}
               >
                 {!!tracks.length ? (
-                  <Grid items={cardTracks.slice(0, 4)} size="quarter" />
+                  <TracksGrid tracks={tracks.slice(0, 4)} size="quarter" />
                 ) : (
                   <NotFoundSearch item="songs" />
                 )}
@@ -105,7 +101,7 @@ export default class searchResults extends Component {
                 length={artists.length}
               >
                 {!!artists.length ? (
-                  <Grid items={cardArtists.slice(0, 4)} size="quarter" />
+                  <ArtistsGrid artists={artists.slice(0, 4)} size="quarter" />
                 ) : (
                   <NotFoundSearch item="artists" />
                 )}
@@ -117,11 +113,7 @@ export default class searchResults extends Component {
                 length={albums.length}
               >
                 {!!albums.length ? (
-                  <AlbumsGrid
-                    albums={albums.slice(0, 4)}
-                    size="quarter"
-                    gridSize="quarter"
-                  />
+                  <AlbumsGrid albums={albums.slice(0, 4)} size="quarter" />
                 ) : (
                   <NotFoundSearch item="albums" />
                 )}
@@ -133,7 +125,10 @@ export default class searchResults extends Component {
                 length={playlists.length}
               >
                 {!!playlists.length ? (
-                  <Grid items={cardPlaylist.slice(0, 4)} size="quarter" />
+                  <PlaylistGrid
+                    playlists={playlists.slice(0, 4)}
+                    size="quarter"
+                  />
                 ) : (
                   <NotFoundSearch item="playlist" />
                 )}

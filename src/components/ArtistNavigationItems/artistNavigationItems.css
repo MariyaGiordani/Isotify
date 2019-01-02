@@ -9,6 +9,7 @@
   width: 100%;
   display: flex;
   margin-bottom: 80px;
+  justify-content: center;
 }
 
 .navigation__item {

@@ -13,7 +13,7 @@ import LoadingBar from '../LoadingBar/loadingBar';
 import { ErrorPlayer } from '../../components/Error/errorPlayer';
 
 import transferPlaybackHere from '../../services/transferPlaybackHere';
-import { playMusic, playAlbum, playArtist } from '../../services/playMusic';
+import { playMusic, playTracks } from '../../services/playMusic';
 import './musicPlayer.css';
 
 export const PlayerContext = React.createContext();
@@ -53,7 +53,8 @@ export class MusicPlayerProvider extends Component {
     onNextClick: () => {},
     onClickPlayAlbum: () => {},
     onClickPlayTrack: () => {},
-    onClickPlayArtist: () => {}
+    onClickPlayArtist: () => {},
+    onClickPlayPlaylist: () => {}
   };
 
   componentDidMount = () => {
@@ -102,19 +103,25 @@ export class MusicPlayerProvider extends Component {
 
     const onClickPlayAlbum = (id, popUp) => {
       const { deviceId } = this.state;
-      playAlbum(deviceId, id);
+      playMusic(deviceId, id, 'album');
       this.setState({ popUp, playing: true });
     };
 
     const onClickPlayTrack = (id) => {
       const { deviceId } = this.state;
-      playMusic(deviceId, id);
+      playTracks(deviceId, id);
       this.setState({ playing: true });
     };
 
     const onClickPlayArtist = (id) => {
       const { deviceId } = this.state;
-      playArtist(deviceId, id);
+      playMusic(deviceId, id, 'artist');
+      this.setState({ playing: true });
+    };
+
+    const onClickPlayPlaylist = (id) => {
+      const { deviceId } = this.state;
+      playMusic(deviceId, id, 'playlist');
       this.setState({ playing: true });
     };
 
@@ -137,6 +144,7 @@ export class MusicPlayerProvider extends Component {
       onClickPlayAlbum,
       onClickPlayTrack,
       onClickPlayArtist,
+      onClickPlayPlaylist,
       updatePlayerProgress
     });
   };
