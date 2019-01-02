@@ -27,12 +27,12 @@ export default class Appearance extends Component {
   changeViewTheme = () => {
     const { theme } = this.state;
 
-    const status = theme === 'LIGHT' ? 'DARK' : 'LIGHT';
+    const newTheme = theme === 'LIGHT' ? 'DARK' : 'LIGHT';
 
     this.setState({
-      theme: status
+      theme: newTheme
     });
-    localStorage.setItem('status', status);
+    localStorage.setItem('status', newTheme);
     updateAppClasses();
   };
 
