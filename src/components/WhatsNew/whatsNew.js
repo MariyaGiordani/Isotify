@@ -19,7 +19,9 @@ const WhatsNew = ({ albums }) => {
           <ButtonSeeAll imgSrc={rightArrowImg} type="whats-new" />
         </HeaderLine>
       </div>
-      <AlbumsGrid albums={albums} size="quarter" gridSize="quarter" />
+      <div className="whats-new__album">
+        <AlbumsGrid albums={albums} size="quarter" gridSize="quarter" />
+      </div>
     </div>
   );
 };
