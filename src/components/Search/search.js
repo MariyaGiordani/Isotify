@@ -31,7 +31,7 @@ class Search extends Component {
           type="text"
           name="Search"
           className="search__song"
-          placeholder="Search for a song..."
+          placeholder="Search..."
           onChange={this.handleChange}
           value={query}
         />

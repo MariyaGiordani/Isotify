@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import './header.css';
 
 import triangleImg from '../../assets/img/triangle.png';
 import playlisticonImg from '../../assets/img/playlisticon.png';
 import mountainImg from '../../assets/img/mountain.png';
+import logOutImg from '../../assets/img/logout.svg';
+
 import Search from '../../components/Search/search';
 import { getUserInfo } from '../../services/user';
+
 import { userInfo as parseUserInfo } from '../../utils/spotifyResponseParsers';
+import { logOut } from '../../utils/logOut';
 
 export default class Header extends Component {
   state = {
     name: '',
-    profilePicture: ''
+    profilePicture: '',
+    shouldShow: false
   };
 
   componentDidMount = () => {
@@ -25,7 +30,7 @@ export default class Header extends Component {
   };
 
   render = () => {
-    const { profilePicture, name } = this.state;
+    const { profilePicture, name, shouldShow } = this.state;
 
     return (
       <div className="header">
@@ -48,13 +53,28 @@ export default class Header extends Component {
         <div className="header__divider" />
         <Search />
         <div className="header__icon-right">
-          <img
-            className="header__image-playlist"
-            alt=""
-            src={playlisticonImg}
-          />
-          <div className="header__divider" />
-          <img className="header__image-mountain" alt="" src={mountainImg} />
+          {shouldShow ? (
+            <Fragment>
+              <img
+                className="header__image-playlist"
+                alt="Playlist"
+                src={playlisticonImg}
+              />
+              <div className="header__divider" />
+              <img
+                className="header__image-mountain"
+                alt="Mountain"
+                src={mountainImg}
+              />
+            </Fragment>
+          ) : (
+            <img
+              className="header__image-logout"
+              alt="LogOut"
+              src={logOutImg}
+              onClick={logOut}
+            />
+          )}
         </div>
       </div>
     );
