@@ -33,7 +33,7 @@
 }
 
 .navigation__item--active {
-  color: var(--theme-text-color);
+  color: var(--theme-text-title);
 }
 
 @media only screen and (max-width: 1024px) {
