@@ -15,11 +15,12 @@
   --theme-button-see-all-bg: var(--black-lighter);
   --theme-popup-fonts-bg: var(--black-lightest);
   --theme-check-box-bg: var(--black-lightest);
+  --theme-popup-bg: var(--gray-darkest);
 
   --theme-text-title: var(--white);
   --theme-text-subtitle: var(--gray);
   --theme-text-light: var(--gray-lighter);
-  --theme-text-navigation-active: var(--black); 
+  --theme-text-navigation-active: var(--black);
 
   --theme-check-box-hover: var(--smoke-gray-light);
   --theme-check-box-checked: var(--pink-darker);
@@ -52,6 +53,7 @@
   --theme-button-see-all-bg: var(--white);
   --theme-popup-fonts-bg: var(--white-light);
   --theme-check-box-bg: var(--white-lightest);
+  --theme-popup-bg: var(--white-light);
 
   --theme-text-title: var(--black);
   --theme-text-subtitle: var(--gray);

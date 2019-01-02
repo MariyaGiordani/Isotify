@@ -72,10 +72,19 @@
   margin: 12px 20px;
 }
 
+.header__image-mountain,
+.header__image-logout {
+  cursor: pointer;
+}
+
+.header__image-logout {
+  margin:5px 40px 20px 20px
+}
+
 .header__image-mountain {
+  margin: 12px 40px 12px 20px;
   width: 25px;
   height: 15px;
-  margin: 12px 40px 12px 20px;
 }
 
 .header__divider {
@@ -170,6 +179,11 @@
   .header__icon {
     height: 30px;
     width: 30px;
+  }
+
+  .header__image-logout {
+    width: 40px;
+    margin:0px 10px 10px 10px
   }
 
   .header__image-triangle,

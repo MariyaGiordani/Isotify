@@ -43,7 +43,8 @@ export default class Details extends Component {
           albums,
           totalTracks: songsAmount,
           relatedArtists,
-          imgSrc
+          imgSrc,
+          id
         } = parseArtist(artistInfo);
         const tracks = parseTracks(artistTracks);
 
@@ -56,7 +57,7 @@ export default class Details extends Component {
           imgSrc,
           loaded: true,
           tracks,
-          id: artistId
+          id
         });
       })
       .catch((error) => {
