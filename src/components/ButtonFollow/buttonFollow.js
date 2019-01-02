@@ -44,7 +44,7 @@ class ButtonFollow extends Component {
   };
 
   render = () => {
-    const { isFollowing, id } = this.state;
+    const { isFollowing } = this.state;
     const imageSrc = isFollowing ? followingImg : followImg;
     const text = isFollowing ? 'Following' : 'Follow';
     const buttonAction = isFollowing
