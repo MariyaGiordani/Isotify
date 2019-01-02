@@ -2,6 +2,12 @@ import { spotifyInstance, createHeader } from './axiosInstances';
 import { getAlbumsFromArtist as getAllAlbums } from './albums';
 import axios from 'axios';
 
+function getIsFollowingArtist(id) {
+  return spotifyInstance
+    .get(`me/following/contains?type=artist&ids=${id}`, createHeader())
+    .then(({ data: [response] }) => response);
+}
+
 function getTopArtists(url) {
   return url
     ? axios
@@ -69,11 +75,29 @@ function getTopArtistsWithAlbums(url) {
   });
 }
 
+function followArtist(id) {
+  return spotifyInstance.put(
+    `me/following?type=artist&ids=${id}`,
+    {},
+    createHeader()
+  );
+}
+
+function unfollowArtist(id) {
+  return spotifyInstance.delete(
+    `me/following?type=artist&ids=${id}`,
+    createHeader()
+  );
+}
+
 export {
+  getIsFollowingArtist,
   getTopArtists,
   getTopArtistsWithAlbums,
   getArtist,
   getArtistsWithAlbums,
   getMultipleArtists,
-  getArtistsAlbums
+  getArtistsAlbums,
+  followArtist,
+  unfollowArtist
 };
