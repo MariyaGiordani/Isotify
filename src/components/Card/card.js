@@ -59,7 +59,7 @@ const Card = ({
             {subtitleHref
               ? createLink(subtitleHref, subtitleParagraph)
               : subtitleParagraph}
-            {popup ? createPopUp(optionDots, popup, 'right') : optionDots}
+            {popup && createPopUp(optionDots, popup, 'right')}
           </div>
         </div>
       </div>
