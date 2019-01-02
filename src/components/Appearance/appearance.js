@@ -10,14 +10,10 @@ import InterfaceTheme from './interfaceTheme';
 import './appearance.css';
 
 export default class Appearance extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      font: 'modern',
-      theme: 'LIGHT'
-    };
-  }
+  state = {
+    font: 'modern',
+    theme: 'LIGHT'
+  };
 
   changeViewThemeFont = () => {
     const font = 'modern';
@@ -28,7 +24,7 @@ export default class Appearance extends Component {
     updateAppClasses();
   };
 
-  changeViewTheme = (event) => {
+  changeViewTheme = () => {
     const { theme } = this.state;
 
     const status = theme === 'LIGHT' ? 'DARK' : 'LIGHT';
