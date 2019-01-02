@@ -5,19 +5,10 @@ import HeaderLine from '../headerLine/headerLine';
 import getClassName from '../../utils/getClassName';
 
 import './appearance.css';
-import { updateAppClasses } from '../../utils/theming';
 
 export default class MainFonts extends Component {
   state = {
-    popup: false,
-    font: 'Modern'
-  };
-
-  componentDidMount = () => {
-    const font = localStorage.getItem('Font')
-      ? localStorage.getItem('Font')
-      : 'Modern';
-    this.setState({ font });
+    popup: false
   };
 
   showPopUp = () => {
@@ -28,13 +19,6 @@ export default class MainFonts extends Component {
     this.setState({ popup: false });
   };
 
-  changeMainFont = (name) => {
-    this.setState({ font: name }, () => {
-      localStorage.setItem('Font', name);
-      updateAppClasses();
-    });
-  };
-
   popupMainFonts = () => {
     const { popup } = this.state;
     const popupCollapsed = getClassName(
@@ -42,6 +26,7 @@ export default class MainFonts extends Component {
       'collapsed'
     );
     const popupShow = getClassName('main-fonts__popup-container', 'show');
+    const { changeMainFont } = this.props;
     return (
       popup && (
         <div className="main-fonts__popup">
@@ -52,7 +37,7 @@ export default class MainFonts extends Component {
           >
             <p
               onClick={() => {
-                this.changeMainFont('classic');
+                changeMainFont('classic');
               }}
               className="main-fonts__popup-text "
             >
@@ -61,7 +46,7 @@ export default class MainFonts extends Component {
 
             <p
               onClick={() => {
-                this.changeMainFont('modern');
+                changeMainFont('modern');
               }}
               className="main-fonts__popup-text "
             >
@@ -69,7 +54,7 @@ export default class MainFonts extends Component {
             </p>
             <p
               onClick={() => {
-                this.changeMainFont('typewriter');
+                changeMainFont('typewriter');
               }}
               className="main-fonts__popup-text "
             >
@@ -77,7 +62,7 @@ export default class MainFonts extends Component {
             </p>
             <p
               onClick={() => {
-                this.changeMainFont('strong');
+                changeMainFont('strong');
               }}
               className="main-fonts__popup-text "
             >
@@ -90,7 +75,8 @@ export default class MainFonts extends Component {
   };
 
   render = () => {
-    const { popup, font } = this.state;
+    const { font } = this.props;
+    const { popup } = this.state;
 
     const popupScreenCollapsed = getClassName(
       'main-fonts__popup-screen',
