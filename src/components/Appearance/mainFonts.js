@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import HeaderLine from '../headerLine/headerLine';
 
-import getClassName from '../../utils/getClassName';
+import { getClassModifier } from '../../utils/getClassName';
 
 import './appearance.css';
 import { updateAppClasses } from '../../utils/theming';
@@ -37,11 +37,11 @@ export default class MainFonts extends Component {
 
   popupMainFonts = () => {
     const { popup } = this.state;
-    const popupCollapsed = getClassName(
+    const popupCollapsed = getClassModifier(
       'main-fonts__popup-container',
       'collapsed'
     );
-    const popupShow = getClassName('main-fonts__popup-container', 'show');
+    const popupShow = getClassModifier('main-fonts__popup-container', 'show');
     return (
       popup && (
         <div className="main-fonts__popup">
@@ -92,7 +92,7 @@ export default class MainFonts extends Component {
   render = () => {
     const { popup, font } = this.state;
 
-    const popupScreenCollapsed = getClassName(
+    const popupScreenCollapsed = getClassModifier(
       'main-fonts__popup-screen',
       'collapsed'
     );

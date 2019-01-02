@@ -4,7 +4,12 @@
   width: 100%;
 }
 
+.grid__elements-small {
+  display: flex;
+}
+
 .grid__elements,
+.grid__elements-big,
 .grid__elements-quarter {
   display: flex;
   flex-wrap: wrap;

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Card from '../Card/card';
+import { getClassName } from '../../utils/getClassName';
 
 import './grid.css';
 
@@ -18,8 +19,7 @@ const getComponents = (items = [], size) =>
   ));
 
 const Grid = ({ items, size, children }) => {
-  const gridClass =
-    size === 'quarter' ? 'grid__elements-quarter' : 'grid__elements';
+  const gridClass = getClassName('grid__elements', size);
   return (
     <div className="grid">
       <div className={gridClass}>{children || getComponents(items, size)}</div>
